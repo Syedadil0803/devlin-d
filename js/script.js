@@ -4,58 +4,58 @@
 
 	// Global variables
 	var userAgent = navigator.userAgent.toLowerCase(),
-			initialDate = new Date(),
+		initialDate = new Date(),
 
-			$document = $(document),
-			$window = $(window),
-			$html = $("html"),
-			$body = $("body"),
+		$document = $(document),
+		$window = $(window),
+		$html = $("html"),
+		$body = $("body"),
 
-			isDesktop = $html.hasClass("desktop"),
-			isIE = userAgent.indexOf("msie") !== -1 ? parseInt(userAgent.split("msie")[1], 10) : userAgent.indexOf("trident") !== -1 ? 11 : userAgent.indexOf("edge") !== -1 ? 12 : false,
-			isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
-			windowReady = false,
-			isNoviBuilder = false,
-			loaderTimeoutId,
+		isDesktop = $html.hasClass("desktop"),
+		isIE = userAgent.indexOf("msie") !== -1 ? parseInt(userAgent.split("msie")[1], 10) : userAgent.indexOf("trident") !== -1 ? 11 : userAgent.indexOf("edge") !== -1 ? 12 : false,
+		isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+		windowReady = false,
+		isNoviBuilder = false,
+		loaderTimeoutId,
 
-			plugins = {
-				bootstrapTooltip:        $( "[data-toggle='tooltip']" ),
-				bootstrapTabs:           $( '.tabs-custom' ),
-				rdNavbar:                $( '.rd-navbar' ),
-				materialParallax:        $( '.parallax-container' ),
-				rdMailForm:              $( '.rd-mailform' ),
-				rdInputLabel:            $( '.form-label' ),
-				regula:                  $( '[data-constraints]' ),
-				selectFilter:            $( 'select' ),
-				stepper:                 $( "input[type='number']" ),
-				wow:                     $( '.wow' ),
-				owl:                     $( '.owl-carousel' ),
-				swiper:                  $( '.swiper-slider' ),
-				slick:                   $( '.slick-slider' ),
-				search:                  $( '.rd-search' ),
-				searchResults:           $( '.rd-search-results' ),
-				isotope:                 $( '.isotope-wrap' ),
-				radio:                   $( "input[type='radio']" ),
-				checkbox:                $( "input[type='checkbox']" ),
-				customToggle:            $( '[data-custom-toggle]' ),
-				counter:                 $( '.counter' ),
-				progressLinear:          $( '.progress-linear' ),
-				countdown:               $( '.countdown' ),
-				preloader:               $( '.preloader' ),
-				captcha:                 $( '.recaptcha' ),
-				scroller:                $( '.scroll-wrap' ),
-				lightGallery:            $( "[data-lightgallery='group']" ),
-				lightGalleryItem:        $( "[data-lightgallery='item']" ),
-				lightDynamicGalleryItem: $( "[data-lightgallery='dynamic']" ),
-				mailchimp:               $( '.mailchimp-mailform' ),
-				campaignMonitor:         $( '.campaign-mailform' ),
-				copyrightYear:           $( '.copyright-year' ),
-				buttonWinona:            $( '.button-winona' ),
-				rdRange:                 $( '.rd-range' ),
-				radioPanel:              $( '.radio-panel .radio-inline' ),
-				hoverdir:                $( '.hoverdir .hoverdir-item' ),
-				maps:                    $( '.google-map-container' )
-			};
+		plugins = {
+			bootstrapTooltip: $("[data-toggle='tooltip']"),
+			bootstrapTabs: $('.tabs-custom'),
+			rdNavbar: $('.rd-navbar'),
+			materialParallax: $('.parallax-container'),
+			rdMailForm: $('.rd-mailform'),
+			rdInputLabel: $('.form-label'),
+			regula: $('[data-constraints]'),
+			selectFilter: $('select'),
+			stepper: $("input[type='number']"),
+			wow: $('.wow'),
+			owl: $('.owl-carousel'),
+			swiper: $('.swiper-slider'),
+			slick: $('.slick-slider'),
+			search: $('.rd-search'),
+			searchResults: $('.rd-search-results'),
+			isotope: $('.isotope-wrap'),
+			radio: $("input[type='radio']"),
+			checkbox: $("input[type='checkbox']"),
+			customToggle: $('[data-custom-toggle]'),
+			counter: $('.counter'),
+			progressLinear: $('.progress-linear'),
+			countdown: $('.countdown'),
+			preloader: $('.preloader'),
+			captcha: $('.recaptcha'),
+			scroller: $('.scroll-wrap'),
+			lightGallery: $("[data-lightgallery='group']"),
+			lightGalleryItem: $("[data-lightgallery='item']"),
+			lightDynamicGalleryItem: $("[data-lightgallery='dynamic']"),
+			mailchimp: $('.mailchimp-mailform'),
+			campaignMonitor: $('.campaign-mailform'),
+			copyrightYear: $('.copyright-year'),
+			buttonWinona: $('.button-winona'),
+			rdRange: $('.rd-range'),
+			radioPanel: $('.radio-panel .radio-inline'),
+			hoverdir: $('.hoverdir .hoverdir-item'),
+			maps: $('.google-map-container')
+		};
 
 
 	/**
@@ -63,8 +63,8 @@
 	 * @param {object} elem - jQuery object
 	 * @return {boolean}
 	 */
-	function isScrolledIntoView ( elem ) {
-		if ( isNoviBuilder ) return true;
+	function isScrolledIntoView(elem) {
+		if (isNoviBuilder) return true;
 		return elem.offset().top + elem.outerHeight() >= $window.scrollTop() && elem.offset().top <= $window.scrollTop() + $window.height();
 	}
 
@@ -73,37 +73,48 @@
 	 * @param {object} element - jQuery object
 	 * @param {function} func - init function
 	 */
-	function lazyInit( element, func ) {
+	function lazyInit(element, func) {
 		var scrollHandler = function () {
-			if ( ( !element.hasClass( 'lazy-loaded' ) && ( isScrolledIntoView( element ) ) ) ) {
-				func.call( element );
-				element.addClass( 'lazy-loaded' );
+			if ((!element.hasClass('lazy-loaded') && (isScrolledIntoView(element)))) {
+				func.call(element);
+				element.addClass('lazy-loaded');
 			}
 		};
 
 		scrollHandler();
-		$window.on( 'scroll', scrollHandler );
+		$window.on('scroll', scrollHandler);
 	}
 
 	// Initialize scripts that require a loaded page
 	$window.on('load', function () {
+		// Add back/forward detection FIRST
+		window.addEventListener('pageshow', function (event) {
+			if (event.persisted) {
+				plugins.preloader.removeClass('loaded');
+				window.location.reload();
+			}
+		});
 
 		// Page loader & Page transition
 		if (plugins.preloader.length && !isNoviBuilder) {
 			pageTransition({
-				target: document.querySelector( '.page' ),
+				target: document.querySelector('.page'),
 				delay: 0,
 				duration: 500,
 				classIn: 'fadeIn',
 				classOut: 'fadeOut',
 				classActive: 'animated',
 				conditions: function (event, link) {
+					// Add explicit exclusion for back navigation
+					if (window.performance && performance.navigation.type === 2) {
+						return false;
+					}
 					return link && !/(\#|javascript:void\(0\)|callto:|tel:|mailto:|:\/\/)/.test(link) && !event.currentTarget.hasAttribute('data-lightgallery');
 				},
-				onTransitionStart: function ( options ) {
-					setTimeout( function () {
+				onTransitionStart: function (options) {
+					setTimeout(function () {
 						plugins.preloader.removeClass('loaded');
-					}, options.duration * .75 );
+					}, options.duration * .75);
 				},
 				onReady: function () {
 					plugins.preloader.addClass('loaded');
@@ -113,41 +124,41 @@
 		}
 
 		// Isotope
-		if ( plugins.isotope.length ) {
-			for ( var i = 0; i < plugins.isotope.length; i++ ) {
+		if (plugins.isotope.length) {
+			for (var i = 0; i < plugins.isotope.length; i++) {
 				var
-					wrap = plugins.isotope[ i ],
-					filterHandler = function ( event ) {
+					wrap = plugins.isotope[i],
+					filterHandler = function (event) {
 						event.preventDefault();
-						for ( var n = 0; n < this.isoGroup.filters.length; n++ ) this.isoGroup.filters[ n ].classList.remove( 'active' );
-						this.classList.add( 'active' );
-						this.isoGroup.isotope.arrange( { filter: this.getAttribute( "data-isotope-filter" ) !== '*' ? '[data-filter*="' + this.getAttribute( "data-isotope-filter" ) + '"]' : '*' } );
+						for (var n = 0; n < this.isoGroup.filters.length; n++) this.isoGroup.filters[n].classList.remove('active');
+						this.classList.add('active');
+						this.isoGroup.isotope.arrange({ filter: this.getAttribute("data-isotope-filter") !== '*' ? '[data-filter*="' + this.getAttribute("data-isotope-filter") + '"]' : '*' });
 					},
 					resizeHandler = function () {
 						this.isoGroup.isotope.layout();
 					};
 
 				wrap.isoGroup = {};
-				wrap.isoGroup.filters = wrap.querySelectorAll( '[data-isotope-filter]' );
-				wrap.isoGroup.node = wrap.querySelector( '.isotope' );
-				wrap.isoGroup.layout = wrap.isoGroup.node.getAttribute( 'data-isotope-layout' ) ? wrap.isoGroup.node.getAttribute( 'data-isotope-layout' ) : 'masonry';
-				wrap.isoGroup.isotope = new Isotope( wrap.isoGroup.node, {
+				wrap.isoGroup.filters = wrap.querySelectorAll('[data-isotope-filter]');
+				wrap.isoGroup.node = wrap.querySelector('.isotope');
+				wrap.isoGroup.layout = wrap.isoGroup.node.getAttribute('data-isotope-layout') ? wrap.isoGroup.node.getAttribute('data-isotope-layout') : 'masonry';
+				wrap.isoGroup.isotope = new Isotope(wrap.isoGroup.node, {
 					itemSelector: '.isotope-item',
 					layoutMode: wrap.isoGroup.layout,
 					filter: '*',
-					columnWidth: ( function() {
-						if ( wrap.isoGroup.node.hasAttribute('data-column-class') ) return wrap.isoGroup.node.getAttribute('data-column-class');
-						if ( wrap.isoGroup.node.hasAttribute('data-column-width') ) return parseFloat( wrap.isoGroup.node.getAttribute('data-column-width') );
-					}() )
-				} );
+					columnWidth: (function () {
+						if (wrap.isoGroup.node.hasAttribute('data-column-class')) return wrap.isoGroup.node.getAttribute('data-column-class');
+						if (wrap.isoGroup.node.hasAttribute('data-column-width')) return parseFloat(wrap.isoGroup.node.getAttribute('data-column-width'));
+					}())
+				});
 
-				for ( var n = 0; n < wrap.isoGroup.filters.length; n++ ) {
-					var filter = wrap.isoGroup.filters[ n ];
+				for (var n = 0; n < wrap.isoGroup.filters.length; n++) {
+					var filter = wrap.isoGroup.filters[n];
 					filter.isoGroup = wrap.isoGroup;
-					filter.addEventListener( 'click', filterHandler );
+					filter.addEventListener('click', filterHandler);
 				}
 
-				window.addEventListener( 'resize', resizeHandler.bind( wrap ) );
+				window.addEventListener('resize', resizeHandler.bind(wrap));
 			}
 		}
 
@@ -157,15 +168,15 @@
 		}
 
 		// Material Parallax
-		if ( plugins.materialParallax.length ) {
-			if ( !isNoviBuilder && !isIE && !isMobile) {
+		if (plugins.materialParallax.length) {
+			if (!isNoviBuilder && !isIE && !isMobile) {
 				plugins.materialParallax.parallax();
 			} else {
-				for ( var i = 0; i < plugins.materialParallax.length; i++ ) {
+				for (var i = 0; i < plugins.materialParallax.length; i++) {
 					var $parallax = $(plugins.materialParallax[i]);
 
-					$parallax.addClass( 'parallax-disabled' );
-					$parallax.css({ "background-image": 'url('+ $parallax.data("parallax-img") +')' });
+					$parallax.addClass('parallax-disabled');
+					$parallax.css({ "background-image": 'url(' + $parallax.data("parallax-img") + ')' });
 				}
 			}
 		}
@@ -201,7 +212,7 @@
 					runProgress = function () {
 						var bar = $(this);
 						var end = parseInt($(this).find('.progress-value').text(), 10);
-						bar.find('.progress-bar-linear').css({width: end + '%'});
+						bar.find('.progress-bar-linear').css({ width: end + '%' });
 						bar.find('.progress-value').countTo({
 							refreshInterval: 40,
 							from: 0,
@@ -212,15 +223,15 @@
 					},
 					scrollHandler = function () {
 						var bar = $(this);
-						if ( !bar.hasClass('animated-first') && isScrolledIntoView(bar) ) {
-							runProgress.call( bar );
+						if (!bar.hasClass('animated-first') && isScrolledIntoView(bar)) {
+							runProgress.call(bar);
 						}
 					};
 
-				setTimeout( (function() {
-					scrollHandler.call( this );
-					window.addEventListener( 'scroll', scrollHandler.bind( this ) );
-				}).bind( progressBar ), 500 );
+				setTimeout((function () {
+					scrollHandler.call(this);
+					window.addEventListener('scroll', scrollHandler.bind(this));
+				}).bind(progressBar), 500);
 			}
 		}
 	});
@@ -306,8 +317,8 @@
 		 */
 		function initOwlCarousel(c) {
 			var aliaces = ["-", "-sm-", "-md-", "-lg-", "-xl-", "-xxl-"],
-					values = [0, 576, 768, 992, 1200, 1600],
-					responsive = {};
+				values = [0, 576, 768, 992, 1200, 1600],
+				responsive = {};
 
 			for (var j = 0; j < values.length; j++) {
 				responsive[values[j]] = {};
@@ -328,8 +339,8 @@
 			if (c.attr('data-dots-custom')) {
 				c.on("initialized.owl.carousel", function (event) {
 					var carousel = $(event.currentTarget),
-							customPag = $(carousel.attr("data-dots-custom")),
-							active = 0;
+						customPag = $(carousel.attr("data-dots-custom")),
+						active = 0;
 
 					if (carousel.attr('data-active')) {
 						active = parseInt(carousel.attr('data-active'), 10);
@@ -550,25 +561,25 @@
 
 			if (captchaToken.length === 0) {
 				captcha
-				.siblings('.form-validation')
-				.html('Please, prove that you are not robot.')
-				.addClass('active');
+					.siblings('.form-validation')
+					.html('Please, prove that you are not robot.')
+					.addClass('active');
 				captcha
-				.closest('.form-wrap')
-				.addClass('has-error');
+					.closest('.form-wrap')
+					.addClass('has-error');
 
 				captcha.on('propertychange', function () {
 					var $this = $(this),
-							captchaToken = $this.find('.g-recaptcha-response').val();
+						captchaToken = $this.find('.g-recaptcha-response').val();
 
 					if (captchaToken.length > 0) {
 						$this
-						.closest('.form-wrap')
-						.removeClass('has-error');
+							.closest('.form-wrap')
+							.removeClass('has-error');
 						$this
-						.siblings('.form-validation')
-						.removeClass('active')
-						.html('');
+							.siblings('.form-validation')
+							.removeClass('active')
+							.html('');
 						$this.off('propertychange');
 					}
 				});
@@ -587,15 +598,15 @@
 				var $capthcaItem = $(plugins.captcha[i]);
 
 				grecaptcha.render(
-						$capthcaItem.attr('id'),
-						{
-							sitekey: $capthcaItem.attr('data-sitekey'),
-							size: $capthcaItem.attr('data-size') ? $capthcaItem.attr('data-size') : 'normal',
-							theme: $capthcaItem.attr('data-theme') ? $capthcaItem.attr('data-theme') : 'light',
-							callback: function (e) {
-								$('.recaptcha').trigger('propertychange');
-							}
+					$capthcaItem.attr('id'),
+					{
+						sitekey: $capthcaItem.attr('data-sitekey'),
+						size: $capthcaItem.attr('data-size') ? $capthcaItem.attr('data-size') : 'normal',
+						theme: $capthcaItem.attr('data-theme') ? $capthcaItem.attr('data-theme') : 'light',
+						callback: function (e) {
+							$('.recaptcha').trigger('propertychange');
 						}
+					}
 				);
 				$capthcaItem.after("<span class='form-validation'></span>");
 			}
@@ -609,9 +620,9 @@
 			plugins.bootstrapTooltip.tooltip('dispose');
 
 			if (window.innerWidth < 576) {
-				plugins.bootstrapTooltip.tooltip({placement: 'bottom'});
+				plugins.bootstrapTooltip.tooltip({ placement: 'bottom' });
 			} else {
-				plugins.bootstrapTooltip.tooltip({placement: tooltipPlacement});
+				plugins.bootstrapTooltip.tooltip({ placement: tooltipPlacement });
 			}
 		}
 
@@ -620,17 +631,17 @@
 		 * @param {object} itemsToInit - jQuery object
 		 * @param {string} [addClass] - additional gallery class
 		 */
-		function initLightGallery ( itemsToInit, addClass ) {
-			if ( !isNoviBuilder ) {
-				$( itemsToInit ).lightGallery( {
-					thumbnail: $( itemsToInit ).attr( "data-lg-thumbnail" ) !== "false",
+		function initLightGallery(itemsToInit, addClass) {
+			if (!isNoviBuilder) {
+				$(itemsToInit).lightGallery({
+					thumbnail: $(itemsToInit).attr("data-lg-thumbnail") !== "false",
 					selector: "[data-lightgallery='item']",
-					autoplay: $( itemsToInit ).attr( "data-lg-autoplay" ) === "true",
-					pause: parseInt( $( itemsToInit ).attr( "data-lg-autoplay-delay" ) ) || 5000,
+					autoplay: $(itemsToInit).attr("data-lg-autoplay") === "true",
+					pause: parseInt($(itemsToInit).attr("data-lg-autoplay-delay")) || 5000,
 					addClass: addClass,
-					mode: $( itemsToInit ).attr( "data-lg-animation" ) || "lg-slide",
-					loop: $( itemsToInit ).attr( "data-lg-loop" ) !== "false"
-				} );
+					mode: $(itemsToInit).attr("data-lg-animation") || "lg-slide",
+					loop: $(itemsToInit).attr("data-lg-loop") !== "false"
+				});
 			}
 		}
 
@@ -639,21 +650,21 @@
 		 * @param {object} itemsToInit - jQuery object
 		 * @param {string} [addClass] - additional gallery class
 		 */
-		function initDynamicLightGallery ( itemsToInit, addClass ) {
-			if ( !isNoviBuilder ) {
-				$( itemsToInit ).on( "click", function () {
-					$( itemsToInit ).lightGallery( {
-						thumbnail: $( itemsToInit ).attr( "data-lg-thumbnail" ) !== "false",
+		function initDynamicLightGallery(itemsToInit, addClass) {
+			if (!isNoviBuilder) {
+				$(itemsToInit).on("click", function () {
+					$(itemsToInit).lightGallery({
+						thumbnail: $(itemsToInit).attr("data-lg-thumbnail") !== "false",
 						selector: "[data-lightgallery='item']",
-						autoplay: $( itemsToInit ).attr( "data-lg-autoplay" ) === "true",
-						pause: parseInt( $( itemsToInit ).attr( "data-lg-autoplay-delay" ) ) || 5000,
+						autoplay: $(itemsToInit).attr("data-lg-autoplay") === "true",
+						pause: parseInt($(itemsToInit).attr("data-lg-autoplay-delay")) || 5000,
 						addClass: addClass,
-						mode: $( itemsToInit ).attr( "data-lg-animation" ) || "lg-slide",
-						loop: $( itemsToInit ).attr( "data-lg-loop" ) !== "false",
+						mode: $(itemsToInit).attr("data-lg-animation") || "lg-slide",
+						loop: $(itemsToInit).attr("data-lg-loop") !== "false",
 						dynamic: true,
-						dynamicEl: JSON.parse( $( itemsToInit ).attr( "data-lg-dynamic-elements" ) ) || []
-					} );
-				} );
+						dynamicEl: JSON.parse($(itemsToInit).attr("data-lg-dynamic-elements")) || []
+					});
+				});
 			}
 		}
 
@@ -662,9 +673,9 @@
 		 * @param {object} itemToInit - jQuery object
 		 * @param {string} [addClass] - additional gallery class
 		 */
-		function initLightGalleryItem ( itemToInit, addClass ) {
-			if ( !isNoviBuilder ) {
-				$( itemToInit ).lightGallery( {
+		function initLightGalleryItem(itemToInit, addClass) {
+			if (!isNoviBuilder) {
+				$(itemToInit).lightGallery({
 					selector: "this",
 					addClass: addClass,
 					counter: false,
@@ -678,7 +689,7 @@
 						byline: 0,
 						portrait: 0
 					}
-				} );
+				});
 			}
 		}
 
@@ -694,7 +705,7 @@
 					coordinates.lng
 				), marker, map)
 			} catch (e) {
-				map.geocoder.geocode({'address': str}, function (results, status) {
+				map.geocoder.geocode({ 'address': str }, function (results, status) {
 					if (status === google.maps.GeocoderStatus.OK) {
 						var latitude = results[0].geometry.location.lat();
 						var longitude = results[0].geometry.location.lng();
@@ -714,14 +725,14 @@
 		function initMaps() {
 			var key;
 
-			for ( var i = 0; i < plugins.maps.length; i++ ) {
-				if ( plugins.maps[i].hasAttribute( "data-key" ) ) {
-					key = plugins.maps[i].getAttribute( "data-key" );
+			for (var i = 0; i < plugins.maps.length; i++) {
+				if (plugins.maps[i].hasAttribute("data-key")) {
+					key = plugins.maps[i].getAttribute("data-key");
 					break;
 				}
 			}
 
-			$.getScript('//maps.google.com/maps/api/js?'+ ( key ? 'key='+ key + '&' : '' ) +'sensor=false&libraries=geometry,places&v=quarterly', function () {
+			$.getScript('//maps.google.com/maps/api/js?' + (key ? 'key=' + key + '&' : '') + 'sensor=false&libraries=geometry,places&v=quarterly', function () {
 				var head = document.getElementsByTagName('head')[0],
 					insertBefore = head.insertBefore;
 
@@ -742,7 +753,7 @@
 						zoom: zoom,
 						styles: styles,
 						scrollwheel: false,
-						center: {lat: 0, lng: 0}
+						center: { lat: 0, lng: 0 }
 					});
 
 					// Add map object to map node
@@ -759,11 +770,11 @@
 					// Add markers from google-map-markers array
 					var markerItems = plugins.maps[i].querySelectorAll(".google-map-markers li");
 
-					if (markerItems.length){
+					if (markerItems.length) {
 						var markers = [];
-						for (var j = 0; j < markerItems.length; j++){
+						for (var j = 0; j < markerItems.length; j++) {
 							var markerElement = markerItems[j];
-							getLatLngObject(markerElement.getAttribute("data-location"), markerElement, plugins.maps[i], function(location, markerElement, mapElement){
+							getLatLngObject(markerElement.getAttribute("data-location"), markerElement, plugins.maps[i], function (location, markerElement, mapElement) {
 								var icon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon");
 								var activeIcon = markerElement.getAttribute("data-icon-active") || mapElement.getAttribute("data-icon-active");
 								var info = markerElement.getAttribute("data-description") || "";
@@ -775,15 +786,15 @@
 									position: location,
 									map: mapElement.map
 								}
-								if (icon){
+								if (icon) {
 									markerData.icon = icon;
 								}
 								var marker = new google.maps.Marker(markerData);
 								markerElement.gmarker = marker;
-								markers.push({markerElement: markerElement, infoWindow: infoWindow});
+								markers.push({ markerElement: markerElement, infoWindow: infoWindow });
 								marker.isActive = false;
 								// Handle infoWindow close click
-								google.maps.event.addListener(infoWindow,'closeclick',(function(markerElement, mapElement){
+								google.maps.event.addListener(infoWindow, 'closeclick', (function (markerElement, mapElement) {
 									var markerIcon = null;
 									markerElement.gmarker.isActive = false;
 									markerIcon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon");
@@ -792,16 +803,16 @@
 
 
 								// Set marker active on Click and open infoWindow
-								google.maps.event.addListener(marker, 'click', (function(markerElement, mapElement) {
+								google.maps.event.addListener(marker, 'click', (function (markerElement, mapElement) {
 									if (markerElement.infoWindow.getContent().length === 0) return;
 									var gMarker, currentMarker = markerElement.gmarker, currentInfoWindow;
-									for (var k =0; k < markers.length; k++){
+									for (var k = 0; k < markers.length; k++) {
 										var markerIcon;
-										if (markers[k].markerElement === markerElement){
+										if (markers[k].markerElement === markerElement) {
 											currentInfoWindow = markers[k].infoWindow;
 										}
 										gMarker = markers[k].markerElement.gmarker;
-										if (gMarker.isActive && markers[k].markerElement !== markerElement){
+										if (gMarker.isActive && markers[k].markerElement !== markerElement) {
 											gMarker.isActive = false;
 											markerIcon = markers[k].markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon")
 											gMarker.setIcon(markerIcon);
@@ -811,13 +822,13 @@
 
 									currentMarker.isActive = !currentMarker.isActive;
 									if (currentMarker.isActive) {
-										if (markerIcon = markerElement.getAttribute("data-icon-active") || mapElement.getAttribute("data-icon-active")){
+										if (markerIcon = markerElement.getAttribute("data-icon-active") || mapElement.getAttribute("data-icon-active")) {
 											currentMarker.setIcon(markerIcon);
 										}
 
 										currentInfoWindow.open(map, marker);
-									}else{
-										if (markerIcon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon")){
+									} else {
+										if (markerIcon = markerElement.getAttribute("data-icon") || mapElement.getAttribute("data-icon")) {
 											currentMarker.setIcon(markerIcon);
 										}
 										currentInfoWindow.close();
@@ -840,8 +851,8 @@
 					var $element = $(elements[z]);
 
 					$element.hoverdir({
-								hoverElem: $element.attr('data-hoverdir-target') ? $element.attr('data-hoverdir-target') : 'div'
-							}
+						hoverElem: $element.attr('data-hoverdir-target') ? $element.attr('data-hoverdir-target') : 'div'
+					}
 					);
 				}
 			}
@@ -903,7 +914,7 @@
 					(function (bootstrapTabsItem) {
 						bootstrapTabsItem.on('shown.bs.tab', function (event) {
 							var prevTriggerable = bootstrapTabsItem.find('[data-view-trigger="' + event.relatedTarget.getAttribute('href') + '"]'),
-									triggerable = bootstrapTabsItem.find('[data-view-trigger="' + event.target.getAttribute('href') + '"]');
+								triggerable = bootstrapTabsItem.find('[data-view-trigger="' + event.target.getAttribute('href') + '"]');
 
 							prevTriggerable.removeClass('active');
 							triggerable.addClass('active');
@@ -920,8 +931,8 @@
 		}
 
 		// Google maps
-		if( plugins.maps.length ) {
-			lazyInit( plugins.maps, initMaps );
+		if (plugins.maps.length) {
+			lazyInit(plugins.maps, initMaps);
 		}
 
 		// Add custom styling options for input[type="radio"]
@@ -1024,21 +1035,21 @@
 		if (plugins.search.length || plugins.searchResults) {
 			var handler = "bat/rd-search.php";
 			var defaultTemplate = '<h5 class="search-title"><a target="_top" href="#{href}" class="search-link">#{title}</a></h5>' +
-					'<p>...#{token}...</p>' +
-					'<p class="match"><em>Terms matched: #{count} - URL: #{href}</em></p>';
+				'<p>...#{token}...</p>' +
+				'<p class="match"><em>Terms matched: #{count} - URL: #{href}</em></p>';
 			var defaultFilter = '*.html';
 
 			if (plugins.search.length) {
 				for (var i = 0; i < plugins.search.length; i++) {
 					var searchItem = $(plugins.search[i]),
-							options = {
-								element: searchItem,
-								filter: (searchItem.attr('data-search-filter')) ? searchItem.attr('data-search-filter') : defaultFilter,
-								template: (searchItem.attr('data-search-template')) ? searchItem.attr('data-search-template') : defaultTemplate,
-								live: (searchItem.attr('data-search-live')) ? searchItem.attr('data-search-live') : false,
-								liveCount: (searchItem.attr('data-search-live-count')) ? parseInt(searchItem.attr('data-search-live'), 10) : 4,
-								current: 0, processed: 0, timer: {}
-							};
+						options = {
+							element: searchItem,
+							filter: (searchItem.attr('data-search-filter')) ? searchItem.attr('data-search-filter') : defaultFilter,
+							template: (searchItem.attr('data-search-template')) ? searchItem.attr('data-search-template') : defaultTemplate,
+							live: (searchItem.attr('data-search-live')) ? searchItem.attr('data-search-live') : false,
+							liveCount: (searchItem.attr('data-search-live-count')) ? parseInt(searchItem.attr('data-search-live'), 10) : 4,
+							current: 0, processed: 0, timer: {}
+						};
 
 					var $toggle = $('.rd-navbar-search-toggle');
 					if ($toggle.length) {
@@ -1081,9 +1092,9 @@
 
 					searchItem.submit($.proxy(function () {
 						$('<input />').attr('type', 'hidden')
-						.attr('name', "filter")
-						.attr('value', this.filter)
-						.appendTo(this.element);
+							.attr('name', "filter")
+							.attr('value', this.filter)
+							.appendTo(this.element);
 						return true;
 					}, options, this))
 				}
@@ -1112,15 +1123,15 @@
 			for (var i = 0; i < plugins.swiper.length; i++) {
 				var s = $(plugins.swiper[i]);
 				var pag = s.parent().hasClass('swiper-custom-container') ? s.parent().find(".swiper-pagination") : s.find(".swiper-pagination"),
-						next = s.parent().hasClass('swiper-custom-container') ? s.parent().find(".swiper-button-next") : s.find(".swiper-button-next"),
-						prev = s.parent().hasClass('swiper-custom-container') ? s.parent().find(".swiper-button-prev") : s.find(".swiper-button-prev"),
-						bar = s.find(".swiper-scrollbar"),
-						swiperSlide = s.find(".swiper-slide"),
-						autoplay = false;
+					next = s.parent().hasClass('swiper-custom-container') ? s.parent().find(".swiper-button-next") : s.find(".swiper-button-next"),
+					prev = s.parent().hasClass('swiper-custom-container') ? s.parent().find(".swiper-button-prev") : s.find(".swiper-button-prev"),
+					bar = s.find(".swiper-scrollbar"),
+					swiperSlide = s.find(".swiper-slide"),
+					autoplay = false;
 
 				for (var j = 0; j < swiperSlide.length; j++) {
 					var $this = $(swiperSlide[j]),
-							url;
+						url;
 
 					if (url = $this.attr("data-slide-bg")) {
 						$this.css({
@@ -1131,9 +1142,9 @@
 				}
 
 				swiperSlide.end()
-				.find("[data-caption-animate]")
-				.addClass("not-animated")
-				.end();
+					.find("[data-caption-animate]")
+					.addClass("not-animated")
+					.end();
 
 				s.swiper({
 					autoplay: s.attr('data-autoplay') ? s.attr('data-autoplay') === "false" ? undefined : s.attr('data-autoplay') : 5000,
@@ -1153,11 +1164,11 @@
 								return '<span class="' + className + '">' + (index + 1) + '</span>';
 							} else if (pag.attr("data-bullet-custom") === "true") {
 								return '<span class="' + className + '">' +
-										'  <svg width="100%" height="100%" viewbox="0 0 24 24">' +
-										'    <circle class="swiper-bullet-line" cx="12" cy="12" r="10"></circle>' +
-										'    <circle class="swiper-bullet-line-2" cx="12" cy="12" r="10"></circle>' +
-										'  </svg>' +
-										'</span>';
+									'  <svg width="100%" height="100%" viewbox="0 0 24 24">' +
+									'    <circle class="swiper-bullet-line" cx="12" cy="12" r="10"></circle>' +
+									'    <circle class="swiper-bullet-line-2" cx="12" cy="12" r="10"></circle>' +
+									'  </svg>' +
+									'</span>';
 							} else {
 								return '<span class="' + className + '"></span>';
 							}
@@ -1183,7 +1194,7 @@
 							var $swiper = $(s);
 
 							var swiperCustomIndex = $swiper.find('.swiper-pagination__fraction-index').get(0),
-									swiperCustomCount = $swiper.find('.swiper-pagination__fraction-count').get(0);
+								swiperCustomCount = $swiper.find('.swiper-pagination__fraction-count').get(0);
 
 							if (swiperCustomIndex && swiperCustomCount) {
 								swiperCustomIndex.innerHTML = formatIndex(swiper.realIndex + 1);
@@ -1212,23 +1223,23 @@
 							}
 							if (swiper.slides[activeSlideIndex - 1].getAttribute("data-slide-title")) {
 								$(swiper.container).find('.swiper-button-next .title')[0].innerHTML = swiper.slides[activeSlideIndex +
-								1].getAttribute("data-slide-title");
+									1].getAttribute("data-slide-title");
 								$(swiper.container).find('.swiper-button-prev .title')[0].innerHTML = swiper.slides[activeSlideIndex -
-								1].getAttribute("data-slide-title");
+									1].getAttribute("data-slide-title");
 							}
 
 							if (swiper.slides[activeSlideIndex - 1].getAttribute("data-slide-subtitle")) {
 								$(swiper.container).find('.swiper-button-prev .subtitle')[0].innerHTML = swiper.slides[activeSlideIndex -
-								1].getAttribute("data-slide-subtitle");
+									1].getAttribute("data-slide-subtitle");
 								$(swiper.container).find('.swiper-button-next .subtitle')[0].innerHTML = swiper.slides[activeSlideIndex +
-								1].getAttribute("data-slide-subtitle");
+									1].getAttribute("data-slide-subtitle");
 							}
 							//Replace btn img
 							if ($(swiper.container).find('.preview__img')[0] !== undefined) {
 								$(swiper.container).find('.swiper-button-prev .preview__img').css("background-image", "url(" +
-										swiper.slides[activeSlideIndex - 1].getAttribute("data-slide-bg") + ")");
+									swiper.slides[activeSlideIndex - 1].getAttribute("data-slide-bg") + ")");
 								$(swiper.container).find('.swiper-button-next .preview__img').css("background-image", "url(" +
-										swiper.slides[activeSlideIndex + 1].getAttribute("data-slide-bg") + ")");
+									swiper.slides[activeSlideIndex + 1].getAttribute("data-slide-bg") + ")");
 							}
 						}
 					}(s))
@@ -1264,7 +1275,7 @@
 		if (plugins.mailchimp.length) {
 			for (i = 0; i < plugins.mailchimp.length; i++) {
 				var $mailchimpItem = $(plugins.mailchimp[i]),
-						$email = $mailchimpItem.find('input[type="email"]');
+					$email = $mailchimpItem.find('input[type="email"]');
 
 				// Required by MailChimp
 				$mailchimpItem.attr('novalidate', 'true');
@@ -1276,9 +1287,9 @@
 					var $this = this;
 
 					var data = {},
-							url = $this.attr('action').replace('/post?', '/post-json?').concat('&c=?'),
-							dataArray = $this.serializeArray(),
-							$output = $("#" + $this.attr("data-form-output"));
+						url = $this.attr('action').replace('/post?', '/post-json?').concat('&c=?'),
+						dataArray = $this.serializeArray(),
+						$output = $("#" + $this.attr("data-form-output"));
 
 					for (i = 0; i < dataArray.length; i++) {
 						data[dataArray[i].name] = dataArray[i].value;
@@ -1357,10 +1368,10 @@
 
 				$campaignItem.on('submit', $.proxy(function (e) {
 					var data = {},
-							url = this.attr('action'),
-							dataArray = this.serializeArray(),
-							$output = $("#" + plugins.campaignMonitor.attr("data-form-output")),
-							$this = $(this);
+						url = this.attr('action'),
+						dataArray = this.serializeArray(),
+						$output = $("#" + plugins.campaignMonitor.attr("data-form-output")),
+						$this = $(this);
 
 					for (i = 0; i < dataArray.length; i++) {
 						data[dataArray[i].name] = dataArray[i].value;
@@ -1409,19 +1420,19 @@
 		// RD Mailform
 		if (plugins.rdMailForm.length) {
 			var i, j, k,
-					msg = {
-						'MF000': 'Successfully sent!',
-						'MF001': 'Recipients are not set!',
-						'MF002': 'Form will not work locally!',
-						'MF003': 'Please, define email field in your form!',
-						'MF004': 'Please, define type of your form!',
-						'MF254': 'Something went wrong with PHPMailer!',
-						'MF255': 'Aw, snap! Something went wrong.'
-					};
+				msg = {
+					'MF000': 'Successfully sent!',
+					'MF001': 'Recipients are not set!',
+					'MF002': 'Form will not work locally!',
+					'MF003': 'Please, define email field in your form!',
+					'MF004': 'Please, define type of your form!',
+					'MF254': 'Something went wrong with PHPMailer!',
+					'MF255': 'Aw, snap! Something went wrong.'
+				};
 
 			for (i = 0; i < plugins.rdMailForm.length; i++) {
 				var $form = $(plugins.rdMailForm[i]),
-						formHasCaptcha = false;
+					formHasCaptcha = false;
 
 				$form.attr('novalidate', 'novalidate').ajaxForm({
 					data: {
@@ -1433,10 +1444,10 @@
 							return;
 
 						var form = $(plugins.rdMailForm[this.extraData.counter]),
-								inputs = form.find("[data-constraints]"),
-								output = $("#" + form.attr("data-form-output")),
-								captcha = form.find('.recaptcha'),
-								captchaFlag = true;
+							inputs = form.find("[data-constraints]"),
+							output = $("#" + form.attr("data-form-output")),
+							captcha = form.find('.recaptcha'),
+							captchaFlag = true;
 
 						output.removeClass("active error success");
 
@@ -1445,36 +1456,36 @@
 							// veify reCaptcha
 							if (captcha.length) {
 								var captchaToken = captcha.find('.g-recaptcha-response').val(),
-										captchaMsg = {
-											'CPT001': 'Please, setup you "site key" and "secret key" of reCaptcha',
-											'CPT002': 'Something wrong with google reCaptcha'
-										};
+									captchaMsg = {
+										'CPT001': 'Please, setup you "site key" and "secret key" of reCaptcha',
+										'CPT002': 'Something wrong with google reCaptcha'
+									};
 
 								formHasCaptcha = true;
 
 								$.ajax({
 									method: "POST",
 									url: "bat/reCaptcha.php",
-									data: {'g-recaptcha-response': captchaToken},
+									data: { 'g-recaptcha-response': captchaToken },
 									async: false
 								})
-								.done(function (responceCode) {
-									if (responceCode !== 'CPT000') {
-										if (output.hasClass("snackbars")) {
-											output.html('<p><span class="icon text-middle mdi mdi-check icon-xxs"></span><span>' + captchaMsg[responceCode] + '</span></p>')
+									.done(function (responceCode) {
+										if (responceCode !== 'CPT000') {
+											if (output.hasClass("snackbars")) {
+												output.html('<p><span class="icon text-middle mdi mdi-check icon-xxs"></span><span>' + captchaMsg[responceCode] + '</span></p>')
 
-											setTimeout(function () {
-												output.removeClass("active");
-											}, 3500);
+												setTimeout(function () {
+													output.removeClass("active");
+												}, 3500);
 
-											captchaFlag = false;
-										} else {
-											output.html(captchaMsg[responceCode]);
+												captchaFlag = false;
+											} else {
+												output.html(captchaMsg[responceCode]);
+											}
+
+											output.addClass("active");
 										}
-
-										output.addClass("active");
-									}
-								});
+									});
 							}
 
 							if (!captchaFlag) {
@@ -1496,7 +1507,7 @@
 							return;
 
 						var output = $("#" + $(plugins.rdMailForm[this.extraData.counter]).attr("data-form-output")),
-								form = $(plugins.rdMailForm[this.extraData.counter]);
+							form = $(plugins.rdMailForm[this.extraData.counter]);
 
 						output.text(msg[result]);
 						form.removeClass('form-in-process');
@@ -1510,12 +1521,12 @@
 							return;
 
 						var form = $(plugins.rdMailForm[this.extraData.counter]),
-								output = $("#" + form.attr("data-form-output")),
-								select = form.find('select');
+							output = $("#" + form.attr("data-form-output")),
+							select = form.find('select');
 
 						form
-						.addClass('success')
-						.removeClass('form-in-process');
+							.addClass('success')
+							.removeClass('form-in-process');
 
 						if (formHasCaptcha) {
 							grecaptcha.reset();
@@ -1569,8 +1580,8 @@
 
 			for (var z = 0; z < plugins.lightGalleryItem.length; z++) {
 				if (!$(plugins.lightGalleryItem[z]).parents('.owl-carousel').length &&
-						!$(plugins.lightGalleryItem[z]).parents('.swiper-slider').length &&
-						!$(plugins.lightGalleryItem[z]).parents('.slick-slider').length) {
+					!$(plugins.lightGalleryItem[z]).parents('.swiper-slider').length &&
+					!$(plugins.lightGalleryItem[z]).parents('.slick-slider').length) {
 					notCarouselItems.push(plugins.lightGalleryItem[z]);
 				}
 			}
@@ -1604,8 +1615,8 @@
 				if ($this.attr("data-custom-toggle-hide-on-blur") === "true") {
 					$body.on("click", $this, function (e) {
 						if (e.target !== e.data[0]
-								&& $(e.data.attr('data-custom-toggle')).find($(e.target)).length
-								&& e.data.find($(e.target)).length === 0) {
+							&& $(e.data.attr('data-custom-toggle')).find($(e.target)).length
+							&& e.data.find($(e.target)).length === 0) {
 							$(e.data.attr('data-custom-toggle')).add(e.data[0]).removeClass('active');
 						}
 					})
@@ -1644,7 +1655,7 @@
 		function initWinonaButtons(buttons) {
 			for (var i = 0; i < buttons.length; i++) {
 				var $button = $(buttons[i]),
-						innerContent = $button.html();
+					innerContent = $button.html();
 
 				$button.html('');
 				$button.append('<div class="content-original">' + innerContent + '</div>');
@@ -1657,7 +1668,7 @@
 			var i;
 			for (i = 0; i < plugins.selectFilter.length; i++) {
 				var select = $(plugins.selectFilter[i]),
-						selectStyle = 'html-' + select.attr('data-style') + '-select';
+					selectStyle = 'html-' + select.attr('data-style') + '-select';
 				$html.addClass(selectStyle);
 
 				select.select2({
@@ -1721,17 +1732,17 @@
 					mobileFirst: true,
 					appendArrows: $slickItem.attr("data-arrows-class") || $slickItem,
 					nextArrow: $slickItem.attr('data-custom-arrows') === "true" ? '<button type="button" class="slick-next">' +
-							'  <svg width="100%" height="100%" viewbox="0 0 78 78">' +
-							'    <circle class="slick-button-line" cx="39" cy="39" r="36"></circle>' +
-							'    <circle class="slick-button-line-2" cx="39" cy="39" r="36"></circle>' +
-							'  </svg>' +
-							'</button>' : '<button type="button" class="slick-next"></button>',
+						'  <svg width="100%" height="100%" viewbox="0 0 78 78">' +
+						'    <circle class="slick-button-line" cx="39" cy="39" r="36"></circle>' +
+						'    <circle class="slick-button-line-2" cx="39" cy="39" r="36"></circle>' +
+						'  </svg>' +
+						'</button>' : '<button type="button" class="slick-next"></button>',
 					prevArrow: $slickItem.attr('data-custom-arrows') === "true" ? '<button type="button" class="slick-prev">' +
-							'  <svg width="100%" height="100%" viewbox="0 0 78 78">' +
-							'    <circle class="slick-button-line" cx="39" cy="39" r="36"></circle>' +
-							'    <circle class="slick-button-line-2" cx="39" cy="39" r="36"></circle>' +
-							'  </svg>' +
-							'</button>' : '<button type="button" class="slick-prev"></button>',
+						'  <svg width="100%" height="100%" viewbox="0 0 78 78">' +
+						'    <circle class="slick-button-line" cx="39" cy="39" r="36"></circle>' +
+						'    <circle class="slick-button-line-2" cx="39" cy="39" r="36"></circle>' +
+						'  </svg>' +
+						'</button>' : '<button type="button" class="slick-prev"></button>',
 					responsive: [
 						{
 							breakpoint: 0,
@@ -1771,21 +1782,21 @@
 					]
 				})
 
-				.on('afterChange', function (event, slick, currentSlide, nextSlide) {
-					var $this = $(this),
+					.on('afterChange', function (event, slick, currentSlide, nextSlide) {
+						var $this = $(this),
 							childCarousel = $this.attr('data-child');
 
-					if (childCarousel) {
-						$(childCarousel + ' .slick-slide').removeClass('slick-current');
-						$(childCarousel + ' .slick-slide').eq(currentSlide).addClass('slick-current');
-					}
-				});
+						if (childCarousel) {
+							$(childCarousel + ' .slick-slide').removeClass('slick-current');
+							$(childCarousel + ' .slick-slide').eq(currentSlide).addClass('slick-current');
+						}
+					});
 
 				if ($slickItem.attr('data-fraction')) {
 					(function () {
 						var fractionElement = document.querySelectorAll($slickItem.attr('data-fraction'))[0],
-								fractionCurrent = fractionElement.querySelectorAll('.slick-fraction-current')[0],
-								fractionAll = fractionElement.querySelectorAll('.slick-fraction-all')[0];
+							fractionCurrent = fractionElement.querySelectorAll('.slick-fraction-current')[0],
+							fractionAll = fractionElement.querySelectorAll('.slick-fraction-all')[0];
 
 						$slickItem.on('afterChange', function (slick) {
 							fractionCurrent.innerText = leadingZero(this.slick.currentSlide + 1);
