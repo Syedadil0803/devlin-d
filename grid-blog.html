@@ -37,14 +37,6 @@
       display: block;
     }
   </style>
-  <script>
-        // Check if this page is being loaded from the browser's cache (like when hitting back button)
-        if (performance.navigation.type === 2) {
-            // Type 2 is back/forward navigation
-            // Add a meta refresh tag to force reload
-            document.write('<meta http-equiv="refresh" content="0">');
-        }
-    </script>
 </head>
 
 <body>
@@ -97,7 +89,8 @@
           data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="80px" data-xl-stick-up-offset="80px"
           data-xxl-stick-up-offset="80px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
           <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse">
-            <span></span></div>
+            <span></span>
+          </div>
           <div class="rd-navbar-main-outer">
             <div class="rd-navbar-main">
               <!-- RD Navbar Panel-->
@@ -445,6 +438,37 @@
   <!-- Javascript-->
   <script src="js/core.min.js"></script>
   <script src="js/script.js"></script>
+  <script>
+    // Add this as an inline script at the very end of your body tag
+
+    // This forcibly overrides the preloader behavior
+    (function () {
+      // Force hide preloader immediately
+      var preloader = document.querySelector('.preloader');
+      if (preloader) {
+        preloader.style.display = 'none';
+      }
+
+      // Override the preloader show function
+      var originalDisplay = Element.prototype.style.__lookupSetter__('display');
+      Element.prototype.style.__defineSetter__('display', function (val) {
+        if (this.classList.contains('preloader') && val === 'block') {
+          // Intercept attempts to show the preloader and prevent them
+          console.log('Preventing preloader from showing');
+          return originalDisplay.call(this, 'none');
+        }
+        return originalDisplay.call(this, val);
+      });
+
+      // Add a more forceful approach using timeout
+      setInterval(function () {
+        var preloader = document.querySelector('.preloader');
+        if (preloader && window.getComputedStyle(preloader).display !== 'none') {
+          preloader.style.display = 'none';
+        }
+      }, 500);
+    })();
+  </script>
 </body>
 
 </html>
