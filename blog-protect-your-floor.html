@@ -762,35 +762,12 @@
         });
     </script>
     <script>
-        // Add this as an inline script at the very end of your body tag
-
-        // This forcibly overrides the preloader behavior
-        (function () {
-            // Force hide preloader immediately
+        document.addEventListener("DOMContentLoaded", function () {
             var preloader = document.querySelector('.preloader');
             if (preloader) {
                 preloader.style.display = 'none';
             }
-
-            // Override the preloader show function
-            var originalDisplay = Element.prototype.style.__lookupSetter__('display');
-            Element.prototype.style.__defineSetter__('display', function (val) {
-                if (this.classList.contains('preloader') && val === 'block') {
-                    // Intercept attempts to show the preloader and prevent them
-                    console.log('Preventing preloader from showing');
-                    return originalDisplay.call(this, 'none');
-                }
-                return originalDisplay.call(this, val);
-            });
-
-            // Add a more forceful approach using timeout
-            setInterval(function () {
-                var preloader = document.querySelector('.preloader');
-                if (preloader && window.getComputedStyle(preloader).display !== 'none') {
-                    preloader.style.display = 'none';
-                }
-            }, 500);
-        })();
+        });
     </script>
 </body>
 
