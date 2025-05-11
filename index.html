@@ -30,12 +30,14 @@
         position: relative;
         z-index: 1;
       }
+
       html.ie-10 .ie-panel,
       html.lt-ie-10 .ie-panel {
         display: block;
       }
     </style>
   </head>
+
   <body>
     <div class="ie-panel">
       <a href="http://windows.microsoft.com/en-US/internet-explorer/"
@@ -130,7 +132,7 @@
                           src="images/Brand-logo.png"
                           alt="devlin logo"
                           width="180"
-                          height="100"
+                          height="10"
                       /></a>
                     </div>
                   </div>
@@ -234,7 +236,7 @@
                         <li class="rd-nav-item">
                           <a class="rd-nav-link" href="grid-blog.html">Blogs</a>
                           <!-- RD Navbar Dropdown-->
-                          <ul class="rd-menu rd-navbar-dropdown">
+                          <!-- <ul class="rd-menu rd-navbar-dropdown">
                             <li class="rd-dropdown-item">
                               <a class="rd-dropdown-link" href="grid-blog.html"
                                 >Grid blog</a
@@ -252,7 +254,7 @@
                                 >Blog post</a
                               >
                             </li>
-                          </ul>
+                          </ul> -->
                         </li>
                       </ul>
                     </div>
@@ -857,7 +859,7 @@
         </div>
       </section>
       <!-- Section CTA-->
-      <section
+      <!-- <section
         class="section parallax-container"
         data-parallax-img="images/parallax-1.jpg"
       >
@@ -884,7 +886,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
       <!-- Latest projects-->
       <section class="section section-xl bg-default text-center">
         <div class="container">
@@ -1832,23 +1834,19 @@
         </div>
       </section> -->
       <!-- sotores map -->
-      <section style="background-color: #f2f7f2">
-        <div
-          style="
+      <!-- <section style="background-color: #f2f7f2">
+      <div style="
             width: 95%;
             max-width: 950px;
             margin-left: auto;
             margin-right: auto;
             padding: 30px;
             border-radius: 8px;
-          "
-        >
-          <div
-            style="position: relative; overflow: hidden; padding-bottom: 66%"
-          >
-            <!-- <iframe
-              src="https://www.google.com/maps/d/u/0/embed?mid=12C42jFfAVccJXgMBn-ACNoiUs-YDk0E&ehbc=2E312F&noprof=1"
-              style="
+          ">
+        <div style="position: relative; overflow: hidden; padding-bottom: 66%">
+          <iframe
+            src="https://www.google.com/maps/d/u/5/embed?mid=1njvegtzYQCVrsB2vgp0mEHfi4tvioys&ehbc=2E312F&noprof=1"
+            style="
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -1856,15 +1854,82 @@
                 height: 100%;
                 border: 0;
                 border-radius: 6px;
-              "
-              allowfullscreen=""
-              loading="lazy"
-            ></iframe> -->
-            <iframe
-              src="https://www.google.com/maps/d/u/0/embed?mid=12C42jFfAVccJXgMBn-ACNoiUs-YDk0E&ehbc=2E312F&noprof=1"
-              width="640"
-              height="480"
-            ></iframe>
+              " allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section> -->
+      <section style="background-color: #f2f7f2">
+        <div
+          style="
+            width: 90%;
+            max-width: none;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 30px;
+            border-radius: 8px;
+          "
+        >
+          <div style="position: relative; overflow: hidden">
+            <style>
+              .map-container {
+                padding-bottom: 65%; /* Default for mobile */
+              }
+
+              @media (min-width: 768px) {
+                .map-container {
+                  padding-bottom: 55%; /* Medium screens */
+                }
+              }
+
+              @media (min-width: 1200px) {
+                .map-container {
+                  padding-bottom: 40%; /* Large screens */
+                }
+              }
+
+              .map-button {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(255, 255, 255, 0.9);
+                border: none;
+                border-radius: 6px;
+                padding: 10px 20px;
+                cursor: pointer;
+                font-weight: bold;
+                z-index: 10;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+              }
+            </style>
+            <div
+              class="map-container"
+              style="position: relative; overflow: hidden"
+            >
+              <iframe
+                id="mapIframe"
+                src="https://www.google.com/maps/d/u/5/embed?mid=1njvegtzYQCVrsB2vgp0mEHfi4tvioys&ehbc=2E312F&noprof=1"
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border: 0;
+                  border-radius: 6px;
+                  pointer-events: none;
+                "
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+              <button
+                id="mapToggleBtn"
+                onclick="toggleMapInteraction()"
+                class="map-button"
+              >
+                Enable Map Interaction
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -2078,5 +2143,21 @@
     </script>
     <!-- birminghum live blog -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function toggleMapInteraction() {
+        const iframe = document.getElementById("mapIframe");
+        const button = document.getElementById("mapToggleBtn");
+
+        if (iframe.style.pointerEvents === "none") {
+          // Enable map interaction
+          iframe.style.pointerEvents = "auto";
+          button.textContent = "Disable Map Interaction";
+        } else {
+          // Disable map interaction
+          iframe.style.pointerEvents = "none";
+          button.textContent = "Enable Map Interaction";
+        }
+      }
+    </script>
   </body>
 </html>
