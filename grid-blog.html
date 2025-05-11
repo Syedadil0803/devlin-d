@@ -37,6 +37,14 @@
       display: block;
     }
   </style>
+  <script>
+        // Check if this page is being loaded from the browser's cache (like when hitting back button)
+        if (performance.navigation.type === 2) {
+            // Type 2 is back/forward navigation
+            // Add a meta refresh tag to force reload
+            document.write('<meta http-equiv="refresh" content="0">');
+        }
+    </script>
 </head>
 
 <body>
