@@ -37,6 +37,14 @@
             display: block;
         }
     </style>
+    <script>
+        // Check if this page is being loaded from the browser's cache (like when hitting back button)
+        if (performance.navigation.type === 2) {
+            // Type 2 is back/forward navigation
+            // Add a meta refresh tag to force reload
+            document.write('<meta http-equiv="refresh" content="0">');
+        }
+    </script>
 </head>
 
 <body>
@@ -759,48 +767,6 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-        });
-    </script>
-    <script>
-        // This will fix the navigation issue when going back to parent pages
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Fix 1: Handle browser back button properly by forcing reload
-            window.addEventListener('popstate', function (event) {
-                window.location.reload();
-            });
-
-            // Fix 2: Ensure preloader is properly hidden after page fully loads
-            window.addEventListener('load', function () {
-                var preloader = document.querySelector('.preloader');
-                if (preloader) {
-                    preloader.style.display = 'none';
-                }
-            });
-
-            // Fix 3: Make sure all navigation links have proper event handling
-            document.querySelectorAll('a[href]').forEach(function (link) {
-                // Skip external links or special links
-                if (link.href.startsWith(window.location.origin) &&
-                    !link.href.includes('#') &&
-                    !link.target) {
-                    link.addEventListener('click', function () {
-                        // Optional: Show preloader before navigation
-                        var preloader = document.querySelector('.preloader');
-                        if (preloader) {
-                            preloader.style.display = 'block';
-                        }
-                    });
-                }
-            });
-        });
-
-        // Fix 4: Additional safety check to ensure preloader doesn't get stuck
-        window.addEventListener('error', function () {
-            var preloader = document.querySelector('.preloader');
-            if (preloader) {
-                preloader.style.display = 'none';
-            }
         });
     </script>
 </body>
