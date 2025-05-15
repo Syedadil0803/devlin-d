@@ -227,26 +227,50 @@
     "name": "Devlin Wholesale",
     "url": "https://www.devlinwholesale.co.uk/"
   },
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "GBP",
-    "priceSpecification": {
-      "@type": "UnitPriceSpecification",
-      "priceType": "StartingPrice"
-    }
-  },
   "areaServed": {
-    "@type": "GeoShape",
-    "box": "52.3,-2.0 53.0,-1.0"
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 52.6,
+      "longitude": -1.6
+    },
+    "geoRadius": "50000"
   },
-  "availableChannel": {
-    "@type": "ServiceChannel",
-    "serviceLocation": [
-      {"@id": "https://www.devlinwholesale.co.uk/#tamworth"},
-      {"@id": "https://www.devlinwholesale.co.uk/#groby"},
-      {"@id": "https://www.devlinwholesale.co.uk/#minworth"}
-    ]
-  }
+  "serviceLocation": [
+    {
+      "@type": "Place",
+      "name": "Devlin Wholesale – Tamworth",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Unit O, N Riverside Industrial Estate, Atherstone St, Fazeley",
+        "addressLocality": "Tamworth",
+        "postalCode": "B78 3RW",
+        "addressCountry": "UK"
+      }
+    },
+    {
+      "@type": "Place", 
+      "name": "Devlin Wholesale – Groby",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Laundon Way",
+        "addressLocality": "Groby, Leicester",
+        "postalCode": "LE6 0YG",
+        "addressCountry": "UK"
+      }
+    },
+    {
+      "@type": "Place",
+      "name": "Devlin Wholesale – Minworth",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Unit B3, Minworth Industrial Park, Stockton Cl",
+        "addressLocality": "Birmingham, Sutton Coldfield",
+        "postalCode": "B76 1DH",
+        "addressCountry": "UK"
+      }
+    }
+  ]
 }
 </script>
 </head>
