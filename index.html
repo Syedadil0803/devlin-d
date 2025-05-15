@@ -50,76 +50,263 @@
       display: block;
     }
   </style>
+    <!-- Organization Schema -->
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "LocalBusiness",
-            "@id": "https://www.devlinwholesale.co.uk/#tamworth",
-            "name": "Devlin Wholesale – Tamworth",
-            "image": "https://www.devlinwholesale.co.uk/images/Brand-logo.png",
-            "url": "https://www.devlinwholesale.co.uk/",
-            "telephone": "01827 265526",
-            "email": "info@demolink.org",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Unit O, N Riverside Industrial Estate, Atherstone St, Fazeley",
-              "addressLocality": "Tamworth",
-              "postalCode": "B78 3RW",
-              "addressCountry": "UK"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 52.6128,
-              "longitude": -1.7011
-            }
-          },
-          {
-            "@type": "LocalBusiness",
-            "@id": "https://www.devlinwholesale.co.uk/#groby",
-            "name": "Devlin Wholesale – Groby",
-            "image": "https://www.devlinwholesale.co.uk/images/Brand-logo.png",
-            "url": "https://www.devlinwholesale.co.uk/",
-            "telephone": "0116 456 0022",
-            "email": "info@demolink.org",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Laundon Way",
-              "addressLocality": "Groby, Leicester",
-              "postalCode": "LE6 0YG",
-              "addressCountry": "UK"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 52.6662,
-              "longitude": -1.2289
-            }
-          },
-          {
-            "@type": "LocalBusiness",
-            "@id": "https://www.devlinwholesale.co.uk/#minworth",
-            "name": "Devlin Wholesale – Minworth",
-            "image": "https://www.devlinwholesale.co.uk/images/Brand-logo.png",
-            "url": "https://www.devlinwholesale.co.uk/",
-            "telephone": "0121 313 2303",
-            "email": "info@demolink.org",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Unit B3, Minworth Industrial Park, Stockton Cl, The Royal Town of Sutton Coldfield",
-              "addressLocality": "Birmingham, Sutton Coldfield",
-              "postalCode": "B76 1DH",
-              "addressCountry": "UK"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 52.5352,
-              "longitude": -1.7944
-            }
-          }
-        ]
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Devlin Wholesale",
+  "url": "https://www.devlinwholesale.co.uk/",
+  "logo": "https://www.devlinwholesale.co.uk/images/Brand-logo.png",
+  "sameAs": [
+    "https://www.facebook.com/DevlinWholesale/",
+    "https://twitter.com/devlinwholesale",
+    "https://www.instagram.com/devlinwholesale/"
+  ]
+}
+</script>
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.devlinwholesale.co.uk/"
+    }
+  ]
+}
+</script>
+
+  <!-- Tamworth LocalBusiness -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.devlinwholesale.co.uk/#tamworth",
+  "name": "Devlin Wholesale – Tamworth",
+  "image": "https://www.devlinwholesale.co.uk/images/Brand-logo.png",
+  "url": "https://www.devlinwholesale.co.uk/",
+  "telephone": "01827 265526",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Unit O, N Riverside Industrial Estate, Atherstone St, Fazeley",
+    "addressLocality": "Tamworth",
+    "postalCode": "B78 3RW",
+    "addressCountry": "UK"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 52.6128,
+    "longitude": -1.7011
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "10:00",
+      "closes": "16:00"
+    }
+  ],
+  "priceRange": "££"
+}
+</script>
+
+  <!-- Groby LocalBusiness -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.devlinwholesale.co.uk/#groby",
+  "name": "Devlin Wholesale – Groby",
+  "image": "https://www.devlinwholesale.co.uk/images/Brand-logo.png",
+  "url": "https://www.devlinwholesale.co.uk/",
+  "telephone": "0116 456 0022",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Laundon Way",
+    "addressLocality": "Groby, Leicester",
+    "postalCode": "LE6 0YG",
+    "addressCountry": "UK"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 52.6662,
+    "longitude": -1.2289
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "10:00",
+      "closes": "16:00"
+    }
+  ],
+  "priceRange": "££"
+}
+</script>
+
+  <!-- Minworth LocalBusiness -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.devlinwholesale.co.uk/#minworth",
+  "name": "Devlin Wholesale – Minworth",
+  "image": "https://www.devlinwholesale.co.uk/images/Brand-logo.png",
+  "url": "https://www.devlinwholesale.co.uk/",
+  "telephone": "0121 313 2303",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Unit B3, Minworth Industrial Park, Stockton Cl, The Royal Town of Sutton Coldfield",
+    "addressLocality": "Birmingham, Sutton Coldfield",
+    "postalCode": "B76 1DH",
+    "addressCountry": "UK"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 52.5352,
+    "longitude": -1.7944
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "10:00",
+      "closes": "16:00"
+    }
+  ],
+  "priceRange": "££"
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a twist carpet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A twist carpet comprises of two or more fibres twisted together, the benefits of this are that it is hard wearing and therefore suitable for high traffic areas such as stairs and hallways."
       }
-    </script>
+    },
+    {
+      "@type": "Question",
+      "name": "What is saxony carpet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Saxony carpets are soft and luxurious under foot, made from a deep pile, straight cut yarn, they are popular for use in lounges and bedrooms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wool vs. synthetic",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Synthetic carpets can be the practical choice in homes where spillages are likely as they are stain resistant and often bleach cleanable, whereas wool is generally softer and keeps it's pile well."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Underlay",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A good underlay will extend the life of your carpet, giving it a more luxurious feel whilst absorbing noise and providing added insulation, we can advise you on which underlay will best suit your needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you keep your prices so competitive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We buy in bulk to ensure the best prices for our customers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I keep down the cost of my carpet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Think about the room/s you are carpeting, you don't need a heavyweight/hardwearing carpet in a room which sees little traffic, for example, a bedroom would probably not need as heavy a carpet as a hallway. Block plans can be drawn up to minimise wastage, contact us if you are having more than one room in the same carpet and think you could save money using this service. It can sometimes work out cheaper to use 4m carpet instead of 5m carpet and have joins put in where they are unlikely to be noticed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should I care for my new carpet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To maintain your carpet's appearance it is recommended that it is vacuumed at least three times per week, to remove particles of dirt and dust. An upright vacuum with beater bar and brush is recommended for use with cut pile carpets. A good quality underlay will also increase the comfort and prolong the life of your carpet"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should I care for my vinyl?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vinyl is extremely durable, however stains should be mopped up promptly to avoid any permanent damage to the surface. It's easy maintenance means that with regular damp mopping, it should stay looking great for years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should I care for my laminate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The moisture and scratch resistance, make laminate a suitable choice for most rooms. It is quite hard to damage and so long as you follow the manufacturers care instructions and don't allow it to get too wet, you should get years of pleasure from your laminate floor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Shading and Pile reversal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Over time, regular foot traffic will flatten the pile surface in the main walkways, causing areas of differential wear. These areas will appear lighter or shaded in comparison to the less frequently used parts. This shading / tracking or flattening happens to all carpets with a pile surface and as such is not accepted as the basis for any complaint. Similarly Pile Reversal (or watermarking) is a phenomenon that can affect all cut pile carpets and as such is not accepted as a manufacturers fault."
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
