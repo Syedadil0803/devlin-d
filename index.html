@@ -636,7 +636,7 @@
 
                 <div class="mt-4 oh-desktop">
                   <span class="d-inline-block wow slideInUp">
-                     Shop Quality Carpets, LVT, Laminate & Vinyl Flooring at Wholesale Prices – Direct to the Public.
+                    Shop Quality Carpets, LVT, Laminate & Vinyl Flooring at Wholesale Prices – Direct to the Public.
                     We also stock Engineered Wood, Natural Flooring, and Artificial Grass – all available in-store.
                   </span>
                 </div>
@@ -1398,7 +1398,7 @@
                       data-caption-delay="0">
                       <div class="quote-classic-text">
                         <p>
-                          Fantastic Value and Superb Craftmanship! <br/>
+                          Fantastic Value and Superb Craftmanship! <br />
 
                           We were recommended Devlin Wholesale by a friend and now simply won't go anywhere else. The
                           carpet fitter was skilled, polite and left everything spotless. The quality of the carpet is
@@ -2143,6 +2143,87 @@
   </div>
   <!-- Global Mailform Output-->
   <!-- <div class="snackbars" id="form-output-global"></div> -->
+  <!-- Cookie Consent Modal -->
+  <div id="cookieModal" class="modal fade" tabindex="-1" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body text-center p-4">
+          <h5 class="mb-3">🍪 We Use Cookies</h5>
+          <p>We use cookies to improve your experience on our website.</p>
+          <div class="d-flex gap-3 justify-content-center mt-4">
+            <button class="btn btn-outline-secondary" onclick="rejectCookies()">Reject</button>
+            <button class="btn btn-primary" onclick="acceptCookies()">Accept</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome Back Modal (same size as cookie modal) -->
+  <!-- <div id="welcomeModal" class="modal fade" tabindex="-1" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" id="welcomeContent">
+        <div class="modal-body text-center p-4">
+          <h5 class="mb-3"> Welcome to <br>DevlinWholesale!</h5>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <script>
+    function setCookie(name, value, days) {
+      const expires = new Date(Date.now() + days * 864e5).toUTCString();
+      document.cookie = name + "=" + value + "; expires=" + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+      const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+      return match ? match[2] : null;
+    }
+
+    function acceptCookies() {
+      setCookie("cookieConsent", "yes", 365);
+      bootstrap.Modal.getInstance(document.getElementById('cookieModal')).hide();
+    }
+
+    function rejectCookies() {
+      setCookie("cookieConsent", "no", 365);
+      bootstrap.Modal.getInstance(document.getElementById('cookieModal')).hide();
+    }
+
+    function closeWelcome() {
+      const welcomeContent = document.getElementById('welcomeContent');
+      welcomeContent.style.transition = 'opacity 0.5s ease-out';
+      welcomeContent.style.opacity = '0';
+
+      setTimeout(() => {
+        bootstrap.Modal.getInstance(document.getElementById('welcomeModal')).hide();
+      }, 500);
+    }
+
+    // Show appropriate modal on page load
+    window.addEventListener('load', function () {
+      const consent = getCookie("cookieConsent");
+
+      if (!consent) {
+        // New user - show cookie modal
+        new bootstrap.Modal(document.getElementById('cookieModal'), {
+          backdrop: 'static',
+          keyboard: false
+        }).show();
+      } else if (consent === "yes") {
+        // Returning user who accepted - show welcome and auto-hide
+        const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+        welcomeModal.show();
+
+        // Auto-hide after 2 seconds with fade transition
+        setTimeout(() => {
+          closeWelcome();
+        }, 1500);
+      }
+      // If consent === "no", show nothing
+    });
+  </script>
   <!-- Javascript-->
   <script src="js/core.min.js"></script>
   <script src="js/script.js"></script>
