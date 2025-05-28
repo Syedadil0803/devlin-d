@@ -49,6 +49,33 @@
     html.lt-ie-10 .ie-panel {
       display: block;
     }
+
+    /* Custom Swiper Slide Background Styling */
+    .swiper-slide-bg {
+      position: relative;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      /* Adjust as needed */
+      height: 550px;
+      /* Adjust height as per your design */
+    }
+
+    /* Optional: Adjust background position if cropping is bad */
+    .swiper-slide-bg.top-centered {
+      background-position: center top;
+    }
+
+    .swiper-slide-bg.bottom-centered {
+      background-position: center bottom;
+    }
+
+    /* Optional: Responsive height */
+    @media (max-width: 768px) {
+      .swiper-slide-bg {
+        height: 400px;
+      }
+    }
   </style>
   <!-- Organization Schema -->
   <script type="application/ld+json">
@@ -532,7 +559,8 @@
       <div class="swiper-container swiper-slider swiper-slider-7" data-loop="true" data-autoplay="5000"
         data-simulate-touch="false" data-add-slides="1">
         <div class="swiper-wrapper text-sm-left">
-          <div class="swiper-slide" data-slide-bg="images/slide-1-1697x605.jpg">
+          <div class="swiper-slide swiper-slide-bg" data-slide-bg="images/project-1-1200x800-original.jpg">
+
             <div class="swiper-slide-caption section-md">
               <div class="swiper-box">
                 <h6 class="oh swiper-subtitle">
