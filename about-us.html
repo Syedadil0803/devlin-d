@@ -44,6 +44,24 @@
       display: block;
     }
   </style>
+  <!-- styles for fb integrated video -->
+  <style>
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .video-modal-section body.modal-open {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+    }
+  </style>
   <!-- Organization Schema -->
   <script type="application/ld+json">
 {
@@ -370,7 +388,7 @@
                         </li>
                       </ul> -->
                     </li>
-                     <li class="rd-nav-item">
+                    <li class="rd-nav-item">
                       <a class="rd-nav-link" href="grid-blog.html">Blogs</a>
                       <!-- RD Navbar Dropdown-->
                       <!-- <ul class="rd-menu rd-navbar-dropdown">
@@ -397,7 +415,7 @@
                         </li>
                       </ul>
                     </li>
-                   
+
                   </ul>
                 </div>
               </div>
@@ -468,7 +486,7 @@
               <!-- Tab 1: About Devlin (unchanged) -->
               <div class="tab-pane fade show active" id="tabs-4-1">
                 <!-- <h5>About Devlin Wholesale</h5> -->
-                  <h5 style="font-size: 22px;">Flooring Made Affordable, Personal, and Hassle-Free</h5>
+                <h5 style="font-size: 22px;">Flooring Made Affordable, Personal, and Hassle-Free</h5>
                 <p>
                   At <b> Devlin Wholesale,</b> we’re more than just a flooring supplier—we’re a <b> family-run
                     business</b> built on
@@ -524,7 +542,8 @@
               <!-- Tab 2: Mission & Vision -->
               <div class="tab-pane fade" id="tabs-4-2">
                 <h5 class="text-spacing-100">Our Mission</h5>
-                <h6 class="texy-spacing-100 mt-4" style="font-size: 16px;">Delivering Comfort, Style & Value to Every Home </h6>
+                <h6 class="texy-spacing-100 mt-4" style="font-size: 16px;">Delivering Comfort, Style & Value to Every
+                  Home </h6>
                 <p>
                   At Devlin Wholesale, our mission is to make high-quality flooring accessible to all. We’re committed
                   to offering unbeatable value with a wide choice of carpets and flooring, expert advice, and
@@ -534,7 +553,8 @@
 
                 <hr class="my-4"> <!-- Spacing between mission and vision -->
                 <h5 class="text-spacing-100">Our Vision</h5>
-                <h6 class="texy-spacing-100 mt-4"  style="font-size: 16px;">Redefining Flooring Excellence Across Leicestershire and Beyond </h6>
+                <h6 class="texy-spacing-100 mt-4" style="font-size: 16px;">Redefining Flooring Excellence Across
+                  Leicestershire and Beyond </h6>
                 <p>
                   We aim to become the most trusted name in carpets and flooring across Leicestershire—known for
                   affordability, quality, and honest service. As we grow, our vision is to reshape how people shop for
@@ -554,7 +574,7 @@
                   budget-friendly practicality. Through honest pricing, exceptional service, and trusted advice, we
                   deliver confidence, quality, and unbeatable value with every step.
                 </p>
-                <h6 class="texy-spacing-100 mt-4"  style="font-size: 16px;">What You Can Expect from Us:</h6>
+                <h6 class="texy-spacing-100 mt-4" style="font-size: 16px;">What You Can Expect from Us:</h6>
                 <p><strong>Unmatched Flooring Selection</strong><br>
                   Choose from a wide range of carpets, vinyl, laminate, LVT, and more — carefully curated to meet
                   different styles, needs, and lifestyles.
@@ -686,8 +706,8 @@
           </div>
           <div class="col-sm-6 col-lg-3 wow fadeInLeft" data-wow-delay="0s" data-wow-duration="1s">
             <!-- Team Modern-->
-            <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/Team/team-8.jpg"
-                  alt="" width="270" height="236" /></a>
+            <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/Team/team-8.jpg" alt=""
+                  width="270" height="236" /></a>
               <div class="team-modern-caption">
                 <h6 class="team-modern-name"><a href="#">Stephen Devlin</a></h6>
                 <div class="team-modern-status">Role</div>
@@ -718,8 +738,8 @@
           </div>
           <div class="col-sm-6 col-lg-3 wow fadeInRight" data-wow-delay=".3s" data-wow-duration="1s">
             <!-- Team Modern-->
-            <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/Team/team3.jpg"
-                  alt="" width="270" height="236" /></a>
+            <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/Team/team3.jpg" alt=""
+                  width="270" height="236" /></a>
               <div class="team-modern-caption">
                 <h6 class="team-modern-name"><a href="#">John Devlin</a></h6>
                 <div class="team-modern-status">Role</div>
@@ -734,8 +754,8 @@
           </div>
           <div class="col-sm-6 col-lg-3 wow fadeInRight" data-wow-delay=".3s" data-wow-duration="1s">
             <!-- Team Modern-->
-            <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/Team/team4.jpg"
-                  alt="" width="270" height="236" /></a>
+            <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/Team/team4.jpg" alt=""
+                  width="270" height="236" /></a>
               <div class="team-modern-caption">
                 <h6 class="team-modern-name"><a href="#">Mark Devlin</a></h6>
                 <div class="team-modern-status">Role</div>
@@ -748,10 +768,10 @@
               </div>
             </article>
           </div>
-            <div class="col-sm-6 col-lg-3 wow fadeInRight" data-wow-delay=".3s" data-wow-duration="1s">
+          <div class="col-sm-6 col-lg-3 wow fadeInRight" data-wow-delay=".3s" data-wow-duration="1s">
             <!-- Team Modern-->
-            <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/Team/team5.jpg"
-                  alt="" width="270" height="236" /></a>
+            <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/Team/team5.jpg" alt=""
+                  width="270" height="236" /></a>
               <div class="team-modern-caption">
                 <h6 class="team-modern-name"><a href="#">Christopher Devlin</a></h6>
                 <div class="team-modern-status">Role</div>
@@ -764,10 +784,10 @@
               </div>
             </article>
           </div>
-           <div class="col-sm-6 col-lg-3 wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">
+          <div class="col-sm-6 col-lg-3 wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">
             <!-- Team Modern-->
-            <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/Team/team-9.jpg"
-                  alt="" width="270" height="236" /></a>
+            <article class="team-modern"><a class="team-modern-figure" href="#"><img src="images/Team/team-9.jpg" alt=""
+                  width="270" height="236" /></a>
               <div class="team-modern-caption">
                 <h6 class="team-modern-name"><a href="#">Name</a></h6>
                 <div class="team-modern-status">Role</div>
@@ -828,13 +848,13 @@
               </div>
             </div>
           </div>
-          <div class="col-md-9 col-lg-6 position-static index-1 p-0">
+          <!-- <div class="col-md-9 col-lg-6 position-static index-1 p-0">
             <div class="position-relative w-100" style="aspect-ratio: 1110 / 710; overflow: hidden;">
-              <!-- Wistia Scripts -->
+              Wistia Scripts
               <script src="https://fast.wistia.com/embed/medias/9qms2ngnt6.jsonp" async></script>
               <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
 
-              <!-- Wistia Embed Full Width/Height -->
+              Wistia Embed Full Width/Height
               <div class="wistia_embed wistia_async_9qms2ngnt6 seo=false videoFoam=true" style="
       position: absolute;
       top: 0;
@@ -842,6 +862,66 @@
       width: 100%;
       height: 100%;
     "></div>
+            </div>
+          </div> -->
+          <div class="col-md-9 col-lg-6 position-static index-1">
+            <div class="bg-image-right-1 bg-image-right-lg"><img src="images/about-5-1110x710.jpg" alt="" width="1110"
+                height="710" />
+              <!-- <div class="link-play-modern"><a class="icon mdi mdi-play" data-lightgallery="item"
+                  href="https://www.youtube.com/watch?v=1UWpbtUupQQ"></a>
+                <div class="link-play-modern-title">How we<span>Work</span></div>
+                <div class="link-play-modern-decor"></div>
+              </div> -->
+              <!-- Trigger -->
+              <div class="video-modal-section">
+                <!-- Play Button -->
+                <div class="link-play-modern" onclick="showInstantLoader(); openFacebookModal();">
+                  <a class="icon mdi mdi-play" style="cursor:pointer;"></a>
+                  <div class="link-play-modern-title">Why<span>US</span></div>
+                  <div class="link-play-modern-decor"></div>
+                </div>
+
+                <!-- Instant Loader (shows immediately on click) -->
+                <div id="instantLoader"
+                  style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.95); justify-content:center; align-items:center; z-index:10000;">
+                  <div style="text-align:center; color:white; font-family:Arial,sans-serif;">
+                    <div
+                      style="border:4px solid rgba(255,255,255,0.2); border-radius:50%; border-top:4px solid #fff; width:50px; height:50px; animation:spin 1s linear infinite; margin:0 auto 20px;">
+                    </div>
+                    <div style="font-size:16px; margin-bottom:8px;">Opening Video...</div>
+                    <div style="font-size:13px; opacity:0.7;">Please wait a moment</div>
+                  </div>
+                </div>
+
+                <!-- Modal -->
+                <div id="fbModal" class="modal-overlay"
+                  style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+       background-color:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999; backdrop-filter:blur(5px);">
+                  <div class="modal-content"
+                    style="position:relative; width:320px; max-width:90vw; background:#000; border-radius:8px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+                    <div class="loading-indicator" id="loadingIndicator"
+                      style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; text-align:center; z-index:10; font-family:Arial,sans-serif;">
+                      <div
+                        style="border:4px solid rgba(255,255,255,0.2); border-radius:50%; border-top:4px solid #fff; width:40px; height:40px; animation:spin 1s linear infinite; margin:0 auto 15px;">
+                      </div>
+                      <div style="font-size:14px; margin-bottom:5px;">Loading video...</div>
+                      <div style="font-size:12px; opacity:0.7;">Please wait</div>
+                    </div>
+                    <iframe id="facebookIframe" src="" width="100%" height="476"
+                      style="border:none; overflow:hidden; display:none;" scrolling="no" frameborder="0"
+                      allowfullscreen="true"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                    </iframe>
+                    <button onclick="closeFacebookModal()"
+                      style="position:absolute; top:10px; right:15px; background:rgba(255,255,255,0.9); border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:#333; z-index:10001;">✖</button>
+                  </div>
+                </div>
+
+
+
+
+              </div>
+              <div class="box-transform" style="background-image: url(images/about-5-1110x710.jpg);"></div>
             </div>
           </div>
         </div>
@@ -900,7 +980,7 @@
             </article>
           </div>
 
-           <div class="col-sm-6 col-lg-4 order-lg-1">
+          <div class="col-sm-6 col-lg-4 order-lg-1">
             <!-- Post Classic-->
             <article class="post post-classic post-classic-2 block-3">
               <div class="post-classic-figure"><img src="images/lichfield-6.png" alt="" width="370" height="365" />
@@ -915,7 +995,7 @@
               <time class="post-classic-time" datetime="2019-04-25">Lichfield</time>
             </article>
           </div>
-       
+
           <!-- test -->
 
         </div>
@@ -1099,6 +1179,133 @@
         element.style.padding = "5px 10px";
         element.style.borderRadius = "5px";
       });
+    });
+  </script>
+  <!-- script for fb integrated video -->
+  <script>
+    const FACEBOOK_VIDEO_URL = "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FDevlinWholesale%2Fvideos%2F1262601114583427%2F&show_text=false&width=320&t=0";
+
+    let modalOpen = false;
+    let scrollPosition = 0;
+
+    function showInstantLoader() {
+      // Show instant loader immediately on click
+      document.getElementById("instantLoader").style.display = "flex";
+    }
+
+    function openFacebookModal() {
+      const modal = document.getElementById("fbModal");
+      const iframe = document.getElementById("facebookIframe");
+      const loadingIndicator = document.getElementById("loadingIndicator");
+      const instantLoader = document.getElementById("instantLoader");
+
+      // Small delay to ensure instant loader shows first
+      setTimeout(() => {
+        // Store current scroll position and prevent background scrolling
+        scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        document.body.classList.add('modal-open');
+        document.body.style.top = `-${scrollPosition}px`;
+
+        // Hide instant loader and show modal with loading
+        instantLoader.style.display = "none";
+        modal.style.display = "flex";
+        modalOpen = true;
+
+        // Show loading indicator
+        loadingIndicator.style.display = "block";
+        iframe.style.display = "none";
+
+        // Load iframe immediately
+        iframe.src = FACEBOOK_VIDEO_URL;
+
+        // Set timeout fallback in case onload doesn't fire
+        const loadTimeout = setTimeout(() => {
+          loadingIndicator.style.display = "none";
+          iframe.style.display = "block";
+        }, 8000); // 8 second fallback
+
+        iframe.onload = function () {
+          clearTimeout(loadTimeout);
+          loadingIndicator.style.display = "none";
+          iframe.style.display = "block";
+        };
+
+        // Add event listeners
+        document.addEventListener('keydown', handleEscapeKey);
+        modal.addEventListener('click', handleModalClick);
+      }, 100); // Small delay to show instant loader first
+    }
+
+    function closeFacebookModal() {
+      const modal = document.getElementById("fbModal");
+      const iframe = document.getElementById("facebookIframe");
+      const loadingIndicator = document.getElementById("loadingIndicator");
+      const instantLoader = document.getElementById("instantLoader");
+
+      // Hide all modals immediately
+      modal.style.display = "none";
+      instantLoader.style.display = "none";
+      modalOpen = false;
+
+      // Completely stop video by replacing iframe
+      const newIframe = iframe.cloneNode(true);
+      newIframe.src = "";
+      iframe.parentNode.replaceChild(newIframe, iframe);
+
+      // Reset loading state
+      loadingIndicator.style.display = "none";
+
+      // Restore background scrolling
+      document.body.classList.remove('modal-open');
+      document.body.style.top = '';
+      window.scrollTo(0, scrollPosition);
+
+      // Remove event listeners
+      document.removeEventListener('keydown', handleEscapeKey);
+      modal.removeEventListener('click', handleModalClick);
+    }
+
+    function handleEscapeKey(event) {
+      if (event.key === 'Escape' && modalOpen) {
+        closeFacebookModal();
+      }
+    }
+
+    function handleModalClick(event) {
+      if (event.target === event.currentTarget) {
+        closeFacebookModal();
+      }
+    }
+
+    // Handle page visibility change
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden && modalOpen) {
+        const iframe = document.getElementById("facebookIframe");
+        const tempSrc = iframe.src;
+        iframe.src = "";
+
+        document.addEventListener('visibilitychange', function restoreVideo() {
+          if (!document.hidden && modalOpen) {
+            iframe.src = tempSrc;
+            document.removeEventListener('visibilitychange', restoreVideo);
+          }
+        }, { once: true });
+      }
+    });
+
+    // Handle browser back button
+    window.addEventListener('popstate', function (event) {
+      if (modalOpen) {
+        closeFacebookModal();
+        history.pushState(null, null, location.href);
+      }
+    });
+
+    // Clean up on page unload
+    window.addEventListener('beforeunload', function () {
+      if (modalOpen) {
+        closeFacebookModal();
+      }
     });
   </script>
 </body>
