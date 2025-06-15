@@ -37,6 +37,57 @@
       display: block;
     }
   </style>
+     <style>
+      /* Mobile-specific overrides */
+      @media (max-width: 767.98px) {
+
+        .single-post h1,
+        .single-post h5,
+        .single-post p,
+        .single-post .quote-classic-text p,
+        .single-post h6 {
+          text-align: left !important;
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
+        }
+
+        .single-post .d-flex {
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
+        }
+
+        .single-post .text-start {
+          text-align: left !important;
+        }
+
+        /* Fix any center alignment classes on mobile */
+        .single-post .text-center,
+        .single-post .justify-content-center {
+          text-align: left !important;
+          justify-content: flex-start !important;
+        }
+
+        /* Mobile font size adjustments */
+        .single-post h1 {
+          font-size: 26px !important;
+        }
+
+        .single-post h5 {
+          font-size: 19px !important;
+        }
+
+        /* Center specific elements on mobile */
+        .single-post #downloadLink {
+          text-align: center !important;
+        }
+
+        .single-post .button-winona {
+          margin: 0 auto !important;
+          display: block !important;
+          width: fit-content !important;
+        }
+      }
+    </style>
   <!-- Organization Schema -->
   <script type="application/ld+json">
 {
@@ -441,14 +492,14 @@
         </ul>
       </div>
     </section>
-    <!-- Grid Blog-->
+     <!-- Grid Blog-->
     <section class="section section-lg bg-default">
       <div class="container">
         <div class="row row-60 row-xl-75">
           <div class="col-lg-12">
             <div class="single-post section-style-2">
               <h1 class="d-flex align-items-start" style="font-size:32px;">
-                🏡 Carpet vs LVT vs Laminate – What’s Best for Your Budget and Style?
+                🏡 Carpet vs LVT vs Laminate – What's Best for Your Budget and Style?
               </h1>
 
               <div class="group-md group-middle">
@@ -459,8 +510,8 @@
                       <span class="icon mdi mdi-account-outline"></span><span>by <a href="#">Michael Devlin</a></span>
                     </li>
                     <!-- <li class="post-classic-views">
-                        <span class="icon mdi mdi-eye"></span><span>3678</span>
-                      </li> -->
+                    <span class="icon mdi mdi-eye"></span><span>3678</span>
+                  </li> -->
                     <li class="post-classic-readtime">
                       <span class="icon mdi mdi-book-open-variant"></span>
                       <span>3 minutes read</span>
@@ -472,11 +523,11 @@
 
               <div class="mb-4">
                 <h5 class="d-flex align-items-start mt-4" style="font-size:24px; ">
-                  Choosing the Right Flooring: It’s About More Than Just Looks
+                  Choosing the Right Flooring: It's About More Than Just Looks
                 </h5>
 
                 <p>
-                  Whether you’re renovating a single room or updating your entire home, flooring is a major decision.
+                  Whether you're renovating a single room or updating your entire home, flooring is a major decision.
                   Carpet, Luxury Vinyl Tiles (LVT), and laminate are three of the most popular options in the UK — each
                   with its own set of benefits, considerations, and price points.
                 </p>
@@ -492,46 +543,120 @@
                     <h5 class="d-flex align-items-start" style="font-size: 22px; ">
                       ✨ At-a-Glance Comparison
                     </h5>
-                    <div class="row">
-                      <div class="col-6 col-md-3">
-                        <h6 class="d-flex align-items-start" style="font-size: 16px;"><b>Feature</b></h6>
-                        <p><b style="font-size: 16px;">Comfort</b></p>
-                        <p><b style="font-size: 16px;">Water Resistance</b></p>
-                        <p><b style="font-size: 16px;">Durability</b></p>
-                        <p><b style="font-size: 16px;">Maintenance</b></p>
-                        <p><b style="font-size: 16px;">Style Variety</b></p>
-                        <p><b style="font-size: 16px;">Ideal For</b></p>
-                        <p><b style="font-size: 16px;">Approx. Cost</b></p>
+
+                    <!-- Desktop Table View -->
+                    <div class="d-none d-md-block mt-4">
+                      <div class="table-responsive">
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr class="table-light">
+                              <th style="font-size: 16px; font-weight: bold;">Feature</th>
+                              <th style="font-size: 16px; font-weight: bold;">Carpet</th>
+                              <th style="font-size: 16px; font-weight: bold;">LVT</th>
+                              <th style="font-size: 16px; font-weight: bold;">Laminate</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><b>Comfort</b></td>
+                              <td>Soft, warm, ideal for cold</td>
+                              <td>Softer than laminate, resilient</td>
+                              <td>Moderately hard, cooler feel</td>
+                            </tr>
+                            <tr>
+                              <td><b>Water Resistance</b></td>
+                              <td>Low (except waterproof types)</td>
+                              <td>High</td>
+                              <td>Moderate (not ideal for bathrooms)</td>
+                            </tr>
+                            <tr>
+                              <td><b>Durability</b></td>
+                              <td>Moderate (can stain)</td>
+                              <td>Very durable, scratch-resistant</td>
+                              <td>Fairly durable</td>
+                            </tr>
+                            <tr>
+                              <td><b>Maintenance</b></td>
+                              <td>Requires regular vacuuming</td>
+                              <td>Easy to clean, low maintenance</td>
+                              <td>Simple cleaning routines</td>
+                            </tr>
+                            <tr>
+                              <td><b>Style Variety</b></td>
+                              <td>Extensive colours and textures</td>
+                              <td>Wide range, realistic wood looks</td>
+                              <td>Wood and tile looks</td>
+                            </tr>
+                            <tr>
+                              <td><b>Ideal For</b></td>
+                              <td>Bedrooms, living rooms</td>
+                              <td>Kitchens, hallways, bathrooms</td>
+                              <td>Living rooms, home offices</td>
+                            </tr>
+                            <tr>
+                              <td><b>Approx. Cost</b></td>
+                              <td>£10 – £40 per m²</td>
+                              <td>£20 – £55 per m²</td>
+                              <td>£10 – £30 per m²</td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
-                      <div class="col-6 col-md-3">
-                        <h6 class="d-flex align-items-start" style="font-size: 16px;"><b>Carpet</b></h6>
-                        <p>Soft, warm, ideal for cold</p>
-                        <p>Low (except waterproof types)</p>
-                        <p>Moderate (can stain)</p>
-                        <p>Requires regular vacuuming</p>
-                        <p>Extensive colours and textures</p>
-                        <p>Bedrooms, living rooms</p>
-                        <p>£10 – £40 per m²</p>
-                      </div>
-                      <div class="col-6 col-md-3">
-                        <h6 class="d-flex align-items-start" style="font-size: 16px;"><b>LVT</b></h6>
-                        <p>Softer than laminate, resilient</p>
-                        <p>High</p>
-                        <p>Very durable, scratch-resistant</p>
-                        <p>Easy to clean, low maintenance</p>
-                        <p>Wide range, realistic wood looks</p>
-                        <p>Kitchens, hallways, bathrooms</p>
-                        <p>£20 – £55 per m²</p>
-                      </div>
-                      <div class="col-6 col-md-3">
-                        <h6 class="d-flex align-items-start" style="font-size: 16px;"><b>Laminate</b></h6>
-                        <p>Moderately hard, cooler feel</p>
-                        <p>Moderate (not ideal for bathrooms)</p>
-                        <p>Fairly durable</p>
-                        <p>Simple cleaning routines</p>
-                        <p>Wood and tile looks</p>
-                        <p>Living rooms, home offices</p>
-                        <p>£10 – £30 per m²</p>
+                    </div>
+
+                    <!-- Mobile Card View -->
+                    <div class="d-block d-md-none mt-4">
+                      <div class="row">
+                        <div class="col-12 mb-4">
+                          <div class="card">
+                            <div class="card-header bg-light">
+                              <h6 class="mb-0" style="font-size: 18px;"><b>🧼 Carpet</b></h6>
+                            </div>
+                            <div class="card-body">
+                              <p><b>Comfort:</b> Soft, warm, ideal for cold</p>
+                              <p><b>Water Resistance:</b> Low (except waterproof types)</p>
+                              <p><b>Durability:</b> Moderate (can stain)</p>
+                              <p><b>Maintenance:</b> Requires regular vacuuming</p>
+                              <p><b>Style Variety:</b> Extensive colours and textures</p>
+                              <p><b>Ideal For:</b> Bedrooms, living rooms</p>
+                              <p class="mb-0"><b>Approx. Cost:</b> £10 – £40 per m²</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 mb-4">
+                          <div class="card">
+                            <div class="card-header bg-light">
+                              <h6 class="mb-0" style="font-size: 18px;"><b>🧱 LVT</b></h6>
+                            </div>
+                            <div class="card-body">
+                              <p><b>Comfort:</b> Softer than laminate, resilient</p>
+                              <p><b>Water Resistance:</b> High</p>
+                              <p><b>Durability:</b> Very durable, scratch-resistant</p>
+                              <p><b>Maintenance:</b> Easy to clean, low maintenance</p>
+                              <p><b>Style Variety:</b> Wide range, realistic wood looks</p>
+                              <p><b>Ideal For:</b> Kitchens, hallways, bathrooms</p>
+                              <p class="mb-0"><b>Approx. Cost:</b> £20 – £55 per m²</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 mb-4">
+                          <div class="card">
+                            <div class="card-header bg-light">
+                              <h6 class="mb-0" style="font-size: 18px;"><b>🪵 Laminate</b></h6>
+                            </div>
+                            <div class="card-body">
+                              <p><b>Comfort:</b> Moderately hard, cooler feel</p>
+                              <p><b>Water Resistance:</b> Moderate (not ideal for bathrooms)</p>
+                              <p><b>Durability:</b> Fairly durable</p>
+                              <p><b>Maintenance:</b> Simple cleaning routines</p>
+                              <p><b>Style Variety:</b> Wood and tile looks</p>
+                              <p><b>Ideal For:</b> Living rooms, home offices</p>
+                              <p class="mb-0"><b>Approx. Cost:</b> £10 – £30 per m²</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
@@ -549,9 +674,9 @@
                   <!-- First column for the first div -->
                   <div class="col-12">
                     <div>
-                      <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                      <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                         🧼 Carpet: Warmth and Comfort
-                      </h3>
+                      </h5>
                       <p>Carpet is a timeless favourite, especially in UK homes where comfort and insulation are key.
                         From twist pile to plush saxony, carpets offer warmth and softness underfoot.</p>
                       <div class="row">
@@ -592,9 +717,9 @@
                 <div class="row">
                   <div class="col-12">
                     <div>
-                      <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                      <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                         🧱 LVT (Luxury Vinyl Tiles): Style Meets Strength
-                      </h3>
+                      </h5>
                       <p>Luxury Vinyl Tiles have surged in popularity thanks to their blend of durability, aesthetics,
                         and practicality. Great for busy households and moisture-prone areas.</p>
                       <div class="row">
@@ -634,10 +759,10 @@
                   <!-- First column for the first div -->
                   <div class="col-12">
                     <div>
-                      <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                      <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                         🪵 Laminate: Affordable Style with Low Fuss
-                      </h3>
-                      <p>Laminate offers the look of wood at a fraction of the price. It’s versatile, budget-friendly,
+                      </h5>
+                      <p>Laminate offers the look of wood at a fraction of the price. It's versatile, budget-friendly,
                         and ideal for medium-traffic areas.</p>
                       <div class="row">
                         <div class="col-6">
@@ -677,9 +802,9 @@
               <div class="container">
                 <div class="row">
                   <div class="col-12 mb-4">
-                    <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
-                      💡 Which One’s Right for You?
-                    </h3>
+                    <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                      💡 Which One's Right for You?
+                    </h5>
                     <p><b>If comfort is key → </b>Carpet is your go-to for bedrooms and snug living rooms.</p>
                     <p><b>If durability and water resistance matter → </b>LVT is ideal for busy kitchens or bathrooms.
                     </p>
@@ -693,7 +818,7 @@
               <article class="quote-classic mb-4">
                 <div class="quote-classic-text">
                   <p class="q">
-                    Choosing flooring is like choosing shoes — it’s got to fit your style, your budget, and your
+                    Choosing flooring is like choosing shoes — it's got to fit your style, your budget, and your
                     lifestyle.
                   </p>
                 </div>
@@ -703,11 +828,11 @@
                   <!-- Final Thoughts Section -->
                   <div class="col-sm-12 col-md-6 mt-4">
                     <div>
-                      <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                      <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                         🔍 Final Thoughts: Mix, Match & Stay Flexible
-                      </h3>
+                      </h5>
                       <p>
-                        You don’t have to pick just one! Many homeowners mix flooring types based on room function —
+                        You don't have to pick just one! Many homeowners mix flooring types based on room function —
                         carpet in bedrooms, LVT in kitchens, laminate in lounge areas. This strategic approach helps
                         maximise both comfort and cost-effectiveness.
                       </p>

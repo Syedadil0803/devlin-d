@@ -37,6 +37,57 @@
             display: block;
         }
     </style>
+    <style>
+        /* Mobile-specific overrides */
+        @media (max-width: 767.98px) {
+
+            .single-post h1,
+            .single-post h5,
+            .single-post p,
+            .single-post .quote-classic-text p,
+            .single-post h6 {
+                text-align: left !important;
+                justify-content: flex-start !important;
+                align-items: flex-start !important;
+            }
+
+            .single-post .d-flex {
+                justify-content: flex-start !important;
+                align-items: flex-start !important;
+            }
+
+            .single-post .text-start {
+                text-align: left !important;
+            }
+
+            /* Fix any center alignment classes on mobile */
+            .single-post .text-center,
+            .single-post .justify-content-center {
+                text-align: left !important;
+                justify-content: flex-start !important;
+            }
+
+            /* Mobile font size adjustments */
+            .single-post h1 {
+                font-size: 26px !important;
+            }
+
+            .single-post h5 {
+                font-size: 19px !important;
+            }
+
+            /* Center specific elements on mobile */
+            .single-post #downloadLink {
+                text-align: center !important;
+            }
+
+            .single-post .button-winona {
+                margin: 0 auto !important;
+                display: block !important;
+                width: fit-content !important;
+            }
+        }
+    </style>
     <!-- Organization Schema -->
     <script type="application/ld+json">
 {
@@ -447,7 +498,6 @@
                 </ul>
             </div>
         </section>
-        <!-- Grid Blog-->
         <section class="section section-lg bg-default">
             <div class="container">
                 <div class="row row-60 row-xl-75">
@@ -465,20 +515,16 @@
                                             <span class="icon mdi mdi-account-outline"></span><span>by <a
                                                     href="#">Michael Devlin</a></span>
                                         </li>
-                                        <!-- <li class="post-classic-views">
-                        <span class="icon mdi mdi-eye"></span><span>3678</span>
-                      </li> -->
                                         <li class="post-classic-readtime">
                                             <span class="icon mdi mdi-book-open-variant"></span>
                                             <span>3 minutes read</span>
-                                        </li>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="mb-4">
-                                <h5 class="d-flex align-items-start mt-4" style="font-size:24px; "> 📝 Summary
+                                <h5 class="d-flex align-items-start mt-4" style="font-size:24px;"> 📝 Summary
                                 </h5>
                                 <p>
                                     Planning new flooring? Discover how to prepare your subfloor like a pro with this
@@ -488,25 +534,25 @@
                                     prep well means your floor looks better, feels better, and lasts longer.</p>
                             </div>
                             <div class="container mb-4">
-                                <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                                <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                                     💡 Why Floor Preparation Is Non-Negotiable
-                                </h3>
+                                </h5>
                                 <p>
                                     Flooring success starts before the first plank or roll is even laid. Without proper
                                     preparation, your new floor could wear unevenly, squeak, or fail prematurely.
                                 </p>
-                                <p>Think of it as building a house — you wouldn’t skip the foundation</p>
-                                <p><b>This blog gives you the step-by-step lowdown on floor preparation—what’s involved,
+                                <p>Think of it as building a house — you wouldn't skip the foundation</p>
+                                <p><b>This blog gives you the step-by-step lowdown on floor preparation—what's involved,
                                         why it matters, and how to get it right.</b></p>
                             </div>
                             <!-- Know Your Priorities -->
                             <div class="container mt-4">
                                 <div class="row">
                                     <div class="col-12 col-sm-6">
-                                        <h3 class="d-flex align-items-start mt-4"
+                                        <h5 class="d-flex align-items-start mt-4"
                                             style="font-size: 22px; font-weight: 500;">
                                             Step 1: Clear and Clean the Space
-                                        </h3>
+                                        </h5>
 
                                         <p>
 
@@ -523,10 +569,10 @@
                                             light.</p>
                                     </div>
                                     <div class="col-12 col-sm-6">
-                                        <h3 class="d-flex align-items-start mt-4"
+                                        <h5 class="d-flex align-items-start mt-4"
                                             style="font-size: 22px; font-weight: 500;">
                                             Step 2: Check for Moisture
-                                        </h3>
+                                        </h5>
                                         <p>
                                             Damp subfloors are one of the biggest reasons floors fail.
                                         </p>
@@ -549,11 +595,11 @@
                             <div class="container mt-4">
                                 <div class="row">
 
-                                    <div class="col-12 col-sm-6"">
-                                         <h3 class=" d-flex align-items-start mt-4"
-                                        style="font-size: 22px; font-weight: 500;">
-                                        Step 3: Level the Subfloor
-                                        </h3>
+                                    <div class="col-12 col-sm-6">
+                                        <h5 class="d-flex align-items-start mt-4"
+                                            style="font-size: 22px; font-weight: 500;">
+                                            Step 3: Level the Subfloor
+                                        </h5>
                                         <p>
                                             Uneven floors can lead to lifting, bouncing, or visible ridges.
                                         </p>
@@ -571,11 +617,11 @@
                                         </p>
 
                                     </div>
-                                    <div class="col-12 col-sm-6"">
-                                        <h3 class=" d-flex align-items-start mt-4"
-                                        style="font-size: 22px; font-weight: 500;">
-                                        Step 4: Choose the Right Underlay
-                                        </h3>
+                                    <div class="col-12 col-sm-6">
+                                        <h5 class="d-flex align-items-start mt-4"
+                                            style="font-size: 22px; font-weight: 500;">
+                                            Step 4: Choose the Right Underlay
+                                        </h5>
                                         <p>
                                             Different flooring needs different underlays:
                                         </p>
@@ -599,11 +645,11 @@
                             <div class="container mt-4">
                                 <div class="row">
 
-                                    <div class="col-12 col-sm-6"">
-                                        <h3 class=" d-flex align-items-start mt-4"
-                                        style="font-size: 22px; font-weight: 500;">
-                                        Step 5: Let the Flooring Acclimatise
-                                        </h3>
+                                    <div class="col-12 col-sm-6">
+                                        <h5 class="d-flex align-items-start mt-4"
+                                            style="font-size: 22px; font-weight: 500;">
+                                            Step 5: Let the Flooring Acclimatise
+                                        </h5>
                                         <p>
                                             Most floors need time to adjust to your room:
                                         </p>
@@ -620,11 +666,11 @@
                                         </p>
 
                                     </div>
-                                    <div class="col-12 col-sm-6"">
-                                         <h3 class=" d-flex align-items-start mt-4"
-                                        style="font-size: 22px; font-weight: 500;">
-                                        Step 6: Plan for Height Differences
-                                        </h3>
+                                    <div class="col-12 col-sm-6">
+                                        <h5 class="d-flex align-items-start mt-4"
+                                            style="font-size: 22px; font-weight: 500;">
+                                            Step 6: Plan for Height Differences
+                                        </h5>
                                         <p>
                                             New flooring may sit higher or lower than previous materials:
                                         </p>
@@ -645,11 +691,11 @@
                             </div>
                             <div class="container mt-4">
                                 <div class="row">
-                                    <div class="col-12 "">
-                                          <h3 class=" d-flex align-items-start mt-4"
-                                        style="font-size: 22px; font-weight: 500;">
-                                        Step 7: Talk to Your Fitter (or Us!)
-                                        </h3>
+                                    <div class="col-12">
+                                        <h5 class="d-flex align-items-start mt-4"
+                                            style="font-size: 22px; font-weight: 500;">
+                                            Step 7: Talk to Your Fitter (or Us!)
+                                        </h5>
                                         <p>
                                             A smooth floor starts with good communication. Ask:
                                         </p>
@@ -671,22 +717,22 @@
                             </div>
 
                             <div class="container mb-4">
-                                <h3 class="d-flex align-items-start mt-4" style="font-size: 24px; font-weight: 500;">
+                                <h5 class="d-flex align-items-start mt-4" style="font-size: 24px; font-weight: 500;">
                                     🛠️ Floor Type–Specific Prep Advice (Step-by-Step)
-                                </h3>
+                                </h5>
                                 <p>
                                     Choosing the right flooring is only part of the story. The way you prepare your
-                                    subfloor can make or break the final result. Here’s how to get it right—for every
+                                    subfloor can make or break the final result. Here's how to get it right—for every
                                     major flooring type we offer.
                                 </p>
                             </div>
                             <div class="container mt-4">
                                 <div class="row">
-                                    <div class="col-12 col-sm-6"">
-                                         <h3 class=" d-flex align-items-start mt-4"
-                                        style="font-size: 22px; font-weight: 500;">
-                                        🧸 Carpet
-                                        </h3>
+                                    <div class="col-12 col-sm-6">
+                                        <h5 class="d-flex align-items-start mt-4"
+                                            style="font-size: 22px; font-weight: 500;">
+                                            🧸 Carpet
+                                        </h5>
                                         <p>
                                             <b> Best For:</b> Bedrooms, Living Rooms, Stairs
                                         </p>
@@ -716,11 +762,11 @@
                                         <p>👉 Pro Tip: Hire a professional for a seamless finish and proper gripper
                                             installation</p>
                                     </div>
-                                    <div class="col-12 col-sm-6"">
-                                         <h3 class=" d-flex align-items-start mt-4"
-                                        style="font-size: 22px; font-weight: 500;">
-                                        🪄 Luxury Vinyl Tiles (LVT)
-                                        </h3>
+                                    <div class="col-12 col-sm-6">
+                                        <h5 class="d-flex align-items-start mt-4"
+                                            style="font-size: 22px; font-weight: 500;">
+                                            🪄 Luxury Vinyl Tiles (LVT)
+                                        </h5>
                                         <p>
                                             Best For: Kitchens, Bathrooms, Hallways
                                         </p>
@@ -743,17 +789,17 @@
                                             🧩 Lay tiles once cured and dry
                                             <br />
                                         </p>
-                                        <p>👉 Pro Tip: Levelling is technical—this one’s best left to the pros.</p>
+                                        <p>👉 Pro Tip: Levelling is technical—this one's best left to the pros.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="container mt-4">
                                 <div class="row">
-                                    <div class="col-12 col-sm-6"">
-                                         <h3 class=" d-flex align-items-start mt-4"
-                                        style="font-size: 22px; font-weight: 500;">
-                                        🧰 Laminate
-                                        </h3>
+                                    <div class="col-12 col-sm-6">
+                                        <h5 class="d-flex align-items-start mt-4"
+                                            style="font-size: 22px; font-weight: 500;">
+                                            🧰 Laminate
+                                        </h5>
                                         <p>
                                             <b> Best For:</b> Living Rooms, Dining Areas, Offices
                                         </p>
@@ -782,11 +828,11 @@
                                         </p>
                                         <p>👉 DIY Friendly: Many homeowners enjoy laying laminate themselves.</p>
                                     </div>
-                                    <div class="col-12 col-sm-6"">
-                                         <h3 class=" d-flex align-items-start mt-4"
-                                        style="font-size: 22px; font-weight: 500;">
-                                        🌳 Engineered Wood
-                                        </h3>
+                                    <div class="col-12 col-sm-6">
+                                        <h5 class="d-flex align-items-start mt-4"
+                                            style="font-size: 22px; font-weight: 500;">
+                                            🌳 Engineered Wood
+                                        </h5>
                                         <p>
                                             <b> Best For:</b> Hallways, Lounges, Open-plan Living
                                         </p>
@@ -817,11 +863,11 @@
                             </div>
                             <div class="container mt-4">
                                 <div class="row">
-                                    <div class="col-12 col-sm-6"">
-                                        <h3 class=" d-flex align-items-start mt-4"
-                                        style="font-size: 22px; font-weight: 500;">
-                                        🌿 Artificial Grass (Indoor & Outdoor)
-                                        </h3>
+                                    <div class="col-12 col-sm-6">
+                                        <h5 class="d-flex align-items-start mt-4"
+                                            style="font-size: 22px; font-weight: 500;">
+                                            🌿 Artificial Grass (Indoor & Outdoor)
+                                        </h5>
                                         <p>
                                             <b>Outdoor Prep:</b>
                                         </p>
@@ -841,24 +887,25 @@
                                         <p>
                                             <b>Indoor Prep:</b>
                                         </p>
-                                        <span class="mr-1" style="font-size: 22px">• </span>
-                                        🧼 Clean & level subfloor
-                                        <br />
-                                        <span class="mr-1" style="font-size: 22px">• </span>
-                                        🧽 Lay shockpad underlay (10–20mm)
-                                        <br />
-                                        <span class="mr-1" style="font-size: 22px">• </span>
-                                        🧴 Fix grass with tackifier or double-sided tape
-                                        <br />
+                                        <p>
+                                            <span class="mr-1" style="font-size: 22px">• </span>
+                                            🧼 Clean & level subfloor
+                                            <br />
+                                            <span class="mr-1" style="font-size: 22px">• </span>
+                                            🧽 Lay shockpad underlay (10–20mm)
+                                            <br />
+                                            <span class="mr-1" style="font-size: 22px">• </span>
+                                            🧴 Fix grass with tackifier or double-sided tape
+                                            <br />
                                         </p>
                                         <p>👉 DIY Friendly: Especially for small indoor spaces. Outdoors? Best left to
                                             landscapers.</p>
                                     </div>
-                                    <div class="col-12 col-sm-6"">
-                                         <h3 class=" d-flex align-items-start mt-4"
-                                        style="font-size: 22px; font-weight: 500;">
-                                        🪵 Natural Flooring (Sisal, Seagrass, Coir)
-                                        </h3>
+                                    <div class="col-12 col-sm-6">
+                                        <h5 class="d-flex align-items-start mt-4"
+                                            style="font-size: 22px; font-weight: 500;">
+                                            🪵 Natural Flooring (Sisal, Seagrass, Coir)
+                                        </h5>
                                         <p>
                                             <b> Best For:</b> Bedrooms, Hallways (Dry Areas Only)
                                         </p>
@@ -895,8 +942,8 @@
                             <article class="quote-classic mt-4">
                                 <div class="quote-classic-text">
                                     <p class="q">
-                                        ✨ The perfect floor starts with what you can’t see—good preparation means
-                                        beautiful, long-lasting results you’ll love every day.
+                                        ✨ The perfect floor starts with what you can't see—good preparation means
+                                        beautiful, long-lasting results you'll love every day.
                                     </p>
                                 </div>
                             </article>
@@ -907,13 +954,13 @@
                                     <!-- Need More Help? Section -->
                                     <div class="col-sm-12 col-md-6 my-4">
                                         <div>
-                                            <h3 class="d-flex align-items-start mt-4"
+                                            <h5 class="d-flex align-items-start mt-4"
                                                 style="font-size: 24px; font-weight: 500;">
                                                 Need More Help?
-                                            </h3>
+                                            </h5>
                                             <p>
                                                 Visit <b>Devlin Wholesale,</b> your local flooring experts. Whether
-                                                you’re laying carpet, LVT, laminate, or vinyl, we’re happy to advise on
+                                                you're laying carpet, LVT, laminate, or vinyl, we're happy to advise on
                                                 floor prep for your home.
                                             </p>
                                         </div>
@@ -930,27 +977,6 @@
                                 </div>
                             </div>
 
-                            <!-- 
-                            <div class="container">
-                                <div class="row">
-                                    Download Section
-                                    <div class="col-12 mb-4">
-                                        <div class="row">
-                                            <h5 class="d-flex align-items-start">
-                                                📥 Download the Free Checklist PDF
-                                            </h5>
-                                            <p>
-                                                Want to take this with you? Download our printable version to keep handy
-                                                while shopping.
-                                            </p>
-                                        </div>
-                                        <p>
-                                            📎 <a href="#" id="downloadLink" class="text-primary fw-bold">Get the
-                                                Checklist</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div> -->
                             <!-- share this post -->
                             <div class="single-post-footer">
                                 <div class="group-lg group-sm-justify">
@@ -977,6 +1003,7 @@
 
                     </div>
                 </div>
+            </div>
         </section>
         <!-- Page Footer-->
         <footer class="section section-md footer-creative context-dark">

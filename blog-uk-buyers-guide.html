@@ -38,6 +38,53 @@
             display: block;
         }
     </style>
+    <style>
+        /* Mobile-specific overrides */
+        @media (max-width: 767.98px) {
+
+            .single-post h1,
+            .single-post h5,
+            .single-post p,
+            .single-post .quote-classic-text p,
+            .single-post h6 {
+                text-align: left !important;
+                justify-content: flex-start !important;
+                align-items: flex-start !important;
+            }
+
+            .single-post .d-flex {
+                justify-content: flex-start !important;
+                align-items: flex-start !important;
+            }
+
+            .single-post .text-start {
+                text-align: left !important;
+            }
+
+            /* Fix any center alignment classes on mobile */
+            .single-post .text-center,
+            .single-post .justify-content-center {
+                text-align: left !important;
+                justify-content: flex-start !important;
+            }
+
+            /* Mobile font size adjustments */
+            .single-post h1 {
+                font-size: 26px !important;
+            }
+
+            .single-post h5 {
+                font-size: 19px !important;
+            }
+
+            /* Center specific elements on mobile */
+            .single-post .button-winona {
+                margin: 0 auto !important;
+                display: block !important;
+                width: fit-content !important;
+            }
+        }
+    </style>
     <!-- Organization Schema -->
     <script type="application/ld+json">
 {
@@ -448,6 +495,9 @@
                 </ul>
             </div>
         </section>
+
+
+
         <!-- Grid Blog-->
         <section class="section section-lg bg-default">
             <div class="container">
@@ -455,7 +505,7 @@
                     <div class="col-lg-12">
                         <div class="single-post section-style-2">
                             <h1 class="d-flex align-items-start" style="font-size:32px;">
-                                🏡 The Best Flooring for Every Room in Your Home – A Practical UK Buyer’s Guide.
+                                🏡 The Best Flooring for Every Room in Your Home – A Practical UK Buyer's Guide.
                             </h1>
 
                             <div class="group-md group-middle">
@@ -467,8 +517,8 @@
                                                     href="#">Michael Devlin</a></span>
                                         </li>
                                         <!-- <li class="post-classic-views">
-                        <span class="icon mdi mdi-eye"></span><span>3678</span>
-                      </li> -->
+                    <span class="icon mdi mdi-eye"></span><span>3678</span>
+                  </li> -->
                                         <li class="post-classic-readtime">
                                             <span class="icon mdi mdi-book-open-variant"></span>
                                             <span>3 minutes read</span>
@@ -479,25 +529,28 @@
                             </div>
 
                             <div class="mb-4">
-                                <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                                <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                                     🔥 Choose the Right Flooring for Every Room in Your Home
-                                </h3>
+                                </h5>
                                 <p>
-                                    Not all floors are created equal — and neither are the rooms in your home. Whether
+                                    Not all floors are created equal — and neither are the rooms in your home.
+                                    Whether
                                     you're renovating or replacing worn-out floors, this practical UK-focused guide
-                                    breaks down <b> which flooring works best in each space,</b> balancing durability,
+                                    breaks down <b> which flooring works best in each space,</b> balancing
+                                    durability,
                                     comfort,
                                     and cost.
                                 </p>
                             </div>
                             <div class="container mb-4">
-                                <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                                <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                                     🛋 Living Room – Durable with Style
-                                </h3>
+                                </h5>
                                 <p>
                                     The living room is often a high-traffic zone and a visual focal point. <b>
                                         Laminate</b> or
-                                    <b> LVT</b> offers style, durability, and ease of maintenance. Both mimic wood or
+                                    <b> LVT</b> offers style, durability, and ease of maintenance. Both mimic wood
+                                    or
                                     stone
                                     finishes for that premium look without the price tag.
                                 </p>
@@ -505,52 +558,57 @@
                                     durability and warmth.</p>
                             </div>
                             <div class="container mb-4">
-                                <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                                <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                                     🍽 Dining Room – Easy Clean-Up
-                                </h3>
+                                </h5>
                                 <p>
                                     Spills are bound to happen. <b> Laminate </b>and <b>LVT</b> are perfect here —
-                                    they’re stain-resistant, easy to clean, and stand up well to the movement of chairs
+                                    they're stain-resistant, easy to clean, and stand up well to the movement of
+                                    chairs
                                     and table legs.
                                 </p>
                                 <p><b>Tip:</b> Go for textured finishes to help hide scuffs or scratches.</p>
                             </div>
                             <div class="container mb-4">
-                                <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                                <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                                     🚿 Bathroom – Waterproof & Safe
-                                </h3>
+                                </h5>
                                 <p>
-                                    Moisture is the main factor in bathrooms. The clear winner? <b> Luxury Vinyl Tile
-                                        (LVT) </b>. It’s 100% waterproof, slip-resistant when textured, and comes in
+                                    Moisture is the main factor in bathrooms. The clear winner? <b> Luxury Vinyl
+                                        Tile
+                                        (LVT) </b>. It's 100% waterproof, slip-resistant when textured, and comes in
                                     endless designs.
                                 </p>
                                 <p><b>Avoid:</b> Laminate and most carpets here — moisture is their enemy.</p>
                             </div>
                             <div class="container mb-4">
-                                <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                                <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                                     🍳 Kitchen – Tough & Spill-Resistant
-                                </h3>
+                                </h5>
                                 <p>
-                                    Kitchens need flooring that’s durable, moisture-resistant, and low maintenance. LVT
-                                    again takes the top spot. For budget-conscious households, water-resistant laminate
+                                    Kitchens need flooring that's durable, moisture-resistant, and low maintenance.
+                                    LVT
+                                    again takes the top spot. For budget-conscious households, water-resistant
+                                    laminate
                                     is a solid alternative.
                                 </p>
-                                <p><b>Pro Tip:</b> Choose a style that complements your cabinets and worktops to tie the
+                                <p><b>Pro Tip:</b> Choose a style that complements your cabinets and worktops to tie
+                                    the
                                     room together.</p>
                             </div>
                             <!-- Quote Classic-->
                             <article class="quote-classic mt-4">
                                 <div class="quote-classic-text">
                                     <p class="q">
-                                        ✨ The right flooring doesn’t just transform your space—it brings comfort,
+                                        ✨ The right flooring doesn't just transform your space—it brings comfort,
                                         beauty, and lasting value to the place you call home.
                                     </p>
                                 </div>
                             </article>
                             <div class="container mb-4">
-                                <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                                <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                                     🧺 Hallways & Stairs – High-Traffic Heroes
-                                </h3>
+                                </h5>
                                 <p>
                                     Hallways and stairs take a beating. <b> Carpet </b> offers slip resistance and
                                     muffles noise. Choose <b> twist pile or loop pile carpets </b>for resilience and
@@ -560,23 +618,26 @@
                                     with adjoining spaces.</p>
                             </div>
                             <div class="container mb-4">
-                                <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
-                                    🧸 Children’s Rooms – Safe & Soundproof
-                                </h3>
+                                <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                                    🧸 Children's Rooms – Safe & Soundproof
+                                </h5>
                                 <p>
-                                    Comfort and safety matter most. Carpet is soft for playtime and reduces impact from
-                                    falls. For older kids, LVT works well — it’s easy to clean after messes and resists
+                                    Comfort and safety matter most. Carpet is soft for playtime and reduces impact
+                                    from
+                                    falls. For older kids, LVT works well — it's easy to clean after messes and
+                                    resists
                                     wear.
                                 </p>
                                 <p><b>Look for:</b>Low-VOC options to ensure healthier indoor air.</p>
                             </div>
                             <div class="container mb-4">
-                                <h3 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
+                                <h5 class="d-flex align-items-start mt-4" style="font-size: 22px; font-weight: 500;">
                                     🧑‍💻 Home Office – Comfortable & Practical
-                                </h3>
+                                </h5>
                                 <p>
                                     Whether full-time or hybrid working, flooring should support comfort and reduce
-                                    noise. <b> Laminate</b> or <b> LVT</b> gives a clean, professional look and handles
+                                    noise. <b> Laminate</b> or <b> LVT</b> gives a clean, professional look and
+                                    handles
                                     rolling chairs better than carpet.
                                 </p>
                                 <p><b>Bonus:</b>Add a rug for warmth and aesthetic flair.</p>
@@ -585,12 +646,13 @@
                                 <div class="row">
                                     <!-- Final Thoughts Section -->
                                     <div class="col-sm-12 col-md-6">
-                                        <h3 class="d-flex align-items-start" style="font-size: 22px; font-weight: 500;">
+                                        <h5 class="d-flex align-items-start" style="font-size: 22px; font-weight: 500;">
                                             Final Thoughts
-                                        </h3>
+                                        </h5>
                                         <p>
                                             The right flooring depends on how each room is used. Think about <b>foot
-                                                traffic, moisture, comfort, and budget.</b> A mix of carpet, LVT, and
+                                                traffic, moisture, comfort, and budget.</b> A mix of carpet, LVT,
+                                            and
                                             laminate often works best for modern UK homes.
                                         </p>
 
@@ -608,7 +670,7 @@
                             </div>
 
                             <p>
-                                🏡 Need help deciding? At Devlin Wholesale, we’re happy to guide you through
+                                🏡 Need help deciding? At Devlin Wholesale, we're happy to guide you through
                                 the options that suit your space, style, and budget.
                             </p>
                             <!-- share this post -->
@@ -639,6 +701,9 @@
                     </div>
                 </div>
         </section>
+
+
+
         <!-- Page Footer-->
         <footer class="section section-md footer-creative context-dark">
             <div class="container">
