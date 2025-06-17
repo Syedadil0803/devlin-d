@@ -61,6 +61,35 @@
       position: fixed;
       width: 100%;
     }
+
+    @media screen and (min-width: 1024px) {
+      .button-wrap.oh-desktop {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    /* Mobile-specific overrides */
+    @media (max-width: 767.98px) {
+
+      .devlin-content h1,
+      .devlin-content h5,
+      .devlin-content h6,
+      .devlin-content p {
+        text-align: left !important;
+      }
+
+      /* Mobile font size adjustments */
+      .devlin-content h5 {
+        font-size: 18px !important;
+      }
+
+      .devlin-content h6 {
+        font-size: 14px !important;
+      }
+    }
   </style>
   <!-- Organization Schema -->
   <script type="application/ld+json">
@@ -480,7 +509,7 @@
                   href="#tabs-4-4" data-toggle="tab">Company values</a></li>
             </ul><a class="button button-lg button-primary button-winona" href="contacts.html">Contact us</a>
           </div>
-          <div class="col-lg-8 col-xl-9">
+          <div class="col-lg-8 col-xl-9 devlin-content">
             <!-- Tab panes-->
             <div class="tab-content tab-content-1">
               <!-- Tab 1: About Devlin (unchanged) -->
@@ -488,10 +517,10 @@
                 <!-- <h5>About Devlin Wholesale</h5> -->
                 <h5 style="font-size: 22px;">Flooring Made Affordable, Personal, and Hassle-Free</h5>
                 <p>
-                  At <b> Devlin Wholesale,</b> we’re more than just a flooring supplier—we’re a <b> family-run
+                  At <b> Devlin Wholesale,</b> we're more than just a flooring supplier—we're a <b> family-run
                     business</b> built on
                   trust, expertise, and genuine care for our customers. Based in <b> Leicester, Tamworth, Minworth,
-                    Lichfield</b> we’ve spent years helping homeowners, landlords, and tradespeople find the perfect
+                    Lichfield</b> we've spent years helping homeowners, landlords, and tradespeople find the perfect
                   flooring
                   at <b> unbeatable wholesale prices.</b>
                 </p>
@@ -526,11 +555,11 @@
                 <p>
                   Our <b> Showrooms</b> are open to everyone—walk in, browse freely, and speak to our friendly team who
                   are
-                  always ready to help, not to sell. Whether you’re renovating a single room or refitting a full
-                  property, we’re here to make flooring simple, affordable, and even enjoyable.
+                  always ready to help, not to sell. Whether you're renovating a single room or refitting a full
+                  property, we're here to make flooring simple, affordable, and even enjoyable.
                 </p>
                 <p>
-                  Most of our customers come back or refer us to others—and that’s the biggest compliment we could ask
+                  Most of our customers come back or refer us to others—and that's the biggest compliment we could ask
                   for. We believe in <b> building long-term relationships</b> through great service, trusted products,
                   and honest pricing.
                 </p>
@@ -545,10 +574,10 @@
                 <h6 class="texy-spacing-100 mt-4" style="font-size: 16px;">Delivering Comfort, Style & Value to Every
                   Home </h6>
                 <p>
-                  At Devlin Wholesale, our mission is to make high-quality flooring accessible to all. We’re committed
+                  At Devlin Wholesale, our mission is to make high-quality flooring accessible to all. We're committed
                   to offering unbeatable value with a wide choice of carpets and flooring, expert advice, and
                   exceptional service—all at wholesale prices. Every home deserves comfort, style, and lasting quality,
-                  and we’re here to make that transformation simple, affordable, and stress-free.
+                  and we're here to make that transformation simple, affordable, and stress-free.
                 </p>
 
                 <hr class="my-4"> <!-- Spacing between mission and vision -->
@@ -559,7 +588,7 @@
                   We aim to become the most trusted name in carpets and flooring across Leicestershire—known for
                   affordability, quality, and honest service. As we grow, our vision is to reshape how people shop for
                   flooring, setting new benchmarks in choice, customer care, and everyday value. Whether it's one room
-                  or a full property, we’re here to be your first and only stop for flooring that truly makes a
+                  or a full property, we're here to be your first and only stop for flooring that truly makes a
                   difference.
                 </p>
               </div>
@@ -569,8 +598,8 @@
                 <h5 class="text-spacing-100">Our Commitment to Flooring Excellence</h5>
 
                 <p>
-                  At Devlin Wholesale, our mission goes beyond simply selling flooring — we’re here to ensure every
-                  customer finds the perfect flooring solution, whether they’re seeking premium elegance or
+                  At Devlin Wholesale, our mission goes beyond simply selling flooring — we're here to ensure every
+                  customer finds the perfect flooring solution, whether they're seeking premium elegance or
                   budget-friendly practicality. Through honest pricing, exceptional service, and trusted advice, we
                   deliver confidence, quality, and unbeatable value with every step.
                 </p>
@@ -591,7 +620,7 @@
                 </p>
 
                 <p><strong>A Focus on Satisfaction & Loyalty</strong><br>
-                  We’re proud to earn repeat business and referrals through reliable service, smooth installations, and
+                  We're proud to earn repeat business and referrals through reliable service, smooth installations, and
                   results that delight.
                 </p>
 
@@ -630,7 +659,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -803,9 +831,10 @@
         </div>
       </div>
     </section>
-     <div class="container">
-        <h5 class="oh mb-4"><span class="d-inline-block wow slideInUp" data-wow-delay="0s">Wondering what makes Devlin different?</span></h5>
-                 </div>
+    <div class="container">
+      <h5 class="oh mb-4"><span class="d-inline-block wow slideInUp" data-wow-delay="0s">Wondering what makes Devlin
+          different?</span></h5>
+    </div>
     <!-- Our History-->
     <section class="section section-lg bg-gray-100 text-left section-relative">
       <div class="container">
@@ -867,7 +896,6 @@
     "></div>
             </div>
           </div> -->
-          
           <div class="col-md-9 col-lg-6 position-static index-1">
             <div class="bg-image-right-1 bg-image-right-lg"><img src="images/about-5-1110x710.jpg" alt="" width="1110"
                 height="710" />
@@ -877,11 +905,11 @@
                 <div class="link-play-modern-decor"></div>
               </div> -->
               <!-- Trigger -->
-                
+
               <div class="video-modal-section">
                 <!-- Play Button -->
                 <div class="link-play-modern" onclick="showInstantLoader(); openFacebookModal();">
-                  <a class="icon mdi mdi-play" style="cursor:pointer;"></a>               
+                  <a class="icon mdi mdi-play" style="cursor:pointer;"></a>
                   <div class="link-play-modern-title">Click to <span> Watch</span></div>
                   <div class="link-play-modern-decor"></div>
                 </div>
@@ -928,8 +956,7 @@
         </div>
       </div>
     </section>
-    <!-- Our clients-->
-    <!-- Grid Blog-->
+    <!-- Our Stores-->
     <section class="section section-lg bg-default">
       <div class="container">
         <h3 class="oh"><span class="d-inline-block wow slideInUp" data-wow-delay="0s">Our Stores</span></h3>
