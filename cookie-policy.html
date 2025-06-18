@@ -178,6 +178,117 @@
             margin-bottom: 0;
         }
     </style>
+    <!-- privacy pilicy stylings -->
+    <style>
+        .text-md-left {
+            text-align: left;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h3 {
+            margin-bottom: 1rem;
+
+        }
+
+        .last-updated {
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .content-block {
+            margin-bottom: 2rem;
+        }
+
+        .content-block h4 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .content-block p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .content-block ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-block li {
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+
+
+        .browser-links {
+            margin-top: 1rem;
+        }
+
+        .browser-links ul {
+            list-style-type: disc;
+        }
+
+        .a-class {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .a-class:hover {
+            text-decoration: underline;
+        }
+
+        .bullet-list {
+            list-style-type: disc !important;
+            margin: 1rem 0 !important;
+            padding-left: 2rem !important;
+        }
+
+        .bullet-list li {
+            list-style-type: disc !important;
+            display: list-item !important;
+        }
+
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+
+
+            .content-block p {
+                text-align: justify;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+                -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+            }
+
+            h3 {
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+
+            .last-updated {
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+
+
+        }
+
+        @media (max-width: 480px) {
+
+
+            .content-block {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -257,95 +368,20 @@
                                         <li class="rd-nav-item">
                                             <a class="rd-nav-link" href="./">Home</a>
                                         </li>
-                                        <!-- <li class="rd-nav-item"><a class="rd-nav-link" href="#">Pages</a>
-                          RD Navbar Megamenu
-                          <ul class="rd-menu rd-navbar-megamenu">
-                            <li class="rd-megamenu-item">
-                              <h6 class="rd-megamenu-title">Services</h6>
-                              <ul class="rd-megamenu-list">
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="services.html">Services</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="single-service.html">Single service</a></li>
-                              </ul>
-                            </li>
-                            <li class="rd-megamenu-item">
-                              <h6 class="rd-megamenu-title">Additional Pages</h6>
-                              <ul class="rd-megamenu-list">
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="404-page.html">404 page</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="coming-soon.html">Coming soon</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="counters.html">Counters</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="icon-lists.html">Icon lists</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="search-results.html">Search results</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="privacy-policy.html">Privacy policy</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="contacts.html">Contacts</a></li>
-                              </ul>
-                            </li>
-                            <li class="rd-megamenu-item">
-                              <h6 class="rd-megamenu-title">Elements</h6>
-                              <ul class="rd-megamenu-list">
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="typography.html">Typography</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="buttons.html">Buttons</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="forms.html">Forms</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tabs-and-accordions.html">Tabs and accordions</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="progress-bars.html">Progress bars</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="grid-system.html">Grid system</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tables.html">Tables</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li> -->
+
                                         <li class="rd-nav-item">
                                             <a class="rd-nav-link" href="products.html">Products</a>
-                                            <!-- RD Navbar Dropdown-->
-                                            <!-- <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link"  href="services.html">Product</a></li>
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="single-service.html">Product Single</a></li>
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="checkout.html">Checkout</a></li>
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="cart-page.html">Cart page</a></li>
-                          </ul> -->
                                         </li>
                                         <li class="rd-nav-item">
                                             <a class="rd-nav-link" href="services.html">Services</a>
-                                            <!-- RD Navbar Dropdown-->
-                                            <!-- <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link"  href="services.html">Services</a></li>
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="single-service.html">Single service</a></li>
-                          </ul> -->
                                         </li>
                                         <li class="rd-nav-item">
                                             <a class="rd-nav-link" href="projects.html">Projects</a>
-                                            <!-- RD Navbar Dropdown-->
-                                            <!-- <ul class="rd-menu rd-navbar-dropdown">
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="projects.html">Projects</a>
-                        </li>
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="grid-gallery.html">Grid
-                            Gallery</a>
-                        </li>
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="project-page.html">Project
-                            page</a>
-                        </li>
-                      </ul> -->
-                                        </li>
                                         <li class="rd-nav-item">
                                             <a class="rd-nav-link" href="grid-blog.html">Blogs</a>
-                                            <!-- RD Navbar Dropdown-->
-                                            <!-- <ul class="rd-menu rd-navbar-dropdown">
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="grid-blog.html">Grid blog</a>
-                        </li>
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="masonry-blog.html">Masonry
-                            blog</a>
-                        </li>
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="blog-post.html">Blog post</a>
-                        </li>
-                      </ul> -->
                                         </li>
                                         <li class="rd-nav-item">
-                                            <a class="rd-nav-link" href="about-us.html">Connect</a>
+                                            <a class="rd-nav-link" href="#">Connect</a>
                                             <ul class="rd-menu rd-navbar-dropdown">
                                                 <li class="rd-dropdown-item">
                                                     <a class="rd-dropdown-link" href="about-us.html">About Us</a>
@@ -359,11 +395,6 @@
                                 </div>
                             </div>
                             <div class="rd-navbar-collapse">
-                                <!-- <ul class="rd-navbar-contacts-4">
-                      <li><span class="icon mdi mdi-phone"></span><span class="link-wrap"><a class="phone" href="tel:#">+1 718-999-3939</a></span></li>
-                      <li><span class="icon mdi mdi-email-outline"></span><span class="link-wrap"><a class="mail" href="mailto:#">info@demolink.org</a></span></li>
-                      <li><span class="icon mdi mdi-map-marker"></span><span class="link-wrap"><a class="address" href="#">514 S. Magnolia St. Orlando, FL 32806</a></span></li>
-                    </ul> -->
                                 <ul class="list-inline footer-social-list footer-social-list-2">
                                     <li>
                                         <a class="icon-header mdi mdi-facebook"
@@ -400,122 +431,12 @@
             <div class="container">
                 <ul class="breadcrumbs-custom-path">
                     <li><a href="./">Home</a></li>
-                    <li><a href="#">Pages</a></li>
+                    <!-- <li><a href="#">Pages</a></li> -->
                     <li class="active">Cookie Policy</li>
                 </ul>
             </div>
         </section>
         <!-- Privacy Policy-->
-        <style>
-            .text-md-left {
-                text-align: left;
-            }
-
-            .container {
-                width: 100%;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 15px;
-            }
-
-            h3 {
-                margin-bottom: 1rem;
-
-            }
-
-            .last-updated {
-                margin-bottom: 2rem;
-                font-style: italic;
-            }
-
-            .content-block {
-                margin-bottom: 2rem;
-            }
-
-            .content-block h4 {
-                margin-bottom: 1rem;
-                font-size: 1.25rem;
-            }
-
-            .content-block p {
-                line-height: 1.6;
-                margin-bottom: 1rem;
-            }
-
-            .content-block ul {
-                margin: 1rem 0;
-                padding-left: 2rem;
-            }
-
-            .content-block li {
-                line-height: 1.6;
-                margin-bottom: 0.5rem;
-            }
-
-
-
-            .browser-links {
-                margin-top: 1rem;
-            }
-
-            .browser-links ul {
-                list-style-type: disc;
-            }
-
-            .a-class {
-                color: #007bff;
-                text-decoration: none;
-            }
-
-            .a-class:hover {
-                text-decoration: underline;
-            }
-
-            .bullet-list {
-                list-style-type: disc !important;
-                margin: 1rem 0 !important;
-                padding-left: 2rem !important;
-            }
-
-            .bullet-list li {
-                list-style-type: disc !important;
-                display: list-item !important;
-            }
-
-            /* Mobile responsive styles */
-            @media (max-width: 768px) {
-
-
-                .content-block p {
-                    text-align: justify;
-                    word-wrap: break-word;
-                    overflow-wrap: break-word;
-                    hyphens: auto;
-                    -webkit-hyphens: auto;
-                    -ms-hyphens: auto;
-                }
-
-                h3 {
-                    text-align: center;
-                    margin-bottom: 0.5rem;
-                }
-
-                .last-updated {
-                    text-align: center;
-                    margin-bottom: 1.5rem;
-                }
-
-
-            }
-
-            @media (max-width: 480px) {
-
-
-                .content-block {
-                    margin-bottom: 1.5rem;
-                }
-            }
-        </style>
         <section class="section section-lg bg-default text-md-left">
             <div class="container">
                 <h3>Cookie Policy</h3>
@@ -547,10 +468,10 @@
                     <div class="cookie-type">2. Performance & Analytics Cookies</div>
                     <p>We use <strong>Google Analytics</strong> to collect information about how visitors use our site.
                         These cookies help us understand:</p>
-                     <ul class="bullet-list"></ul>
-                        <li>Which pages are most visited</li>
-                        <li>How users move around the site</li>
-                        <li>How long visitors stay on pages</li>
+                    <ul class="bullet-list"></ul>
+                    <li>Which pages are most visited</li>
+                    <li>How users move around the site</li>
+                    <li>How long visitors stay on pages</li>
                     </ul>
                     <p>The data collected is aggregated and anonymous — it does not personally identify you. To learn
                         more about how Google handles data, visit: <a class="a-class"

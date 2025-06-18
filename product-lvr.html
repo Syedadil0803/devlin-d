@@ -46,6 +46,54 @@
       display: block;
     }
   </style>
+    <!-- Accordian footer -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Remove white background from accordion buttons and add dropdown icons */
+    .accordion-button {
+      background-color: transparent !important;
+      color: inherit !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0.75rem 0 !important;
+      position: relative;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: transparent !important;
+      color: inherit !important;
+    }
+
+    .accordion-button:focus {
+      box-shadow: none !important;
+      border-color: transparent !important;
+    }
+
+    /* Add custom dropdown icon */
+    .accordion-button::after {
+      content: '\f107';
+      /* Font Awesome chevron-down */
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      background-image: none !important;
+      transform: none !important;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-button:not(.collapsed)::after {
+      transform: rotate(180deg);
+    }
+
+    /* Remove default Bootstrap accordion styling */
+    .accordion-item {
+      background-color: transparent;
+      border: none;
+    }
+
+    .accordion-header {
+      margin-bottom: 0;
+    }
+  </style>
   <!-- Organization Schema -->
   <script type="application/ld+json">
 {
@@ -395,95 +443,20 @@
                     <li class="rd-nav-item">
                       <a class="rd-nav-link" href="./">Home</a>
                     </li>
-                    <!-- <li class="rd-nav-item"><a class="rd-nav-link" href="#">Pages</a>
-                          RD Navbar Megamenu
-                          <ul class="rd-menu rd-navbar-megamenu">
-                            <li class="rd-megamenu-item">
-                              <h6 class="rd-megamenu-title">Services</h6>
-                              <ul class="rd-megamenu-list">
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="services.html">Services</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="single-service.html">Single service</a></li>
-                              </ul>
-                            </li>
-                            <li class="rd-megamenu-item">
-                              <h6 class="rd-megamenu-title">Additional Pages</h6>
-                              <ul class="rd-megamenu-list">
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="404-page.html">404 page</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="coming-soon.html">Coming soon</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="counters.html">Counters</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="icon-lists.html">Icon lists</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="search-results.html">Search results</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="privacy-policy.html">Privacy policy</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="contacts.html">Contacts</a></li>
-                              </ul>
-                            </li>
-                            <li class="rd-megamenu-item">
-                              <h6 class="rd-megamenu-title">Elements</h6>
-                              <ul class="rd-megamenu-list">
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="typography.html">Typography</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="buttons.html">Buttons</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="forms.html">Forms</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tabs-and-accordions.html">Tabs and accordions</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="progress-bars.html">Progress bars</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="grid-system.html">Grid system</a></li>
-                                <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tables.html">Tables</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li> -->
-                    <li class="rd-nav-item">
+
+                    <li class="rd-nav-item active">
                       <a class="rd-nav-link" href="products.html">Products</a>
-                      <!-- RD Navbar Dropdown-->
-                      <!-- <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link"  href="services.html">Product</a></li>
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="single-service.html">Product Single</a></li>
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="checkout.html">Checkout</a></li>
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="cart-page.html">Cart page</a></li>
-                          </ul> -->
                     </li>
                     <li class="rd-nav-item">
                       <a class="rd-nav-link" href="services.html">Services</a>
-                      <!-- RD Navbar Dropdown-->
-                      <!-- <ul class="rd-menu rd-navbar-dropdown">
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link"  href="services.html">Services</a></li>
-                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="single-service.html">Single service</a></li>
-                          </ul> -->
                     </li>
                     <li class="rd-nav-item">
                       <a class="rd-nav-link" href="projects.html">Projects</a>
-                      <!-- RD Navbar Dropdown-->
-                      <!-- <ul class="rd-menu rd-navbar-dropdown">
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="projects.html">Projects</a>
-                        </li>
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="grid-gallery.html">Grid
-                            Gallery</a>
-                        </li>
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="project-page.html">Project
-                            page</a>
-                        </li>
-                      </ul> -->
-                    </li>
                     <li class="rd-nav-item">
                       <a class="rd-nav-link" href="grid-blog.html">Blogs</a>
-                      <!-- RD Navbar Dropdown-->
-                      <!-- <ul class="rd-menu rd-navbar-dropdown">
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="grid-blog.html">Grid blog</a>
-                        </li>
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="masonry-blog.html">Masonry
-                            blog</a>
-                        </li>
-                        <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" href="blog-post.html">Blog post</a>
-                        </li>
-                      </ul> -->
                     </li>
-                    <li class="rd-nav-item active">
-                      <a class="rd-nav-link" href="about-us.html">Connect</a>
+                    <li class="rd-nav-item">
+                      <a class="rd-nav-link" href="#">Connect</a>
                       <ul class="rd-menu rd-navbar-dropdown">
                         <li class="rd-dropdown-item">
                           <a class="rd-dropdown-link" href="about-us.html">About Us</a>
@@ -497,11 +470,6 @@
                 </div>
               </div>
               <div class="rd-navbar-collapse">
-                <!-- <ul class="rd-navbar-contacts-4">
-                      <li><span class="icon mdi mdi-phone"></span><span class="link-wrap"><a class="phone" href="tel:#">+1 718-999-3939</a></span></li>
-                      <li><span class="icon mdi mdi-email-outline"></span><span class="link-wrap"><a class="mail" href="mailto:#">info@demolink.org</a></span></li>
-                      <li><span class="icon mdi mdi-map-marker"></span><span class="link-wrap"><a class="address" href="#">514 S. Magnolia St. Orlando, FL 32806</a></span></li>
-                    </ul> -->
                 <ul class="list-inline footer-social-list footer-social-list-2">
                   <li>
                     <a class="icon-header mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/"
@@ -717,7 +685,7 @@
           </div>
         </div>
       </section> -->
-    <!-- Page Footer-->
+       <!-- page footer -->
     <footer class="section section-md footer-creative context-dark">
       <div class="container">
         <div class="row row-60 justify-content-center justify-content-xl-between">
@@ -753,18 +721,28 @@
               </span>
               <a class="phone">0121 313 2303</a>
             </div>
+            <!-- Lichfield Location -->
+            <div class="store-location mb-3 wow fadeInRight" data-wow-delay=".1s">
+              <h6 class="footer-creative-contacts-title mb-1">
+                Devlin Wholesale Lichfield
+              </h6>
+              <span class="footer-creative-contacts-title small mb-0">Phone:
+              </span>
+              <a class="phone">0154 326 3486</a>
+            </div>
 
             <!-- Social links -->
             <div class="mt-4">
               <ul class="list-inline footer-social-list footer-social-list-2">
                 <li>
-                  <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/"></a>
+                  <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank"></a>
                 </li>
                 <li>
-                  <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en"></a>
+                  <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank"></a>
                 </li>
                 <li>
-                  <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/"></a>
+                  <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/"
+                    target="_blank"></a>
                 </li>
               </ul>
             </div>
@@ -776,62 +754,122 @@
               <span class="d-inline-block wow slideInDown">Opening Hours</span>
             </h5>
 
-            <!-- Store Hours with JavaScript to highlight current day -->
             <div class="store-hours wow fadeInRight">
-              <div class="mb-4">
-                <h6 class="footer-creative-contacts-title">
-                  Leicester & Minworth
-                </h6>
-                <ul class="list-unstyled store-hours-list">
-                  <li class="d-flex justify-content-between day-monday">
-                    <span>Monday</span><span>9:00 am - 6:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-tuesday">
-                    <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-wednesday">
-                    <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-thursday">
-                    <span>Thursday</span><span>9:00 am - 6:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-friday">
-                    <span>Friday</span><span>9:00 am - 6:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-saturday">
-                    <span>Saturday</span><span>9:00 am - 5:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-sunday">
-                    <span>Sunday</span><span>10:00 am - 4:00 pm</span>
-                  </li>
-                </ul>
-              </div>
+              <div class="accordion" id="storeHoursAccordion">
+                <!-- Leicester & Minworth -->
+                <div class="accordion-item">
+                  <h6 class="accordion-header" id="headingLeicester">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseLeicester" aria-expanded="true" aria-controls="collapseLeicester">
+                      Leicester & Minworth
+                    </button>
+                  </h6>
 
-              <div class="mb-4">
-                <h6 class="footer-creative-contacts-title">Tamworth</h6>
-                <ul class="list-unstyled store-hours-list">
-                  <li class="d-flex justify-content-between day-monday">
-                    <span>Monday</span><span>9:00 am - 7:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-tuesday">
-                    <span>Tuesday</span><span>9:00 am - 7:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-wednesday">
-                    <span>Wednesday</span><span>9:00 am - 7:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-thursday">
-                    <span>Thursday</span><span>9:00 am - 7:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-friday">
-                    <span>Friday</span><span>9:00 am - 7:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-saturday">
-                    <span>Saturday</span><span>9:00 am - 5:00 pm</span>
-                  </li>
-                  <li class="d-flex justify-content-between day-sunday">
-                    <span>Sunday</span><span>10:00 am - 4:00 pm</span>
-                  </li>
-                </ul>
+                  <div id="collapseLeicester" class="accordion-collapse collapse show"
+                    aria-labelledby="headingLeicester" data-bs-parent="#storeHoursAccordion">
+                    <div class="accordion-body">
+                      <ul class="list-unstyled store-hours-list">
+                        <li class="d-flex justify-content-between day-monday">
+                          <span>Monday</span><span>9:00 am - 6:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-tuesday">
+                          <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-wednesday">
+                          <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-thursday">
+                          <span>Thursday</span><span>9:00 am - 6:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-friday">
+                          <span>Friday</span><span>9:00 am - 6:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-saturday">
+                          <span>Saturday</span><span>9:00 am - 5:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-sunday">
+                          <span>Sunday</span><span>10:00 am - 4:00 pm</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tamworth -->
+                <div class="accordion-item">
+                  <h6 class="accordion-header" id="headingTamworth">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseTamworth" aria-expanded="false" aria-controls="collapseTamworth">
+                      Tamworth
+                    </button>
+                  </h6>
+                  <div id="collapseTamworth" class="accordion-collapse collapse" aria-labelledby="headingTamworth"
+                    data-bs-parent="#storeHoursAccordion">
+                    <div class="accordion-body">
+                      <ul class="list-unstyled store-hours-list">
+                        <li class="d-flex justify-content-between day-monday">
+                          <span>Monday</span><span>9:00 am - 7:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-tuesday">
+                          <span>Tuesday</span><span>9:00 am - 7:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-wednesday">
+                          <span>Wednesday</span><span>9:00 am - 7:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-thursday">
+                          <span>Thursday</span><span>9:00 am - 7:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-friday">
+                          <span>Friday</span><span>9:00 am - 7:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-saturday">
+                          <span>Saturday</span><span>9:00 am - 5:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-sunday">
+                          <span>Sunday</span><span>10:00 am - 4:00 pm</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Lichfield -->
+                <div class="accordion-item">
+                  <h6 class="accordion-header" id="headingLichfield">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseLichfield" aria-expanded="false" aria-controls="collapseLichfield">
+                      Lichfield
+                    </button>
+                  </h6>
+                  <div id="collapseLichfield" class="accordion-collapse collapse" aria-labelledby="headingLichfield"
+                    data-bs-parent="#storeHoursAccordion">
+                    <div class="accordion-body">
+                      <ul class="list-unstyled store-hours-list">
+                        <li class="d-flex justify-content-between day-monday">
+                          <span>Monday</span><span>9:00 am - 6:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-tuesday">
+                          <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-wednesday">
+                          <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-thursday">
+                          <span>Thursday</span><span>9:00 am - 6:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-friday">
+                          <span>Friday</span><span>9:00 am - 6:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-saturday">
+                          <span>Saturday</span><span>9:00 am - 5:00 pm</span>
+                        </li>
+                        <li class="d-flex justify-content-between day-sunday closed">
+                          <span>Sunday</span><span>Closed</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -856,8 +894,11 @@
                 </ul>
                 <!-- Rights-->
                 <p class="rights">
-                  <span>&copy;&nbsp;</span><span class="copyright-year"></span> <span>&nbsp;</span><span>Devlin
-                    Wholesale</span> <span>.&nbsp;</span><a href="privacy-policy.html">Privacy policy</a>
+                  <span>&copy;&nbsp;</span><span class="copyright-year"></span>
+                  <span>&nbsp;</span><span>Devlin
+                    Wholesale</span> <span>.&nbsp;</span><a href="privacy-policy.html">Privacy
+                    policy</a><span>.&nbsp;</span><a href="cookie-policy.html">Cookie
+                    policy</a>
                 </p>
               </div>
             </div>
@@ -867,6 +908,8 @@
       </div>
     </footer>
   </div>
+  <!-- Javascript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <!-- Global Mailform Output-->
   <div class="snackbars" id="form-output-global"></div>
   <!-- Javascript-->
