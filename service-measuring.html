@@ -45,7 +45,7 @@
       display: block;
     }
   </style>
-    <!-- Accordian footer -->
+  <!-- Accordian footer -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     /* Remove white background from accordion buttons and add dropdown icons */
@@ -100,7 +100,7 @@
   "@type": "Organization",
   "name": "Devlin Wholesale",
   "url": "https://www.devlinwholesale.co.uk/",
-  "logo": "https://www.devlinwholesale.co.uk/images/Brand-logo.png",
+  "logo": "https://www.devlinwholesale.co.uk/images/logo-2.png",
   "sameAs": [
     "https://www.facebook.com/DevlinWholesale/",
     "https://twitter.com/devlinwholesale",
@@ -125,13 +125,13 @@
       "@type": "ListItem",
       "position": 2,
       "name": "Services",
-      "item": "https://www.devlinwholesale.co.uk/services"
+      "item": "https://www.devlinwholesale.co.uk/services.html"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Independent Fitting",
-      "item": "https://www.devlinwholesale.co.uk/service-measuring"
+      "name": "Measuring",
+      "item": "https://www.devlinwholesale.co.uk/service-measuring.html"
     }
   ]
 }
@@ -144,7 +144,7 @@
   "@type": "LocalBusiness",
   "@id": "https://www.devlinwholesale.co.uk/#tamworth",
   "name": "Devlin Wholesale – Tamworth",
-  "image": "https://www.devlinwholesale.co.uk/images/Brand-logo.png",
+  "image": "https://www.devlinwholesale.co.uk/images/logo-2.png",
   "url": "https://www.devlinwholesale.co.uk/",
   "telephone": "01827 265526",
   "address": {
@@ -190,7 +190,7 @@
   "@type": "LocalBusiness",
   "@id": "https://www.devlinwholesale.co.uk/#groby",
   "name": "Devlin Wholesale – Groby",
-  "image": "https://www.devlinwholesale.co.uk/images/Brand-logo.png",
+  "image": "https://www.devlinwholesale.co.uk/images/logo-2.png",
   "url": "https://www.devlinwholesale.co.uk/",
   "telephone": "0116 456 0022",
   "address": {
@@ -236,7 +236,7 @@
   "@type": "LocalBusiness",
   "@id": "https://www.devlinwholesale.co.uk/#minworth",
   "name": "Devlin Wholesale – Minworth",
-  "image": "https://www.devlinwholesale.co.uk/images/Brand-logo.png",
+  "image": "https://www.devlinwholesale.co.uk/images/logo-2.png",
   "url": "https://www.devlinwholesale.co.uk/",
   "telephone": "0121 313 2303",
   "address": {
@@ -275,67 +275,113 @@
 }
 </script>
 
-  <!-- Service Schema - Measuring -->
+  <!-- Lichfield LocalBusiness -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Measuring",
-  "description": "Ensure a perfect flooring fit with Devlin Wholesale’s Free Measuring Service. Our experts provide accurate, no-obligation measurements to help you plan confidently for your flooring installation."
-   "serviceType": "Floor Measuring Service"
+  "@type": "LocalBusiness",
+  "@id": "https://www.devlinwholesale.co.uk/#lichfield",
+  "name": "Devlin Wholesale – Lichfield",
+  "image": "https://www.devlinwholesale.co.uk/images/logo-2.png",
+  "url": "https://www.devlinwholesale.co.uk/",
+  "telephone": "0121 313 2303",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Unit 13 Prospect Drive, Britannia Enterprise Park",
+    "addressLocality": "Lichfield",
+    "postalCode": "WS14 9UX",
+    "addressCountry": "UK"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 52.6842117,
+    "longitude": -1.799311
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+  "@type": "OpeningHoursSpecification",
+  "dayOfWeek": "Sunday",
+  "opens": "00:00",
+  "closes": "00:00"
+}
+  ],
+  "priceRange": "££"
+}
+</script>
+
+  <!-- Service Schema - Professional Advice -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Measuring Service",
+  "description": "Measuring service for accurate flooring dimensions, ensuring a perfect fit for carpets, laminate, vinyl, and wood flooring installations at Devlin Wholesale.",
+  "serviceType": "Measuring Service",
+  "image": "https://www.devlinwholesale.co.uk/images/logo-2.png",
+  "url": "https://www.devlinwholesale.co.uk/service-measuring.html",
+  "priceRange": "££",
+  "areaServed": "United Kingdom",
+  "telephone": "01827 265526",
+
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Unit O, N Riverside Industrial Estate, Atherstone St, Fazeley",
+    "addressLocality": "Tamworth",
+    "postalCode": "B78 3RW",
+    "addressCountry": "UK"
+  },
+
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "01827 265526",
+      "contactType": "customer service",
+      "areaServed": "Tamworth"
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "0116 456 0022",
+      "contactType": "customer service",
+      "areaServed": "Groby"
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "0121 313 2303",
+      "contactType": "customer service",
+      "areaServed": "Minworth"
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "01543 123456",
+      "contactType": "customer service",
+      "areaServed": "Lichfield"
+    }
+  ],
+
   "provider": {
     "@type": "Organization",
     "name": "Devlin Wholesale",
     "url": "https://www.devlinwholesale.co.uk/"
   },
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 52.6,
-      "longitude": -1.6
-    },
-    "geoRadius": "50000"
-  },
-  "availableChannel": {
-    "@type": "ServiceChannel",
-    "serviceUrl": "https://www.devlinwholesale.co.uk/service-measuring",
-    "serviceLocation": [
-      {
-        "@type": "Place",
-        "name": "Devlin Wholesale – Tamworth",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Unit O, N Riverside Industrial Estate, Atherstone St, Fazeley",
-          "addressLocality": "Tamworth",
-          "postalCode": "B78 3RW",
-          "addressCountry": "UK"
-        }
-      },
-      {
-        "@type": "Place", 
-        "name": "Devlin Wholesale – Groby",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Laundon Way",
-          "addressLocality": "Groby, Leicester",
-          "postalCode": "LE6 0YG",
-          "addressCountry": "UK"
-        }
-      },
-      {
-        "@type": "Place",
-        "name": "Devlin Wholesale – Minworth",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Unit B3, Minworth Industrial Park, Stockton Cl",
-          "addressLocality": "Birmingham, Sutton Coldfield",
-          "postalCode": "B76 1DH",
-          "addressCountry": "UK"
-        }
-      }
-    ]
-  }
+
+  "serviceLocation": [
+    { "@id": "https://www.devlinwholesale.co.uk/#tamworth" },
+    { "@id": "https://www.devlinwholesale.co.uk/#groby" },
+    { "@id": "https://www.devlinwholesale.co.uk/#minworth" },
+    { "@id": "https://www.devlinwholesale.co.uk/#lichfield" }
+  ]
 }
 </script>
 </head>
