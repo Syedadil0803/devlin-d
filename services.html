@@ -316,7 +316,7 @@
 </script>
 
   <!-- Service Schema -->
-  <script type="application/ld+json">
+  <!-- <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -395,8 +395,45 @@
     ]
   }
 }
-</script>
+</script> -->
 
+<!-- Replace Service Schema with LocalService -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalService",
+  "name": "Complete Flooring Services",
+  "description": "Professional flooring services including advice, measuring, preparation, fitting, and care solutions for residential and commercial properties",
+  "provider": {
+    "@type": "Organization",
+    "name": "Devlin Wholesale",
+    "url": "https://www.devlinwholesale.co.uk"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Tamworth"
+    },
+    {
+      "@type": "City",
+      "name": "Leicester"
+    },
+    {
+      "@type": "City", 
+      "name": "Birmingham"
+    },
+    {
+      "@type": "City",
+      "name": "Lichfield"
+    },
+    {
+      "@type": "City",
+      "name": "Sutton Coldfield"
+    }
+  ],
+  "serviceType": "Flooring Installation"
+}
+</script>
   <!-- WebPage Schema for Services Page -->
   <script type="application/ld+json">
 {
