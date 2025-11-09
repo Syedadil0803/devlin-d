@@ -322,6 +322,7 @@
 </script>
 
   <!-- Service Schema - Professional Advice -->
+  <!-- Service Schema - Professional Advice -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -329,61 +330,62 @@
   "name": "Professional Advice Service",
   "description": "Professional advice on flooring selection, surface preparation, and maintenance, provided by experienced specialists at Devlin Wholesale.",
   "serviceType": "Professional Advice",
+  "image": "https://www.devlinwholesale.co.uk/images/logo-2.png",
+  "url": "https://www.devlinwholesale.co.uk/service-professional-advice.html",
+  "priceRange": "££",
+  "areaServed": "United Kingdom",
+  "telephone": "01827 265526",
+
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Unit O, N Riverside Industrial Estate, Atherstone St, Fazeley",
+    "addressLocality": "Tamworth",
+    "postalCode": "B78 3RW",
+    "addressCountry": "UK"
+  },
+
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "01827 265526",
+      "contactType": "customer service",
+      "areaServed": "Tamworth"
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "0116 456 0022",
+      "contactType": "customer service",
+      "areaServed": "Groby"
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "0121 313 2303",
+      "contactType": "customer service",
+      "areaServed": "Minworth"
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "01543 123456",
+      "contactType": "customer service",
+      "areaServed": "Lichfield"
+    }
+  ],
+
   "provider": {
     "@type": "Organization",
     "name": "Devlin Wholesale",
     "url": "https://www.devlinwholesale.co.uk/"
   },
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 52.6,
-      "longitude": -1.6
-    },
-    "geoRadius": "50000"
-  },
-  "availableChannel": {
-    "@type": "ServiceChannel",
-    "serviceUrl": "https://www.devlinwholesale.co.uk/service-professional-advice",
-    "serviceLocation": [
-      {
-        "@type": "Place",
-        "name": "Devlin Wholesale – Tamworth",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Unit O, N Riverside Industrial Estate, Atherstone St, Fazeley",
-          "addressLocality": "Tamworth",
-          "postalCode": "B78 3RW",
-          "addressCountry": "UK"
-        }
-      },
-      {
-        "@type": "Place", 
-        "name": "Devlin Wholesale – Groby",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Laundon Way",
-          "addressLocality": "Groby, Leicester",
-          "postalCode": "LE6 0YG",
-          "addressCountry": "UK"
-        }
-      },
-      {
-        "@type": "Place",
-        "name": "Devlin Wholesale – Minworth",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Unit B3, Minworth Industrial Park, Stockton Cl",
-          "addressLocality": "Birmingham, Sutton Coldfield",
-          "postalCode": "B76 1DH",
-          "addressCountry": "UK"
-        }
-      }
-    ]
-  }
+
+  "serviceLocation": [
+    { "@id": "https://www.devlinwholesale.co.uk/#tamworth" },
+    { "@id": "https://www.devlinwholesale.co.uk/#groby" },
+    { "@id": "https://www.devlinwholesale.co.uk/#minworth" },
+    { "@id": "https://www.devlinwholesale.co.uk/#lichfield" }
+  ]
 }
 </script>
+
 </head>
 
 <body>
