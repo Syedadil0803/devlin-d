@@ -2873,16 +2873,13 @@ h3 + .title-decor-left {
 	border-color: #db2a19;
 }
 
-.button-blue-8, .button-blue-8:focus {
+.button-blue-8,
+.button-blue-8:focus,
+.button-blue-8:hover,
+.button-blue-8:active {
 	color: #ffffff;
 	background-color: #031e2b;
 	border-color: #031e2b;
-}
-
-.button-blue-8:hover, .button-blue-8:active {
-	color: #ffffff;
-	background-color: #db2a19;
-	border-color: #db2a19;
 }
 
 .button-blue-8.button-ujarak::before {
@@ -3313,12 +3310,10 @@ h3 + .title-decor-left {
 	background: #3f4651;
 }
 
-.button-icon-right.button-blue-8 .icon {
+.button-icon-right.button-blue-8 .icon,
+.button-icon-right.button-blue-8:hover .icon,
+.button-icon-right.button-blue-8:active .icon {
 	background: #02283a;
-}
-
-.button-icon-right.button-blue-8:hover .icon, .button-icon-right.button-blue-8:active .icon {
-	background: #fb4634;
 }
 
 @media (min-width: 992px) {
@@ -12215,6 +12210,73 @@ html.rd-navbar-fixed-linked .page {
 	opacity: 0;
 	pointer-events: none;
 	z-index: -1;
+}
+
+/* Leicester hero tweaks: full-height image, dark left overlay for text */
+.leicester-hero .swiper-slide-bg {
+	height: 70vh;
+	background-position: center center;
+}
+
+@media (min-width: 992px) {
+	.leicester-hero .swiper-slide-bg {
+		height: 80vh;
+	}
+}
+
+.leicester-hero .swiper-slide-caption {
+	position: relative;
+	overflow: hidden;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.leicester-hero [class*='swiper-content-bg'] {
+	display: none;
+}
+
+.leicester-hero .swiper-title,
+.leicester-hero .swiper-subtitle,
+.leicester-hero .swiper-title span,
+.leicester-hero .swiper-subtitle span {
+	color: #ffffff;
+}
+
+.leicester-hero .swiper-slider-7 {
+	max-width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+/* Mobile tweaks for Leicester hero */
+@media (max-width: 767.98px) {
+	/* On mobile, remove the dark overlay and restore the original white panel */
+	.leicester-hero .swiper-slide-caption {
+		background: none;
+	}
+
+	.leicester-hero [class*='swiper-content-bg'] {
+		display: block;
+	}
+
+	/* Shorter hero height on mobile */
+	.leicester-hero .swiper-slide-bg {
+		height: 55vh;
+	}
+
+	/* Use dark text on white panel for mobile */
+	.leicester-hero .swiper-title,
+	.leicester-hero .swiper-subtitle,
+	.leicester-hero .swiper-title span,
+	.leicester-hero .swiper-subtitle span {
+		color: #151515;
+	}
+}
+
+/* Nudge hero text a bit further right on larger screens */
+@media (min-width: 992px) {
+	.leicester-hero .swiper-box {
+		margin-left: 40px;
+	}
 }
 
 .swiper-slider-7 .swiper-content-bg-1 {
