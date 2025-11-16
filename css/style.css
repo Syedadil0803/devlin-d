@@ -141,7 +141,7 @@ h1 a:focus, h1 a:hover, h2 a:focus, h2 a:hover, h3 a:focus, h3 a:hover, h4 a:foc
 	color: #db2a19;
 }
 
-h1,
+/* h1,
 .heading-1 {
 	font-size: 50px;
 	line-height: 1;
@@ -167,11 +167,42 @@ h1,
 	.heading-1 {
 		font-size: 110px;
 	}
+} */
+h1,
+.heading-1 {
+	font-size: 32px;
+	line-height: 1;
+	letter-spacing: .025em;
 }
+
+/* Tablets */
+@media (min-width: 768px) {
+	h1,
+	.heading-1 {
+		font-size: 38px;
+	}
+}
+
+/* Small Desktops */
+@media (min-width: 992px) {
+	h1,
+	.heading-1 {
+		font-size: 42px;
+	}
+}
+
+/* Large Desktops */
+@media (min-width: 1200px) {
+	h1,
+	.heading-1 {
+		font-size: 46px;
+	}
+}
+
 
 h2,
 .heading-2 {
-	font-size: 36px;
+	font-size: 20px;
 	line-height: 1.14286;
 	letter-spacing: .075em;
 }
@@ -179,21 +210,21 @@ h2,
 @media (min-width: 768px) {
 	h2,
 	.heading-2 {
-		font-size: 46px;
+		font-size: 26px;
 	}
 }
 
 @media (min-width: 992px) {
 	h2,
 	.heading-2 {
-		font-size: 54px;
+		font-size: 26px;
 	}
 }
 
 @media (min-width: 1200px) {
 	h2,
 	.heading-2 {
-		font-size: 70px;
+		font-size: 26px;
 	}
 }
 
