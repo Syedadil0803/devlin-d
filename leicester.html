@@ -657,7 +657,7 @@
           </nav>
         </div>
       </header>
-      <div class="swiper-container swiper-slider swiper-slider-7" data-loop="true" data-autoplay="5000"
+      <div class="swiper-container swiper-slider swiper-slider-7" data-loop="false"
         data-simulate-touch="false" data-add-slides="1">
         <div class="swiper-wrapper text-sm-left">
           <div class="swiper-slide swiper-slide-bg" data-slide-bg="images/LeicesterStoreImg1.JPG">
@@ -682,7 +682,18 @@
               <div class="swiper-content-bg-1"></div>
             </div>
           </div>
-          <div class="swiper-slide" data-slide-bg="images/LeicesterStoreImg2.JPG">
+          <div class="swiper-slide">
+            <!-- Video Background for Slide 2 -->
+            <video 
+              autoplay 
+              muted 
+              loop 
+              playsinline
+              preload="auto"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+              <source src="https://ai-videocreation-assets.s3.ap-south-1.amazonaws.com/magazine-audio/Out+1+cc.mp4" type="video/mp4">
+            </video>
+            
             <div class="swiper-slide-caption section-md">
               <div class="swiper-box">
                 <h6 class="oh swiper-subtitle">
@@ -702,27 +713,6 @@
                 </div>
               </div>
               <div class="swiper-content-bg-2"></div>
-            </div>
-          </div>
-          <div class="swiper-slide" data-slide-bg="images/LeicesterStoreImg3.JPG">
-            <div class="swiper-slide-caption section-md">
-              <div class="swiper-box">
-                <h6 class="oh swiper-subtitle">
-                  <span class="d-inline-block" data-caption-animate="slideInUp" data-caption-delay="500">Quality
-                    Products Trusted in UK Homes and Commercial Spaces.</span>
-                </h6>
-                <h3 class="swiper-title oh d-inline-block">
-                  <span class="d-block" data-caption-animate="slideInDown" data-caption-delay="200">Reliable</span><span
-                    class="d-block" data-caption-animate="slideInUp" data-caption-delay="200">Flooring</span>
-                </h3>
-                <div class="oh button-wrap">
-                  <a class="button button-lg button-icon button-icon-right button-blue-8"
-                    data-caption-animate="slideInDown" data-caption-delay="500" href="contacts.html"><span
-                      class="icon mdi mdi-chevron-right"></span>Contact
-                    Us</a>
-                </div>
-              </div>
-              <div class="swiper-content-bg-3"></div>
             </div>
           </div>
         </div>
@@ -3388,6 +3378,23 @@
         showThumbByDefault: false
       });
     });
+  });
+</script>
+<!-- One-time transition from Slide 1 to Slide 2 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Wait for swiper to initialize
+    setTimeout(function() {
+      const swiperElement = document.querySelector('.swiper-slider-7');
+      if (swiperElement && swiperElement.swiper) {
+        const swiper = swiperElement.swiper;
+        
+        // After 2 seconds, slide to the next slide (Slide 2) one time only
+        setTimeout(function() {
+          swiper.slideNext();
+        }, 2000);
+      }
+    }, 500);
   });
 </script>
 </body>
