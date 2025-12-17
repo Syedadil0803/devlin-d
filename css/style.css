@@ -12249,13 +12249,14 @@ html.rd-navbar-fixed-linked .page {
 
 /* Mobile tweaks for Leicester hero */
 @media (max-width: 767.98px) {
-	/* On mobile, remove the dark overlay and restore the original white panel */
+	/* On mobile, remove the dark overlay */
 	.leicester-hero .swiper-slide-caption {
 		background: none;
 	}
 
+	/* Keep the white background layer hidden on mobile */
 	.leicester-hero [class*='swiper-content-bg'] {
-		display: block;
+		display: none;
 	}
 
 	/* Shorter hero height on mobile */
@@ -12263,12 +12264,12 @@ html.rd-navbar-fixed-linked .page {
 		height: 55vh;
 	}
 
-	/* Use dark text on white panel for mobile */
+	/* Use white text on mobile (since no white panel) */
 	.leicester-hero .swiper-title,
 	.leicester-hero .swiper-subtitle,
 	.leicester-hero .swiper-title span,
 	.leicester-hero .swiper-subtitle span {
-		color: #151515;
+		color: #ffffff;
 	}
 }
 
