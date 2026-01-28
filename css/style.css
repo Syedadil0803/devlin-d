@@ -12249,9 +12249,9 @@ html.rd-navbar-fixed-linked .page {
 
 /* Mobile tweaks for Leicester hero */
 @media (max-width: 767.98px) {
-	/* On mobile, remove the dark overlay */
+	/* Add gradient overlay on mobile for better text readability */
 	.leicester-hero .swiper-slide-caption {
-		background: none;
+		background: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.3));
 	}
 
 	/* Keep the white background layer hidden on mobile */
@@ -12264,7 +12264,7 @@ html.rd-navbar-fixed-linked .page {
 		height: 55vh;
 	}
 
-	/* Use white text on mobile (since no white panel) */
+	/* Use white text on mobile with gradient overlay */
 	.leicester-hero .swiper-title,
 	.leicester-hero .swiper-subtitle,
 	.leicester-hero .swiper-title span,
