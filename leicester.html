@@ -2080,46 +2080,33 @@
             max-width: none;
             margin-left: auto;
             margin-right: auto;
-            padding: 30px;
+            padding: 30px 0;
           ">
-        <div style="position: relative; overflow: hidden">
-          <style>
+        <style>
+          .map-container {
+            padding-bottom: 65%; /* Default for mobile */
+          }
+          @media (min-width: 768px) {
             .map-container {
-              padding-bottom: 65%;
-              /* Default for mobile */
+              padding-bottom: 55%; /* Medium screens */
             }
-
-            @media (min-width: 768px) {
-              .map-container {
-                padding-bottom: 55%;
-                /* Medium screens */
-              }
+          }
+           @media (min-width: 1200px) {
+            .map-container {
+              padding-bottom: 55%; /* Keep consistent height for side-by-side */
             }
-
-            @media (min-width: 1200px) {
-              .map-container {
-                padding-bottom: 40%;
-                /* Large screens */
-              }
-            }
-
-            .map-button {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              background-color: rgba(255, 255, 255, 0.9);
-              border: none;
-              border-radius: 6px;
-              padding: 10px 20px;
-              cursor: pointer;
-              font-weight: bold;
-              z-index: 10;
-              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            }
-          </style>
-          <div class="map-container" style="position: relative; overflow: hidden">
-            <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0" allowfullscreen allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"></iframe>
+          }
+        </style>
+        <div class="row">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+             <div class="map-container" style="position: relative; overflow: hidden">
+                <iframe src="https://maps.google.com/maps?q=Devlin+Wholesale+Leicester,+Laundon+Way,+Groby,+Leicester+LE6+0YG,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0" allowfullscreen></iframe>
+              </div>
+          </div>
+          <div class="col-lg-6">
+             <div class="map-container" style="position: relative; overflow: hidden">
+                <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0" allowfullscreen allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"></iframe>
+              </div>
           </div>
         </div>
       </div>
