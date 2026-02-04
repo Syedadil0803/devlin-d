@@ -26,7 +26,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta charset="utf-8" />
   <link rel="icon" href="images/favicon-100x100.png" type="image/x-icon" />
-  <link rel="canonical" href="https://www.devlinwholesale.co.uk/">
+    <link rel="canonical" href="https://www.devlinwholesale.co.uk/">
   <!-- <link rel="icon" href="images/favicon-150x150.png" type="image/x-icon" /> -->
   <!-- Stylesheets-->
   <link rel="stylesheet" type="text/css"
@@ -124,6 +124,76 @@
 
     .accordion-header {
       margin-bottom: 0;
+    }
+
+     /* External Link Tooltip */
+     .external-link-tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .external-link-tooltip::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-5px);
+      margin-bottom: 0;
+      padding: 10px 16px;
+      background-color: #151515;
+      color: #ffffff;
+      font-size: 12px;
+      line-height: 1.5;
+      white-space: normal;
+      border-radius: 6px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      z-index: 10000;
+      max-width: 300px;
+      min-width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      word-wrap: break-word;
+    }
+
+    .external-link-tooltip::after {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 0;
+      border: 6px solid transparent;
+      border-top-color: #151515;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      z-index: 10000;
+    }
+
+    .external-link-tooltip:hover::before {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .external-link-tooltip:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Hide tooltip on mobile/tablet devices since hover doesn't work */
+    @media (max-width: 1024px) {
+      .external-link-tooltip::before,
+      .external-link-tooltip::after {
+        display: none !important;
+      }
     }
   </style>
   <!-- Organization Schema -->
@@ -519,10 +589,21 @@
                         <a class="rd-nav-link" href="services.html">Services</a>
                       </li>
                       <li class="rd-nav-item">
+                        <a class="rd-nav-link" href="#">Stories</a>
+                        <ul class="rd-menu rd-navbar-dropdown">
+                          <li class="rd-dropdown-item">
+                            <a class="rd-dropdown-link" href="blog.html">Blogs</a>
+                          </li>
+                          <li class="rd-dropdown-item">
+                            <a class="rd-dropdown-link" href="projects.html">Projects</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <!-- <li class="rd-nav-item">
                         <a class="rd-nav-link" href="projects.html">Projects</a>
                       <li class="rd-nav-item">
                         <a class="rd-nav-link" href="blog.html">Blogs</a>
-                      </li>
+                      </li> -->
                       <li class="rd-nav-item">
                         <a class="rd-nav-link" href="#">Connect</a>
                         <ul class="rd-menu rd-navbar-dropdown">
@@ -534,6 +615,24 @@
                           </li>
                         </ul>
                       </li>
+                      <li class="rd-nav-item">
+                        <a class="rd-nav-link" href="#">Our Stores</a>
+                        <ul class="rd-menu rd-navbar-dropdown">
+                          <li class="rd-dropdown-item">
+                            <a class="rd-dropdown-link" href="leicester.html">Leicester</a>
+                          </li>
+                          <li class="rd-dropdown-item">
+                            <a class="rd-dropdown-link">Tamworth</a>
+                          </li>
+                          <li class="rd-dropdown-item">
+                            <a class="rd-dropdown-link" href="minworth.html">Minworth</a>
+                          </li>
+                           <li class="rd-dropdown-item">
+                            <a class="rd-dropdown-link external-link-tooltip" href="https://www.devlincarpets.com/" target="_blank" rel="noopener noreferrer" data-tooltip="You will be redirected to an affiliated website (Devlin Carpets - Lichfield)">Lichfield</a>
+                          </li>
+                        </ul>
+                      </li>
+
                     </ul>
                   </div>
                 </div>
@@ -644,56 +743,6 @@
         <div class="swiper-pagination" data-bullet-custom="true"></div>
       </div>
     </section>
-    <!-- Section CTA-->
-
-    <div class="container text-center my-5"> <!-- Adds top & bottom spacing -->
-      <h4 class="wow fadeInRight">Why Devlin Wholesale</h4>
-    </div>
-    <section class="section parallax-container" data-parallax-img="images/parallax-1.jpg">
-      <div class="parallax-content section-sm section-inset-1">
-        <div class="container">
-          <div class="row row-30 justify-content-center align-items-center">
-            <!-- Text Content - Left Side -->
-            <div class="col-12 col-md-6 text-md-left context-dark">
-              <div class="mb-4">
-                <strong style="color: #ffcc00;">
-                  WE OFFER AN OUTSTANDING CHOICE OF QUALITY FLOORING AT WHOLESALE PRICES DIRECT TO THE PUBLIC
-                </strong>
-              </div>
-
-              <div class="seo-content">
-                <!-- <h5 class="font-weight-normal text-transform-none oh-desktop">
-                  <span class="d-inline-block wow slideInUp">
-                    Shop Quality Carpets, LVT, Laminate & Vinyl Flooring at Wholesale Prices – Direct to the Public
-                  </span>
-                </h5> -->
-
-                <div class="mt-4 oh-desktop">
-                  <span class="d-inline-block wow slideInUp">
-                    Shop Quality Carpets, LVT, Laminate & Vinyl Flooring.
-                    We also stock Engineered Wood, Natural Flooring, and Artificial Grass – all available in-store.
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Video Content - Right Side -->
-            <div class="col-12 col-md-6 mt-4 mt-md-0">
-              <div class="position-relative w-100" style="aspect-ratio: 16/10; overflow: hidden;">
-                <!-- Wistia Scripts -->
-                <script src="https://fast.wistia.com/embed/medias/9qms2ngnt6.jsonp" async></script>
-                <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
-
-                <!-- Wistia Embed Full Width/Height -->
-                <div class="wistia_embed wistia_async_9qms2ngnt6 seo=false videoFoam=true"
-                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Product's we offer-->
     <section class="section section-xl bg-default text-center">
       <div class="container">
@@ -711,7 +760,7 @@
             <img src="/images/products/carpet/carpet-370x230.jpg" alt="product image" width="370" height="230" /></a>
             <div class="services-creative-caption">
               <h5 class="services-creative-title">
-                <a href="products/carpets.html">Carpets</a>
+                   <a href="products/carpets.html">Carpets</a>
               </h5>
               <p class="services-creative-text">
                 Discover quality UK carpets in wool or synthetic styles. Massive stock available – plain, patterned, and
@@ -725,7 +774,7 @@
             <img src="images/products/lvt/lvt-370x230(b).jpg" alt="product image" width="370" height="230" /></a>
             <div class="services-creative-caption">
               <h5 class="services-creative-title">
-                <a href="products/lvt.html">Luxury Vinyl Tile</a>
+             <a href="products/lvt.html">Luxury Vinyl Tile</a>
               </h5>
               <p class="services-creative-text">
                 Stylish, durable LVT flooring available in various designs — including Amtico and Karndean. Perfect for
@@ -753,7 +802,7 @@
             <img src="images/products/grass/grass-370x230.jpg" alt="product image" width="370" height="230" /></a>
             <div class="services-creative-caption">
               <h5 class="services-creative-title">
-                <a href="products/artificial-grass.html">Artificial Grass</a>
+               <a href="products/artificial-grass.html">Artificial Grass</a>
               </h5>
               <p class="services-creative-text">
                 Enjoy a lush, low-maintenance lawn year-round with our premium artificial grass – realistic, durable,
@@ -768,7 +817,7 @@
               height="230" /></a>
             <div class="services-creative-caption">
               <h5 class="services-creative-title">
-                <a href="products/natural-flooring.html">Natural Flooring</a>
+                   <a href="products/natural-flooring.html">Natural Flooring</a>
               </h5>
               <p class="services-creative-text">
                 Explore sustainable UK natural flooring in stylish textures and colours – eco-friendly, luxurious, and
@@ -2275,7 +2324,7 @@
                 <ul class="footer-creative-list d-inline-block d-sm-block">
                   <li><a href="about-us.html">About us</a></li>
                   <li><a href="services.html">Services</a></li>
-                  <li><a href="products.html">Products</a></li>
+                   <li><a href="products.html">Products</a></li>
                   <li><a href="projects.html">Projects</a></li>
                   <li><a href="blog.html">Blogs</a></li>
                   <li><a href="contacts.html">Contacts</a></li>
