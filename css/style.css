@@ -18185,3 +18185,89 @@ disabled look for disabled choices in the results dropdown
 		font-size: 24px;
 	}
 }
+
+/* Brand Logos Scrolling Banner */
+.brands-scroll-container {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  padding: 45px 0;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.brands-scroll-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+  will-change: transform;
+}
+
+.brands-scroll-track:hover {
+  animation-play-state: paused;
+}
+
+.brand-logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px; /* Slightly wider spacing for clean look */
+  height: 100px;
+  padding: 0 20px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: visible;
+}
+
+.brand-logo-item::after {
+  display: none; /* Remove red accent line */
+}
+
+.brand-logo-item:hover {
+  transform: scale(1.1);
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.brand-logo-item img {
+  max-width: 100%;
+  width: auto;
+  /* height is controlled inline in HTML now */
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: multiply;
+  display: block;
+  opacity: 0.8;
+  filter: grayscale(100%);
+}
+
+.brand-logo-item:hover img {
+  transform: none;
+  opacity: 1;
+  filter: grayscale(0%); /* Color on hover */
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .brands-scroll-container {
+    padding: 45px 0;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+  .brands-scroll-track { gap: 20px; animation-duration: 30s; }
+  .brand-logo-item { width: 160px; height: 80px; padding: 15px; }
+}
+
+@media (max-width: 576px) {
+  .brand-logo-item { width: 140px; height: 70px; }
+}

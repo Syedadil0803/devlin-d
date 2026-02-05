@@ -858,7 +858,6 @@
       </div>
     </section>
 
-
     <section class="section bg-gray-100">
       <div class="container-fluid container-inset-0">
         <div class="row no-gutters">
@@ -950,7 +949,41 @@
         </div>
       </div>
     </div>
+  <!-- Brand Logos Scrolling Banner -->
+    <section class="section section-md bg-default">
+      <div class="container text-center">
+        <h4 class="oh-desktop mb-4">
+          <span class="d-inline-block wow slideInDown">Trusted Brands We Carry</span>
+        </h4>
+      </div>
+      <div class="brands-scroll-container">
+        <div class="brands-scroll-track" id="brandTrack">
+          <!-- Brands will be auto-duplicated by JavaScript -->
+          <!-- You can adjust the height property in the style="" attribute to resize logos -->
+          <div class="brand-logo-item"><img src="images/brands/westex.png" alt="Westex Carpets" style="height: 55px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/Brintons-Carpets.jpg" alt="Brintons Carpets" style="height: 45px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/Abingdon.webp" alt="Abingdon Flooring" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/brockway-logo.png" alt="Brockway Carpets" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/cormar-carpet-co-logo.jpg" alt="Cormar Carpets" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/alternative-flooring.JPG" alt="Alternative Flooring" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/karndean-flooring.jpg" alt="Karndean Designflooring" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/Amtico-logo.webp" alt="Amtico" style="height: 100px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/moduleo.png" alt="Moduleo" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/Invictus.jpg" alt="Invictus Flooring" style="height: 60px; width: auto;" /></div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Auto-duplicate brands for seamless scrolling -->
+    <script>
+      (function() {
+        var track = document.getElementById('brandTrack');
+        if (track) {
+          var brands = track.innerHTML;
+          track.innerHTML = brands + brands; 
+        }
+      })();
+    </script>
     <!-- Services-->
     <section class="section section-inset-5 bg-default">
       <div class="container">
