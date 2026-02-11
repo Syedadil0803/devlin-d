@@ -131,12 +131,23 @@
     // Insert into page
     document.body.prepend(bar);
 
-    // Calculate speed based on content width
-    // After the DOM renders, measure the track width and set animation duration
+    // Measure bar height and offset fixed navbar elements
     requestAnimationFrame(function () {
       var halfWidth = track.scrollWidth / 2;
       var duration = halfWidth / MARQUEE_SPEED;
       bar.style.setProperty('--cw-marquee-duration', duration + 's');
+
+      // Set bar height as CSS variable so fixed navbar can be offset
+      var barHeight = bar.offsetHeight;
+      document.body.style.setProperty('--cw-bar-height', barHeight + 'px');
+      document.body.classList.add('cw-has-announcement-bar');
+
+      // Dynamically adjust navbar offset as user scrolls
+      window.addEventListener('scroll', function () {
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        var visibleBarHeight = Math.max(0, barHeight - scrollY);
+        document.body.style.setProperty('--cw-bar-height', visibleBarHeight + 'px');
+      }, { passive: true });
     });
   }
 
@@ -175,26 +186,23 @@
     });
     card.appendChild(closeBtn);
 
-    // Accent line
-    const accent = createElement('div', {
-      className: 'cw-promo-card__accent',
-      style: {
-        backgroundColor: style.buttonColor || '#6366f1',
-      },
-    });
-    card.appendChild(accent);
-
     // Title
     if (config.title) {
       card.appendChild(
-        createElement('h3', { className: 'cw-promo-card__title' }, config.title)
+        createElement('h3', {
+          className: 'cw-promo-card__title',
+          style: { color: style.textColor || '#ffffff' },
+        }, config.title)
       );
     }
 
     // Description
     if (config.description) {
       card.appendChild(
-        createElement('p', { className: 'cw-promo-card__description' }, config.description)
+        createElement('p', {
+          className: 'cw-promo-card__description',
+          style: { color: style.textColor || '#ffffff' },
+        }, config.description)
       );
     }
 
@@ -207,7 +215,7 @@
           backgroundColor: style.buttonColor || '#6366f1',
           color: style.buttonTextColor || '#ffffff',
         },
-        innerHTML: 'Shop Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        innerHTML: 'Shop Now',
       });
       card.appendChild(btn);
     }
@@ -230,7 +238,6 @@
         return response.json();
       })
       .then(function (data) {
-        console.log('[Campaign Widgets] Config loaded, version:', data.version, '| Last updated:', data.lastUpdated);
 
         // Render announcement bar
         if (data.announcementBar) {
