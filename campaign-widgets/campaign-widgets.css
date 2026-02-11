@@ -1,0 +1,270 @@
+/* ============================================
+   CAMPAIGN WIDGETS - Standalone CSS
+   Drop this file + campaign-widgets.js into any project
+   ============================================ */
+
+/* ---------- Announcement Bar (Marquee Ticker) ---------- */
+.cw-announcement-bar {
+  position: relative;
+  width: 100%;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  padding: 9px 0;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cw-announcement-bar__track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: cw-marquee var(--cw-marquee-duration, 30s) linear infinite;
+}
+
+.cw-announcement-bar:hover .cw-announcement-bar__track {
+  animation-play-state: paused;
+}
+
+@keyframes cw-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.cw-announcement-bar__item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 40px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ---------- Promo Card ---------- */
+.cw-promo-card {
+  position: fixed;
+  z-index: 99998;
+  max-width: 320px;
+  min-width: 260px;
+  border-radius: 16px;
+  padding: 24px;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: cw-promoIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards;
+}
+
+@keyframes cw-promoIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cw-promoOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+}
+
+.cw-promo-card.cw-closing {
+  animation: cw-promoOut 0.35s ease forwards;
+}
+
+/* Position variants */
+.cw-promo-card--bottom-left {
+  bottom: 24px;
+  left: 24px;
+}
+
+.cw-promo-card--bottom-right {
+  bottom: 24px;
+  right: 24px;
+}
+
+.cw-promo-card--top-left {
+  top: 60px;
+  left: 24px;
+}
+
+.cw-promo-card--top-right {
+  top: 60px;
+  right: 24px;
+}
+
+.cw-promo-card--center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  opacity: 0;
+  animation: cw-promoCenterIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards;
+}
+
+@keyframes cw-promoCenterIn {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Promo card close button */
+.cw-promo-card__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: inherit;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.cw-promo-card__close:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.15);
+  transform: scale(1.1);
+}
+
+/* Accent line */
+.cw-promo-card__accent {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  margin-bottom: 14px;
+  opacity: 0.7;
+}
+
+.cw-promo-card__title {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.cw-promo-card__description {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 18px 0;
+  opacity: 0.85;
+}
+
+.cw-promo-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.cw-promo-card__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cw-promo-card__btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.cw-promo-card__btn svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.cw-promo-card__btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Shimmer decoration */
+.cw-promo-card__shimmer {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100px;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.04),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: cw-shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cw-shimmer {
+  0%, 100% {
+    transform: rotate(25deg) translateX(-100%);
+  }
+  50% {
+    transform: rotate(25deg) translateX(100%);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .cw-announcement-bar {
+    font-size: 12px;
+    padding: 7px 0;
+  }
+
+  .cw-promo-card {
+    max-width: calc(100vw - 32px);
+    min-width: unset;
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+    top: auto !important;
+    transform: translateY(30px) scale(0.95) !important;
+  }
+
+  .cw-promo-card__title {
+    font-size: 18px;
+  }
+}
+
+/* ---------- Print: hide everything ---------- */
+@media print {
+  .cw-announcement-bar,
+  .cw-promo-card {
+    display: none !important;
+  }
+}
