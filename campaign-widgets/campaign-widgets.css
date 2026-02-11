@@ -282,7 +282,7 @@ body.cw-has-announcement-bar .rd-navbar-fixed .rd-navbar-search .rd-search {
     min-width: unset;
     left: 16px !important;
     right: 16px !important;
-    bottom: 16px !important;
+    bottom: 36px !important;
     top: auto !important;
     transform: translateY(30px) scale(0.95) !important;
     padding: 18px;
