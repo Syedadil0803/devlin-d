@@ -85,6 +85,21 @@
     return el;
   }
 
+  // ---- Helper function for background styles ----
+  
+  function getBackgroundStyle(background) {
+    if (!background) return '#dc2626';
+    
+    if (background.type === 'radial') {
+      return 'radial-gradient(circle, ' + background.startColor + ', ' + background.endColor + ')';
+    } else if (background.type === 'linear') {
+      return 'linear-gradient(90deg, ' + background.startColor + ', ' + background.endColor + ')';
+    } else if (background.type === 'solid') {
+      return background.startColor;
+    }
+    return background.startColor || '#dc2626';
+  }
+
   // ---- Announcement Bar (Marquee Ticker) ----
 
   function renderAnnouncementBar(config) {
@@ -100,7 +115,7 @@
       className: 'cw-announcement-bar',
       id: 'cw-announcement-bar',
       style: {
-        backgroundColor: style.backgroundColor || '#dc2626',
+        background: getBackgroundStyle(style.background) || '#dc2626',
         color: style.textColor || '#ffffff',
       },
     });
