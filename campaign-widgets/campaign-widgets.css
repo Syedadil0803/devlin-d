@@ -10,7 +10,7 @@
   z-index: 99999;
   display: flex;
   align-items: center;
-  padding: 9px 0;
+  height: 40px;
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -23,6 +23,7 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
+  height: 40px;
   animation: cw-marquee var(--cw-marquee-duration, 30s) linear infinite;
 }
 
@@ -40,11 +41,23 @@
 }
 
 .cw-announcement-bar__item {
-  display: inline-flex;
-  align-items: center;
+  display: inline;
   padding: 0 40px;
   white-space: nowrap;
-  flex-shrink: 0;
+  line-height: 40px;
+  vertical-align: middle;
+}
+
+/* Rich text children inside announcement items */
+.cw-announcement-bar__item span,
+.cw-announcement-bar__item b,
+.cw-announcement-bar__item strong,
+.cw-announcement-bar__item i,
+.cw-announcement-bar__item em,
+.cw-announcement-bar__item u {
+  display: inline;
+  vertical-align: middle;
+  line-height: 40px;
 }
 
 /* Push fixed navbar down when announcement bar is visible */
@@ -248,7 +261,6 @@ body.cw-has-announcement-bar .rd-navbar-fixed .rd-navbar-search .rd-search {
 @media (max-width: 768px) {
   .cw-announcement-bar {
     font-size: 13px;
-    padding: 8px 0;
   }
 
   .cw-announcement-bar__item {
@@ -270,7 +282,6 @@ body.cw-has-announcement-bar .rd-navbar-fixed .rd-navbar-search .rd-search {
 @media (max-width: 480px) {
   .cw-announcement-bar {
     font-size: 12px;
-    padding: 9px 0;
   }
 
   .cw-announcement-bar__item {

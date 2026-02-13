@@ -53,6 +53,7 @@
    */
   function createElement(tag, attrs, children) {
     const el = document.createElement(tag);
+    var hasInnerHTML = false;
 
     if (attrs) {
       Object.keys(attrs).forEach(function (key) {
@@ -64,13 +65,15 @@
           el.addEventListener(key.substring(2).toLowerCase(), attrs[key]);
         } else if (key === 'innerHTML') {
           el.innerHTML = attrs[key];
+          hasInnerHTML = true;
         } else {
           el.setAttribute(key, attrs[key]);
         }
       });
     }
 
-    if (children) {
+    // Only set children if innerHTML was not already set (innerHTML takes priority)
+    if (children && !hasInnerHTML) {
       if (typeof children === 'string') {
         el.textContent = children;
       } else if (Array.isArray(children)) {
@@ -132,26 +135,24 @@
         // Handle both old string format and new object format
         var text = typeof announcement === 'string' ? announcement : announcement.text;
         var url = typeof announcement === 'object' && announcement.url ? announcement.url : null;
-        
-        var element;
+        var isRichText = typeof announcement === 'object' && announcement.richText === true;
+
+        var tag = url ? 'a' : 'span';
+        var attrs = { className: 'cw-announcement-bar__item' };
+
         if (url) {
-          // Create clickable link with underline
-          element = createElement('a', {
-            className: 'cw-announcement-bar__item cw-announcement-link',
-            href: url,
-            style: {
-              textDecoration: 'underline',
-              color: 'inherit'
-            }
-          }, text);
-        } else {
-          // Create regular span
-          element = createElement('span', {
-            className: 'cw-announcement-bar__item'
-          }, text);
+          attrs.className += ' cw-announcement-link';
+          attrs.href = url;
+          attrs.style = { textDecoration: 'underline', color: 'inherit' };
         }
-        
-        fragment.appendChild(element);
+
+        // Rich text: render HTML via innerHTML; plain text: safe textContent via children
+        if (isRichText) {
+          attrs.innerHTML = text;
+          fragment.appendChild(createElement(tag, attrs));
+        } else {
+          fragment.appendChild(createElement(tag, attrs, text));
+        }
       });
       return fragment;
     }
@@ -166,21 +167,21 @@
     // Insert into page
     document.body.prepend(bar);
 
-    // Measure bar height and offset fixed navbar elements
+    // Bar height is fixed at 40px via CSS — use constant instead of measuring
+    var BAR_HEIGHT = 40;
+
     requestAnimationFrame(function () {
       var halfWidth = track.scrollWidth / 2;
       var duration = halfWidth / MARQUEE_SPEED;
       bar.style.setProperty('--cw-marquee-duration', duration + 's');
 
-      // Set bar height as CSS variable so fixed navbar can be offset
-      var barHeight = bar.offsetHeight;
-      document.body.style.setProperty('--cw-bar-height', barHeight + 'px');
+      document.body.style.setProperty('--cw-bar-height', BAR_HEIGHT + 'px');
       document.body.classList.add('cw-has-announcement-bar');
 
-      // Dynamically adjust navbar offset as user scrolls
+      // Adjust navbar offset as bar scrolls out of view
       window.addEventListener('scroll', function () {
         var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        var visibleBarHeight = Math.max(0, barHeight - scrollY);
+        var visibleBarHeight = Math.max(0, BAR_HEIGHT - scrollY);
         document.body.style.setProperty('--cw-bar-height', visibleBarHeight + 'px');
       }, { passive: true });
     });
