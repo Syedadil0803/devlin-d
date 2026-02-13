@@ -128,10 +128,30 @@
     // Build one set of announcement items
     function buildAnnouncementSet() {
       var fragment = document.createDocumentFragment();
-      announcements.forEach(function (text) {
-        fragment.appendChild(createElement('span', {
-          className: 'cw-announcement-bar__item',
-        }, text));
+      announcements.forEach(function (announcement) {
+        // Handle both old string format and new object format
+        var text = typeof announcement === 'string' ? announcement : announcement.text;
+        var url = typeof announcement === 'object' && announcement.url ? announcement.url : null;
+        
+        var element;
+        if (url) {
+          // Create clickable link with underline
+          element = createElement('a', {
+            className: 'cw-announcement-bar__item cw-announcement-link',
+            href: url,
+            style: {
+              textDecoration: 'underline',
+              color: 'inherit'
+            }
+          }, text);
+        } else {
+          // Create regular span
+          element = createElement('span', {
+            className: 'cw-announcement-bar__item'
+          }, text);
+        }
+        
+        fragment.appendChild(element);
       });
       return fragment;
     }
