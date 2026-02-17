@@ -189,34 +189,34 @@ body.cw-has-announcement-bar .rd-navbar-fixed .rd-navbar-search .rd-search {
 
 .cw-promo-card__title {
   font-size: 22px;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   letter-spacing: -0.3px;
   line-height: 1.2;
-  padding: 8px 12px;
+  padding: 4px 8px;
   border-radius: 8px;
 }
 
 .cw-promo-card__subtitle {
   font-size: 18px;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   letter-spacing: -0.2px;
   line-height: 1.3;
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-radius: 6px;
 }
 
 .cw-promo-card__description {
   font-size: 14px;
   line-height: 1.5;
-  margin: 0 0 18px 0;
-  padding: 8px 12px;
+  margin: 0 0 12px 0;
+  padding: 4px 8px;
   border-radius: 6px;
 }
 
 .cw-promo-card__timer {
   font-size: 14px;
-  margin: 0 0 16px 0;
-  padding: 8px 12px;
+  margin: 0 0 12px 0;
+  padding: 6px 10px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   text-align: center;
