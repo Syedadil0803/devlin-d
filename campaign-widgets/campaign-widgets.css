@@ -45,7 +45,7 @@
   padding: 0 40px;
   white-space: nowrap;
   line-height: 40px;
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 
 /* Rich text children inside announcement items */
@@ -56,7 +56,7 @@
 .cw-announcement-bar__item em,
 .cw-announcement-bar__item u {
   display: inline;
-  vertical-align: middle;
+  vertical-align: baseline;
   line-height: 40px;
 }
 
