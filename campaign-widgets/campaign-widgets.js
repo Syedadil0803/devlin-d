@@ -88,6 +88,17 @@
     return el;
   }
 
+  // ---- Helper function for format system ----
+  
+  function applyFormatSystem(text) {
+    // Convert semantic HTML tags to styled spans for consistent rendering
+    return text
+      .replace(/<strong>/g, '<span style="font-weight: bold;">')
+      .replace(/<\/strong>/g, '</span>')
+      .replace(/<em>/g, '<span style="font-style: italic;">')
+      .replace(/<\/em>/g, '</span>');
+  }
+
   // ---- Helper function for background styles ----
   
   function getBackgroundStyle(background) {
@@ -96,7 +107,9 @@
     if (background.type === 'radial') {
       return 'radial-gradient(circle, ' + background.startColor + ', ' + background.endColor + ')';
     } else if (background.type === 'linear') {
-      return 'linear-gradient(90deg, ' + background.startColor + ', ' + background.endColor + ')';
+      var direction = background.direction || '90deg';
+      var midpoint = background.midpoint || 50;
+      return 'linear-gradient(' + direction + ', ' + background.startColor + ' ' + midpoint + '%, ' + background.endColor + ')';
     } else if (background.type === 'solid') {
       return background.startColor;
     }
@@ -200,7 +213,7 @@
       className: 'cw-promo-card cw-promo-card--' + position,
       id: 'cw-promo-card',
       style: {
-        backgroundColor: style.backgroundColor || '#1f2937',
+        background: getBackgroundStyle(style.background) || '#1f2937',
         color: style.textColor || '#ffffff',
       },
     });
@@ -222,28 +235,101 @@
     });
     card.appendChild(closeBtn);
 
-    // Title
+    // Title with individual styling
     if (config.title) {
-      card.appendChild(
-        createElement('h3', {
-          className: 'cw-promo-card__title',
-          style: { color: style.textColor || '#ffffff' },
-        }, config.title)
-      );
+      const titleStyle = style.titleStyle || {};
+      const titleElement = createElement('div', {
+        className: 'cw-promo-card__title',
+        style: {
+          background: getBackgroundStyle(titleStyle.background) || 'transparent',
+          color: titleStyle.textColor || style.textColor || '#ffffff',
+          textAlign: titleStyle.textAlign || 'left',
+          fontWeight: titleStyle.fontWeight || '600',
+        },
+      });
+      titleElement.innerHTML = applyFormatSystem(config.title); // Apply format system
+      card.appendChild(titleElement);
     }
 
-    // Description
+    // Subtitle with individual styling
+    if (config.subtitle) {
+      const subheadingStyle = style.subheadingStyle || {};
+      const subtitleElement = createElement('div', {
+        className: 'cw-promo-card__subtitle',
+        style: {
+          background: getBackgroundStyle(subheadingStyle.background) || 'transparent',
+          color: subheadingStyle.textColor || style.textColor || '#ffffff',
+          textAlign: subheadingStyle.textAlign || 'left',
+          fontWeight: subheadingStyle.fontWeight || '500',
+        },
+      });
+      subtitleElement.innerHTML = applyFormatSystem(config.subtitle); // Apply format system
+      card.appendChild(subtitleElement);
+    }
+
+    // Description with individual styling
     if (config.description) {
-      card.appendChild(
-        createElement('p', {
-          className: 'cw-promo-card__description',
-          style: { color: style.textColor || '#ffffff' },
-        }, config.description)
-      );
+      const descriptionStyle = style.descriptionStyle || {};
+      const descriptionElement = createElement('div', {
+        className: 'cw-promo-card__description',
+        style: {
+          background: getBackgroundStyle(descriptionStyle.background) || 'transparent',
+          color: descriptionStyle.textColor || style.textColor || '#ffffff',
+          textAlign: descriptionStyle.textAlign || 'left',
+          fontWeight: descriptionStyle.fontWeight || '400',
+        },
+      });
+      descriptionElement.innerHTML = applyFormatSystem(config.description); // Apply format system
+      card.appendChild(descriptionElement);
+    }
+
+    // Timer
+    if (config.showTimer && config.timerText) {
+      const timerContainer = createElement('div', {
+        className: 'cw-promo-card__timer',
+        style: {
+          background: getBackgroundStyle(style.dateStyle?.background) || 'transparent',
+          color: style.dateStyle?.textColor || style.textColor || '#ffffff',
+          textAlign: style.dateStyle?.textAlign || 'center',
+          fontWeight: style.dateStyle?.fontWeight || '500',
+        },
+      });
+      
+      // Apply format system once to create template
+      const formattedTemplate = applyFormatSystem(config.timerText);
+      const timerText = createElement('span', {});
+      timerContainer.appendChild(timerText);
+      card.appendChild(timerContainer);
+      
+      // Function to update timer display
+      function updateTimer() {
+        const now = new Date();
+        const endTime = new Date(config.endDate);
+        if (endTime > now) {
+          const diff = endTime - now;
+          const hours = Math.floor(diff / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+          
+          // Update the time values in the formatted template
+          let updatedText = formattedTemplate;
+          updatedText = updatedText.replace('{h}', hours);
+          updatedText = updatedText.replace('{mm}', minutes.toString().padStart(2, '0'));
+          updatedText = updatedText.replace('{ss}', seconds.toString().padStart(2, '0'));
+          
+          timerText.innerHTML = updatedText;
+        }
+      }
+      
+      // Render immediately on first load to prevent layout shift
+      updateTimer();
+      
+      // Then update every second
+      setInterval(updateTimer, 1000);
     }
 
     // Button
-    if (config.buttonUrl) {
+    if (config.showButton && config.buttonUrl) {
       const btn = createElement('a', {
         className: 'cw-promo-card__btn',
         href: config.buttonUrl,
@@ -251,7 +337,7 @@
           backgroundColor: style.buttonColor || '#6366f1',
           color: style.buttonTextColor || '#ffffff',
         },
-        innerHTML: 'Shop Now',
+        innerHTML: config.buttonText || 'Shop Now',
       });
       card.appendChild(btn);
     }
