@@ -88,15 +88,58 @@
     return el;
   }
 
-  // ---- Helper function for format system ----
+  // ---- Helper function for HTML sanitization ----
   
-  function applyFormatSystem(text) {
-    // Convert semantic HTML tags to styled spans for consistent rendering
-    return text
-      .replace(/<strong>/g, '<span style="font-weight: bold;">')
-      .replace(/<\/strong>/g, '</span>')
-      .replace(/<em>/g, '<span style="font-style: italic;">')
-      .replace(/<\/em>/g, '</span>');
+  function sanitizeHTML(html) {
+    // Create a temporary element to parse HTML
+    var temp = document.createElement('div');
+    temp.innerHTML = html;
+    
+    // Allow only safe tags and attributes
+    var allowedTags = ['span', 'strong', 'em', 'b', 'i', 'u', 'br'];
+    var allowedAttributes = ['style', 'class'];
+    var allowedStyles = ['font-size', 'color', 'font-weight', 'font-style', 'text-decoration', 'text-align', 'line-height'];
+    
+    function sanitizeNode(node) {
+      if (node.nodeType === 3) return node; // Text node - safe
+      
+      if (node.nodeType === 1) { // Element node
+        var tagName = node.tagName.toLowerCase();
+        
+        // Remove disallowed tags
+        if (allowedTags.indexOf(tagName) === -1) {
+          var textNode = document.createTextNode(node.textContent);
+          node.parentNode.replaceChild(textNode, node);
+          return textNode;
+        }
+        
+        // Sanitize attributes
+        var attrs = Array.from(node.attributes);
+        attrs.forEach(function(attr) {
+          if (allowedAttributes.indexOf(attr.name) === -1) {
+            node.removeAttribute(attr.name);
+          } else if (attr.name === 'style') {
+            // Sanitize inline styles and preserve them
+            var styles = attr.value.split(';').filter(function(style) {
+              if (!style.trim()) return false;
+              var prop = style.split(':')[0].trim();
+              return allowedStyles.indexOf(prop) !== -1;
+            }).join(';');
+            // Ensure styles end with semicolon for proper parsing
+            if (styles && !styles.endsWith(';')) styles += ';';
+            node.setAttribute('style', styles);
+          }
+        });
+        
+        // Recursively sanitize children
+        Array.from(node.childNodes).forEach(sanitizeNode);
+      }
+      
+      return node;
+    }
+    
+    Array.from(temp.childNodes).forEach(sanitizeNode);
+    return temp.innerHTML;
   }
 
   // ---- Helper function for background styles ----
@@ -148,7 +191,9 @@
         // Handle both old string format and new object format
         var text = typeof announcement === 'string' ? announcement : announcement.text;
         var url = typeof announcement === 'object' && announcement.url ? announcement.url : null;
-        var isRichText = typeof announcement === 'object' && announcement.richText === true;
+        // Auto-detect rich text if it contains HTML tags, or use explicit richText flag
+        var isRichText = typeof announcement === 'object' && 
+                        (announcement.richText === true || /<[^>]+>/.test(text));
 
         var tag = url ? 'a' : 'span';
         var attrs = { className: 'cw-announcement-bar__item' };
@@ -159,9 +204,9 @@
           attrs.style = { textDecoration: 'underline', color: 'inherit' };
         }
 
-        // Rich text: render HTML via innerHTML; plain text: safe textContent via children
+        // Rich text: sanitize and render HTML via innerHTML; plain text: safe textContent via children
         if (isRichText) {
-          attrs.innerHTML = text;
+          attrs.innerHTML = sanitizeHTML(text);
           fragment.appendChild(createElement(tag, attrs));
         } else {
           fragment.appendChild(createElement(tag, attrs, text));
@@ -191,11 +236,27 @@
       document.body.style.setProperty('--cw-bar-height', BAR_HEIGHT + 'px');
       document.body.classList.add('cw-has-announcement-bar');
 
-      // Adjust navbar offset as bar scrolls out of view
-      window.addEventListener('scroll', function () {
+      // Throttle scroll handler for better performance
+      var scrollTimeout = null;
+      var lastScrollY = 0;
+      
+      function updateBarOffset() {
         var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        var visibleBarHeight = Math.max(0, BAR_HEIGHT - scrollY);
-        document.body.style.setProperty('--cw-bar-height', visibleBarHeight + 'px');
+        if (scrollY !== lastScrollY) {
+          var visibleBarHeight = Math.max(0, BAR_HEIGHT - scrollY);
+          document.body.style.setProperty('--cw-bar-height', visibleBarHeight + 'px');
+          lastScrollY = scrollY;
+        }
+      }
+      
+      // Adjust navbar offset as bar scrolls out of view (throttled)
+      window.addEventListener('scroll', function () {
+        if (!scrollTimeout) {
+          scrollTimeout = setTimeout(function() {
+            updateBarOffset();
+            scrollTimeout = null;
+          }, 16); // ~60fps
+        }
       }, { passive: true });
     });
   }
@@ -207,6 +268,9 @@
 
     const style = config.style || {};
     const position = style.position || 'bottom-right';
+    
+    // Timer interval reference for cleanup (declare at function scope)
+    var timerInterval = null;
 
     // Build the card
     const card = createElement('div', {
@@ -227,6 +291,12 @@
       'aria-label': 'Close promotional card',
       innerHTML: '&times;',
       onClick: function () {
+        // Cleanup timer if exists
+        if (timerInterval) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+        }
+        // Animate out and remove
         card.classList.add('cw-closing');
         setTimeout(function () {
           card.remove();
@@ -247,7 +317,7 @@
           fontWeight: titleStyle.fontWeight || '600',
         },
       });
-      titleElement.innerHTML = applyFormatSystem(config.title); // Apply format system
+      titleElement.innerHTML = sanitizeHTML(config.title);
       card.appendChild(titleElement);
     }
 
@@ -263,7 +333,7 @@
           fontWeight: subheadingStyle.fontWeight || '500',
         },
       });
-      subtitleElement.innerHTML = applyFormatSystem(config.subtitle); // Apply format system
+      subtitleElement.innerHTML = sanitizeHTML(config.subtitle);
       card.appendChild(subtitleElement);
     }
 
@@ -279,7 +349,7 @@
           fontWeight: descriptionStyle.fontWeight || '400',
         },
       });
-      descriptionElement.innerHTML = applyFormatSystem(config.description); // Apply format system
+      descriptionElement.innerHTML = sanitizeHTML(config.description);
       card.appendChild(descriptionElement);
     }
 
@@ -295,8 +365,8 @@
         },
       });
       
-      // Apply format system once to create template
-      const formattedTemplate = applyFormatSystem(config.timerText);
+      // Sanitize timer template once
+      const formattedTemplate = sanitizeHTML(config.timerText);
       const timerText = createElement('span', {});
       timerContainer.appendChild(timerText);
       card.appendChild(timerContainer);
@@ -304,7 +374,7 @@
       // Function to update timer display
       function updateTimer() {
         const now = new Date();
-        const endTime = new Date(config.endDate);
+        const endTime = new Date(config.endDate + 'T23:59:59');
         if (endTime > now) {
           const diff = endTime - now;
           const hours = Math.floor(diff / (1000 * 60 * 60));
@@ -317,7 +387,18 @@
           updatedText = updatedText.replace('{mm}', minutes.toString().padStart(2, '0'));
           updatedText = updatedText.replace('{ss}', seconds.toString().padStart(2, '0'));
           
+          // Add colons with equal spacing and reduce space between units
+          // Remove existing spaces and add colon with controlled spacing
+          updatedText = updatedText.replace(/(\d+h)(<\/[^>]+>)\s*/gi, '$1 : $2');
+          updatedText = updatedText.replace(/(\d+m)(<\/[^>]+>)\s*/gi, '$1 : $2');
+          
           timerText.innerHTML = updatedText;
+        } else {
+          // Timer expired - clear interval and optionally hide card
+          if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+          }
         }
       }
       
@@ -325,21 +406,36 @@
       updateTimer();
       
       // Then update every second
-      setInterval(updateTimer, 1000);
+      timerInterval = setInterval(updateTimer, 1000);
     }
 
     // Button
     if (config.showButton && config.buttonUrl) {
+      const buttonStyle = style.buttonStyle || {};
+      
+      // Create button wrapper for alignment control
+      const buttonWrapper = createElement('div', {
+        className: 'cw-promo-card__btn-wrapper',
+        style: {
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+        }
+      });
+      
       const btn = createElement('a', {
-        className: 'cw-promo-card__btn',
+        className: 'cw-promo-card__btn' + (config.buttonFullWidth ? ' cw-promo-card__btn--full' : ''),
         href: config.buttonUrl,
         style: {
-          backgroundColor: style.buttonColor || '#6366f1',
-          color: style.buttonTextColor || '#ffffff',
+          background: getBackgroundStyle(buttonStyle.background) || style.buttonColor || '#6366f1',
+          color: buttonStyle.textColor || style.buttonTextColor || '#ffffff',
+          textAlign: buttonStyle.textAlign || 'center',
         },
-        innerHTML: config.buttonText || 'Shop Now',
+        innerHTML: sanitizeHTML(config.buttonText || 'Shop Now'),
       });
-      card.appendChild(btn);
+      
+      buttonWrapper.appendChild(btn);
+      card.appendChild(buttonWrapper);
     }
 
     // Insert into page

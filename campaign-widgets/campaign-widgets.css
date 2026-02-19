@@ -60,6 +60,12 @@
   line-height: 40px;
 }
 
+/* Ensure consistent bold weight */
+.cw-announcement-bar strong,
+.cw-announcement-bar b {
+  font-weight: 700;
+}
+
 /* Push fixed navbar down when announcement bar is visible */
 body.cw-has-announcement-bar .rd-navbar-fixed .rd-navbar-panel {
   top: var(--cw-bar-height, 0px);
@@ -161,7 +167,6 @@ body.cw-has-announcement-bar .rd-navbar-fixed .rd-navbar-search .rd-search {
 .cw-promo-card__close {
   position: absolute;
   top: -12px;
-  right: -12px;
   width: 28px;
   height: 28px;
   border: none;
@@ -180,6 +185,24 @@ body.cw-has-announcement-bar .rd-navbar-fixed .rd-navbar-search .rd-search {
   z-index: 10;
 }
 
+/* Close button positioning based on card position */
+.cw-promo-card--bottom-right .cw-promo-card__close,
+.cw-promo-card--top-right .cw-promo-card__close {
+  left: -12px;
+  right: auto;
+}
+
+.cw-promo-card--bottom-left .cw-promo-card__close,
+.cw-promo-card--top-left .cw-promo-card__close {
+  right: -12px;
+  left: auto;
+}
+
+.cw-promo-card--center .cw-promo-card__close {
+  right: -12px;
+  left: auto;
+}
+
 .cw-promo-card__close:hover {
   opacity: 1;
   background: rgba(255, 255, 255, 1);
@@ -196,6 +219,11 @@ body.cw-has-announcement-bar .rd-navbar-fixed .rd-navbar-search .rd-search {
   border-radius: 8px;
 }
 
+/* Allow inline styles to override */
+.cw-promo-card__title span {
+  font-size: inherit;
+}
+
 .cw-promo-card__subtitle {
   font-size: 18px;
   margin: 0 0 6px 0;
@@ -205,12 +233,28 @@ body.cw-has-announcement-bar .rd-navbar-fixed .rd-navbar-search .rd-search {
   border-radius: 6px;
 }
 
+/* Allow inline styles to override */
+.cw-promo-card__subtitle span {
+  font-size: inherit;
+}
+
 .cw-promo-card__description {
   font-size: 14px;
   line-height: 1.5;
   margin: 0 0 12px 0;
   padding: 4px 8px;
   border-radius: 6px;
+}
+
+/* Allow inline styles to override */
+.cw-promo-card__description span {
+  font-size: inherit;
+}
+
+/* Ensure consistent bold weight across all promo card elements */
+.cw-promo-card strong,
+.cw-promo-card b {
+  font-weight: 700;
 }
 
 .cw-promo-card__timer {
@@ -222,11 +266,16 @@ body.cw-has-announcement-bar .rd-navbar-fixed .rd-navbar-search .rd-search {
   text-align: center;
 }
 
-.cw-promo-card__btn {
+.cw-promo-card__btn-wrapper {
   display: flex;
+  width: 100%;
+}
+
+.cw-promo-card__btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: auto;
   padding: 10px 22px;
   border: none;
   border-radius: 10px;
@@ -237,6 +286,11 @@ body.cw-has-announcement-bar .rd-navbar-fixed .rd-navbar-search .rd-search {
   transition: all 0.25s ease;
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.cw-promo-card__btn--full {
+  flex: 1;
+  width: 100%;
 }
 
 .cw-promo-card__btn:hover {
