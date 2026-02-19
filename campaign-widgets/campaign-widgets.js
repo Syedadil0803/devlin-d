@@ -383,14 +383,24 @@
           
           // Update the time values in the formatted template
           let updatedText = formattedTemplate;
-          updatedText = updatedText.replace('{h}', hours);
-          updatedText = updatedText.replace('{mm}', minutes.toString().padStart(2, '0'));
-          updatedText = updatedText.replace('{ss}', seconds.toString().padStart(2, '0'));
           
-          // Add colons with equal spacing and reduce space between units
-          // Remove existing spaces and add colon with controlled spacing
-          updatedText = updatedText.replace(/(\d+h)(<\/[^>]+>)\s*/gi, '$1 : $2');
-          updatedText = updatedText.replace(/(\d+m)(<\/[^>]+>)\s*/gi, '$1 : $2');
+          // Support both old format {h} {mm} {ss} and new format hh mm ss
+          updatedText = updatedText.replace(/\{h\}/g, hours);
+          updatedText = updatedText.replace(/\{mm\}/g, minutes.toString().padStart(2, '0'));
+          updatedText = updatedText.replace(/\{ss\}/g, seconds.toString().padStart(2, '0'));
+          
+          // Also support hh, mm, ss (without curly braces) - add h, m, s suffixes by default
+          updatedText = updatedText.replace(/\bhh\b/g, hours.toString().padStart(2, '0') + 'h');
+          updatedText = updatedText.replace(/\bmm\b/g, minutes.toString().padStart(2, '0') + 'm');
+          updatedText = updatedText.replace(/\bss\b/g, seconds.toString().padStart(2, '0') + 's');
+          
+          // Only add colons with spacing if they don't already exist in the template
+          // Check if colons are already present between closing and opening tags
+          if (!/(<\/[^>]+>)\s*:\s*(<[^>]+>)/.test(updatedText)) {
+            // Add colons with equal spacing (only if h/m/s units are present and no colons exist)
+            updatedText = updatedText.replace(/(\d+h)(<\/[^>]+>)\s*/gi, '$1 : $2');
+            updatedText = updatedText.replace(/(\d+m)(<\/[^>]+>)\s*/gi, '$1 : $2');
+          }
           
           timerText.innerHTML = updatedText;
         } else {
