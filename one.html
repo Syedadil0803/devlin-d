@@ -1546,7 +1546,7 @@
         </div>
       </section> -->
 
-    <section style="background-color: #f2f7f2">
+    <section class="map-section" style="background-color: #f2f7f2">
       <div style="
             width: 100%;
             max-width: none;
@@ -1555,29 +1555,54 @@
             padding: 30px 0;
           ">
         <style>
-          .map-container {
-            padding-bottom: 48%; /* Reduced height for mobile */
+          .map-section .map-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: min(56vw, 600px);
+            min-height: 260px;
+            max-height: 600px;
           }
-          @media (min-width: 768px) {
-            .map-container {
-              padding-bottom: 38%; /* Reduced height for medium screens */
+
+          .map-section .map-container iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+          }
+
+          .map-section .google-map-container::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            pointer-events: none;
+            z-index: 1;
+          }
+
+          @media (max-width: 767.98px) {
+            .map-section .map-container {
+              height: min(70vw, 420px);
+              min-height: 220px;
             }
           }
-           @media (min-width: 1200px) {
-            .map-container {
-              padding-bottom: 34%; /* Reduced height for large screens */
+
+          @media (min-width: 1200px) {
+            .map-section .map-container {
+              height: min(36vw, 600px);
             }
           }
         </style>
         <div class="row">
           <div class="col-12 mb-4">
-             <div class="map-container" style="position: relative; overflow: hidden">
-                <iframe src="https://maps.google.com/maps?q=Devlin+Wholesale+Leicester,+Laundon+Way,+Groby,+Leicester+LE6+0YG,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0" allowfullscreen></iframe>
+             <div class="map-container google-map-container">
+                <iframe src="https://maps.google.com/maps?q=Devlin+Wholesale+Leicester,+Laundon+Way,+Groby,+Leicester+LE6+0YG,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
               </div>
           </div>
           <div class="col-12">
-             <div class="map-container" style="position: relative; overflow: hidden">
-                <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0" allowfullscreen allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"></iframe>
+             <div class="map-container">
+                <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" frameborder="0" allowfullscreen allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"></iframe>
               </div>
           </div>
         </div>
