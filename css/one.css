@@ -90,6 +90,7 @@
   opacity: 0;
   transform: translateY(120px) scale(0.95);
   min-width: 0;
+  overflow: hidden;
 }
 
 .service-step .timeline-dot {
@@ -127,8 +128,8 @@
 
 .service-journey.is-visible .service-step:nth-child(1) .card-lite,
 .service-journey.is-visible .service-step:nth-child(1) .media {
-  -webkit-animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
-  animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
+  -webkit-animation: slide-top-instant 0.75s ease-out 0.1s both;
+  animation: slide-top-instant 0.75s ease-out 0.1s both;
 }
 
 .service-journey.is-visible .service-step:nth-child(2) .card-lite,
@@ -166,6 +167,32 @@
     opacity: 1;
     -webkit-transform: translateY(0) scale(1);
     transform: translateY(0) scale(1);
+  }
+}
+
+@-webkit-keyframes slide-top-instant {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(120px);
+    transform: translateY(120px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-top-instant {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(120px);
+    transform: translateY(120px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
