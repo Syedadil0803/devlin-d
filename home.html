@@ -550,7 +550,7 @@
   <div class="page">
     <!-- Page Header and Swiper-->
     <section class="section swiper-custom-container-3 leicester-hero">
-      <header class="section page-header">
+      <header class="section page-header" style="position: relative; z-index: 500;">
         <!-- RD Navbar-->
         <div class="rd-navbar-wrap">
           <nav class="rd-navbar rd-navbar-corporate" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
@@ -667,8 +667,8 @@
       <div class="swiper-container swiper-slider swiper-slider-7" data-loop="false" data-simulate-touch="false"
         data-add-slides="1">
         <div class="swiper-wrapper text-sm-left">
+          <!-- Slide 1 -->
           <div class="swiper-slide swiper-slide-bg" data-slide-bg="images/stores/LeicesterStoreImg.JPG">
-
             <div class="swiper-slide-caption section-md">
               <div class="swiper-box">
                 <h6 class="oh swiper-subtitle">
@@ -676,50 +676,19 @@
                     Elevating Interiors with Uncompromised Quality.</span>
                 </h6>
                 <h3 class="swiper-title oh">
-                  <!-- <span class="d-block" data-caption-animate="slideInLeft" data-caption-delay="200">Welcome
-                    to</span><span class="d-block" data-caption-animate="slideInRight"
-                    data-caption-delay="200">Devlin</span> -->
                   <span class="d-block" data-caption-animate="slideInLeft" data-caption-delay="200">Hello Leicester!
                   </span>
                 </h3>
                 <a class="button button-lg button-icon button-icon-right button-blue-8" data-caption-animate="fadeInUp"
-                  data-caption-delay="500" href="contacts.html"><span class="icon mdi mdi-chevron-right"></span>COntact
-                  US</a>
+                  data-caption-delay="500" href="contacts.html"><span class="icon mdi mdi-chevron-right"></span>Contact
+                  Us</a>
               </div>
               <div class="swiper-content-bg-1"></div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <!-- Video Background for Slide 2 -->
-            <video autoplay muted loop playsinline preload="auto"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
-              <source src="/videos/LeicesterStoreVideo.mp4" type="video/mp4">
-            </video>
-
-            <div class="swiper-slide-caption section-md">
-              <div class="swiper-box">
-                <h6 class="oh swiper-subtitle">
-                  <span class="d-inline-block" data-caption-animate="slideInLeft" data-caption-delay="500">Stylish
-                    Options in Carpet, Laminate, LVT, Vinyl & More.</span>
-                </h6>
-                <h3 class="swiper-title">
-                  <span class="d-block" data-caption-animate="fadeInRight" data-caption-delay="200">Flooring
-                    for</span><span class="d-block" data-caption-animate="fadeInRight" data-caption-delay="300">Any
-                    Interior</span>
-                </h3>
-                <div class="oh button-wrap">
-                  <a class="button button-lg button-icon button-icon-right button-blue-8"
-                    data-caption-animate="slideInLeft" data-caption-delay="200" href="contacts.html"><span
-                      class="icon mdi mdi-chevron-right"></span>Contact
-                    Us</a>
-                </div>
-              </div>
-              <div class="swiper-content-bg-2"></div>
-            </div>
-          </div>
         </div>
-        <!-- Swiper Navigation-->
-        <div class="swiper-navigation__module">
+        <!-- Swiper Navigation (hidden since 1 slide) -->
+        <div class="swiper-navigation__module" style="display:none;">
           <div class="swiper-pagination__fraction">
             <span class="swiper-pagination__fraction-index"></span><span
               class="swiper-pagination__fraction-divider">/</span><span
@@ -730,9 +699,212 @@
         </div>
         <!-- Swiper Pagination-->
         <div class="swiper-pagination" data-bullet-custom="true"></div>
+
+        <!-- Fullscreen video overlay (hidden by default) -->
+        <div class="video-expanded-overlay" id="videoOverlay">
+          <video id="heroExpandedVideo" loop playsinline preload="none" muted>
+            <source src="/videos/LeicesterStoreVideo.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Close button (visible when expanded) -->
+        <div class="video-close-btn" id="videoCloseBtn" onclick="closeHeroVideo()">
+          <div class="video-close-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+          </div>
+          <div class="video-close-label">Close<br>Video</div>
+        </div>
+
+        <!-- Video bubble (default visible) -->
+        <div class="video-bubble-wrapper" id="videoBubbleWrapper" onclick="openHeroVideo()">
+          <div class="video-bubble">
+            <video muted loop playsinline autoplay preload="auto">
+              <source src="/videos/LeicesterStoreVideo.mp4" type="video/mp4">
+            </video>
+            <div class="video-bubble-play">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="video-bubble-label">Watch<br>Video Tour</div>
+        </div>
+
       </div>
+
+      <!-- ===== VIDEO BUBBLE & OVERLAY STYLES ===== -->
+      <style>
+        /* Video Bubble */
+
+        .video-bubble-wrapper {
+          position: absolute;
+          top: 25%;
+          right: 80px;
+          transform: translateY(-50%);
+          z-index: 100;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          cursor: pointer;
+        }
+
+        /* Adjust positions for smaller screens */
+        @media (max-width: 991px) {
+          .video-bubble-wrapper {
+            top: auto;
+            bottom: 40px;
+            right: 40px;
+            transform: none;
+          }
+        }
+
+        @media (max-width: 575px) {
+          .video-bubble-wrapper {
+            bottom: 30px;
+            right: 20px;
+          }
+        }
+
+        .video-bubble {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 3px solid rgba(255,255,255,0.9);
+          box-shadow: 0 6px 25px rgba(0,0,0,0.5);
+          position: relative;
+          background: #000;
+          animation: pulseBubble 2.5s infinite;
+        }
+
+        @keyframes pulseBubble {
+          0%, 100% { box-shadow: 0 6px 25px rgba(0,0,0,0.5), 0 0 0 0 rgba(255,255,255,0.4); }
+          50% { box-shadow: 0 6px 25px rgba(0,0,0,0.5), 0 0 0 12px rgba(255,255,255,0); }
+        }
+
+        .video-bubble video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          pointer-events: none;
+        }
+
+        .video-bubble-play {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(0,0,0,0.3);
+        }
+
+        .video-bubble-play svg {
+          width: 36px;
+          height: 36px;
+          fill: white;
+          filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+        }
+
+        .video-bubble-label {
+          color: white;
+          font-size: 13px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          font-weight: 700;
+          text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+          text-align: center;
+          line-height: 1.4;
+        }
+
+        /* Fullscreen video overlay */
+        .video-expanded-overlay {
+          position: absolute;
+          inset: 0;
+          background: #000;
+          z-index: 99;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.5s ease;
+        }
+        .video-expanded-overlay video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .video-expanded-overlay.active {
+          opacity: 1;
+          pointer-events: all;
+        }
+
+        /* Close button */
+        .video-close-btn {
+          position: absolute;
+          top: 25%;
+          right: 80px;
+          transform: translateY(-50%);
+          z-index: 200;
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          cursor: pointer;
+        }
+        @media (max-width: 991px) {
+          .video-close-btn {
+            top: 40px;
+            right: 40px;
+            transform: none;
+          }
+        }
+        .video-close-btn.active { display: flex; }
+
+        .video-close-circle {
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.15);
+          border: 2px solid white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          backdrop-filter: blur(4px);
+          box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+          margin: 32px 0; /* Ensures the close icon occupies the exact 120px height of the bubble */
+        }
+
+        .video-close-circle svg { width: 24px; height: 24px; fill: white; }
+
+        .video-close-label {
+          color: white;
+          font-size: 13px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          font-weight: 700;
+          text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+          text-align: center;
+          line-height: 1.4;
+        }
+      </style>
+
+      <script>
+        function openHeroVideo() {
+          document.getElementById('videoOverlay').classList.add('active');
+          document.getElementById('videoBubbleWrapper').style.display = 'none';
+          document.getElementById('videoCloseBtn').classList.add('active');
+          document.getElementById('heroExpandedVideo').play();
+        }
+        function closeHeroVideo() {
+          document.getElementById('videoOverlay').classList.remove('active');
+          document.getElementById('videoBubbleWrapper').style.display = 'flex';
+          document.getElementById('videoCloseBtn').classList.remove('active');
+          var v = document.getElementById('heroExpandedVideo');
+          v.pause();
+          v.currentTime = 0;
+        }
+      </script>
     </section>
-    <!-- Section CTA-->
+
 
     <style>
       .edgy-parallax {
