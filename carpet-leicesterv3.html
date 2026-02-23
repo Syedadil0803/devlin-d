@@ -666,82 +666,6 @@
           </nav>
         </div>
       </header>
-      <!-- Video bubble CSS only -->
-      <style>
-        /* Hide pagination dot — only one slide */
-        .leicester-hero .swiper-slider-7 .swiper-pagination { display: none !important; }
-        .leicester-hero-video-bubble-wrap {
-          position: absolute;
-          top: 28px;
-          right: 36px;
-          z-index: 100;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-          cursor: pointer;
-        }
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble-wrap { top: 14px; right: 14px; }
-        }
-        .leicester-hero-video-bubble {
-          width: 160px;
-          height: 160px;
-          border-radius: 50%;
-          overflow: hidden;
-          border: 4px solid rgba(255,255,255,0.85);
-          box-shadow: 0 8px 28px rgba(0,0,0,0.45);
-          background: #000;
-          position: relative;
-          animation: heroBubblePulse 2.8s infinite;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .leicester-hero-video-bubble:hover {
-          transform: scale(1.04);
-          box-shadow: 0 12px 36px rgba(0,0,0,0.55), 0 0 0 6px rgba(255,255,255,0.3);
-        }
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble { width: 110px; height: 110px; }
-        }
-        @keyframes heroBubblePulse {
-          0%, 100% { box-shadow: 0 8px 28px rgba(0,0,0,0.45), 0 0 0 0 rgba(255,255,255,0.5); }
-          50%       { box-shadow: 0 8px 28px rgba(0,0,0,0.45), 0 0 0 10px rgba(255,255,255,0); }
-        }
-        .leicester-hero-video-bubble video {
-          width: 100%; height: 100%; object-fit: cover; pointer-events: none; display: block;
-        }
-        .leicester-hero-video-bubble .bubble-play-icon {
-          position: absolute;
-          inset: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(0,0,0,0.28);
-          transition: background 0.2s ease;
-        }
-        .leicester-hero-video-bubble:hover .bubble-play-icon { background: rgba(0,0,0,0.18); }
-        .leicester-hero-video-bubble .bubble-play-icon svg {
-          width: 44px; height: 44px; fill: #fff;
-          filter: drop-shadow(0 2px 6px rgba(0,0,0,0.7));
-        }
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble .bubble-play-icon svg { width: 30px; height: 30px; }
-        }
-        .leicester-hero-video-bubble-label {
-          font-size: 12px;
-          font-weight: 700;
-          color: #fff;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          text-shadow: 0 1px 6px rgba(0,0,0,0.8);
-          text-align: center;
-        }
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble-label { font-size: 10px; }
-        }
-      </style>
-
-      <!-- Original Swiper (unchanged from v1) -->
       <div class="swiper-container swiper-slider swiper-slider-7" data-loop="false"
         data-simulate-touch="false" data-add-slides="1">
         <div class="swiper-wrapper text-sm-left">
@@ -762,49 +686,55 @@
               </div>
               <div class="swiper-content-bg-1"></div>
             </div>
-
-        <!-- Video bubble top-right (floats over both slides) -->
-        <div class="leicester-hero-video-bubble-wrap" onclick="openLeicesterStoreVideo()">
-          <div class="leicester-hero-video-bubble">
-            <video muted loop playsinline autoplay preload="auto">
-              <source src="videos/LeicesterStoreVideo.mp4" type="video/mp4">
+          </div>
+          <div class="swiper-slide">
+            <!-- Video Background for Slide 2 -->
+            <video 
+              autoplay 
+              muted 
+              loop 
+              playsinline
+              preload="auto"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+              <source src="/videos/LeicesterStoreVideo.mp4" type="video/mp4">
             </video>
-            <div class="bubble-play-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            
+            <div class="swiper-slide-caption section-md">
+              <div class="swiper-box">
+                <h6 class="oh swiper-subtitle">
+                  <span class="d-inline-block" data-caption-animate="slideInLeft" data-caption-delay="500">Stylish
+                    Options in Carpet, Laminate, LVT, Vinyl &amp; More.</span>
+                </h6>
+                <h3 class="swiper-title">
+                  <span class="d-block" data-caption-animate="fadeInRight" data-caption-delay="200">Flooring
+                    for</span><span class="d-block" data-caption-animate="fadeInRight" data-caption-delay="300">Any
+                    Interior</span>
+                </h3>
+                <div class="oh button-wrap">
+                  <a class="button button-lg button-icon button-icon-right button-blue-8"
+                    data-caption-animate="slideInLeft" data-caption-delay="200" href="contacts.html"><span
+                      class="icon mdi mdi-chevron-right"></span>Contact
+                    Us</a>
+                </div>
+              </div>
+              <div class="swiper-content-bg-2"></div>
             </div>
           </div>
-          <div class="leicester-hero-video-bubble-label">Watch Our Store</div>
         </div>
-
+        <!-- Swiper Navigation-->
+        <div class="swiper-navigation__module">
+          <div class="swiper-pagination__fraction">
+            <span class="swiper-pagination__fraction-index"></span><span
+              class="swiper-pagination__fraction-divider">/</span><span
+              class="swiper-pagination__fraction-count"></span>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <!-- Swiper Pagination-->
+        <div class="swiper-pagination" data-bullet-custom="true"></div>
       </div>
     </section>
-
-    <!-- Fullscreen overlay for Leicester store video (hero bubble) -->
-    <div class="video-expanded-overlay" id="storeVideoOverlay">
-      <div class="video-close-btn" id="storeVideoCloseBtn" onclick="closeLeicesterStoreVideo()">
-        <div class="video-close-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </div>
-        <div class="video-close-label">Close<br>Video</div>
-      </div>
-      <video id="storeExpandedVideo" loop playsinline preload="none" controls>
-        <source src="videos/LeicesterStoreVideo.mp4" type="video/mp4">
-      </video>
-    </div>
-    <script>
-      function openLeicesterStoreVideo() {
-        document.getElementById('storeVideoOverlay').classList.add('active');
-        document.getElementById('storeVideoCloseBtn').classList.add('active');
-        document.getElementById('storeExpandedVideo').play();
-      }
-      function closeLeicesterStoreVideo() {
-        document.getElementById('storeVideoOverlay').classList.remove('active');
-        document.getElementById('storeVideoCloseBtn').classList.remove('active');
-        var v = document.getElementById('storeExpandedVideo');
-        v.pause();
-        v.currentTime = 0;
-      }
-    </script>
 
     <style>
       /* Fullscreen video overlay */
