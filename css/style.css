@@ -1508,6 +1508,19 @@ html .group > * {
 	margin-left: 15px;
 }
 
+/* Opt-out for modern layout blocks that use Tailwind's `group` utility */
+html .group.group-reset {
+	margin-bottom: 0;
+	margin-left: 0;
+}
+
+html .group.group-reset > * {
+	display: block;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+
 html .group-xxs {
 	margin-bottom: -8px;
 	margin-left: -8px;
