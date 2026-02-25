@@ -942,11 +942,11 @@ a[href*='mailto'] {
 .box-icon-classic-icon-self {
 	display: inline-block;
 	text-align: center;
-	height: 40px;
-	width: 40px;
+	height: 32px;
+	width: 32px;
 	margin-top: 0px;
-	font-size: 20px;
-	line-height: 40px;
+	font-size: 16px;
+	line-height: 32px;
 	color: #db2a19;
 	background: #ffffff;
 	border-radius: 50%;
@@ -955,10 +955,10 @@ a[href*='mailto'] {
 
 @media (min-width: 992px) {
 	.box-icon-classic-icon-self {
-		height: 60px;
-		width: 60px;
-		font-size: 30px;
-		line-height: 60px;
+		height: 32px;
+		width: 32px;
+		font-size: 16px;
+		line-height: 32px;
 	}
 }
 
