@@ -680,8 +680,8 @@
       <style>
         .leicester-hero-video-bubble-wrap {
           position: absolute;
-          top: 28px;
-          right: 36px;
+          top: 135px;
+          right: 220px;
           z-index: 100;
           display: flex;
           flex-direction: column;
@@ -1482,6 +1482,57 @@
         background: linear-gradient(180deg, rgba(3, 30, 43, 0.12), rgba(3, 30, 43, 0.62));
       }
 
+      .grid-founder-note {
+        position: absolute;
+        left: 24px;
+        bottom: 22px;
+        z-index: 3;
+        max-width: 420px;
+        max-height: 380px;
+        padding: 14px 18px;
+        border-radius: 16px;
+        background: rgba(3, 30, 43, 0.78);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        text-align: left;
+      }
+
+      .grid-founder-note-top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 4px;
+      }
+
+      .grid-founder-note-line {
+        width: 32px;
+        height: 2px;
+        background: #db2a19;
+      }
+
+      .grid-founder-note-kicker {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+
+      .grid-founder-note-title {
+        margin: 0 0 4px;
+        font-size: 20px;
+        line-height: 1.18;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .grid-founder-note-text {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.45;
+        color: #bfc7cf;
+      }
+
       .grid-left-play {
         width: 78px;
         height: 78px;
@@ -1831,6 +1882,22 @@
           min-height: 320px;
         }
 
+        .grid-founder-note {
+          left: 16px;
+          right: 16px;
+          bottom: 14px;
+          max-width: none;
+          padding: 12px 14px;
+        }
+
+        .grid-founder-note-title {
+          font-size: 18px;
+        }
+
+        .grid-founder-note-text {
+          font-size: 13px;
+        }
+
         .grid-card {
           padding: 22px 18px;
         }
@@ -1898,7 +1965,7 @@
         <div class="grid-inner">
           <article class="grid-left" role="button" tabindex="0" onclick="openHeroVideo()"
             onkeydown="if(event.key === 'Enter' || event.key === ' '){ event.preventDefault(); openHeroVideo(); }">
-            <img src="images/stores/LeicesterStoreImg.JPG" alt="Leicester showroom interior" width="1200" height="800"
+            <img src="images/stores/LeicesterParking.JPG" alt="Leicester showroom interior" width="1200" height="800"
               loading="lazy" decoding="async" draggable="false">
             <div class="grid-left-overlay">
               <button type="button" class="play-button-video play-button-pulse" aria-label="Play founder video">
@@ -1908,6 +1975,14 @@
                 <span class="play-button-video-shade" aria-hidden="true"></span>
                 <span class="play-button-video-icon material-symbols-outlined" aria-hidden="true">play_arrow</span>
               </button>
+            </div>
+            <div class="grid-founder-note">
+              <div class="grid-founder-note-top">
+                <span class="grid-founder-note-line" aria-hidden="true"></span>
+                <span class="grid-founder-note-kicker">Our Promise</span>
+              </div>
+              <h3 class="grid-founder-note-title">A Message from the Founder</h3>
+              <p class="grid-founder-note-text">See how the Devlin family is changing the wholesale game.</p>
             </div>
           </article>
           <div class="grid-right">
@@ -2057,7 +2132,7 @@
                   <div class="box-icon-classic-icon-self linearicons-color-sampler"></div>
                 </div>
                 <div class="unit-body">
-                  <h5 class="box-icon-classic-title Rated-title"><a href="">wholesale prices</a></h5>
+                  <h5 class="box-icon-classic-title Rated-title"><a href="">Wholesale Prices</a></h5>
 
                 </div>
               </div>
