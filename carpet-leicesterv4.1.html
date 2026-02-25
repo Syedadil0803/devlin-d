@@ -1545,42 +1545,108 @@
         gap: 22px;
       }
 
-        .grid-card-bottom,
-        .grid-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-            color: #fff;
-            min-height: 254px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+      .grid-card {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+        color: #fff;
+        min-height: 254px;
+        padding: 28px 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
         border-radius: 28px;
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.16);
         box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
           border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+          box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-        .grid-card-bottom:hover,
-        .grid-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(219, 42, 25, 0.65);
-            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.35);
-        }
+      .grid-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(219, 42, 25, 0.65);
+        box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.35);
+      }
 
-      .grid-card h4,
+      .grid-card-bottom {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+        color: #fff;
+        min-height: 254px;
+        padding: 28px 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        border-radius: 28px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .grid-card-bottom:hover {
+        transform: translateY(-4px);
+        border-color: rgba(219, 42, 25, 0.65);
+        box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.35);
+      }
+
+      .grid-card h4 {
+        margin: 0 0 10px;
+        font-size: 24px;
+        color: #fff;
+        text-align: left;
+      }
+
       .grid-card-bottom h4 {
         margin: 0 0 10px;
         font-size: 24px;
         color: #fff;
+        text-align: left;
       }
 
       .grid-card p {
         margin: 0;
         color: rgba(255, 255, 255, 0.84);
         line-height: 1.65;
+        text-align: left;
+      }
+
+      .grid-card-bottom p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.84);
+        line-height: 1.65;
+        text-align: left;
+      }
+
+      .grid-card-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .grid-card-icon-wrap .grid-card-icon {
+        color: #db2a19;
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .grid-card:hover .grid-card-icon-wrap {
+        background: rgba(219, 42, 25, 0.14);
+      }
+
+      .grid-card-bottom:hover .grid-card-icon-wrap {
+        background: rgba(219, 42, 25, 0.14);
       }
 
       @media (max-width: 991px) {
@@ -1614,7 +1680,15 @@
           padding: 22px 18px;
         }
 
+        .grid-card-bottom {
+          padding: 22px 18px;
+        }
+
         .grid-card h4 {
+          font-size: 22px;
+        }
+
+        .grid-card-bottom h4 {
           font-size: 22px;
         }
       }
@@ -1633,13 +1707,13 @@
         height: 128px;
         border-bottom-left-radius: 9999px;
         background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
-        transform: translate(40%, -40%);
+        transform: translate(30%, -30%);
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         pointer-events: none;
       }
 
       .grid-card-cut:hover::before {
-        transform: translate(40%, -40%) scale(1.1);
+        transform: translate(20%, -30%) scale(1);
       }
     </style>
     <section class="service-journey-heading">
@@ -1672,12 +1746,18 @@
           </article>
           <div class="grid-right">
                         <article class="grid-card grid-card-cut">
+              <div class="grid-card-icon-wrap" aria-hidden="true">
+                <span class="grid-card-icon linearicons-grid"></span>
+              </div>
               <h4>Extensive Selection</h4>
               <p>Browse our massive inventory in our Groby showroom. From luxury wool to durable synthetics, find the
                 perfect match for your space instantly.
               </p>
             </article>
                         <article class="grid-card grid-card-cut">
+              <div class="grid-card-icon-wrap" aria-hidden="true">
+                <span class="grid-card-icon linearicons-hammer-wrench"></span>
+              </div>
               <h4>Expert Installation</h4>
               <p>We don't just supply; we deliver perfection. Our network of trusted independent fitters ensures your
                 new floor is installed flawlessly.
@@ -1688,6 +1768,9 @@
         <div class="grid-outer">
           <div class="grid-outer-card">
                         <article class="grid-card-bottom grid-card-cut">
+              <div class="grid-card-icon-wrap" aria-hidden="true">
+                <span class="grid-card-icon linearicons-tag"></span>
+              </div>
               <h4>Wholesale Pricing</h4>
               <p>Get direct-to-trade prices without needing a trade account. We believe premium flooring should be
                 accessible to everyone in Leicester.
@@ -1696,6 +1779,9 @@
           </div>
           <div class="grid-outer-card">
                         <article class="grid-card-bottom grid-card-cut">
+              <div class="grid-card-icon-wrap" aria-hidden="true">
+                <span class="grid-card-icon linearicons-heart"></span>
+              </div>
               <h4>Personal Touch</h4>
               <p> Managed locally by the Devlin family. We provide the honest advice and personal care that big box
                 stores simply can't match.
