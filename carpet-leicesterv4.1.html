@@ -1623,6 +1623,36 @@
         text-align: left;
       }
 
+      .grid-card-bottom-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 12px;
+      }
+
+      .grid-family-badge {
+        text-align: right;
+        line-height: 1.05;
+      }
+
+      .grid-family-badge-value {
+        display: block;
+        color: #ffffff;
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      .grid-family-badge-label {
+        display: block;
+        /* margin-top: 2px; */
+        color: #db2a19;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
       .grid-card-icon-wrap {
         width: 52px;
         height: 52px;
@@ -1779,8 +1809,14 @@
           </div>
           <div class="grid-outer-card">
                         <article class="grid-card-bottom grid-card-cut">
-              <div class="grid-card-icon-wrap" aria-hidden="true">
-                <span class="grid-card-icon linearicons-heart"></span>
+              <div class="grid-card-bottom-header">
+                <div class="grid-card-icon-wrap" aria-hidden="true">
+                  <span class="grid-card-icon linearicons-heart"></span>
+                </div>
+                <div class="grid-family-badge" aria-hidden="true">
+                  <span class="grid-family-badge-value">100%</span>
+                  <span class="grid-family-badge-label">Family Run</span>
+                </div>
               </div>
               <h4>Personal Touch</h4>
               <p> Managed locally by the Devlin family. We provide the honest advice and personal care that big box
