@@ -1394,6 +1394,11 @@
         display: flex;
         align-items: center;
         background: linear-gradient(145deg, #062a3d 0%, #031e2b 100%);
+        padding: 56px 0;
+      }
+
+      .grid > .container {
+        width: 100%;
       }
 
       .grid-inner {
@@ -1771,10 +1776,6 @@
       }
 
       @media (max-width: 991px) {
-        .grid {
-          min-height: 520px;
-        }
-
         .grid-inner {
           grid-template-columns: 1fr;
         }
@@ -1790,7 +1791,8 @@
 
       @media (max-width: 575px) {
         .grid {
-          min-height: 480px;
+          min-height: 0;
+          padding: 72px 0;
         }
 
         .grid-left {
