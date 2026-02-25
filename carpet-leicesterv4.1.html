@@ -1417,13 +1417,7 @@
       }
 
       .grid-outer-card {
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-        color: #fff;
-        min-height: 254px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        border-radius: 28px;
+        display: block;
       }
 
       .grid-left {
@@ -1574,6 +1568,7 @@
         background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
         color: #fff;
         min-height: 254px;
+        height: 254px;
         padding: 28px 26px;
         display: flex;
         flex-direction: column;
@@ -1629,6 +1624,102 @@
         justify-content: space-between;
         gap: 14px;
         margin-bottom: 12px;
+      }
+
+      .grid-pricing-split {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .grid-pricing-main {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .grid-pricing-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .grid-pricing-badge {
+        padding: 4px 10px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #d1d5db;
+        font-size: 12px;
+        line-height: 1.2;
+      }
+
+      .grid-pricing-metrics {
+        width: 220px;
+        max-width: 100%;
+        padding-left: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .grid-pricing-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 13px;
+      }
+
+      .grid-pricing-label {
+        color: #9ca3af;
+      }
+
+      .grid-pricing-value {
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .grid-pricing-value.accent {
+        color: #db2a19;
+      }
+
+      .grid-pricing-track {
+        width: 100%;
+        height: 8px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      .grid-gray-bar {
+        width: 100%;
+        height: 3px;
+        margin-top: 14px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.14);
+        overflow: hidden;
+      }
+
+      .grid-red-bar {
+        width: 40%;
+        height: 100%;
+        border-radius: 9999px;
+        background: #db2a19;
+        box-shadow: 0 0 10px rgba(219, 42, 25, 0.35);
+      }
+
+      .grid-pricing-fill {
+        height: 100%;
+        border-radius: 9999px;
+      }
+
+      .grid-pricing-fill.cost-saving {
+        width: 80%;
+        background: linear-gradient(90deg, #8f1a11, #db2a19);
+      }
+
+      .grid-pricing-fill.quality {
+        width: 100%;
+        background: #ffffff;
       }
 
       .grid-family-badge {
@@ -1711,6 +1802,7 @@
         }
 
         .grid-card-bottom {
+          height: auto;
           padding: 22px 18px;
         }
 
@@ -1720,6 +1812,16 @@
 
         .grid-card-bottom h4 {
           font-size: 22px;
+        }
+
+        .grid-pricing-split {
+          flex-direction: column;
+        }
+
+        .grid-pricing-metrics {
+          width: 100%;
+          padding-left: 0;
+          margin-top: 8px;
         }
       }
     </style>
@@ -1783,6 +1885,9 @@
               <p>Browse our massive inventory in our Groby showroom. From luxury wool to durable synthetics, find the
                 perfect match for your space instantly.
               </p>
+              <div class="grid-gray-bar" aria-hidden="true">
+                <div class="grid-red-bar"></div>
+              </div>
             </article>
                         <article class="grid-card grid-card-cut">
               <div class="grid-card-icon-wrap" aria-hidden="true">
@@ -1798,13 +1903,37 @@
         <div class="grid-outer">
           <div class="grid-outer-card">
                         <article class="grid-card-bottom grid-card-cut">
-              <div class="grid-card-icon-wrap" aria-hidden="true">
-                <span class="grid-card-icon linearicons-tag"></span>
+              <div class="grid-pricing-split">
+                <div class="grid-pricing-main">
+                  <div class="grid-card-icon-wrap" aria-hidden="true">
+                    <span class="grid-card-icon linearicons-tag"></span>
+                  </div>
+                  <h4>Wholesale Pricing</h4>
+                  <p>Get direct-to-trade prices without needing a trade account. We believe premium flooring should be
+                    accessible to everyone in Leicester.
+                  </p>
+                  <div class="grid-pricing-badges">
+                    <span class="grid-pricing-badge">Public Welcome</span>
+                    <span class="grid-pricing-badge">No Hidden Fees</span>
+                  </div>
+                </div>
+                <div class="grid-pricing-metrics">
+                  <div class="grid-pricing-row">
+                    <span class="grid-pricing-label">Cost Saving</span>
+                    <span class="grid-pricing-value accent">High</span>
+                  </div>
+                  <div class="grid-pricing-track" aria-hidden="true">
+                    <div class="grid-pricing-fill cost-saving"></div>
+                  </div>
+                  <div class="grid-pricing-row">
+                    <span class="grid-pricing-label">Quality</span>
+                    <span class="grid-pricing-value">Premium</span>
+                  </div>
+                  <div class="grid-pricing-track" aria-hidden="true">
+                    <div class="grid-pricing-fill quality"></div>
+                  </div>
+                </div>
               </div>
-              <h4>Wholesale Pricing</h4>
-              <p>Get direct-to-trade prices without needing a trade account. We believe premium flooring should be
-                accessible to everyone in Leicester.
-              </p>
             </article>
           </div>
           <div class="grid-outer-card">
