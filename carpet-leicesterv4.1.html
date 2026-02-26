@@ -2234,12 +2234,34 @@
     </section>
 
     <!-- Areas we Cover -->
+    <style>
+      @keyframes slideToCenter {
+        from {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      .slide-to-center {
+        visibility: hidden;
+      }
+      .slide-to-center.animated {
+        visibility: visible;
+        animation-name: slideToCenter;
+        animation-duration: 1.2s;
+        animation-fill-mode: both;
+        animation-timing-function: ease-out;
+      }
+    </style>
     <section class="section section-xl bg-default text-center">
       <div class="container">
+        <h4 class="oh-desktop" style="text-align: center; width: 100%;">
+          <span class="d-inline-block wow slide-to-center">Areas we Cover</span>
+        </h4>
         <div class="group-xl group-sm-justify">
-          <h4 class="oh-desktop">
-            <span class="d-inline-block wow slideInLeft">Areas we Cover</span>
-          </h4>
           <div class="dots-custom"></div>
         </div>
 
