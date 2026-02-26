@@ -8264,9 +8264,9 @@ h3+img {
 	margin-top: 16px;
 }
 
-.container+.container {
+/* .container+.container {
 	margin-top: 35px;
-}
+} */
 
 .container+.container-fluid {
 	margin-top: 45px;
@@ -8338,9 +8338,9 @@ h3+.big {
 }
 
 @media (min-width: 1200px) {
-	.container+.container {
+	/* .container+.container {
 		margin-top: 60px;
-	}
+	} */
 
 	.row+.row {
 		margin-top: 60px;

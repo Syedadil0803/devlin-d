@@ -30,6 +30,7 @@
   <!-- Stylesheets-->
   <link rel="stylesheet" type="text/css"
     href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
   <link rel="stylesheet" href="css/bootstrap.css" />
@@ -1300,6 +1301,24 @@
         width: 100%;
       }
 
+      .hero-heading-group {
+        display: inline-block;
+        text-align: left;
+      }
+
+      .hero-heading-kicker {
+        display: block;
+        width: auto;
+        text-align: left;
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 576px){
+       .hero-heading-group{
+        text-align: left;
+       }
+      }
+
       .Rated-title {
         font-size: 18px;
         line-height: 1.2;
@@ -1963,10 +1982,15 @@
     </style>
     <section class="service-journey-heading">
       <div class="container">
+
         <div class="service-journey-heading-copy">
-          <span class="post-classic-time p-1 " >Why Choose Devlin Wholesale – Groby, Leicester?</span>
-          <h1>Redefining Flooring
-            in Groby & Beyond.</h1>
+          <div class="hero-heading-group">
+            <div class="hero-heading-kicker">
+              <span class="post-classic-time p-1">Leicester’s Trusted Wholesaler</span>
+            </div>
+            <h1>Redefining Flooring
+              in Groby & Beyond.</h1>
+          </div>
           <p>Experience wholesale pricing with boutique service. We bring quality carpets and expert fitting directly to
             you.</p>
         </div>
@@ -2240,14 +2264,17 @@
           transform: translateX(-100%);
           opacity: 0;
         }
+
         to {
           transform: translateX(0);
           opacity: 1;
         }
       }
+
       .slide-to-center {
         visibility: hidden;
       }
+
       .slide-to-center.animated {
         visibility: visible;
         animation-name: slideToCenter;
@@ -2385,6 +2412,193 @@
                 </article>
               </div>
             </div> -->
+        </div>
+      </div>
+    </section>
+    <section class="service-journey-heading">
+      <div class="container">
+        <div class="service-journey-heading-copy">
+          <span class="post-classic-time p-1">Devlin Wholesale</span>
+          <h1>carpets and flooring Leicester</h1>
+          <p>Visit our premium showroom in Groby to explore our extensive collection of luxury carpets, hardwoods, and
+            designer flooring solutions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section" style="background-color: #ffffff">
+      <div style="
+            width: 100%;
+            max-width: none;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 0 30px;
+          ">
+        <style>
+          .map-section .map-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: min(56vw, 600px);
+            min-height: 260px;
+            max-height: 600px;
+          }
+
+          .map-section .map-container iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+          }
+
+          .map-section .google-map-container::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            pointer-events: none;
+            z-index: 1;
+          }
+
+          .map-section .location-info-card {
+            background: #ffffff;
+            border: 1px solid #dce3eb;
+            padding: 28px 40px;
+            text-align: left;
+          }
+
+          .map-section .location-address {
+            margin: 0;
+            color: #151a2d;
+            text-transform: uppercase;
+            font-family: "Roboto", sans-serif;
+            font-weight: 600;
+            line-height: 1.02;
+            letter-spacing: 0.015em;
+            font-size: clamp(36px, 6vw, 76px);
+          }
+
+          .map-section .location-info-footer {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 28px;
+            border-top: 1px solid #e4e8ee;
+            padding-top: 16px;
+          }
+
+          .map-section .location-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(120px, 1fr));
+            gap: 22px 36px;
+          }
+
+          .map-section .location-meta-label {
+            margin-bottom: 8px;
+            color: #7f90a8;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+          }
+
+          .map-section .location-meta-value {
+            color: #151a2d;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: 0.01em;
+          }
+
+          .map-section .location-action-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-left: auto;
+          }
+
+          @media (max-width: 767.98px) {
+            .map-section .map-container {
+              height: min(70vw, 420px);
+              min-height: 220px;
+            }
+
+            .map-section .location-info-card {
+              padding: 28px 20px;
+            }
+
+            .map-section .location-id {
+              font-size: 16px;
+            }
+
+            .map-section .location-meta-grid {
+              grid-template-columns: 1fr;
+              gap: 16px;
+            }
+
+            .map-section .location-meta-value {
+              font-size: 18px;
+            }
+
+            .map-section .location-action-group .button {
+              width: 100%;
+            }
+          }
+
+          @media (min-width: 1200px) {
+            .map-section .map-container {
+              height: min(36vw, 600px);
+            }
+          }
+        </style>
+        <div class="row">
+          <div class="col-12 mb-4">
+            <div class="map-container google-map-container">
+              <iframe
+                src="https://maps.google.com/maps?q=Devlin+Wholesale+Leicester,+Laundon+Way,+Groby,+Leicester+LE6+0YG,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="col-12 mb-4">
+            <article class="location-info-card">
+              <h2 class="location-address">Devlin Wholesale Leicester,<br>Laundon Way, Groby,<br>Leicester LE6 0YG</h2>
+
+              <div class="location-info-footer">
+                <div class="location-meta-grid">
+                  <!-- <div>
+                    <p class="location-meta-label">Availability</p>
+                    <p class="location-meta-value">Open Mon-Sat</p>
+                  </div> -->
+                  <div>
+                    <p class="location-meta-label">Showroom</p>
+                    <p class="location-meta-value">Fully Stocked</p>
+                  </div>
+                  <div>
+                    <p class="location-meta-label">Parking</p>
+                    <p class="location-meta-value">Free On-site</p>
+                  </div>
+                </div>
+
+                <div class="location-action-group">
+                  <a class="button button-lg button-icon button-icon-right button-blue-8"
+                    data-caption-animate="fadeInUp" data-caption-delay="500" href="contacts.html"><span
+                      class="icon mdi mdi-chevron-right"></span>Contact
+                    Us</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-12">
+            <div class="map-container">
+              <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" frameborder="0" allowfullscreen
+                allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -3096,81 +3310,7 @@
         </div>
       </section> -->
 
-    <section class="service-journey-heading">
-      <div class="container">
-        <div class="service-journey-heading-copy">
-          <span class="post-classic-time p-1">Our Main Showroom</span>
-          <h1>Devlin Wholesale Groby</h1>
-          <p>Visit our premium showroom in Groby to explore our extensive collection of luxury carpets, hardwoods, and designer flooring solutions.</p>
-        </div>
-      </div>
-    </section>
 
-    <section class="map-section" style="background-color: #f2f7f2">
-      <div style="
-            width: 100%;
-            max-width: none;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 30px 0;
-          ">
-        <style>
-          .map-section .map-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: min(56vw, 600px);
-            min-height: 260px;
-            max-height: 600px;
-          }
-
-          .map-section .map-container iframe {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-          }
-
-          .map-section .google-map-container::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.45);
-            pointer-events: none;
-            z-index: 1;
-          }
-
-          @media (max-width: 767.98px) {
-            .map-section .map-container {
-              height: min(70vw, 420px);
-              min-height: 220px;
-            }
-          }
-
-          @media (min-width: 1200px) {
-            .map-section .map-container {
-              height: min(36vw, 600px);
-            }
-          }
-        </style>
-        <div class="row">
-          <div class="col-12 mb-4">
-            <div class="map-container google-map-container">
-              <iframe
-                src="https://maps.google.com/maps?q=Devlin+Wholesale+Leicester,+Laundon+Way,+Groby,+Leicester+LE6+0YG,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                frameborder="0" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="map-container">
-              <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" frameborder="0" allowfullscreen
-                allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <!-- Page Footer-->
     <footer class="section section-md footer-creative context-dark">
       <div class="container">
