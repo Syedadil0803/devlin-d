@@ -1285,15 +1285,15 @@
       }
 
       .service-journey-heading {
-        padding-top: 32px;
+        padding-top: 64px;
+        padding-bottom: 20px;
       }
 
       .service-journey-heading .container {
         display: flex;
-        margin-bottom: 10px;
+        margin-bottom: 0;
         align-items: center;
         justify-content: space-between;
-        /* gap: 20px; */
       }
 
       .service-journey-heading-copy {
@@ -1383,7 +1383,8 @@
         }
 
         .service-journey-heading {
-          padding-top: 24px;
+          padding-top: 48px;
+          padding-bottom: 16px;
         }
 
         .service-journey-track>.contact-mirror-bubble {
@@ -1457,7 +1458,7 @@
         display: flex;
         align-items: center;
         background: #031e2b;
-        padding: 56px 0;
+        padding: 20px 0 64px;
       }
 
       .grid>.container {
@@ -1906,7 +1907,7 @@
       @media (max-width: 575px) {
         .grid {
           min-height: 0;
-          padding: 72px 0;
+          padding: 20px 0 48px;
         }
 
         .grid-left {
@@ -2342,17 +2343,52 @@
         }
       }
     </style>
+    <style>
+      /* ── Consistent section spacing overrides ── */
+      .icon-classic-grid.section-sm {
+        padding: 24px 0;
+      }
+
+      .section.section-xl.bg-default {
+        padding: 64px 0;
+      }
+
+      .map-section {
+        padding-top: 0;
+        padding-bottom: 32px;
+      }
+
+      @media (max-width: 991.98px) {
+        .section.section-xl.bg-default {
+          padding: 48px 0;
+        }
+
+        .icon-classic-grid.section-sm {
+          padding: 20px 0;
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .section.section-xl.bg-default {
+          padding: 40px 0;
+        }
+
+        .icon-classic-grid.section-sm {
+          padding: 16px 0;
+        }
+      }
+    </style>
     <section class="section section-xl bg-default text-center">
       <div class="container">
         <h4 class="oh-desktop" style="text-align: center; width: 100%;">
-          <span class="d-inline-block wow slide-to-center">Areas we Cover</span>
+          <span class="d-inline-block wow slide-to-center" style="color: #DB2A19;">Areas we Cover</span>
         </h4>
         <div class="group-xl group-sm-justify">
           <div class="dots-custom"></div>
         </div>
 
         <div>
-          <h1 class="section-sm">Serving Groby, Leicester & Surrounding Areas</h1>
+          <h1 class="section-sm">Serving Leicester, Groby & Surrounding Areas</h1>
           <p>Based in the heart of the community, our showroom is perfectly positioned to serve local homes. From
             high-end luxury carpets to practical family-friendly flooring, we provide expert advice and free
             professional measurements right at your doorstep.</p>
@@ -2477,10 +2513,10 @@
         </div>
       </div>
     </section>
-    <section class="service-journey-heading">
+    <section class="service-journey-heading" style="background: #ffffff;">
       <div class="container">
         <div class="service-journey-heading-copy">
-          <span class="post-classic-time p-1">Devlin Wholesale</span>
+          <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale</span>
           <h1>carpets and flooring Leicester</h1>
           <p>Visit our premium showroom in Groby to explore our extensive collection of luxury carpets, hardwoods, and
             designer flooring solutions.</p>

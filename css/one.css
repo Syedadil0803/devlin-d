@@ -13,7 +13,7 @@
 
 .service-journey-heading {
   background: #f6f6f6;
-  padding: 10px 28px;
+  padding: 64px 0 20px;
 }
 
 .service-journey-heading h3 {
@@ -228,7 +228,7 @@
   }
 
   .service-journey-heading {
-    padding: 56px 0 24px;
+    padding: 48px 0 16px;
   }
 
   .service-step {
@@ -297,7 +297,7 @@
   }
 
   .service-journey-heading {
-    padding: 46px 0 18px;
+    padding: 40px 0 14px;
   }
 
   .service-journey .container,
