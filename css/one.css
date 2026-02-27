@@ -16,28 +16,6 @@
   padding: 64px 0 20px;
 }
 
-.service-journey-heading h3 {
-  text-align: center;
-  margin: 0;
-  opacity: 1;
-  transform: none !important;
-  transition: none !important;
-  animation: none !important;
-  -webkit-animation: none !important;
-  position: static;
-  will-change: auto;
-}
-
-.service-journey-heading h3 {
-  font-size: clamp(18px, 2vw, 28px) !important;
-  line-height: 1.3;
-  margin-bottom: 0;
-  transform: none !important;
-  transition: none !important;
-  animation: none !important;
-  -webkit-animation: none !important;
-}
-
 .service-step {
   display: grid;
   grid-template-columns: 1fr 72px 1fr;
@@ -252,10 +230,6 @@
     order: 1;
   }
 
-  .service-step .media {
-    order: 2;
-  }
-
   .service-step .timeline-dot {
     display: flex;
     order: 2;
@@ -269,9 +243,7 @@
   }
 
   .service-step .card-lite,
-  .service-step .media,
-  .service-step:nth-child(2) .card-lite,
-  .service-step:nth-child(2) .media {
+  .service-step .media {
     transform: translateY(90px) scale(0.96);
   }
 
@@ -306,10 +278,6 @@
     padding-right: 14px;
   }
 
-  .service-journey-heading h3 {
-    font-size: clamp(17px, 6vw, 22px) !important;
-  }
-
   .service-step {
     gap: 14px;
     margin-bottom: 28px;
@@ -336,7 +304,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .service-journey-heading h3,
   .service-step .card-lite,
   .service-step .media {
     opacity: 1;
