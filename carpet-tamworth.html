@@ -677,114 +677,25 @@
         }
       </style>
 
-      <!-- Hero video bubble styles (separate) -->
       <style>
-        .leicester-hero-video-bubble-wrap {
-          position: absolute;
-          top: 135px;
-          right: 220px;
-          z-index: 100;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-          cursor: pointer;
-        }
-
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble-wrap {
-            top: 14px;
-            right: 14px;
-          }
-        }
-
-        .leicester-hero-video-bubble {
-          width: 160px;
-          height: 160px;
-          border-radius: 50%;
-          overflow: hidden;
-          border: 4px solid rgba(255, 255, 255, 0.85);
-          box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
-          background: #000;
+        .swiper-slider-7 .swiper-slide {
           position: relative;
-          animation: heroBubblePulse 2.8s infinite;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
+          overflow: hidden;
         }
 
-        .leicester-hero-video-bubble:hover {
-          transform: scale(1.04);
-          box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 0 6px rgba(255, 255, 255, 0.3);
+        .swiper-slider-7 .swiper-slide-caption {
+          position: relative;
+          z-index: 2;
         }
 
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble {
-            width: 110px;
-            height: 110px;
-          }
-        }
-
-        @keyframes heroBubblePulse {
-
-          0%,
-          100% {
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(255, 255, 255, 0.5);
-          }
-
-          50% {
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45), 0 0 0 10px rgba(255, 255, 255, 0);
-          }
-        }
-
-        .leicester-hero-video-bubble video {
+        .tamworth-hero-video-full {
+          position: absolute;
+          inset: 0;
           width: 100%;
           height: 100%;
           object-fit: cover;
+          z-index: 0;
           pointer-events: none;
-          display: block;
-        }
-
-        .leicester-hero-video-bubble .bubble-play-icon {
-          position: absolute;
-          inset: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(0, 0, 0, 0.28);
-          transition: background 0.2s ease;
-        }
-
-        .leicester-hero-video-bubble:hover .bubble-play-icon {
-          background: rgba(0, 0, 0, 0.18);
-        }
-
-        .leicester-hero-video-bubble .bubble-play-icon svg {
-          width: 44px;
-          height: 44px;
-          fill: #fff;
-          filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
-        }
-
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble .bubble-play-icon svg {
-            width: 30px;
-            height: 30px;
-          }
-        }
-
-        .leicester-hero-video-bubble-label {
-          font-size: 12px;
-          font-weight: 700;
-          color: #fff;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
-          text-align: center;
-        }
-
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble-label {
-            font-size: 10px;
-          }
         }
       </style>
 
@@ -793,6 +704,9 @@
         data-add-slides="1">
         <div class="swiper-wrapper text-sm-left">
           <div class="swiper-slide swiper-slide-bg" data-slide-bg="/images/stores/TamworthStoreImg.JPG">
+            <video class="tamworth-hero-video-full" autoplay muted loop playsinline preload="auto">
+              <source src="videos/TamworthStoreVideo.mp4" type="video/mp4">
+            </video>
             <div class="swiper-slide-caption section-md">
               <div class="swiper-box">
                 <h6 class="oh swiper-subtitle">
@@ -810,53 +724,8 @@
               <div class="swiper-content-bg-1"></div>
             </div>
 
-            <!-- Video bubble top-right (floats over both slides) -->
-            <div class="leicester-hero-video-bubble-wrap" onclick="openLeicesterStoreVideo()">
-              <div class="leicester-hero-video-bubble">
-                <video muted loop playsinline autoplay preload="auto">
-                  <source src="videos/TamworthStoreVideo.mp4" type="video/mp4">
-                </video>
-                <div class="bubble-play-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
-              <div class="leicester-hero-video-bubble-label">Watch Our Store</div>
-            </div>
-
           </div>
     </section>
-
-    <!-- Fullscreen overlay for Leicester store video (hero bubble) -->
-    <div class="video-expanded-overlay" id="storeVideoOverlay">
-      <div class="video-close-btn" id="storeVideoCloseBtn" onclick="closeLeicesterStoreVideo()">
-        <div class="video-close-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-          </svg>
-        </div>
-        <div class="video-close-label">Close<br>Video</div>
-      </div>
-      <video id="storeExpandedVideo" loop playsinline preload="none" controls>
-        <source src="videos/LeicesterStoreVideo.mp4" type="video/mp4">
-      </video>
-    </div>
-    <script>
-      function openLeicesterStoreVideo() {
-        document.getElementById('storeVideoOverlay').classList.add('active');
-        document.getElementById('storeVideoCloseBtn').classList.add('active');
-        document.getElementById('storeExpandedVideo').play();
-      }
-      function closeLeicesterStoreVideo() {
-        document.getElementById('storeVideoOverlay').classList.remove('active');
-        document.getElementById('storeVideoCloseBtn').classList.remove('active');
-        var v = document.getElementById('storeExpandedVideo');
-        v.pause();
-        v.currentTime = 0;
-      }
-    </script>
 
     <style>
       /* Fullscreen video overlay */
@@ -1980,158 +1849,104 @@
       .grid-card-cut:hover::before {
         transform: translate(20%, -30%) scale(1);
       }
+
+      .why-devlin-tamworth-grid .services-modern {
+        padding: 28px 20px;
+        height: 100%;
+
+      }
+
+      .why-devlin-tamworth-grid .services-modern .box-icon-modern {
+        max-width: none;
+      }
+
+      .why-devlin-tamworth-grid .box-icon-modern-title,
+      .why-devlin-tamworth-grid .box-icon-modern-text {
+        max-width: none;
+      }
+
+      @media (max-width: 767.98px) {
+        .why-devlin-tamworth-grid .services-modern {
+          padding: 22px 16px;
+        }
+      }
     </style>
-    <section class="service-journey-heading">
+    <!-- Services-->
+    <section class="section section-inset-5 bg-default">
       <div class="container">
-
-        <div class="service-journey-heading-copy">
-          <div class="hero-heading-group">
-            <div class="hero-heading-kicker">
-              <span class="post-classic-time p-1">Tamworth's Trusted Wholesaler</span>
+        <h4 class="wow fadeInLeft">Why Devlin Tamworth</h4>
+        <div class="row no-md-gutters justify-content-center why-devlin-tamworth-grid">
+          <div class="col-sm-6 col-lg-6">
+            <div class="services-modern">
+              <article class="box-icon-modern">
+                <div class="box-icon-modern-icon linearicons-bubbles"></div>
+                <h5 class="box-icon-modern-title">
+                  <a href="service-professional-advice.html">Professional Advice</a>
+                </h5>
+                <p class="box-icon-modern-text">
+                  Get expert flooring advice tailored to your home or business. We guide you through various options to
+                  find the best fit. Get expert flooring advice tailored to your home or business. We guide you through
+                  various options to
+                  find the best fit.
+                </p>
+              </article>
             </div>
-            <h1>Redefining Flooring in Tamworth</h1>
           </div>
-          <p>Experience wholesale pricing with boutique service. We bring quality carpets and expert fitting directly to
-            you.</p>
-        </div>
-
-      </div>
-    </section>
-    <section class="grid">
-      <div class="container">
-        <div class="grid-inner">
-          <article class="grid-left" role="button" tabindex="0" onclick="openHeroVideo()"
-            onkeydown="if(event.key === 'Enter' || event.key === ' '){ event.preventDefault(); openHeroVideo(); }">
-            <img src="images/stores/LeicesterParking.JPG" alt="Leicester showroom interior" width="1200" height="800"
-              loading="lazy" decoding="async" draggable="false">
-            <div class="grid-left-overlay">
-              <button type="button" class="play-button-video play-button-pulse" aria-label="Play founder video">
-                <video class="play-button-video-preview" muted loop playsinline autoplay preload="metadata">
-                  <source src="videos/michael.mp4" type="video/mp4">
-                </video>
-                <span class="play-button-video-shade" aria-hidden="true"></span>
-                <span class="play-button-video-icon material-symbols-outlined" aria-hidden="true">play_arrow</span>
-              </button>
+          <div class="col-sm-6 col-lg-6">
+            <div class="services-modern">
+              <article class="box-icon-modern">
+                <div class="box-icon-modern-icon linearicons-gradient2"></div>
+                <h5 class="box-icon-modern-title">
+                  <a href="service-measuring.html">Measuring</a>
+                </h5>
+                <p class="box-icon-modern-text">
+                  Take advantage of our free flooring measuring service for a perfect fit. Accurate, no-obligation
+                  assessments from our experienced team.
+                </p>
+              </article>
             </div>
-            <div class="grid-founder-note">
-              <div class="grid-founder-note-top">
-                <span class="grid-founder-note-line" aria-hidden="true"></span>
-                <span class="grid-founder-note-kicker">Our Promise</span>
-              </div>
-              <h3 class="grid-founder-note-title">A Message from the Founder</h3>
-              <p class="grid-founder-note-text">See how the Devlin family is changing the wholesale game.</p>
+          </div>
+          <div class="col-sm-6 col-lg-6">
+            <div class="services-modern">
+              <article class="box-icon-modern">
+                <div class="box-icon-modern-icon linearicons-color-sampler"></div>
+                <h5 class="box-icon-modern-title">
+                  <a href="service-floor-preperation.html">Floor Preperation</a>
+                </h5>
+                <p class="box-icon-modern-text">
+                  We connect you with reliable floor preparation professionals to ensure smooth installation and
+                  long-lasting results.
+                </p>
+              </article>
             </div>
-          </article>
-          <div class="grid-right">
-            <article class="grid-card grid-card-cut">
-              <div class="grid-card-icon-wrap" aria-hidden="true">
-                <span class="grid-card-icon linearicons-grid"></span>
-              </div>
-              <h4>Extensive Selection</h4>
-              <p>Browse our massive inventory in our Groby showroom. From luxury wool to durable synthetics, find the
-                perfect match for your space instantly.
-              </p>
-              <div class="grid-gray-bar" aria-hidden="true">
-                <div class="grid-red-bar"></div>
-              </div>
-            </article>
-            <article class="grid-card grid-card-cut">
-              <div class="grid-card-icon-wrap" aria-hidden="true">
-                <span class="grid-card-icon linearicons-hammer-wrench"></span>
-              </div>
-              <h4>Expert Installation</h4>
-              <p>We don't just supply; we deliver perfection. Our network of trusted independent fitters ensures your
-                new floor is installed flawlessly.
-              </p>
-            </article>
           </div>
-        </div>
-        <div class="grid-outer">
-          <div class="grid-outer-card">
-            <article class="grid-card-bottom grid-card-cut">
-              <div class="grid-pricing-split">
-                <div class="grid-pricing-main">
-                  <div class="grid-card-icon-wrap" aria-hidden="true">
-                    <span class="grid-card-icon linearicons-tag"></span>
-                  </div>
-                  <h4>Wholesale Pricing</h4>
-                  <p>Get direct-to-trade prices without needing a trade account. We believe premium flooring should be
-                    accessible to everyone in Leicester.
-                  </p>
-                  <div class="grid-pricing-badges">
-                    <span class="grid-pricing-badge">Public Welcome</span>
-                    <span class="grid-pricing-badge">No Hidden Fees</span>
-                  </div>
-                </div>
-                <div class="grid-pricing-metrics">
-                  <div class="grid-pricing-row">
-                    <span class="grid-pricing-label">Cost Saving</span>
-                    <span class="grid-pricing-value accent">High</span>
-                  </div>
-                  <div class="grid-pricing-track" aria-hidden="true">
-                    <div class="grid-pricing-fill cost-saving"></div>
-                  </div>
-                  <div class="grid-pricing-row">
-                    <span class="grid-pricing-label">Quality</span>
-                    <span class="grid-pricing-value">Premium</span>
-                  </div>
-                  <div class="grid-pricing-track" aria-hidden="true">
-                    <div class="grid-pricing-fill quality"></div>
-                  </div>
-                </div>
-              </div>
-            </article>
+          <div class="col-sm-6 col-lg-6">
+            <div class="services-modern">
+              <article class="box-icon-modern">
+                <div class="box-icon-modern-icon linearicons-texture"></div>
+                <h5 class="box-icon-modern-title">
+                  <a href="service-planning.html">Planning & Esimating</a>
+                </h5>
+                <p class="box-icon-modern-text">
+                  Our service begins with free, precise planning. Then visit us in-store for expert advice and
+                  personalised quotes on flooring and accessories.
+                </p>
+              </article>
+            </div>
           </div>
-          <div class="grid-outer-card">
-            <article class="grid-card-bottom grid-card-cut">
-              <div class="grid-card-bottom-header">
-                <div class="grid-card-icon-wrap" aria-hidden="true">
-                  <span class="grid-card-icon linearicons-heart"></span>
-                </div>
-                <div class="grid-family-badge" aria-hidden="true">
-                  <span class="grid-family-badge-value">100%</span>
-                  <span class="grid-family-badge-label">Family Run</span>
-                </div>
+          <!-- <div class="col-sm-6 col-lg-4">
+              <div class="services-modern">
+                <article class="box-icon-modern">
+                  <div class="box-icon-modern-icon linearicons-bubbles"></div>
+                  <h5 class="box-icon-modern-title"><a href="single-service.html">Consultations</a></h5>
+                  <p class="box-icon-modern-text">Need consultation on what flooring suits your house? We are always ready to help!</p>
+                </article>
               </div>
-              <h4>Personal Touch</h4>
-              <p> Managed locally by the Devlin family. We provide the honest advice and personal care that big box
-                stores simply can't match.
-              </p>
-            </article>
-          </div>
-
+            </div> -->
         </div>
       </div>
     </section>
-    <div class="video-expanded-overlay" id="heroVideoOverlay">
-      <div class="video-close-btn" id="heroVideoCloseBtn" onclick="closeHeroVideo()">
-        <div class="video-close-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-          </svg>
-        </div>
-        <div class="video-close-label">Close<br>Video</div>
-      </div>
-      <video id="heroExpandedVideo" loop playsinline preload="none" controls>
-        <source src="videos/michael.mp4" type="video/mp4">
-      </video>
-    </div>
-    <script>
-      function openHeroVideo() {
-        document.getElementById('heroVideoOverlay').classList.add('active');
-        document.getElementById('heroVideoCloseBtn').classList.add('active');
-        document.getElementById('heroExpandedVideo').play();
-      }
 
-      function closeHeroVideo() {
-        document.getElementById('heroVideoOverlay').classList.remove('active');
-        document.getElementById('heroVideoCloseBtn').classList.remove('active');
-        var heroVideo = document.getElementById('heroExpandedVideo');
-        heroVideo.pause();
-        heroVideo.currentTime = 0;
-      }
-    </script>
     <!-- Icon Classic-->
     <section class="section section-sm bg-gray-200 icon-classic-grid">
       <div class="container">
@@ -2353,7 +2168,7 @@
             font-weight: 600;
             line-height: 1.02;
             letter-spacing: 0.015em;
-            font-size: clamp(36px, 6vw, 76px);
+            font-size: clamp(30px, 4.8vw, 62px);
           }
 
           .map-section .location-info-footer {
@@ -2476,7 +2291,7 @@
                 frameborder="0" allowfullscreen></iframe>
             </div>
           </div>
-          <div class="col-12 mb-4">
+          <div class="col-12">
             <article class="location-info-card">
               <h2 class="location-address">Devlin Wholesale Tamworth,<br>Unit O, N Riverside Industrial
                 Estate,<br>Atherstone St, Fazeley, Tamworth B78 3RW</h2>
@@ -2517,12 +2332,6 @@
               </div>
             </article>
           </div>
-          <div class="col-12">
-            <div class="map-container">
-              <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" frameborder="0" allowfullscreen
-                allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"></iframe>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -2541,7 +2350,8 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project1Modal">
-                  <img src="GrobyProjects/Project 1/Project1_C7.jpg" alt="96 Snake Hill Rd" width="474" height="355" />
+                  <img src="GrobyProjects/Project 1/Project1_C7.jpg" alt="96 Snake Hill Rd"
+                    style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
@@ -2561,7 +2371,8 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project2Modal">
-                  <img src="GrobyProjects/Project 2/Project2_M3.jpg" alt="77 Ashley St" width="474" height="355" />
+                  <img src="GrobyProjects/Project 2/Project2_M3.jpg" alt="77 Ashley St"
+                    style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
@@ -2792,22 +2603,26 @@
               <div id="lightgallery-project3" class="row row-30" data-lightgallery="group">
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase1.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase1.jpg" alt="Project 3 Image 1" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase1.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase2.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase2.jpg" alt="Project 3 Image 2" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase2.jpg" alt="Project 3 Image 2"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase5.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase5.jpg" alt="Project 3 Image 3" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase5.jpg" alt="Project 3 Image 3"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase7.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase7.jpg" alt="Project 3 Image 4" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase7.jpg" alt="Project 3 Image 4"
+                      class="img-fluid">
                   </a>
                 </div>
               </div>
@@ -2834,32 +2649,38 @@
               <div id="lightgallery-project4" class="row row-30" data-lightgallery="group">
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase10.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase10.jpg" alt="Project 3 Image 1" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase10.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase11.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase11.jpg" alt="Project 3 Image 2" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase11.jpg" alt="Project 3 Image 2"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase14 Egineered Wood.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase14 Egineered Wood.jpg" alt="Project 3 Image 3" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase14 Egineered Wood.jpg" alt="Project 3 Image 3"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase15.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase15.jpg" alt="Project 3 Image 4" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase15.jpg" alt="Project 3 Image 4"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project3_Staircase3.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project3_Staircase3.jpg" alt="Project 3 Image 4" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project3_Staircase3.jpg" alt="Project 3 Image 4"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project1_Staircase6.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project1_Staircase6.jpg" alt="Project 3 Image 4" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project1_Staircase6.jpg" alt="Project 3 Image 4"
+                      class="img-fluid">
                   </a>
                 </div>
               </div>
@@ -2886,22 +2707,26 @@
               <div id="lightgallery-project5" class="row row-30" data-lightgallery="group">
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" alt="Project 3 Image 1" class="img-fluid">
+                    <img src="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 5/Project5_Bavarian Oak1.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Bavarian Oak1.jpg" alt="Project 3 Image 2" class="img-fluid">
+                    <img src="GrobyProjects/Project 5/Project5_Bavarian Oak1.jpg" alt="Project 3 Image 2"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 7/Project7_Invictus Carpet.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 7/Project7_Invictus Carpet.jpg" alt="Project 3 Image 3" class="img-fluid">
+                    <img src="GrobyProjects/Project 7/Project7_Invictus Carpet.jpg" alt="Project 3 Image 3"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 5/Project5_Chevron Floors.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Chevron Floors.jpg" alt="Project 3 Image 4" class="img-fluid">
+                    <img src="GrobyProjects/Project 5/Project5_Chevron Floors.jpg" alt="Project 3 Image 4"
+                      class="img-fluid">
                   </a>
                 </div>
               </div>
