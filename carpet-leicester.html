@@ -2625,19 +2625,20 @@
 
           .map-section .location-info-footer {
             margin-top: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 28px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            column-gap: 18px;
+            align-items: start;
             border-top: 1px solid #e4e8ee;
             padding-top: 16px;
           }
 
           .map-section .location-meta-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(160px, 220px)) minmax(320px, 1fr);
-            gap: 12px 18px;
+            grid-template-columns: repeat(4, max-content);
+            column-gap: 52px;
+            row-gap: 14px;
+            justify-content: start;
             align-items: start;
           }
 
@@ -2691,14 +2692,42 @@
             .map-section .location-meta-grid .location-hours-block {
               grid-column: 1 / -1;
             }
+
+            .map-section .location-action-group {
+              width: 100%;
+              margin-left: 0;
+              justify-content: flex-start;
+            }
           }
 
           .map-section .location-action-group {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
             justify-content: flex-end;
+            align-items: flex-end;
             margin-left: auto;
+          }
+
+          @media (max-width: 1399.98px) {
+            .map-section .location-info-footer {
+              grid-template-columns: 1fr;
+              row-gap: 14px;
+            }
+
+            .map-section .location-meta-grid {
+              grid-template-columns: repeat(2, minmax(180px, 1fr));
+              column-gap: 18px;
+              row-gap: 10px;
+            }
+
+            .map-section .location-meta-grid .location-hours-block {
+              grid-column: 1 / -1;
+            }
+
+            .map-section .location-action-group {
+              width: 100%;
+              margin-left: 0;
+              justify-content: flex-start;
+            }
           }
 
           @media (max-width: 767.98px) {
@@ -2762,6 +2791,10 @@
                     <p class="location-meta-label">Phone</p>
                     <p class="location-meta-value">0116 456 0022</p>
                   </div>
+                  <div>
+                    <p class="location-meta-label">Email</p>
+                    <p class="location-meta-value">info@devlinwholesale.co.uk</p>
+                  </div>
                   <div class="location-hours-block">
                     <p class="location-meta-label">Store Timings</p>
                     <ul class="location-hours-list">
@@ -2777,9 +2810,10 @@
 
                 <div class="location-action-group">
                   <a class="button button-lg button-icon button-icon-right button-blue-8"
-                    data-caption-animate="fadeInUp" data-caption-delay="500" href="contacts.html"><span
-                      class="icon mdi mdi-chevron-right"></span>Contact
-                    Us</a>
+                    data-caption-animate="fadeInUp" data-caption-delay="500"
+                    href="https://www.google.com/maps/dir/?api=1&destination=Laundon+Way,+Groby,+Leicester+LE6+0YG"
+                    target="_blank" rel="noopener noreferrer"><span class="icon mdi mdi-chevron-right"></span>Get
+                    Directions</a>
                 </div>
               </div>
             </article>
@@ -3786,7 +3820,44 @@
         </div>
       </div>
     </section>
-
+    <section class="section parallax-container" data-parallax-img="images/parallax-2.jpg">
+      <div class="parallax-content section-xxl context-dark">
+        <div class="container">
+          <h5 class="font-weight-light text-spacing-200 wow fadeInLeft mb-4">
+            We are focused on results
+          </h5>
+          <h1 class="font-weight-normal text-spacing-200 wow fadeInRight">
+            Our Facts
+          </h1>
+          <div class="counter-modern-wrap">
+            <div class="counter-modern">
+              <h3 class="counter-modern-number">
+                <span class="">0.5</span><span class="symbol">M+</span>
+              </h3>
+              <div class="counter-modern-decor"></div>
+              <p class="counter-modern-title">Projects</p>
+            </div>
+            <div class="counter-modern">
+              <h3 class="counter-modern-number">
+                <span class="counter">4</span><span class="decimal">.8</span><span class="symbol"
+                  style="font-size: 0.6em">★</span>
+              </h3>
+              <div class="counter-modern-decor"></div>
+              <p class="counter-modern-title">400+ Google Reviews</p>
+            </div>
+            <div class="counter-modern">
+              <h3 class="counter-modern-number">
+                <span class="counter">2019</span>
+              </h3>
+              <div class="counter-modern-decor"></div>
+              <p class="counter-modern-title">
+                Founder & CEO - Life time achievement award
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Our Facts-->
     <!-- <section class="section parallax-container" data-parallax-img="images/parallax-2.jpg">
