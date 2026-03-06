@@ -30,11 +30,14 @@
   <!-- Stylesheets-->
   <link rel="stylesheet" type="text/css"
     href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
   <link rel="stylesheet" href="css/bootstrap.css" />
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/one.css" />
-    <!-- Campaign Widgets -->
+  <!-- Campaign Widgets -->
   <link rel="stylesheet" href="campaign-widgets/campaign-widgets.css" />
 
   <!-- Campaign Widgets -->
@@ -666,15 +669,135 @@
           </nav>
         </div>
       </header>
-      <div class="swiper-container swiper-slider swiper-slider-7" data-loop="false"
-        data-simulate-touch="false" data-add-slides="1">
+      <!-- Hero slider utility styles -->
+      <style>
+        /* Hide pagination dot — only one slide */
+        .leicester-hero .swiper-slider-7 .swiper-pagination {
+          display: none !important;
+        }
+      </style>
+
+      <!-- Hero video bubble styles (separate) -->
+      <style>
+        .leicester-hero-video-bubble-wrap {
+          position: absolute;
+          top: 75px;
+          right: 220px;
+          z-index: 100;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+        }
+
+        @media (max-width: 575px) {
+          .leicester-hero-video-bubble-wrap {
+            top: 14px;
+            right: 14px;
+          }
+        }
+
+        .leicester-hero-video-bubble {
+          width: 160px;
+          height: 160px;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 4px solid rgba(255, 255, 255, 0.85);
+          box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+          background: #000;
+          position: relative;
+          animation: heroBubblePulse 2.8s infinite;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .leicester-hero-video-bubble:hover {
+          transform: scale(1.04);
+          box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 0 6px rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 575px) {
+          .leicester-hero-video-bubble {
+            width: 110px;
+            height: 110px;
+          }
+        }
+
+        @keyframes heroBubblePulse {
+
+          0%,
+          100% {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(255, 255, 255, 0.5);
+          }
+
+          50% {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45), 0 0 0 10px rgba(255, 255, 255, 0);
+          }
+        }
+
+        .leicester-hero-video-bubble video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          pointer-events: none;
+          display: block;
+        }
+
+        .leicester-hero-video-bubble .bubble-play-icon {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(0, 0, 0, 0.28);
+          transition: background 0.2s ease;
+        }
+
+        .leicester-hero-video-bubble:hover .bubble-play-icon {
+          background: rgba(0, 0, 0, 0.18);
+        }
+
+        .leicester-hero-video-bubble .bubble-play-icon svg {
+          width: 44px;
+          height: 44px;
+          fill: #fff;
+          filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
+        }
+
+        @media (max-width: 575px) {
+          .leicester-hero-video-bubble .bubble-play-icon svg {
+            width: 30px;
+            height: 30px;
+          }
+        }
+
+        .leicester-hero-video-bubble-label {
+          font-size: 12px;
+          font-weight: 700;
+          color: #fff;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+          text-align: center;
+        }
+
+        @media (max-width: 575px) {
+          .leicester-hero-video-bubble-label {
+            font-size: 10px;
+          }
+        }
+      </style>
+
+      <!-- Original Swiper (unchanged from v1) -->
+      <div class="swiper-container swiper-slider swiper-slider-7" data-loop="false" data-simulate-touch="false"
+        data-add-slides="1">
         <div class="swiper-wrapper text-sm-left">
           <div class="swiper-slide swiper-slide-bg" data-slide-bg="images/stores/LeicesterStoreImg.JPG">
             <div class="swiper-slide-caption section-md">
               <div class="swiper-box">
                 <h6 class="oh swiper-subtitle">
                   <span class="d-inline-block" data-caption-animate="slideInDown" data-caption-delay="500">
-                  Elevating Interiors with Uncompromised Quality.</span>
+                    Elevating Interiors with Uncompromised Quality.</span>
                 </h6>
                 <h3 class="swiper-title oh">
                   <span class="d-block" data-caption-animate="slideInLeft" data-caption-delay="200">Hello Leicester!
@@ -686,55 +809,83 @@
               </div>
               <div class="swiper-content-bg-1"></div>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <!-- Video Background for Slide 2 -->
-            <video 
-              autoplay 
-              muted 
-              loop 
-              playsinline
-              preload="auto"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
-              <source src="/videos/LeicesterStoreVideo.mp4" type="video/mp4">
-            </video>
-            
-            <div class="swiper-slide-caption section-md">
-              <div class="swiper-box">
-                <h6 class="oh swiper-subtitle">
-                  <span class="d-inline-block" data-caption-animate="slideInLeft" data-caption-delay="500">Stylish
-                    Options in Carpet, Laminate, LVT, Vinyl &amp; More.</span>
-                </h6>
-                <h3 class="swiper-title">
-                  <span class="d-block" data-caption-animate="fadeInRight" data-caption-delay="200">Flooring
-                    for</span><span class="d-block" data-caption-animate="fadeInRight" data-caption-delay="300">Any
-                    Interior</span>
-                </h3>
-                <div class="oh button-wrap">
-                  <a class="button button-lg button-icon button-icon-right button-blue-8"
-                    data-caption-animate="slideInLeft" data-caption-delay="200" href="contacts.html"><span
-                      class="icon mdi mdi-chevron-right"></span>Contact
-                    Us</a>
+
+            <!-- Video bubble top-right (floats over both slides) -->
+            <div class="leicester-hero-video-bubble-wrap" onclick="openLeicesterStoreVideo(event)">
+              <div class="leicester-hero-video-bubble">
+                <video muted loop playsinline autoplay preload="auto">
+                  <source src="videos/LeicesterStoreVideo.mp4" type="video/mp4">
+                </video>
+                <div class="bubble-play-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
                 </div>
               </div>
-              <div class="swiper-content-bg-2"></div>
+              <div class="leicester-hero-video-bubble-label">Watch Our Store</div>
             </div>
+
           </div>
-        </div>
-        <!-- Swiper Navigation-->
-        <div class="swiper-navigation__module">
-          <div class="swiper-pagination__fraction">
-            <span class="swiper-pagination__fraction-index"></span><span
-              class="swiper-pagination__fraction-divider">/</span><span
-              class="swiper-pagination__fraction-count"></span>
-          </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-        <!-- Swiper Pagination-->
-        <div class="swiper-pagination" data-bullet-custom="true"></div>
-      </div>
     </section>
+
+    <!-- Fullscreen overlay for Leicester store video (hero bubble) -->
+    <div class="video-expanded-overlay" id="storeVideoOverlay">
+      <div class="video-close-btn" id="storeVideoCloseBtn" onclick="closeLeicesterStoreVideo()">
+        <div class="video-close-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+          </svg>
+        </div>
+        <div class="video-close-label">Close<br>Video</div>
+      </div>
+      <video id="storeExpandedVideo" loop playsinline preload="none" muted>
+        <source src="videos/LeicesterStoreVideo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <script>
+      function openLeicesterStoreVideo(event) {
+        var overlay = document.getElementById('storeVideoOverlay');
+        var closeBtn = document.getElementById('storeVideoCloseBtn');
+        var video = document.getElementById('storeExpandedVideo');
+        var bubble = document.querySelector('.leicester-hero-video-bubble');
+
+        var cx = window.innerWidth - 40;
+        var cy = 40;
+        var startRadius = 0;
+        if (bubble) {
+          var bubbleRect = bubble.getBoundingClientRect();
+          cx = bubbleRect.left + bubbleRect.width / 2;
+          cy = bubbleRect.top + bubbleRect.height / 2;
+          startRadius = bubbleRect.width / 2 + 8;
+        } else if (event && event.clientX != null && event.clientY != null) {
+          cx = event.clientX;
+          cy = event.clientY;
+        }
+
+        var maxX = Math.max(cx, window.innerWidth - cx);
+        var maxY = Math.max(cy, window.innerHeight - cy);
+        var endRadius = Math.ceil(Math.sqrt((maxX * maxX) + (maxY * maxY))) + 24;
+
+        overlay.style.setProperty('--reveal-x', cx + 'px');
+        overlay.style.setProperty('--reveal-y', cy + 'px');
+        overlay.style.setProperty('--reveal-start', startRadius + 'px');
+        overlay.style.setProperty('--reveal-end', endRadius + 'px');
+
+        overlay.classList.add('active');
+        closeBtn.classList.add('active');
+        video.muted = true;
+        video.play().catch(function () {});
+      }
+      function closeLeicesterStoreVideo() {
+        var overlay = document.getElementById('storeVideoOverlay');
+        document.getElementById('storeVideoCloseBtn').classList.remove('active');
+        overlay.classList.remove('active');
+        var v = document.getElementById('storeExpandedVideo');
+        v.pause();
+        v.currentTime = 0;
+      }
+    </script>
 
     <style>
       /* Fullscreen video overlay */
@@ -747,14 +898,27 @@
         pointer-events: none;
         transition: opacity 0.5s ease;
       }
+
       .video-expanded-overlay video {
         width: 100%;
         height: 100%;
         object-fit: contain;
       }
+
       .video-expanded-overlay.active {
         opacity: 1;
         pointer-events: all;
+      }
+
+      #storeVideoOverlay {
+        clip-path: circle(var(--reveal-start, 0px) at var(--reveal-x, 100%) var(--reveal-y, 0%));
+        -webkit-clip-path: circle(var(--reveal-start, 0px) at var(--reveal-x, 100%) var(--reveal-y, 0%));
+        transition: clip-path 0.72s cubic-bezier(0.22, 1, 0.36, 1), -webkit-clip-path 0.72s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+      }
+
+      #storeVideoOverlay.active {
+        clip-path: circle(var(--reveal-end, 150vmax) at var(--reveal-x, 100%) var(--reveal-y, 0%));
+        -webkit-clip-path: circle(var(--reveal-end, 150vmax) at var(--reveal-x, 100%) var(--reveal-y, 0%));
       }
 
       /* Close button */
@@ -769,22 +933,29 @@
         gap: 12px;
         cursor: pointer;
       }
-      .video-close-btn.active { display: flex; }
+
+      .video-close-btn.active {
+        display: flex;
+      }
 
       .video-close-circle {
         width: 56px;
         height: 56px;
         border-radius: 50%;
-        background: rgba(255,255,255,0.15);
+        background: rgba(255, 255, 255, 0.15);
         border: 2px solid white;
         display: flex;
         align-items: center;
         justify-content: center;
         backdrop-filter: blur(4px);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       }
 
-      .video-close-circle svg { width: 24px; height: 24px; fill: white; }
+      .video-close-circle svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+      }
 
       .video-close-label {
         color: white;
@@ -792,7 +963,7 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
         font-weight: 700;
-        text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
         text-align: center;
         line-height: 1.4;
       }
@@ -823,7 +994,7 @@
         background-color: #fff;
         padding: 16px 20px;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         border: 1px solid rgba(0, 136, 204, 0.15);
         overflow: hidden;
         min-height: auto;
@@ -885,16 +1056,19 @@
           transform: scale(1);
           opacity: 1;
         }
+
         20% {
           -webkit-transform: scale(0.94);
           transform: scale(0.94);
           opacity: 0.92;
         }
+
         65% {
           -webkit-transform: scale(1.04);
           transform: scale(1.04);
           opacity: 1;
         }
+
         100% {
           -webkit-transform: scale(1);
           transform: scale(1);
@@ -908,16 +1082,19 @@
           transform: scale(1);
           opacity: 1;
         }
+
         20% {
           -webkit-transform: scale(0.94);
           transform: scale(0.94);
           opacity: 0.92;
         }
+
         65% {
           -webkit-transform: scale(1.04);
           transform: scale(1.04);
           opacity: 1;
         }
+
         100% {
           -webkit-transform: scale(1);
           transform: scale(1);
@@ -960,30 +1137,22 @@
       }
 
       .why-devlin-cards .why-devlin-card.ping {
-        clip-path: polygon(
-          0 0, 100% 0, 100% 68%, 82% 68%, 82% 100%, 0 100%
-        );
+        clip-path: polygon(0 0, 100% 0, 100% 68%, 82% 68%, 82% 100%, 0 100%);
       }
 
       .why-devlin-cards .why-devlin-card.ping-secondary {
-        clip-path: polygon(
-          0 0, 82% 0, 82% 32%, 100% 32%, 100% 100%, 0 100%
-        );
+        clip-path: polygon(0 0, 82% 0, 82% 32%, 100% 32%, 100% 100%, 0 100%);
       }
 
       /* Right column top card: cut at left-bottom */
       .why-devlin-cards .why-devlin-card.ping-right-top {
-        clip-path: polygon(
-          0 0, 100% 0, 100% 100%, 13% 100%, 13% 74%, 0 74%
-        );
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 13% 100%, 13% 74%, 0 74%);
         padding-left: 30px;
       }
 
       /* Right column bottom card: cut at top-left */
       .why-devlin-cards .why-devlin-card.ping-right-bottom {
-        clip-path: polygon(
-          0 24%, 13% 24%, 13% 0, 100% 0, 100% 100%, 0 100%
-        );
+        clip-path: polygon(0 24%, 13% 24%, 13% 0, 100% 0, 100% 100%, 0 100%);
         padding-left: 30px;
         padding-top: 14px;
         margin-top: 10px;
@@ -1108,21 +1277,21 @@
         align-items: center;
         justify-content: center;
         gap: 5px;
-        width: 96px;
-        height: 96px;
+        width: 122px;
+        height: 122px;
         border-radius: 50%;
         background:
           radial-gradient(circle at 24% 24%, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.12) 42%, rgba(255, 255, 255, 0.03) 68%),
           radial-gradient(circle at 76% 30%, rgba(0, 195, 255, 0.32), rgba(0, 195, 255, 0) 52%),
           radial-gradient(circle at 30% 78%, rgba(37, 211, 102, 0.28), rgba(37, 211, 102, 0) 48%),
           radial-gradient(circle at 82% 78%, rgba(255, 166, 0, 0.24), rgba(255, 166, 0, 0) 46%),
-          linear-gradient(145deg, rgba(255,255,255,0.24), rgba(255,255,255,0.06));
+          linear-gradient(145deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.06));
         backdrop-filter: blur(10px) saturate(1.15);
         -webkit-backdrop-filter: blur(10px) saturate(1.15);
         border: 1px solid rgba(255, 255, 255, 0.52);
         color: #fff !important;
         text-decoration: none !important;
-        font-size: 11px;
+        font-size: 13px;
         font-weight: 700;
         letter-spacing: .08em;
         text-transform: uppercase;
@@ -1144,9 +1313,9 @@
       }
 
       .contact-mirror-bubble i {
-        font-size: 31px;
+        font-size: 40px;
         line-height: 1;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
         color: #0f4c81;
       }
 
@@ -1155,15 +1324,96 @@
         color: #1f6f43;
       }
 
+      .service-journey-heading {
+        padding-top: 0;
+        padding-bottom: 20px;
+      }
+
+      .icon-classic-grid+.service-journey-heading {
+        padding: 32px 0 20px;
+      }
+
       .service-journey-heading .container {
         display: flex;
+        margin-bottom: 0;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
       }
 
       .service-journey-heading-copy {
+        text-align: center;
+        width: 100%;
+      }
+
+      .hero-heading-group {
+        display: inline-block;
         text-align: left;
+      }
+
+      .hero-heading-kicker {
+        display: block;
+        width: auto;
+        text-align: left;
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 576px) {
+        .hero-heading-group {
+          text-align: left;
+        }
+      }
+
+      .Rated-title {
+        font-size: 18px;
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      .area-link-with-icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .area-link-with-icon .linearicons-map-marker {
+        color: #db2a19;
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .bordered-2 .services-modern:hover .box-icon-modern-title,
+      .bordered-2 .services-modern:hover .box-icon-modern-title a {
+        color: #db2a19;
+      }
+
+      .box-icon-classic .unit {
+        align-items: center;
+      }
+
+      .box-icon-classic .unit-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .icon-classic-grid .row {
+        row-gap: 14px;
+      }
+
+      .icon-classic-grid .col-sm-6 {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .icon-classic-grid .box-icon-classic-title {
+        transition: color .2s ease;
+      }
+
+      .icon-classic-grid .box-icon-classic:hover .box-icon-classic-title {
+        color: #db2a19;
+      }
+
+      .service-journey-track>.contact-mirror-bubble {
+        margin: 28px 48px 0 auto;
       }
 
       @media (max-width: 991.98px) {
@@ -1175,28 +1425,43 @@
         }
 
         .contact-mirror-bubble {
-          width: 88px;
-          height: 88px;
-          font-size: 10px;
+          width: 110px;
+          height: 110px;
+          font-size: 12px;
         }
 
-        .contact-mirror-bubble i { font-size: 26px; }
+        .contact-mirror-bubble i {
+          font-size: 34px;
+        }
 
         .service-journey-heading .container {
           flex-direction: column;
           align-items: flex-start;
         }
+
+        .service-journey-heading {
+          padding-top: 0;
+          padding-bottom: 16px;
+        }
+
+        .icon-classic-grid+.service-journey-heading {
+          padding: 24px 0 16px;
+        }
+
+        .service-journey-track>.contact-mirror-bubble {
+          margin-right: 16px;
+        }
       }
-      
+
       .center-video-bubble {
-        width: 220px; 
-        height: 220px; 
-        border-radius: 50%; 
-        overflow: hidden; 
-        border: 6px solid #0088cc; 
-        box-shadow: 0 6px 25px rgba(0,0,0,0.2); 
-        position: relative; 
-        background: #000; 
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 6px solid #0088cc;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        position: relative;
+        background: #000;
         animation: pulseBubbleCenter 2.5s infinite;
         cursor: pointer;
         display: flex;
@@ -1204,12 +1469,19 @@
         justify-content: center;
         flex-shrink: 0;
       }
-      
+
       @keyframes pulseBubbleCenter {
-        0%, 100% { box-shadow: 0 6px 25px rgba(0,136,204,0.3), 0 0 0 0 rgba(0,136,204,0.4); }
-        50% { box-shadow: 0 6px 25px rgba(0,136,204,0.3), 0 0 0 15px rgba(0,136,204,0); }
+
+        0%,
+        100% {
+          box-shadow: 0 6px 25px rgba(0, 136, 204, 0.3), 0 0 0 0 rgba(0, 136, 204, 0.4);
+        }
+
+        50% {
+          box-shadow: 0 6px 25px rgba(0, 136, 204, 0.3), 0 0 0 15px rgba(0, 136, 204, 0);
+        }
       }
-      
+
       .center-video-bubble video {
         width: 100%;
         height: 100%;
@@ -1223,114 +1495,763 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(0,0,0,0.3);
+        background: rgba(0, 0, 0, 0.3);
       }
-      
+
       .center-video-play-overlay svg {
         width: 56px;
         height: 56px;
         fill: white;
-        filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
       }
     </style>
+    <div class="why-devlin-wa-rail">
+      <a class="why-devlin-whatsapp"
+        href="https://wa.me/441164560022?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20help%20with%20flooring."
+        target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+    <style>
+      .grid {
+        min-height: 920px;
+        display: flex;
+        align-items: center;
+        background: #031e2b;
+        padding: 20px 0 64px;
+      }
 
-    <section class="section text-center why-devlin-cards" style="padding: 72px 0 72px; min-height: 0; overflow: hidden; background: radial-gradient(circle at 12% 18%, rgba(79, 93, 98, 0.14), transparent 42%), radial-gradient(circle at 88% 82%, rgba(46, 49, 48, 0.10), transparent 40%), linear-gradient(180deg, #f1f3f2 0%, #e7eceb 100%); position: relative;">
-      <div class="container position-relative">
-        <h4 class="wow fadeInRight mb-5" style="color: #333; margin-bottom: 90px !important;">Why Choose Devlin Wholesale – Groby, Leicester?</h4>
-        <div class="why-devlin-wa-rail">
-          <a class="why-devlin-whatsapp" href="https://wa.me/441164560022?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20help%20with%20flooring." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-            <span>WhatsApp</span>
-          </a>
-        </div>
-        
-        <div class="row justify-content-center align-items-stretch position-relative" style="z-index: 1;">
-          <!-- Background Connecting SVG Lines (Desktop Only) -->
-          <svg class="d-none d-lg-block" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <defs>
-              <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="blur1" />
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur2" />
-                <feMerge>
-                  <feMergeNode in="blur2" />
-                  <feMergeNode in="blur1" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-            <path d="M 5 25 L 25 25 C 40 25, 45 50, 50 50" stroke="#00c3ff" stroke-width="0.6" fill="none" vector-effect="non-scaling-stroke" filter="url(#neonGlow)"></path>
-            <path d="M 5 75 L 25 75 C 40 75, 45 50, 50 50" stroke="#00c3ff" stroke-width="0.6" fill="none" vector-effect="non-scaling-stroke" filter="url(#neonGlow)"></path>
-            <path d="M 95 25 L 75 25 C 60 25, 55 50, 50 50" stroke="#00c3ff" stroke-width="0.6" fill="none" vector-effect="non-scaling-stroke" filter="url(#neonGlow)"></path>
-            <path d="M 95 75 L 75 75 C 60 75, 55 50, 50 50" stroke="#00c3ff" stroke-width="0.6" fill="none" vector-effect="non-scaling-stroke" filter="url(#neonGlow)"></path>
-          </svg>
+      .grid>.container {
+        width: 100%;
+      }
 
-          <!-- Left side cards -->
-          <div class="col-md-6 col-lg-4 d-flex flex-column justify-content-center why-devlin-left" style="gap: 104px; position: relative; z-index: 2;">
-            <article class="box-icon-modern why-devlin-card ping h-100">
-              <h5 class="box-icon-modern-title">Wide Range of Carpets &amp; Flooring</h5>
-              <p class="box-icon-modern-text">Our Groby, Leicester showroom carries an extensive selection of carpets and flooring available for immediate viewing and expert advice.</p>
-            </article>
+      .grid-inner {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 22px;
+        align-items: stretch;
+      }
 
-            <article class="box-icon-modern why-devlin-card ping ping-secondary h-100">
-              <h5 class="box-icon-modern-title">Wholesale Pricing – Open to Public</h5>
-              <p class="box-icon-modern-text">Competitive wholesale-level pricing without needing a trade account.</p>
-            </article>
-          </div>
+      .grid-outer {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 22px;
+      }
 
-          <!-- Center Video bubble -->
-          <div class="col-sm-8 col-md-12 col-lg-4 d-flex flex-column align-items-center justify-content-center my-5 my-lg-0 min-vh-25 why-devlin-center" style="position: relative; z-index: 2;">
-            <div class="center-video-bubble" onclick="openHeroVideo()">
-              <video muted loop playsinline autoplay preload="auto">
-                <source src="/videos/michael.mp4" type="video/mp4">
-              </video>
-              <div class="center-video-play-overlay">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
+      .grid-outer-left,
+      .grid-outer-right {
+        display: grid;
+      }
+
+      .grid-outer-card {
+        display: block;
+      }
+
+      .grid-left {
+        min-height: 430px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+      }
+
+      .grid-left img,
+      .grid-left video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .grid-left-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, rgba(3, 30, 43, 0.12), rgba(3, 30, 43, 0.62));
+      }
+
+      .grid-founder-note {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 22px;
+        z-index: 3;
+        max-height: 380px;
+        padding: 14px 18px;
+        border-radius: 16px;
+        background: rgba(3, 30, 43, 0.78);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        text-align: left;
+      }
+
+      .grid-founder-note-top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 4px;
+      }
+
+      .grid-founder-note-line {
+        width: 32px;
+        height: 2px;
+        background: #db2a19;
+      }
+
+      .grid-founder-note-kicker {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+
+      .grid-founder-note-title {
+        margin: 0 0 4px;
+        font-size: 20px;
+        line-height: 1.18;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .grid-founder-note-text {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.45;
+        color: #bfc7cf;
+      }
+
+      .grid-left-play {
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        box-shadow: 0 0 0 0 rgba(219, 42, 25, 0.65);
+        animation: grid-play-pulse 2s infinite;
+      }
+
+      @keyframes grid-play-pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(219, 42, 25, 0.65);
+        }
+
+        70% {
+          box-shadow: 0 0 0 20px rgba(219, 42, 25, 0);
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgba(219, 42, 25, 0);
+        }
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+
+      .play-button-pulse {
+        animation: pulse-red 2s infinite;
+      }
+
+      @keyframes pulse-red {
+        0% {
+          box-shadow: 0 0 0 0 rgba(219, 42, 25, 0.7);
+        }
+
+        70% {
+          box-shadow: 0 0 0 20px rgba(219, 42, 25, 0);
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgba(219, 42, 25, 0);
+        }
+      }
+
+      .play-button-video {
+        position: relative;
+        overflow: hidden;
+        width: 128px;
+        height: 128px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: transparent;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .play-button-video-preview {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .play-button-video-shade {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.25);
+      }
+
+      .play-button-video-icon {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        font-size: 60px;
+        line-height: 1;
+        transform: translateX(4px);
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      .grid-right {
+        display: grid;
+        gap: 22px;
+      }
+
+      .grid-card {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+        color: #fff;
+        min-height: 254px;
+        padding: 28px 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        border-radius: 28px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .grid-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(219, 42, 25, 0.65);
+        box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.35);
+      }
+
+      .grid-card-bottom {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+        color: #fff;
+        min-height: 254px;
+        height: 254px;
+        padding: 28px 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        border-radius: 28px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .grid-card-bottom:hover {
+        transform: translateY(-4px);
+        border-color: rgba(219, 42, 25, 0.65);
+        box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.35);
+      }
+
+      .grid-card h4 {
+        margin: 0 0 10px;
+        font-size: 24px;
+        color: #fff;
+        text-align: left;
+      }
+
+      .grid-card-bottom h4 {
+        margin: 0 0 10px;
+        font-size: 24px;
+        color: #fff;
+        text-align: left;
+      }
+
+      .grid-card p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.84);
+        line-height: 1.65;
+        text-align: left;
+      }
+
+      .grid-card-bottom p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.84);
+        line-height: 1.65;
+        text-align: left;
+      }
+
+      .grid-card-bottom-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 12px;
+      }
+
+      .grid-pricing-split {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .grid-pricing-main {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .grid-pricing-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .grid-pricing-badge {
+        padding: 4px 10px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #d1d5db;
+        font-size: 12px;
+        line-height: 1.2;
+      }
+
+      .grid-pricing-metrics {
+        width: 220px;
+        max-width: 100%;
+        padding-left: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .grid-pricing-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 13px;
+      }
+
+      .grid-pricing-label {
+        color: #9ca3af;
+      }
+
+      .grid-pricing-value {
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .grid-pricing-value.accent {
+        color: #db2a19;
+      }
+
+      .grid-pricing-track {
+        width: 100%;
+        height: 8px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      .grid-gray-bar {
+        width: 100%;
+        height: 3px;
+        margin-top: 14px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.14);
+        overflow: hidden;
+      }
+
+      .grid-red-bar {
+        width: 40%;
+        height: 100%;
+        border-radius: 9999px;
+        background: #db2a19;
+        box-shadow: 0 0 10px rgba(219, 42, 25, 0.35);
+      }
+
+      .grid-pricing-fill {
+        height: 100%;
+        border-radius: 9999px;
+      }
+
+      .grid-pricing-fill.cost-saving {
+        width: 80%;
+        background: linear-gradient(90deg, #8f1a11, #db2a19);
+      }
+
+      .grid-pricing-fill.quality {
+        width: 100%;
+        background: #ffffff;
+      }
+
+      .grid-family-badge {
+        text-align: right;
+        line-height: 1.05;
+      }
+
+      .grid-family-badge-value {
+        display: block;
+        color: #ffffff;
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      .grid-family-badge-label {
+        display: block;
+        /* margin-top: 2px; */
+        color: #db2a19;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .grid-card-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .grid-card-icon-wrap .grid-card-icon {
+        color: #db2a19;
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .grid-card:hover .grid-card-icon-wrap {
+        background: rgba(219, 42, 25, 0.14);
+      }
+
+      .grid-card-bottom:hover .grid-card-icon-wrap {
+        background: rgba(219, 42, 25, 0.14);
+      }
+
+      @media (max-width: 991px) {
+        .grid-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .grid-outer {
+          grid-template-columns: 1fr;
+        }
+
+        .grid-right {
+          grid-template-rows: auto;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .grid {
+          min-height: 0;
+          padding: 20px 0 48px;
+        }
+
+        .grid-left {
+          min-height: 320px;
+        }
+
+        .grid-founder-note {
+          left: 16px;
+          right: 16px;
+          bottom: 14px;
+          max-width: none;
+          padding: 12px 14px;
+        }
+
+        .grid-founder-note-title {
+          font-size: 18px;
+        }
+
+        .grid-founder-note-text {
+          font-size: 13px;
+        }
+
+        .grid-card {
+          padding: 22px 18px;
+        }
+
+        .grid-card-bottom {
+          height: auto;
+          padding: 22px 18px;
+        }
+
+        .grid-card h4 {
+          font-size: 22px;
+        }
+
+        .grid-card-bottom h4 {
+          font-size: 22px;
+        }
+
+        .grid-pricing-split {
+          flex-direction: column;
+        }
+
+        .grid-pricing-metrics {
+          width: 100%;
+          padding-left: 0;
+          margin-top: 8px;
+        }
+      }
+    </style>
+    <style>
+      .grid-card-cut {
+        position: relative;
+      }
+
+      .grid-card-cut::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 128px;
+        height: 128px;
+        border-bottom-left-radius: 9999px;
+        background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+        transform: translate(30%, -30%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+      }
+
+      .grid-card-cut:hover::before {
+        transform: translate(20%, -30%) scale(1);
+      }
+    </style>
+    <section class="service-journey-heading">
+      <div class="container">
+
+        <div class="service-journey-heading-copy">
+          <div class="hero-heading-group">
+            <div class="hero-heading-kicker">
+              <span class="post-classic-time p-1">Leicester’s Trusted Wholesaler</span>
             </div>
-            <div class="mt-3" style="color: #333; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Hear From Our Founder</div>
+            <h1>Redefining Flooring
+              in Groby & Beyond.</h1>
+          </div>
+          <p>Experience wholesale pricing with boutique service. We bring quality carpets and expert fitting directly to
+            you.</p>
+        </div>
+
+      </div>
+    </section>
+    <section class="grid">
+      <div class="container">
+        <div class="grid-inner">
+          <article class="grid-left" role="button" tabindex="0" onclick="openHeroVideo()"
+            onkeydown="if(event.key === 'Enter' || event.key === ' '){ event.preventDefault(); openHeroVideo(); }">
+            <img src="images/stores/LeicesterParking.JPG" alt="Leicester showroom interior" width="1200" height="800"
+              loading="lazy" decoding="async" draggable="false">
+            <div class="grid-left-overlay">
+              <button type="button" class="play-button-video play-button-pulse" aria-label="Play founder video">
+                <video class="play-button-video-preview" muted loop playsinline autoplay preload="metadata">
+                  <source src="videos/michael.mp4" type="video/mp4">
+                </video>
+                <span class="play-button-video-shade" aria-hidden="true"></span>
+                <span class="play-button-video-icon material-symbols-outlined" aria-hidden="true">play_arrow</span>
+              </button>
+            </div>
+            <div class="grid-founder-note">
+              <div class="grid-founder-note-top">
+                <span class="grid-founder-note-line" aria-hidden="true"></span>
+                <span class="grid-founder-note-kicker">Our Promise</span>
+              </div>
+              <h3 class="grid-founder-note-title">A Message from the Founder</h3>
+              <p class="grid-founder-note-text">See how the Devlin family is changing the wholesale game.</p>
+            </div>
+          </article>
+          <div class="grid-right">
+            <article class="grid-card grid-card-cut">
+              <div class="grid-card-icon-wrap" aria-hidden="true">
+                <span class="grid-card-icon linearicons-grid"></span>
+              </div>
+              <h4>Extensive Selection</h4>
+              <p>Browse our massive inventory in our Groby showroom. From luxury wool to durable synthetics, find the
+                perfect match for your space instantly.
+              </p>
+              <div class="grid-gray-bar" aria-hidden="true">
+                <div class="grid-red-bar"></div>
+              </div>
+            </article>
+            <article class="grid-card grid-card-cut">
+              <div class="grid-card-icon-wrap" aria-hidden="true">
+                <span class="grid-card-icon linearicons-hammer-wrench"></span>
+              </div>
+              <h4>Expert Installation</h4>
+              <p>We don't just supply; we deliver perfection. Our network of trusted independent fitters ensures your
+                new floor is installed flawlessly.
+              </p>
+            </article>
+          </div>
+        </div>
+        <div class="grid-outer">
+          <div class="grid-outer-card">
+            <article class="grid-card-bottom grid-card-cut">
+              <div class="grid-pricing-split">
+                <div class="grid-pricing-main">
+                  <div class="grid-card-icon-wrap" aria-hidden="true">
+                    <span class="grid-card-icon linearicons-tag"></span>
+                  </div>
+                  <h4>Wholesale Pricing</h4>
+                  <p>Get direct-to-trade prices without needing a trade account. We believe premium flooring should be
+                    accessible to everyone in Leicester.
+                  </p>
+                  <div class="grid-pricing-badges">
+                    <span class="grid-pricing-badge">Public Welcome</span>
+                    <span class="grid-pricing-badge">No Hidden Fees</span>
+                  </div>
+                </div>
+                <div class="grid-pricing-metrics">
+                  <div class="grid-pricing-row">
+                    <span class="grid-pricing-label">Cost Saving</span>
+                    <span class="grid-pricing-value accent">High</span>
+                  </div>
+                  <div class="grid-pricing-track" aria-hidden="true">
+                    <div class="grid-pricing-fill cost-saving"></div>
+                  </div>
+                  <div class="grid-pricing-row">
+                    <span class="grid-pricing-label">Quality</span>
+                    <span class="grid-pricing-value">Premium</span>
+                  </div>
+                  <div class="grid-pricing-track" aria-hidden="true">
+                    <div class="grid-pricing-fill quality"></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="grid-outer-card">
+            <article class="grid-card-bottom grid-card-cut">
+              <div class="grid-card-bottom-header">
+                <div class="grid-card-icon-wrap" aria-hidden="true">
+                  <span class="grid-card-icon linearicons-heart"></span>
+                </div>
+                <div class="grid-family-badge" aria-hidden="true">
+                  <span class="grid-family-badge-value">100%</span>
+                  <span class="grid-family-badge-label">Family Run</span>
+                </div>
+              </div>
+              <h4>Personal Touch</h4>
+              <p> Managed locally by the Devlin family. We provide the honest advice and personal care that big box
+                stores simply can't match.
+              </p>
+            </article>
           </div>
 
-          <!-- Right side cards -->
-          <div class="col-md-6 col-lg-4 d-flex flex-column justify-content-center why-devlin-right" style="gap: 104px; position: relative; z-index: 2;">
-            <article class="box-icon-modern why-devlin-card ping ping-right-top h-100">
-              <h5 class="box-icon-modern-title">End-to-End Installation Service</h5>
-              <p class="box-icon-modern-text">We coordinate with trusted independent fitters, managing the process from selection to professional installation — making it simple and stress-free.</p>
-            </article>
+        </div>
+      </div>
+    </section>
+    <div class="video-expanded-overlay" id="heroVideoOverlay">
+      <div class="video-close-btn" id="heroVideoCloseBtn" onclick="closeHeroVideo()">
+        <div class="video-close-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+          </svg>
+        </div>
+        <div class="video-close-label">Close<br>Video</div>
+      </div>
+      <video id="heroExpandedVideo" loop playsinline preload="none" controls>
+        <source src="videos/michael.mp4" type="video/mp4">
+      </video>
+    </div>
+    <script>
+      function openHeroVideo() {
+        document.getElementById('heroVideoOverlay').classList.add('active');
+        document.getElementById('heroVideoCloseBtn').classList.add('active');
+        document.getElementById('heroExpandedVideo').play();
+      }
 
-            <article class="box-icon-modern why-devlin-card ping ping-right-bottom h-100">
-              <h5 class="box-icon-modern-title">Family-Managed Local Service</h5>
-              <p class="box-icon-modern-text">Managed locally by the Devlin family, providing honest advice and personal service to customers across Groby and Leicester.</p>
+      function closeHeroVideo() {
+        document.getElementById('heroVideoOverlay').classList.remove('active');
+        document.getElementById('heroVideoCloseBtn').classList.remove('active');
+        var heroVideo = document.getElementById('heroExpandedVideo');
+        heroVideo.pause();
+        heroVideo.currentTime = 0;
+      }
+    </script>
+    <!-- Icon Classic-->
+    <section class="section section-sm bg-gray-200 icon-classic-grid">
+      <div class="container">
+        <div class="row row-md">
+          <div class="col-sm-6 col-xl-3 wow fadeInUp" data-wow-delay="0s">
+            <article class="box-icon-classic">
+              <div class="unit unit-spacing-xxs flex-column text-center flex-md-row text-md-left">
+                <div class="unit-left">
+                  <div class="box-icon-classic-icon-self linearicons-gradient2"></div>
+                </div>
+                <div class="unit-body">
+                  <h5 class="box-icon-classic-title Rated-title">Local Experts</h5>
+
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-xl-3 wow fadeInUp" data-wow-delay=".1s">
+            <article class="box-icon-classic">
+              <div class="unit unit-spacing-xxs flex-column text-center flex-md-row text-md-left">
+                <div class="unit-left">
+                  <div class="box-icon-classic-icon-self linearicons-texture"></div>
+                </div>
+                <div class="unit-body">
+                  <h5 class="box-icon-classic-title Rated-title">Highly Rated</h5>
+
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-xl-3 wow fadeInUp" data-wow-delay=".2s">
+            <article class="box-icon-classic">
+              <div class="unit unit-spacing-xxs flex-column text-center flex-md-row text-md-left">
+                <div class="unit-left">
+                  <div class="box-icon-classic-icon-self linearicons-color-sampler"></div>
+                </div>
+                <div class="unit-body">
+                  <h5 class="box-icon-classic-title Rated-title">Wholesale Prices</h5>
+
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-xl-3 wow fadeInUp" data-wow-delay=".2s">
+            <article class="box-icon-classic">
+              <div class="unit unit-spacing-xxs flex-column text-center flex-md-row text-md-left">
+                <div class="unit-left">
+                  <div class="box-icon-classic-icon-self linearicons-eye-dropper"></div>
+                </div>
+                <div class="unit-body">
+                  <h5 class="box-icon-classic-title Rated-title">Full Fitting</h5>
+
+                </div>
+              </div>
             </article>
           </div>
         </div>
       </div>
-      
-      <!-- Fullscreen video overlay (hidden by default) -->
-      <div class="video-expanded-overlay" id="videoOverlay">
-        <div class="video-close-btn" id="videoCloseBtn" onclick="closeHeroVideo()">
-          <div class="video-close-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-          </div>
-          <div class="video-close-label">Close<br>Video</div>
-        </div>
-        <video id="heroExpandedVideo" loop playsinline preload="none" controls>
-          <source src="/videos/michael.mp4" type="video/mp4">
-        </video>
-      </div>
-      <script>
-        function openHeroVideo() {
-          document.getElementById('videoOverlay').classList.add('active');
-          document.getElementById('videoCloseBtn').classList.add('active');
-          document.getElementById('heroExpandedVideo').play();
-        }
-        function closeHeroVideo() {
-          document.getElementById('videoOverlay').classList.remove('active');
-          document.getElementById('videoCloseBtn').classList.remove('active');
-          var v = document.getElementById('heroExpandedVideo');
-          v.pause();
-          v.currentTime = 0;
-        }
-      </script>
     </section>
 
     <section class="service-journey-heading">
@@ -1339,10 +2260,7 @@
           <h1>Installation and Free Measurement</h1>
           <p>Free Home Measurement &amp; Professional Carpet Fitting in Groby &amp; Leicester</p>
         </div>
-        <a class="contact-mirror-bubble" href="contacts.html" aria-label="Contact Us">
-          <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
-          <span>Contact Us</span>
-        </a>
+
       </div>
     </section>
 
@@ -1393,17 +2311,474 @@
                 width="770" height="426" loading="lazy" decoding="async" draggable="false">
             </div>
           </div>
+          <!-- <a class="contact-mirror-bubble" href="contacts.html" aria-label="Contact Us">
+            <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+            <span>Contact Us</span>
+          </a> -->
+
+
+
+        </div>
+        <a class="button button-md button-icon button-icon-right button-blue-8" data-caption-animate="fadeInUp"
+          data-caption-delay="500" href="contacts.html"><span class="icon mdi mdi-chevron-right"></span>Free Visit ?
+          Call
+          Us</a>
+      </div>
+    </section>
+
+    <!-- Areas we Cover -->
+    <style>
+      @keyframes slideToCenter {
+        from {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .slide-to-center {
+        visibility: hidden;
+      }
+
+      .slide-to-center.animated {
+        visibility: visible;
+        animation-name: slideToCenter;
+        animation-duration: 1.2s;
+        animation-fill-mode: both;
+        animation-timing-function: ease-out;
+      }
+
+      .reach-label {
+        display: block;
+        width: fit-content;
+        margin: 0 auto 8px;
+        font-size: 16px;
+        line-height: 1.2;
+        color: #db2a19;
+      }
+
+      .coverage-contact-box {
+        width: 100%;
+        margin-top: 14px;
+        padding: 28px 28px;
+        background-color: #f6f6f6;
+        border-radius: 14px;
+        text-align: center;
+      }
+
+      .coverage-contact-box .quote-classic {
+        margin-bottom: 14px;
+        text-align: center;
+        padding-left: 0;
+      }
+
+      .coverage-contact-box .quote-classic-text {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 0;
+        text-align: left;
+        padding-left: 34px;
+      }
+
+      .coverage-contact-box .quote-classic-text::before {
+        left: 0;
+        top: -2px;
+        font-size: 88px;
+        line-height: 1;
+      }
+
+      .coverage-contact-box .button {
+        margin: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        white-space: nowrap;
+      }
+
+      .coverage-contact-box .button .icon {
+        display: inline-flex;
+        align-items: center;
+        line-height: 1;
+      }
+
+      .review-badge-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .review-badge-link:hover {
+        color: #db2a19;
+      }
+
+      .review-google-icon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 767.98px) {
+        .coverage-contact-box {
+          margin-top: 12px;
+          padding: 22px 20px;
+        }
+      }
+    </style>
+    <style>
+      /* ── Consistent section spacing overrides ── */
+      .icon-classic-grid.section-sm {
+        padding: 24px 0;
+      }
+
+      .section.section-xl.bg-default {
+        padding: 64px 0;
+      }
+
+      .map-section {
+        padding-top: 0;
+        padding-bottom: 32px;
+      }
+
+      @media (max-width: 991.98px) {
+        .section.section-xl.bg-default {
+          padding: 48px 0;
+        }
+
+        .icon-classic-grid.section-sm {
+          padding: 20px 0;
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .section.section-xl.bg-default {
+          padding: 40px 0;
+        }
+
+        .icon-classic-grid.section-sm {
+          padding: 16px 0;
+        }
+      }
+    </style>
+    <section class="section section-xl bg-default" style="padding-top: 16px; padding-bottom: 0;">
+      <div class="container-fluid px-0">
+        <div class="row no-gutters align-items-stretch">
+          <div class="col-lg-6 d-flex align-items-center" style="height: 420px; padding: 0 24px;">
+            <div style="width: 100%; max-width: 600px; margin: 0 auto; text-align: left;">
+              <h1 style="margin-bottom: 8px; line-height: .95;">
+                <span class="wow slide-to-center reach-label" style="margin-left: 0;">Our Reach</span>
+                Serving Leicester & Across Leicestershire
+              </h1>
+              <p style="margin-bottom: 10px;">Our showroom is centrally located to serve homes throughout Leicester and
+                the wider Leicestershire county. We offer expert flooring advice, luxury carpets, and free professional
+                measurements delivered directly to your home.</p>
+              <div class="row no-gutters bordered-2" style="margin: 6px 0 0;">
+                <div class="col-sm-6">
+                  <h2 style="margin-bottom: 2px;">100%</h2>
+                  <p class="post-classic-time" style="margin-bottom: 0; letter-spacing: .08em;">COUNTY COVERAGE</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div style="position: relative; overflow: hidden; width: 100%; height: 420px;">
+              <iframe src="https://www.google.com/maps/d/embed?mid=1lp2VFv0eqXhxW_qIlQB0TCgEJOygnEI&ehbc=2E312F&noprof=1"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0"
+                allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-12">
+            <div class="coverage-contact-box text-center" style="margin: 0 24px; padding: 12px 14px;">
+              <article class="quote-classic">
+                <div class="quote-classic-text">
+                  Not sure if we cover your specific street? Get in touch today for a friendly chat.
+                </div>
+              </article>
+              <a class="button button-md button-icon button-icon-left button-blue-8" href="tel:01164560022">
+                <span class="icon mdi mdi-phone"></span> <span>0116 456 0022</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <section class="container" style="margin-top: 0; padding-top: 0;">
+      <div class="service-journey-heading-copy">
+        <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale</span>
+        <h1>carpets and flooring Leicester</h1>
+        <p>Visit our premium showroom in Groby to explore our extensive collection of luxury carpets, hardwoods, and
+          designer flooring solutions.</p>
+      </div>
+    </section>
 
 
+    <section class="map-section" style="background-color: #ffffff">
+      <div style="
+            width: 100%;
+            max-width: none;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 0 30px;
+          ">
+        <style>
+          .map-section .map-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: min(56vw, 600px);
+            min-height: 260px;
+            max-height: 600px;
+          }
 
+          .map-section .map-container iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+          }
 
+          .map-section .google-map-container::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            pointer-events: none;
+            z-index: 1;
+          }
 
+          .map-section .location-info-card {
+            background: #ffffff;
+            border: 1px solid #dce3eb;
+            padding: 28px 40px;
+            text-align: left;
+          }
 
+          .map-section .location-address {
+            margin: 0;
+            color: #151a2d;
+            text-transform: uppercase;
+            font-family: "Roboto", sans-serif;
+            font-weight: 600;
+            line-height: 1.02;
+            letter-spacing: 0.015em;
+            font-size: clamp(36px, 6vw, 76px);
+          }
 
+          .map-section .location-info-footer {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            column-gap: 18px;
+            align-items: start;
+            border-top: 1px solid #e4e8ee;
+            padding-top: 16px;
+          }
+
+          .map-section .location-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, max-content);
+            column-gap: 52px;
+            row-gap: 14px;
+            justify-content: start;
+            align-items: start;
+          }
+
+          .map-section .location-meta-label {
+            margin-bottom: 4px;
+            color: #7f90a8;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+          }
+
+          .map-section .location-meta-value {
+            color: #151a2d;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: 0.01em;
+          }
+
+          .map-section .location-hours-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          .map-section .location-hours-list li {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            column-gap: 14px;
+            padding: 1px 0;
+            color: #151a2d;
+            font-size: 16px;
+            line-height: 1.4;
+          }
+
+          .map-section .location-hours-day {
+            font-weight: 700;
+          }
+
+          .map-section .location-hours-time {
+            font-weight: 500;
+          }
+
+          @media (max-width: 1199.98px) {
+            .map-section .location-meta-grid {
+              grid-template-columns: repeat(2, minmax(180px, 1fr));
+            }
+
+            .map-section .location-meta-grid .location-hours-block {
+              grid-column: 1 / -1;
+            }
+
+            .map-section .location-action-group {
+              width: 100%;
+              margin-left: 0;
+              justify-content: flex-start;
+            }
+          }
+
+          .map-section .location-action-group {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            margin-left: auto;
+          }
+
+          @media (max-width: 1399.98px) {
+            .map-section .location-info-footer {
+              grid-template-columns: 1fr;
+              row-gap: 14px;
+            }
+
+            .map-section .location-meta-grid {
+              grid-template-columns: repeat(2, minmax(180px, 1fr));
+              column-gap: 18px;
+              row-gap: 10px;
+            }
+
+            .map-section .location-meta-grid .location-hours-block {
+              grid-column: 1 / -1;
+            }
+
+            .map-section .location-action-group {
+              width: 100%;
+              margin-left: 0;
+              justify-content: flex-start;
+            }
+          }
+
+          @media (max-width: 767.98px) {
+            .map-section .map-container {
+              height: min(70vw, 420px);
+              min-height: 220px;
+            }
+
+            .map-section .location-info-card {
+              padding: 28px 20px;
+            }
+
+            .map-section .location-id {
+              font-size: 16px;
+            }
+
+            .map-section .location-meta-grid {
+              grid-template-columns: 1fr;
+              gap: 16px;
+            }
+
+            .map-section .location-meta-value {
+              font-size: 18px;
+            }
+
+            .map-section .location-action-group .button {
+              width: 100%;
+            }
+          }
+
+          @media (min-width: 1200px) {
+            .map-section .map-container {
+              height: min(36vw, 600px);
+            }
+          }
+        </style>
+        <div class="row">
+          <div class="col-12 mb-4">
+            <div class="map-container google-map-container">
+              <iframe
+                src="https://maps.google.com/maps?q=Devlin+Wholesale+Leicester,+Laundon+Way,+Groby,+Leicester+LE6+0YG,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="col-12 mb-4">
+            <article class="location-info-card">
+              <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale Leicester</span>
+              <h2 class="location-address">Laundon Way, Groby,<br>Leicester LE6 0YG</h2>
+
+              <div class="location-info-footer">
+                <div class="location-meta-grid">
+                  <!-- <div>
+                    <p class="location-meta-label">Availability</p>
+                    <p class="location-meta-value">Open Mon-Sat</p>
+                  </div> -->
+                  <div>
+                    <p class="location-meta-label">Parking</p>
+                    <p class="location-meta-value">Free On-site</p>
+                  </div>
+                  <div>
+                    <p class="location-meta-label">Phone</p>
+                    <p class="location-meta-value">0116 456 0022</p>
+                  </div>
+                  <div>
+                    <p class="location-meta-label">Email</p>
+                    <p class="location-meta-value">info@devlinwholesale.co.uk</p>
+                  </div>
+                  <div class="location-hours-block">
+                    <p class="location-meta-label">Store Timings</p>
+                    <ul class="location-hours-list">
+                      <li><span class="location-hours-day">Mon-Fri</span><span class="location-hours-time">9:00 am -
+                          6:00 pm</span></li>
+                      <li><span class="location-hours-day">Saturday</span><span class="location-hours-time">9:00 am -
+                          5:00 pm</span></li>
+                      <li><span class="location-hours-day">Sunday</span><span class="location-hours-time">10:00 am -
+                          4:00 pm</span></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="location-action-group">
+                  <a class="button button-lg button-icon button-icon-right button-blue-8"
+                    data-caption-animate="fadeInUp" data-caption-delay="500"
+                    href="https://www.google.com/maps/dir/?api=1&destination=Laundon+Way,+Groby,+Leicester+LE6+0YG"
+                    target="_blank" rel="noopener noreferrer"><span class="icon mdi mdi-chevron-right"></span>Get
+                    Directions</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-12">
+            <div class="map-container">
+              <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" frameborder="0" allowfullscreen
+                allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Latest projects-->
     <section class="section section-xl bg-default text-center">
       <div class="container">
@@ -1419,13 +2794,14 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project1Modal">
-                  <img src="GrobyProjects/Project 1/Project1_C7.jpg" alt="96 Snake Hill Rd" width="474" height="355" />
+                  <img src="GrobyProjects/Project 1/Project1_C3.jpg" alt="96 Snake Hill Rd"
+                    style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
                     <!-- <a href="project-page.html">96 Snake Hill Rd</a> -->
                   </h5>
-                  <div class="thumbnail-modern-badge">LVT Installation</div>
+                  <div class="thumbnail-modern-badge">Project 1</div>
                 </div>
               </article>
             </div>
@@ -1439,13 +2815,14 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project2Modal">
-                  <img src="GrobyProjects/Project 2/Project2_M3.jpg" alt="77 Ashley St" width="474" height="355" />
+                  <img src="GrobyProjects/Project 2/Project2_M1.jpg" alt="77 Ashley St"
+                    style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
                     <!-- <a href="project-page.html">77 Ashley St</a> -->
                   </h5>
-                  <div class="thumbnail-modern-badge">LVR installation</div>
+                  <div class="thumbnail-modern-badge">Project 2</div>
                 </div>
               </article>
             </div>
@@ -1459,14 +2836,14 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project3Modal">
-                  <img src="GrobyProjects/Project 4/Project4_Staircase1.jpg" alt="598 Tallwood Dr"
+                  <img src="GrobyProjects/Project 4/Project1_Staircase6.jpg" alt="598 Tallwood Dr"
                     style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
                     <!-- <a href="project-page.html">598 Tallwood Dr</a> -->
                   </h5>
-                  <div class="thumbnail-modern-badge">Carpet Installation</div>
+                  <div class="thumbnail-modern-badge">Project 3</div>
                 </div>
               </article>
             </div>
@@ -1479,14 +2856,14 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project4Modal">
-                  <img src="GrobyProjects/Project 4/Project4_Staircase10.jpg" alt="598 Tallwood Dr"
+                  <img src="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" alt="598 Tallwood Dr"
                     style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
                     <!-- <a href="project-page.html">598 Tallwood Dr</a> -->
                   </h5>
-                  <div class="thumbnail-modern-badge">Carpet Installation</div>
+                  <div class="thumbnail-modern-badge">Project 4</div>
                 </div>
               </article>
             </div>
@@ -1499,14 +2876,14 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project5Modal">
-                  <img src="GrobyProjects/Project 7/Project7_Invictus Carpet.jpg" alt="598 Tallwood Dr"
+                  <img src="GrobyProjects/Project 6/Project6_AG1.jpg" alt="598 Tallwood Dr"
                     style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
                     <!-- <a href="project-page.html">598 Tallwood Dr</a> -->
                   </h5>
-                  <div class="thumbnail-modern-badge">Laminate Installation</div>
+                  <div class="thumbnail-modern-badge">Project 5</div>
                 </div>
               </article>
             </div>
@@ -1519,14 +2896,14 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project6Modal">
-                  <img src="GrobyProjects/Project 6/Project6_AG3.jpg" alt="598 Tallwood Dr"
+                  <img src="GrobyProjects/Project 7/Project7_Carpet4.jpg" alt="598 Tallwood Dr"
                     style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
                     <!-- <a href="project-page.html">598 Tallwood Dr</a> -->
                   </h5>
-                  <div class="thumbnail-modern-badge">Artificial Grass</div>
+                  <div class="thumbnail-modern-badge">Project 6</div>
                 </div>
               </article>
             </div>
@@ -1542,7 +2919,7 @@
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="project1ModalLabel">96 Snake Hill Rd - Floor Installation</h5>
+              <h5 class="modal-title" id="project1ModalLabel">Project 1</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -1575,6 +2952,11 @@
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 1/Project1_C6.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 1/Project1_C6.jpg" alt="Project 1 Image 4" class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 1/Project1_C7.jpg" data-lightgallery="item">
                     <img src="GrobyProjects/Project 1/Project1_C7.jpg" alt="Project 1 Image 4" class="img-fluid">
                   </a>
@@ -1594,7 +2976,7 @@
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="project2ModalLabel">77 Ashley St - Floor Repair</h5>
+              <h5 class="modal-title" id="project2ModalLabel">Project 2</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -1661,31 +3043,71 @@
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="project3ModalLabel">598 Tallwood Dr - Floor Installation</h5>
+              <h5 class="modal-title" id="project3ModalLabel">Project 3</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <div id="lightgallery-project3" class="row row-30" data-lightgallery="group">
+              <div id="lightgallery-project4" class="row row-30" data-lightgallery="group">
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 4/Project1_Staircase6.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 4/Project1_Staircase6.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 4/Project3_Staircase3.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 4/Project3_Staircase3.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase1.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase1.jpg" alt="Project 3 Image 1" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase1.jpg" alt="Project 3 Image 2"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase2.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase2.jpg" alt="Project 3 Image 2" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase2.jpg" alt="Project 3 Image 2"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase5.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase5.jpg" alt="Project 3 Image 3" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase5.jpg" alt="Project 3 Image 3"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                   <a href="GrobyProjects/Project 4/Project4_Staircase7.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase7.jpg" alt="Project 3 Image 4" class="img-fluid">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase7.jpg" alt="Project 3 Image 4"
+                      class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 4/Project4_Staircase11.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase10.jpg" alt="Project 3 Image 2"
+                      class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 4/Project4_Staircase11.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase11.jpg" alt="Project 3 Image 2"
+                      class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 4/Project4_Staircase14 Egineered Wood.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase14 Egineered Wood.jpg" alt="Project 3 Image 3"
+                      class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 4/Project4_Staircase15.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 4/Project4_Staircase15.jpg" alt="Project 3 Image 4"
+                      class="img-fluid">
                   </a>
                 </div>
               </div>
@@ -1703,45 +3125,60 @@
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="project4ModalLabel">598 Tallwood Dr - Floor Installation</h5>
+              <h5 class="modal-title" id="project4ModalLabel">Project 4</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <div id="lightgallery-project4" class="row row-30" data-lightgallery="group">
+              <div id="lightgallery-project5" class="row row-30" data-lightgallery="group">
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase10.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase10.jpg" alt="Project 3 Image 1" class="img-fluid">
+                  <a href="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase11.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase11.jpg" alt="Project 3 Image 2" class="img-fluid">
+                  <a href="GrobyProjects/Project 5/Project5_Bavarian Oak1.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 5/Project5_Bavarian Oak1.jpg" alt="Project 3 Image 2"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase14 Egineered Wood.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase14 Egineered Wood.jpg" alt="Project 3 Image 3" class="img-fluid">
+                  <a href="GrobyProjects/Project 5/Project5_Chevron Floors.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 5/Project5_Chevron Floors.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase15.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase15.jpg" alt="Project 3 Image 4" class="img-fluid">
+                  <a href="GrobyProjects/Project 5/Project5_Chevron layout.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 5/Project5_Chevron layout.jpg" alt="Project 3 Image 2"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project3_Staircase3.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project3_Staircase3.jpg" alt="Project 3 Image 4" class="img-fluid">
+                  <a href="GrobyProjects/Project 5/Project5_Herringbone Flooring.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 5/Project5_Herringbone Flooring.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project1_Staircase6.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project1_Staircase6.jpg" alt="Project 3 Image 4" class="img-fluid">
+                  <a href="GrobyProjects/Project 5/Project5_Natural Flooring.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 5/Project5_Natural Flooring.jpg" alt="Project 3 Image 2"
+                      class="img-fluid">
                   </a>
                 </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 5/Project5_Orion Malma LVT.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 5/Project5_Orion Malma LVT.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+
+
               </div>
             </div>
+
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
@@ -1755,48 +3192,7 @@
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="project5ModalLabel">598 Tallwood Dr - Floor Installation</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div id="lightgallery-project5" class="row row-30" data-lightgallery="group">
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" alt="Project 3 Image 1" class="img-fluid">
-                  </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 5/Project5_Bavarian Oak1.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Bavarian Oak1.jpg" alt="Project 3 Image 2" class="img-fluid">
-                  </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 7/Project7_Invictus Carpet.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 7/Project7_Invictus Carpet.jpg" alt="Project 3 Image 3" class="img-fluid">
-                  </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 5/Project5_Chevron Floors.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Chevron Floors.jpg" alt="Project 3 Image 4" class="img-fluid">
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Project 5 Modal: 9389 Atlantic St -->
-      <div class="modal fade" id="project6Modal" tabindex="-1" role="dialog" aria-labelledby="project6ModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="project6ModalLabel">598 Tallwood Dr - Floor Installation</h5>
+              <h5 class="modal-title" id="project5ModalLabel">Project 5</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -1818,8 +3214,70 @@
                     <img src="GrobyProjects/Project 6/Project6_AG3.jpg" alt="Project 3 Image 3" class="img-fluid">
                   </a>
                 </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 6/Project6_AG4.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 6/Project6_AG4.jpg" alt="Project 3 Image 3" class="img-fluid">
+                  </a>
+                </div>
               </div>
             </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Project 6 Modal: 9389 Atlantic St -->
+      <div class="modal fade" id="project6Modal" tabindex="-1" role="dialog" aria-labelledby="project6ModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="project6ModalLabel">Project 6</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="lightgallery-project6" class="row row-30" data-lightgallery="group">
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 7/Project7_Carpet4.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 7/Project7_Carpet4.jpg" alt="Project 3 Image 1" class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 7/Project7_carpet5.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 7/Project7_carpet5.jpg" alt="Project 3 Image 2" class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 7/Project7_Hrringbone Carpet1.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 7/Project7_Hrringbone Carpet1.jpg" alt="Project 3 Image 3"
+                      class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 7/Project7_Invictus Carpet.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 7/Project7_Invictus Carpet.jpg" alt="Project 3 Image 3"
+                      class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 7/Project7_Soft Carpet2.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 7/Project7_Soft Carpet2.jpg" alt="Project 3 Image 3"
+                      class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="GrobyProjects/Project 7/Project7_Soft Plaid Texture.jpg" data-lightgallery="item">
+                    <img src="GrobyProjects/Project 7/Project7_Soft Plaid Texture.jpg" alt="Project 3 Image 3"
+                      class="img-fluid">
+                  </a>
+                </div>
+              </div>
+            </div>
+
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
@@ -1828,34 +3286,49 @@
       </div>
 
     </section>
+    <!-- what clients says -->
     <section class="section swiper-container swiper-slider swiper-slider-8" data-loop="true" data-autoplay="5000"
       data-simulate-touch="false" data-slide-effect="fade">
       <div class="swiper-wrapper text-left">
         <div class="swiper-slide context-dark">
           <div class="swiper-slide-caption section-lg">
             <div class="container">
-              <div class="row  justify-content-md-between">
-                <!-- <div class="col-5 d-none d-md-block position-static">
-                  <div class="quote-classic-figure">
-                    <img src="images/clients-24-960x574.jpg" alt="image" width="960" height="574" />
+              <div class="row justify-content-center justify-content-md-between">
+                <div class="col-5 d-none d-md-block position-static">
+                  <div class="quote-classic-figure"><img src="images/clients-24-960x574.jpg" alt="" width="960"
+                      height="574" />
                   </div>
-                </div> -->
-                <div class="col-sm-11 col-md-11 col-xl-11">
+                </div>
+                <div class="col-sm-11 col-md-7 col-xl-6">
                   <div class="inset-left-xl-70">
-                    <h4>What our clients say</h4>
+                    <h4>What clients say</h4>
                     <!-- Quote Classic-->
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p>
-                          I was amazed by the range of flooring options at Devlin Wholesale.
-                          We fitted our entire house with carpets and luxury vinyl, and it looks absolutely stunning.
-                          You can tell this is a family business that takes pride in what they do, with honest advice,
-                          no pressure, and incredible value for money.
-                        </p>
+                        <p class="q">The floor looks magnificent and the parquet in the hall sets it off beautifully.
+                          Your men were excellent and delightful.</p>
                       </div>
                       <p class="quote-classic-author">
-                        Nicky Gray, NHS: Services Director
+                        <a class="review-badge-link"
+                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Devlin+Wholesale+Carpets+Leicester&ludocid=13385023826316567440#lrd=0x0:0xba6dfaf169292390,1"
+                          target="_blank" rel="noopener noreferrer">
+                          <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+                            height="100" viewBox="0 0 48 48" aria-hidden="true">
+                            <path fill="#FFC107"
+                              d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                            </path>
+                            <path fill="#FF3D00"
+                              d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                            </path>
+                            <path fill="#4CAF50"
+                              d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                            </path>
+                            <path fill="#1976D2"
+                              d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                            </path>
+                          </svg>
+                          <span>From Google Reviews</span></a>
                       </p>
                     </article>
                   </div>
@@ -1867,62 +3340,42 @@
         <div class="swiper-slide context-dark">
           <div class="swiper-slide-caption section-lg">
             <div class="container">
-              <div class="row  justify-content-md-between">
-                <!-- <div class="col-5 d-none d-md-block position-static">
-                  <div class="quote-classic-figure">
-                    <img src="images/clients-24-960x574.jpg" alt="image" width="960" height="574" />
+              <div class="row justify-content-center justify-content-md-between">
+                <div class="col-5 d-none d-md-block position-static">
+                  <div class="quote-classic-figure"><img src="images/clients-24-960x574.jpg" alt="" width="960"
+                      height="574" />
                   </div>
-                </div> -->
-                <div class="col-sm-11 col-md-11 col-xl-11">
+                </div>
+                <div class="col-sm-11 col-md-7 col-xl-6">
                   <div class="inset-left-xl-70">
-                    <h4>What Our clients say</h4>
+                    <h4>What clients say</h4>
                     <!-- Quote Classic-->
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p>
-                          Fantastic Value and Superb Craftmanship! <br />
-
-                          We were recommended Devlin Wholesale by a friend and now simply won't go anywhere else. The
-                          carpet fitter was skilled, polite and left everything spotless. The quality of the carpet is
-                          brilliant, suited our needs perfectly and was amazingly priced. Its clear they've built their
-                          business on trust and customer satisfaction!
-                        </p>
+                        <p class="q">Fantastic service from start to finish. After our ceiling collapsed we never
+                          thought our damaged floor would look so good again.</p>
                       </div>
                       <p class="quote-classic-author">
-                        Kelly Arnold, Ladybridge Beefeater: General Manager
-                      </p>
-                    </article>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="swiper-slide context-dark">
-          <div class="swiper-slide-caption section-lg">
-            <div class="container">
-              <div class="row justify-content-center justify-content-md-between">
-                <div class="col-5 d-none d-md-block position-static">
-                  <div class="quote-classic-figure">
-                    <img src="images/clients-25-960x574.jpg" alt="image" width="960" height="574" />
-                  </div>
-                </div>
-                <div class="col-sm-11 col-md-7 col-xl-6">
-                  <div class="inset-left-xl-70">
-                    <h4>What clients say</h4>
-                    Quote Classic
-                    <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
-                      data-caption-delay="0">
-                      <div class="quote-classic-text">
-                        <p class="q">
-                          Fantastic service from start to finish. After our
-                          ceiling collapsed we never thought our damaged floor
-                          would look so good again.
-                        </p>
-                      </div>
-                      <p class="quote-classic-author">
-                        Mary Smith, Regular client
+                        <a class="review-badge-link"
+                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Devlin+Wholesale+Carpets+Leicester&ludocid=13385023826316567440#lrd=0x0:0xba6dfaf169292390,1"
+                          target="_blank" rel="noopener noreferrer">
+                          <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+                            height="100" viewBox="0 0 48 48" aria-hidden="true">
+                            <path fill="#FFC107"
+                              d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                            </path>
+                            <path fill="#FF3D00"
+                              d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                            </path>
+                            <path fill="#4CAF50"
+                              d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                            </path>
+                            <path fill="#1976D2"
+                              d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                            </path>
+                          </svg>
+                          <span>From Google Reviews</span></a>
                       </p>
                     </article>
                   </div>
@@ -1936,25 +3389,40 @@
             <div class="container">
               <div class="row justify-content-center justify-content-md-between">
                 <div class="col-5 d-none d-md-block position-static">
-                  <div class="quote-classic-figure">
-                    <img src="images/clients-26-960x574.jpg" alt="image" width="960" height="574" />
+                  <div class="quote-classic-figure"><img src="images/clients-24-960x574.jpg" alt="" width="960"
+                      height="574" />
                   </div>
                 </div>
                 <div class="col-sm-11 col-md-7 col-xl-6">
                   <div class="inset-left-xl-70">
                     <h4>What clients say</h4>
-                    Quote Classic
+                    <!-- Quote Classic-->
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p class="q">
-                          I just wanted to say thank you and the team very
-                          much for the brilliant service around renovating the
-                          floors at our house.
-                        </p>
+                        <p class="q">I just wanted to say thank you and the team very much for the brilliant service
+                          around renovating the floors at our house.</p>
                       </div>
                       <p class="quote-classic-author">
-                        Jane Peterson, Regular client
+                        <a class="review-badge-link"
+                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Devlin+Wholesale+Carpets+Leicester&ludocid=13385023826316567440#lrd=0x0:0xba6dfaf169292390,1"
+                          target="_blank" rel="noopener noreferrer">
+                          <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+                            height="100" viewBox="0 0 48 48" aria-hidden="true">
+                            <path fill="#FFC107"
+                              d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                            </path>
+                            <path fill="#FF3D00"
+                              d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                            </path>
+                            <path fill="#4CAF50"
+                              d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                            </path>
+                            <path fill="#1976D2"
+                              d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                            </path>
+                          </svg>
+                          <span>From Google Reviews</span></a>
                       </p>
                     </article>
                   </div>
@@ -1968,25 +3436,40 @@
             <div class="container">
               <div class="row justify-content-center justify-content-md-between">
                 <div class="col-5 d-none d-md-block position-static">
-                  <div class="quote-classic-figure">
-                    <img src="images/clients-27-960x574.jpg" alt="image" width="960" height="574" />
+                  <div class="quote-classic-figure"><img src="images/clients-24-960x574.jpg" alt="" width="960"
+                      height="574" />
                   </div>
                 </div>
                 <div class="col-sm-11 col-md-7 col-xl-6">
                   <div class="inset-left-xl-70">
                     <h4>What clients say</h4>
-                    Quote Classic
+                    <!-- Quote Classic-->
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p class="q">
-                          From beginning to end everything went smoothly. The
-                          actual installation was amazing. Timely, efficient,
-                          and perfect.
-                        </p>
+                        <p class="q">From beginning to end everything went smoothly. The actual installation was
+                          amazing. Timely, efficient, and perfect.</p>
                       </div>
                       <p class="quote-classic-author">
-                        Stephen Adams, Regular client
+                        <a class="review-badge-link"
+                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Devlin+Wholesale+Carpets+Leicester&ludocid=13385023826316567440#lrd=0x0:0xba6dfaf169292390,1"
+                          target="_blank" rel="noopener noreferrer">
+                          <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+                            height="100" viewBox="0 0 48 48" aria-hidden="true">
+                            <path fill="#FFC107"
+                              d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                            </path>
+                            <path fill="#FF3D00"
+                              d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                            </path>
+                            <path fill="#4CAF50"
+                              d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                            </path>
+                            <path fill="#1976D2"
+                              d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                            </path>
+                          </svg>
+                          <span>From Google Reviews</span></a>
                       </p>
                     </article>
                   </div>
@@ -1994,12 +3477,11 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
       <!-- Swiper Navigation-->
       <div class="swiper-navigation__module">
-        <div class="swiper-pagination__fraction">
-          <span class="swiper-pagination__fraction-index"></span><span
+        <div class="swiper-pagination__fraction"><span class="swiper-pagination__fraction-index"></span><span
             class="swiper-pagination__fraction-divider">/</span><span class="swiper-pagination__fraction-count"></span>
         </div>
         <div class="swiper-button-prev"></div>
@@ -2008,8 +3490,288 @@
       <!-- Swiper Pagination-->
       <div class="swiper-pagination" data-bullet-custom="true"></div>
     </section>
+    <!-- Our FAQ's-->
+    <section class="section section-xl bg-default text-md-left">
+      <div class="container">
+        <h4>FAQ's</h4>
+        <div class="row row-xxl row-50 justify-content-lg-between">
+          <!-- Left Column -->
+          <div class="col-md-6">
+            <!-- <h4>FAQ</h4> -->
+            <!-- Bootstrap collapse - Left Column -->
+            <div class="card-group-classic" id="accordion-left" role="tablist" aria-multiselectable="false">
+              <!-- Question 1 -->
+              <article class="card card-custom card-classic card-classic-2 wow fadeInLeft">
+                <div class="card-header" role="tab">
+                  <div class="card-title">
+                    <a id="accordion-left-card-head-1" data-toggle="collapse" data-parent="#accordion-left"
+                      href="#accordion-left-card-body-1" aria-controls="accordion-left-card-body-1" aria-expanded="true"
+                      role="button">
+                      What is a twist carpet?
+                      <div class="card-arrow"></div>
+                    </a>
+                  </div>
+                </div>
+                <div class="collapse show" id="accordion-left-card-body-1" aria-labelledby="accordion-left-card-head-1"
+                  data-parent="#accordion-left" role="tabpanel">
+                  <div class="card-body">
+                    <p>
+                      A twist carpet comprises of two or more fibres twisted
+                      together, the benefits of this are that it is hard
+                      wearing and therefore suitable for high traffic areas
+                      such as stairs and hallways.
+                    </p>
+                  </div>
+                </div>
+              </article>
 
-    <!-- Our Facts-->
+              <!-- Question 2 -->
+              <article class="card card-custom card-classic card-classic-2 wow fadeInLeft" data-wow-delay=".05s">
+                <div class="card-header" role="tab">
+                  <div class="card-title">
+                    <a class="collapsed" id="accordion-left-card-head-2" data-toggle="collapse"
+                      data-parent="#accordion-left" href="#accordion-left-card-body-2"
+                      aria-controls="accordion-left-card-body-2" aria-expanded="false" role="button">
+                      What is saxony carpet?
+                      <div class="card-arrow"></div>
+                    </a>
+                  </div>
+                </div>
+                <div class="collapse" id="accordion-left-card-body-2" aria-labelledby="accordion-left-card-head-2"
+                  data-parent="#accordion-left" role="tabpanel">
+                  <div class="card-body">
+                    <p>
+                      Saxony carpets are soft and luxurious under foot, made
+                      from a deep pile, straight cut yarn, they are popular
+                      for use in lounges and bedrooms.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Question 3 -->
+              <article class="card card-custom card-classic card-classic-2 wow fadeInLeft" data-wow-delay=".05s">
+                <div class="card-header" role="tab">
+                  <div class="card-title">
+                    <a class="collapsed" id="accordion-left-card-head-3" data-toggle="collapse"
+                      data-parent="#accordion-left" href="#accordion-left-card-body-3"
+                      aria-controls="accordion-left-card-body-3" aria-expanded="false" role="button">
+                      Wool vs. synthetic
+                      <div class="card-arrow"></div>
+                    </a>
+                  </div>
+                </div>
+                <div class="collapse" id="accordion-left-card-body-3" aria-labelledby="accordion-left-card-head-3"
+                  data-parent="#accordion-left" role="tabpanel">
+                  <div class="card-body">
+                    <p>
+                      Synthetic carpets can be the practical choice in homes
+                      where spillages are likely as they are stain resistant
+                      and often bleach cleanable, whereas wool is generally
+                      softer and keeps it's pile well.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Question 4 -->
+              <article class="card card-custom card-classic card-classic-2 wow fadeInLeft" data-wow-delay=".1s">
+                <div class="card-header" role="tab">
+                  <div class="card-title">
+                    <a class="collapsed" id="accordion-left-card-head-4" data-toggle="collapse"
+                      data-parent="#accordion-left" href="#accordion-left-card-body-4"
+                      aria-controls="accordion-left-card-body-4" aria-expanded="false" role="button">
+                      Underlay
+                      <div class="card-arrow"></div>
+                    </a>
+                  </div>
+                </div>
+                <div class="collapse" id="accordion-left-card-body-4" aria-labelledby="accordion-left-card-head-4"
+                  data-parent="#accordion-left" role="tabpanel">
+                  <div class="card-body">
+                    <p>
+                      A good underlay will extend the life of your carpet,
+                      giving it a more luxurious feel whilst absorbing noise
+                      and providing added insulation, we can advise you on
+                      which underlay will best suit your needs.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Question 5 -->
+              <article class="card card-custom card-classic card-classic-2 wow fadeInLeft" data-wow-delay=".15s">
+                <div class="card-header" role="tab">
+                  <div class="card-title">
+                    <a class="collapsed" id="accordion-left-card-head-5" data-toggle="collapse"
+                      data-parent="#accordion-left" href="#accordion-left-card-body-5"
+                      aria-controls="accordion-left-card-body-5" aria-expanded="false" role="button">
+                      How do you keep your prices so competitive?
+                      <div class="card-arrow"></div>
+                    </a>
+                  </div>
+                </div>
+                <div class="collapse" id="accordion-left-card-body-5" aria-labelledby="accordion-left-card-head-5"
+                  data-parent="#accordion-left" role="tabpanel">
+                  <div class="card-body">
+                    <p>
+                      We buy in bulk to ensure the best prices for our
+                      customers.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="col-md-6">
+            <!-- Bootstrap collapse - Right Column -->
+            <div class="card-group-classic" id="accordion-right" role="tablist" aria-multiselectable="false">
+              <!-- Question 6 -->
+              <article class="card card-custom card-classic card-classic-2 wow fadeInLeft">
+                <div class="card-header" role="tab">
+                  <div class="card-title">
+                    <a id="accordion-right-card-head-6" data-toggle="collapse" data-parent="#accordion-right"
+                      href="#accordion-right-card-body-6" aria-controls="accordion-right-card-body-6"
+                      aria-expanded="true" role="button">
+                      How can I keep down the cost of my carpet?
+                      <div class="card-arrow"></div>
+                    </a>
+                  </div>
+                </div>
+                <div class="collapse" id="accordion-right-card-body-6" aria-labelledby="accordion-right-card-head-6"
+                  data-parent="#accordion-right" role="tabpanel">
+                  <div class="card-body">
+                    <p>
+                      Think about the room/s you are carpeting, you don't need
+                      a heavyweight/hardwearing carpet in a room which sees
+                      little traffic, for example, a bedroom would probably
+                      not need as heavy a carpet as a hallway. Block plans can
+                      be drawn up to minimise wastage, contact us if you are
+                      having more than one room in the same carpet and think
+                      you could save money using this service. It can
+                      sometimes work out cheaper to use 4m carpet instead of
+                      5m carpet and have joins put in where they are unlikely
+                      to be noticed.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Question 7 -->
+              <article class="card card-custom card-classic card-classic-2 wow fadeInLeft" data-wow-delay=".05s">
+                <div class="card-header" role="tab">
+                  <div class="card-title">
+                    <a class="collapsed" id="accordion-right-card-head-7" data-toggle="collapse"
+                      data-parent="#accordion-right" href="#accordion-right-card-body-7"
+                      aria-controls="accordion-right-card-body-7" aria-expanded="false" role="button">
+                      How should I care for my new carpet?
+                      <div class="card-arrow"></div>
+                    </a>
+                  </div>
+                </div>
+                <div class="collapse" id="accordion-right-card-body-7" aria-labelledby="accordion-right-card-head-7"
+                  data-parent="#accordion-right" role="tabpanel">
+                  <div class="card-body">
+                    <p>
+                      To maintain your carpet's appearance it is recommended
+                      that it is vacuumed at least three times per week, to
+                      remove particles of dirt and dust. An upright vacuum
+                      with beater bar and brush is recommended for use with
+                      cut pile carpets. A good quality underlay will also
+                      increase the comfort and prolong the life of your carpet
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Question 8 -->
+              <article class="card card-custom card-classic card-classic-2 wow fadeInLeft" data-wow-delay=".1s">
+                <div class="card-header" role="tab">
+                  <div class="card-title">
+                    <a class="collapsed" id="accordion-right-card-head-8" data-toggle="collapse"
+                      data-parent="#accordion-right" href="#accordion-right-card-body-8"
+                      aria-controls="accordion-right-card-body-8" aria-expanded="false" role="button">
+                      How should I care for my vinyl?
+                      <div class="card-arrow"></div>
+                    </a>
+                  </div>
+                </div>
+                <div class="collapse" id="accordion-right-card-body-8" aria-labelledby="accordion-right-card-head-8"
+                  data-parent="#accordion-right" role="tabpanel">
+                  <div class="card-body">
+                    <p>
+                      Vinyl is extremely durable, however stains should be
+                      mopped up promptly to avoid any permanent damage to the
+                      surface. It's easy maintenance means that with regular
+                      damp mopping, it should stay looking great for years.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Question 9 -->
+              <article class="card card-custom card-classic card-classic-2 wow fadeInLeft" data-wow-delay=".15s">
+                <div class="card-header" role="tab">
+                  <div class="card-title">
+                    <a class="collapsed" id="accordion-right-card-head-9" data-toggle="collapse"
+                      data-parent="#accordion-right" href="#accordion-right-card-body-9"
+                      aria-controls="accordion-right-card-body-9" aria-expanded="false" role="button">
+                      How should I care for my laminate?
+                      <div class="card-arrow"></div>
+                    </a>
+                  </div>
+                </div>
+                <div class="collapse" id="accordion-right-card-body-9" aria-labelledby="accordion-right-card-head-9"
+                  data-parent="#accordion-right" role="tabpanel">
+                  <div class="card-body">
+                    <p>
+                      The moisture and scratch resistance, make laminate a
+                      suitable choice for most rooms. It is quite hard to
+                      damage and so long as you follow the manufacturers care
+                      instructions and don't allow it to get too wet, you
+                      should get years of pleasure from your laminate floor.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Question 10 -->
+              <article class="card card-custom card-classic card-classic-2 wow fadeInLeft" data-wow-delay=".2s">
+                <div class="card-header" role="tab">
+                  <div class="card-title">
+                    <a class="collapsed" id="accordion-right-card-head-10" data-toggle="collapse"
+                      data-parent="#accordion-right" href="#accordion-right-card-body-10"
+                      aria-controls="accordion-right-card-body-10" aria-expanded="false" role="button">
+                      What is Shading and Pile reversal?
+                      <div class="card-arrow"></div>
+                    </a>
+                  </div>
+                </div>
+                <div class="collapse" id="accordion-right-card-body-10" aria-labelledby="accordion-right-card-head-10"
+                  data-parent="#accordion-right" role="tabpanel">
+                  <div class="card-body">
+                    <p>
+                      Over time, regular foot traffic will flatten the pile
+                      surface in the main walkways, causing areas of
+                      differential wear. These areas will appear lighter or
+                      shaded in comparison to the less frequently used parts.
+                      This shading / tracking or flattening happens to all
+                      carpets with a pile surface and as such is not accepted
+                      as the basis for any complaint. Similarly Pile Reversal
+                      (or watermarking) is a phenomenon that can affect all
+                      cut pile carpets and as such is not accepted as a
+                      manufacturers fault.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="section parallax-container" data-parallax-img="images/parallax-2.jpg">
       <div class="parallax-content section-xxl context-dark">
         <div class="container">
@@ -2048,6 +3810,46 @@
         </div>
       </div>
     </section>
+
+    <!-- Our Facts-->
+    <!-- <section class="section parallax-container" data-parallax-img="images/parallax-2.jpg">
+      <div class="parallax-content section-xxl context-dark">
+        <div class="container">
+          <h5 class="font-weight-light text-spacing-200 wow fadeInLeft mb-4">
+            We are focused on results
+          </h5>
+          <h1 class="font-weight-normal text-spacing-200 wow fadeInRight">
+            Our Facts
+          </h1>
+          <div class="counter-modern-wrap">
+            <div class="counter-modern">
+              <h3 class="counter-modern-number">
+                <span class="">0.5</span><span class="symbol">M+</span>
+              </h3>
+              <div class="counter-modern-decor"></div>
+              <p class="counter-modern-title">Projects</p>
+            </div>
+            <div class="counter-modern">
+              <h3 class="counter-modern-number">
+                <span class="counter">4</span><span class="decimal">.8</span><span class="symbol"
+                  style="font-size: 0.6em">★</span>
+              </h3>
+              <div class="counter-modern-decor"></div>
+              <p class="counter-modern-title">400+ Google Reviews</p>
+            </div>
+            <div class="counter-modern">
+              <h3 class="counter-modern-number">
+                <span class="counter">2019</span>
+              </h3>
+              <div class="counter-modern-decor"></div>
+              <p class="counter-modern-title">
+                Founder & CEO - Life time achievement award
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
     <!-- Our Clients-->
     <!-- <section class="section section-md bg-default text-center">
         <div class="container">
@@ -2104,131 +3906,42 @@
         </div>
       </section> -->
 
-    <section class="map-section" style="background-color: #f2f7f2">
-      <div style="
-            width: 100%;
-            max-width: none;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 30px 0;
-          ">
-        <style>
-          .map-section .map-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: min(56vw, 600px);
-            min-height: 260px;
-            max-height: 600px;
-          }
 
-          .map-section .map-container iframe {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-          }
-
-          .map-section .google-map-container::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.45);
-            pointer-events: none;
-            z-index: 1;
-          }
-
-          @media (max-width: 767.98px) {
-            .map-section .map-container {
-              height: min(70vw, 420px);
-              min-height: 220px;
-            }
-          }
-
-          @media (min-width: 1200px) {
-            .map-section .map-container {
-              height: min(36vw, 600px);
-            }
-          }
-        </style>
-        <div class="row">
-          <div class="col-12 mb-4">
-            <div class="map-container google-map-container">
-              <iframe
-                src="https://maps.google.com/maps?q=Devlin+Wholesale+Leicester,+Laundon+Way,+Groby,+Leicester+LE6+0YG,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                frameborder="0" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="map-container">
-              <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" frameborder="0" allowfullscreen
-                allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <!-- Page Footer-->
     <footer class="section section-md footer-creative context-dark">
       <div class="container">
         <div class="row row-60 justify-content-center justify-content-xl-between">
-          <!-- First div - Store locations -->
-          <div class="col-sm-8 col-md-4 col-lg-3">
-            <h5 class="footer-creative-title oh-desktop">
-              <span class="d-inline-block wow slideInDown">Our Stores</span>
-            </h5>
-            <!-- Leicester Location -->
-            <div class="store-location mb-3 wow fadeInRight">
-              <h6 class="footer-creative-contacts-title mb-1">
-                Devlin Wholesale Leicester
-              </h6>
-              <span class="footer-creative-contacts-title small mb-0">Phone:
-              </span>
-              <a class="phone">0116 456 0022</a>
-            </div>
-            <!-- Tamworth Location -->
-            <div class="store-location mb-3 wow fadeInRight" data-wow-delay=".05s">
-              <h6 class="footer-creative-contacts-title mb-1">
-                Devlin Wholesale Tamworth
-              </h6>
-              <span class="footer-creative-contacts-title small mb-0">Phone:
-              </span>
-              <a class="phone">01827 265526</a>
-            </div>
-            <!-- Minworth Location -->
-            <div class="store-location mb-3 wow fadeInRight" data-wow-delay=".1s">
-              <h6 class="footer-creative-contacts-title mb-1">
-                Devlin Wholesale Minworth
-              </h6>
-              <span class="footer-creative-contacts-title small mb-0">Phone:
-              </span>
-              <a class="phone">0121 313 2303</a>
-            </div>
-            <!-- Lichfield Location -->
-            <div class="store-location mb-3 wow fadeInRight" data-wow-delay=".1s">
-              <h6 class="footer-creative-contacts-title mb-1">
-                Devlin Wholesale Lichfield
-              </h6>
-              <span class="footer-creative-contacts-title small mb-0">Phone:
-              </span>
-              <a class="phone">0154 326 3486</a>
-            </div>
-
-            <!-- Social links -->
-            <div class="mt-4">
-              <ul class="list-inline footer-social-list footer-social-list-2">
-                <li>
-                  <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank"></a>
-                </li>
-                <li>
-                  <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank"></a>
-                </li>
-                <li>
-                  <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/"
-                    target="_blank"></a>
-                </li>
-              </ul>
+          <!-- First div - Get in touch -->
+          <div class="col-sm-8 col-md-5 col-lg-3">
+            <h5 class="footer-creative-title oh-desktop"><span class="d-inline-block wow slideInDown">Get in
+                touch</span></h5>
+            <ul class="footer-creative-contacts d-inline-block d-md-block">
+              <li class="wow fadeInRight">
+                <p class="footer-creative-contacts-title">Phone</p><a class="phone" href="tel:01164560022">0116
+                  456 0022</a>
+              </li>
+              <li class="wow fadeInRight" data-wow-delay=".05s">
+                <p class="footer-creative-contacts-title">Address</p><a class="address" href="#">Laundon Way, Groby,
+                  Leicester LE6 0YG</a>
+              </li>
+              <li class="wow fadeInRight" data-wow-delay=".1s">
+                <p class="footer-creative-contacts-title">E-mail</p><a class="mail"
+                  href="mailto:groby@devlinwholesale.co.uk">groby@devlinwholesale.co.uk</a>
+              </li>
+            </ul>
+            <hr />
+            <ul class="list-inline footer-social-list footer-social-list-2">
+              <li><a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank"
+                  rel="noopener noreferrer"></a></li>
+              <li><a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank"
+                  rel="noopener noreferrer"></a></li>
+              <li><a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/" target="_blank"
+                  rel="noopener noreferrer"></a></li>
+            </ul>
+            <div style="margin-top: 10px; text-align: left; display: inline-block;">
+              <span style="display: block;">Digital Experience by</span>
+              <img src="images/logo/NXoduslogo.JPG" alt="Nxodus logo"
+                style="display: block; width: 170px; max-width: 100%; height: auto; margin-top: 6px;" />
             </div>
           </div>
 
@@ -2238,123 +3951,30 @@
               <span class="d-inline-block wow slideInDown">Opening Hours</span>
             </h5>
 
-            <div class="store-hours wow fadeInRight">
-              <div class="accordion" id="storeHoursAccordion">
-                <!-- Leicester & Minworth -->
-                <div class="accordion-item">
-                  <h6 class="accordion-header" id="headingLeicester">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseLeicester" aria-expanded="true" aria-controls="collapseLeicester">
-                      Leicester & Minworth
-                    </button>
-                  </h6>
-
-                  <div id="collapseLeicester" class="accordion-collapse collapse show"
-                    aria-labelledby="headingLeicester" data-bs-parent="#storeHoursAccordion">
-                    <div class="accordion-body">
-                      <ul class="list-unstyled store-hours-list">
-                        <li class="d-flex justify-content-between day-monday">
-                          <span>Monday</span><span>9:00 am - 6:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-tuesday">
-                          <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-wednesday">
-                          <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-thursday">
-                          <span>Thursday</span><span>9:00 am - 6:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-friday">
-                          <span>Friday</span><span>9:00 am - 6:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-saturday">
-                          <span>Saturday</span><span>9:00 am - 5:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-sunday">
-                          <span>Sunday</span><span>10:00 am - 4:00 pm</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Tamworth -->
-                <div class="accordion-item">
-                  <h6 class="accordion-header" id="headingTamworth">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseTamworth" aria-expanded="false" aria-controls="collapseTamworth">
-                      Tamworth
-                    </button>
-                  </h6>
-                  <div id="collapseTamworth" class="accordion-collapse collapse" aria-labelledby="headingTamworth"
-                    data-bs-parent="#storeHoursAccordion">
-                    <div class="accordion-body">
-                      <ul class="list-unstyled store-hours-list">
-                        <li class="d-flex justify-content-between day-monday">
-                          <span>Monday</span><span>9:00 am - 7:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-tuesday">
-                          <span>Tuesday</span><span>9:00 am - 7:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-wednesday">
-                          <span>Wednesday</span><span>9:00 am - 7:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-thursday">
-                          <span>Thursday</span><span>9:00 am - 7:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-friday">
-                          <span>Friday</span><span>9:00 am - 7:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-saturday">
-                          <span>Saturday</span><span>9:00 am - 5:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-sunday">
-                          <span>Sunday</span><span>10:00 am - 4:00 pm</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Lichfield -->
-                <div class="accordion-item">
-                  <h6 class="accordion-header" id="headingLichfield">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseLichfield" aria-expanded="false" aria-controls="collapseLichfield">
-                      Lichfield
-                    </button>
-                  </h6>
-                  <div id="collapseLichfield" class="accordion-collapse collapse" aria-labelledby="headingLichfield"
-                    data-bs-parent="#storeHoursAccordion">
-                    <div class="accordion-body">
-                      <ul class="list-unstyled store-hours-list">
-                        <li class="d-flex justify-content-between day-monday">
-                          <span>Monday</span><span>9:00 am - 6:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-tuesday">
-                          <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-wednesday">
-                          <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-thursday">
-                          <span>Thursday</span><span>9:00 am - 6:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-friday">
-                          <span>Friday</span><span>9:00 am - 6:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-saturday">
-                          <span>Saturday</span><span>9:00 am - 5:00 pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between day-sunday closed">
-                          <span>Sunday</span><span>Closed</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="store-hours wow fadeInRight" style="margin-top: 24px;">
+              <ul class="list-unstyled store-hours-list">
+                <li class="d-flex justify-content-between day-monday">
+                  <span>Monday</span><span>9:00 am - 6:00 pm</span>
+                </li>
+                <li class="d-flex justify-content-between day-tuesday">
+                  <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
+                </li>
+                <li class="d-flex justify-content-between day-wednesday">
+                  <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
+                </li>
+                <li class="d-flex justify-content-between day-thursday">
+                  <span>Thursday</span><span>9:00 am - 6:00 pm</span>
+                </li>
+                <li class="d-flex justify-content-between day-friday">
+                  <span>Friday</span><span>9:00 am - 6:00 pm</span>
+                </li>
+                <li class="d-flex justify-content-between day-saturday">
+                  <span>Saturday</span><span>9:00 am - 5:00 pm</span>
+                </li>
+                <li class="d-flex justify-content-between day-sunday">
+                  <span>Sunday</span><span>10:00 am - 4:00 pm</span>
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -3442,8 +5062,8 @@
       observer.observe(journeySection);
     });
   </script>
-<!-- Campaign Widgets -->
-<script src="campaign-widgets/campaign-widgets.js"></script>
+  <!-- Campaign Widgets -->
+  <script src="campaign-widgets/campaign-widgets.js"></script>
 </body>
 
 </html>
