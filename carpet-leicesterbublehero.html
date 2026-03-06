@@ -811,7 +811,7 @@
             </div>
 
             <!-- Video bubble top-right (floats over both slides) -->
-            <div class="leicester-hero-video-bubble-wrap" onclick="openLeicesterStoreVideo(event)">
+            <div class="leicester-hero-video-bubble-wrap" onclick="openLeicesterStoreVideo()">
               <div class="leicester-hero-video-bubble">
                 <video muted loop playsinline autoplay preload="auto">
                   <source src="videos/LeicesterStoreVideo.mp4" type="video/mp4">
@@ -844,42 +844,14 @@
       </video>
     </div>
     <script>
-      function openLeicesterStoreVideo(event) {
-        var overlay = document.getElementById('storeVideoOverlay');
-        var closeBtn = document.getElementById('storeVideoCloseBtn');
-        var video = document.getElementById('storeExpandedVideo');
-        var bubble = document.querySelector('.leicester-hero-video-bubble');
-
-        var cx = window.innerWidth - 40;
-        var cy = 40;
-        var startRadius = 0;
-        if (bubble) {
-          var bubbleRect = bubble.getBoundingClientRect();
-          cx = bubbleRect.left + bubbleRect.width / 2;
-          cy = bubbleRect.top + bubbleRect.height / 2;
-          startRadius = bubbleRect.width / 2 + 8;
-        } else if (event && event.clientX != null && event.clientY != null) {
-          cx = event.clientX;
-          cy = event.clientY;
-        }
-
-        var maxX = Math.max(cx, window.innerWidth - cx);
-        var maxY = Math.max(cy, window.innerHeight - cy);
-        var endRadius = Math.ceil(Math.sqrt((maxX * maxX) + (maxY * maxY))) + 24;
-
-        overlay.style.setProperty('--reveal-x', cx + 'px');
-        overlay.style.setProperty('--reveal-y', cy + 'px');
-        overlay.style.setProperty('--reveal-start', startRadius + 'px');
-        overlay.style.setProperty('--reveal-end', endRadius + 'px');
-
-        overlay.classList.add('active');
-        closeBtn.classList.add('active');
-        video.play().catch(function () {});
+      function openLeicesterStoreVideo() {
+        document.getElementById('storeVideoOverlay').classList.add('active');
+        document.getElementById('storeVideoCloseBtn').classList.add('active');
+        document.getElementById('storeExpandedVideo').play();
       }
       function closeLeicesterStoreVideo() {
-        var overlay = document.getElementById('storeVideoOverlay');
+        document.getElementById('storeVideoOverlay').classList.remove('active');
         document.getElementById('storeVideoCloseBtn').classList.remove('active');
-        overlay.classList.remove('active');
         var v = document.getElementById('storeExpandedVideo');
         v.pause();
         v.currentTime = 0;
@@ -907,17 +879,6 @@
       .video-expanded-overlay.active {
         opacity: 1;
         pointer-events: all;
-      }
-
-      #storeVideoOverlay {
-        clip-path: circle(var(--reveal-start, 0px) at var(--reveal-x, 100%) var(--reveal-y, 0%));
-        -webkit-clip-path: circle(var(--reveal-start, 0px) at var(--reveal-x, 100%) var(--reveal-y, 0%));
-        transition: clip-path 0.72s cubic-bezier(0.22, 1, 0.36, 1), -webkit-clip-path 0.72s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
-      }
-
-      #storeVideoOverlay.active {
-        clip-path: circle(var(--reveal-end, 150vmax) at var(--reveal-x, 100%) var(--reveal-y, 0%));
-        -webkit-clip-path: circle(var(--reveal-end, 150vmax) at var(--reveal-x, 100%) var(--reveal-y, 0%));
       }
 
       /* Close button */
