@@ -839,7 +839,7 @@
         </div>
         <div class="video-close-label">Close<br>Video</div>
       </div>
-      <video id="storeExpandedVideo" loop playsinline preload="none" controls>
+      <video id="storeExpandedVideo" loop playsinline preload="none" muted>
         <source src="videos/LeicesterStoreVideo.mp4" type="video/mp4">
       </video>
     </div>
@@ -874,6 +874,7 @@
 
         overlay.classList.add('active');
         closeBtn.classList.add('active');
+        video.muted = true;
         video.play().catch(function () {});
       }
       function closeLeicesterStoreVideo() {
