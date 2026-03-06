@@ -628,10 +628,10 @@
                         <a class="rd-nav-link" href="#">Our Stores</a>
                         <ul class="rd-menu rd-navbar-dropdown">
                           <li class="rd-dropdown-item">
-                            <a class="rd-dropdown-link">Leicester</a>
+                            <a class="rd-dropdown-link" href="carpets-leicester.html">Leicester</a>
                           </li>
                           <li class="rd-dropdown-item">
-                            <a class="rd-dropdown-link" href="carpet-tamworth.html">Tamworth</a>
+                            <a class="rd-dropdown-link">Tamworth</a>
                           </li>
                           <li class="rd-dropdown-item">
                             <a class="rd-dropdown-link" ">Minworth</a>
@@ -694,114 +694,25 @@
         }
       </style>
 
-      <!-- Hero video bubble styles (separate) -->
       <style>
-        .leicester-hero-video-bubble-wrap {
-          position: absolute;
-          top: 75px;
-          right: 220px;
-          z-index: 100;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-          cursor: pointer;
-        }
-
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble-wrap {
-            top: 14px;
-            right: 14px;
-          }
-        }
-
-        .leicester-hero-video-bubble {
-          width: 160px;
-          height: 160px;
-          border-radius: 50%;
-          overflow: hidden;
-          border: 4px solid rgba(255, 255, 255, 0.85);
-          box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
-          background: #000;
+        .swiper-slider-7 .swiper-slide {
           position: relative;
-          animation: heroBubblePulse 2.8s infinite;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
+          overflow: hidden;
         }
 
-        .leicester-hero-video-bubble:hover {
-          transform: scale(1.04);
-          box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 0 6px rgba(255, 255, 255, 0.3);
+        .swiper-slider-7 .swiper-slide-caption {
+          position: relative;
+          z-index: 2;
         }
 
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble {
-            width: 110px;
-            height: 110px;
-          }
-        }
-
-        @keyframes heroBubblePulse {
-
-          0%,
-          100% {
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(255, 255, 255, 0.5);
-          }
-
-          50% {
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45), 0 0 0 10px rgba(255, 255, 255, 0);
-          }
-        }
-
-        .leicester-hero-video-bubble video {
+        .tamworth-hero-video-full {
+          position: absolute;
+          inset: 0;
           width: 100%;
           height: 100%;
           object-fit: cover;
+          z-index: 0;
           pointer-events: none;
-          display: block;
-        }
-
-        .leicester-hero-video-bubble .bubble-play-icon {
-          position: absolute;
-          inset: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(0, 0, 0, 0.28);
-          transition: background 0.2s ease;
-        }
-
-        .leicester-hero-video-bubble:hover .bubble-play-icon {
-          background: rgba(0, 0, 0, 0.18);
-        }
-
-        .leicester-hero-video-bubble .bubble-play-icon svg {
-          width: 44px;
-          height: 44px;
-          fill: #fff;
-          filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
-        }
-
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble .bubble-play-icon svg {
-            width: 30px;
-            height: 30px;
-          }
-        }
-
-        .leicester-hero-video-bubble-label {
-          font-size: 12px;
-          font-weight: 700;
-          color: #fff;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
-          text-align: center;
-        }
-
-        @media (max-width: 575px) {
-          .leicester-hero-video-bubble-label {
-            font-size: 10px;
-          }
         }
       </style>
 
@@ -809,7 +720,10 @@
       <div class="swiper-container swiper-slider swiper-slider-7" data-loop="false" data-simulate-touch="false"
         data-add-slides="1">
         <div class="swiper-wrapper text-sm-left">
-          <div class="swiper-slide swiper-slide-bg" data-slide-bg="images/stores/LeicesterStoreImg.JPG">
+          <div class="swiper-slide swiper-slide-bg" data-slide-bg="/images/stores/TamworthStoreImg.JPG">
+            <video class="tamworth-hero-video-full" autoplay muted loop playsinline preload="auto">
+              <source src="videos/TamworthStoreVideo.mp4" type="video/mp4">
+            </video>
             <div class="swiper-slide-caption section-md">
               <div class="swiper-box">
                 <h6 class="oh swiper-subtitle">
@@ -817,7 +731,7 @@
                     Elevating Interiors with Uncompromised Quality.</span>
                 </h6>
                 <h3 class="swiper-title oh">
-                  <span class="d-block" data-caption-animate="slideInLeft" data-caption-delay="200">Hello Leicester!
+                  <span class="d-block" data-caption-animate="slideInLeft" data-caption-delay="200">Hello Tamworth!
                   </span>
                 </h3>
                 <a class="button button-lg button-icon button-icon-right button-blue-8" data-caption-animate="fadeInUp"
@@ -827,84 +741,10 @@
               <div class="swiper-content-bg-1"></div>
             </div>
 
-            <!-- Video bubble top-right (floats over both slides) -->
-            <div class="leicester-hero-video-bubble-wrap" onclick="openLeicesterStoreVideo(event)">
-              <div class="leicester-hero-video-bubble">
-                <video muted loop playsinline autoplay preload="auto">
-                  <source src="videos/LeicesterStoreVideo.mp4" type="video/mp4">
-                </video>
-                <div class="bubble-play-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
-              <div class="leicester-hero-video-bubble-label">Watch Our Store</div>
-            </div>
-
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Fullscreen overlay for Leicester store video (hero bubble) -->
-    <div class="video-expanded-overlay" id="storeVideoOverlay">
-      <div class="video-close-btn" id="storeVideoCloseBtn" onclick="closeLeicesterStoreVideo()">
-        <div class="video-close-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-          </svg>
-        </div>
-        <div class="video-close-label">Close<br>Video</div>
-      </div>
-      <video id="storeExpandedVideo" loop playsinline preload="none" muted>
-        <source src="videos/LeicesterStoreVideo.mp4" type="video/mp4">
-      </video>
-    </div>
-    <script>
-      function openLeicesterStoreVideo(event) {
-        var overlay = document.getElementById('storeVideoOverlay');
-        var closeBtn = document.getElementById('storeVideoCloseBtn');
-        var video = document.getElementById('storeExpandedVideo');
-        var bubble = document.querySelector('.leicester-hero-video-bubble');
-
-        var cx = window.innerWidth - 40;
-        var cy = 40;
-        var startRadius = 0;
-        if (bubble) {
-          var bubbleRect = bubble.getBoundingClientRect();
-          cx = bubbleRect.left + bubbleRect.width / 2;
-          cy = bubbleRect.top + bubbleRect.height / 2;
-          startRadius = bubbleRect.width / 2 + 8;
-        } else if (event && event.clientX != null && event.clientY != null) {
-          cx = event.clientX;
-          cy = event.clientY;
-        }
-
-        var maxX = Math.max(cx, window.innerWidth - cx);
-        var maxY = Math.max(cy, window.innerHeight - cy);
-        var endRadius = Math.ceil(Math.sqrt((maxX * maxX) + (maxY * maxY))) + 24;
-
-        overlay.style.setProperty('--reveal-x', cx + 'px');
-        overlay.style.setProperty('--reveal-y', cy + 'px');
-        overlay.style.setProperty('--reveal-start', startRadius + 'px');
-        overlay.style.setProperty('--reveal-end', endRadius + 'px');
-
-        overlay.classList.add('active');
-        closeBtn.classList.add('active');
-        video.muted = true;
-        video.play().catch(function () { });
-      }
-      function closeLeicesterStoreVideo() {
-        var overlay = document.getElementById('storeVideoOverlay');
-        document.getElementById('storeVideoCloseBtn').classList.remove('active');
-        overlay.classList.remove('active');
-        var v = document.getElementById('storeExpandedVideo');
-        v.pause();
-        v.currentTime = 0;
-      }
-    </script>
 
     <style>
       /* Fullscreen video overlay */
@@ -927,17 +767,6 @@
       .video-expanded-overlay.active {
         opacity: 1;
         pointer-events: all;
-      }
-
-      #storeVideoOverlay {
-        clip-path: circle(var(--reveal-start, 0px) at var(--reveal-x, 100%) var(--reveal-y, 0%));
-        -webkit-clip-path: circle(var(--reveal-start, 0px) at var(--reveal-x, 100%) var(--reveal-y, 0%));
-        transition: clip-path 0.72s cubic-bezier(0.22, 1, 0.36, 1), -webkit-clip-path 0.72s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
-      }
-
-      #storeVideoOverlay.active {
-        clip-path: circle(var(--reveal-end, 150vmax) at var(--reveal-x, 100%) var(--reveal-y, 0%));
-        -webkit-clip-path: circle(var(--reveal-end, 150vmax) at var(--reveal-x, 100%) var(--reveal-y, 0%));
       }
 
       /* Close button */
@@ -1425,11 +1254,6 @@
         line-height: 1;
       }
 
-      .bordered-2 .services-modern:hover .box-icon-modern-title,
-      .bordered-2 .services-modern:hover .box-icon-modern-title a {
-        color: #db2a19;
-      }
-
       .box-icon-classic .unit {
         align-items: center;
       }
@@ -1623,9 +1447,9 @@
       .grid-founder-note {
         position: absolute;
         left: 24px;
-        right: 24px;
         bottom: 22px;
         z-index: 3;
+        max-width: 420px;
         max-height: 380px;
         padding: 14px 18px;
         border-radius: 16px;
@@ -2086,158 +1910,113 @@
       .grid-card-cut:hover::before {
         transform: translate(20%, -30%) scale(1);
       }
+
+      .why-devlin-tamworth-grid .services-modern {
+        padding: 28px 20px;
+        height: 100%;
+
+      }
+
+      .why-devlin-tamworth-grid .services-modern .box-icon-modern {
+        max-width: none;
+      }
+
+      .why-devlin-tamworth-grid .box-icon-modern-title,
+      .why-devlin-tamworth-grid .box-icon-modern-text {
+        max-width: none;
+      }
+
+      .why-devlin-tamworth-grid .services-modern:hover .box-icon-modern-title,
+      .why-devlin-tamworth-grid .services-modern:hover .box-icon-modern-title a {
+        color: #db2a19;
+      }
+
+      @media (max-width: 767.98px) {
+        .why-devlin-tamworth-grid .services-modern {
+          padding: 22px 16px;
+        }
+      }
     </style>
-    <section class="service-journey-heading">
+    <!-- Services-->
+    <section class="section section-md bg-default">
       <div class="container">
-
-        <div class="service-journey-heading-copy">
-          <div class="hero-heading-group">
-            <div class="hero-heading-kicker">
-              <span class="post-classic-time p-1">Leicester’s Trusted Wholesaler</span>
+        <h4 class="wow fadeInLeft" style="text-align: center;">Tamworth’s Trusted Flooring Specialists</h4>
+        <p class="wow fadeInLeft" style="max-width: 980px; margin: 12px auto 24px; text-align: center;">
+          For nearly two decades, our Tamworth showroom has been trusted by homeowners across the town and surrounding
+          areas. Built on honest advice, competitive pricing and personal service, we continue to serve the community
+          with the same values today.
+        </p>
+        <div class="row no-md-gutters justify-content-center why-devlin-tamworth-grid">
+          <div class="col-sm-6 col-lg-6">
+            <div class="services-modern">
+              <article class="box-icon-modern">
+                <div class="box-icon-modern-icon linearicons-shield-check"></div>
+                <h5 class="box-icon-modern-title">
+                  <a>Established &amp; Trusted in Tamworth</a>
+                </h5>
+                <p class="box-icon-modern-text">
+                  For over 15 years, our Tamworth branch has been a trusted destination for carpets and flooring, known
+                  for honest advice and competitive pricing.
+                </p>
+              </article>
             </div>
-            <h1>Redefining Flooring
-              in Leicester & Beyond.</h1>
           </div>
-          <p>Wholesale Prices Direct To The Public.</p>
-        </div>
-
-      </div>
-    </section>
-    <section class="grid">
-      <div class="container">
-        <div class="grid-inner">
-          <article class="grid-left" role="button" tabindex="0" onclick="openHeroVideo()"
-            onkeydown="if(event.key === 'Enter' || event.key === ' '){ event.preventDefault(); openHeroVideo(); }">
-            <img src="images/stores/LeicesterParking.JPG" alt="Leicester showroom interior" width="1200" height="800"
-              loading="lazy" decoding="async" draggable="false">
-            <div class="grid-left-overlay">
-              <button type="button" class="play-button-video play-button-pulse" aria-label="Play founder video">
-                <video class="play-button-video-preview" muted loop playsinline autoplay preload="metadata">
-                  <source src="videos/michael.mp4" type="video/mp4">
-                </video>
-                <span class="play-button-video-shade" aria-hidden="true"></span>
-                <span class="play-button-video-icon material-symbols-outlined" aria-hidden="true">play_arrow</span>
-              </button>
+          <div class="col-sm-6 col-lg-6">
+            <div class="services-modern">
+              <article class="box-icon-modern">
+                <div class="box-icon-modern-icon linearicons-bubbles"></div>
+                <h5 class="box-icon-modern-title">
+                  <a>Personal Service You Know &amp; Trust</a>
+                </h5>
+                <p class="box-icon-modern-text">
+                  Many customers choose to speak directly with John, reflecting the strong relationships built over the
+                  years. That same approachable and straightforward service remains at the heart of our Tamworth
+                  showroom.
+                </p>
+              </article>
             </div>
-            <div class="grid-founder-note">
-              <div class="grid-founder-note-top">
-                <span class="grid-founder-note-line" aria-hidden="true"></span>
-                <span class="grid-founder-note-kicker">Our Promise</span>
-              </div>
-              <h3 class="grid-founder-note-title">A Message from the Founder</h3>
-              <p class="grid-founder-note-text">See how the Devlin family is changing the wholesale game.</p>
+          </div>
+          <div class="col-sm-6 col-lg-6">
+            <div class="services-modern">
+              <article class="box-icon-modern">
+                <div class="box-icon-modern-icon linearicons-heart"></div>
+                <h5 class="box-icon-modern-title">
+                  <a>Continuing the Devlin Family Legacy</a>
+                </h5>
+                <p class="box-icon-modern-text">
+                  As part of the wider Devlin family business, our Tamworth store upholds the same values of quality,
+                  integrity and customer care established over four decades ago.
+                </p>
+              </article>
             </div>
-          </article>
-          <div class="grid-right">
-            <article class="grid-card grid-card-cut">
-              <div class="grid-card-icon-wrap" aria-hidden="true">
-                <span class="grid-card-icon linearicons-grid"></span>
-              </div>
-              <h4>Extensive Selection</h4>
-              <p>Browse our massive inventory in our Groby showroom. From luxury wool to durable synthetics, find the
-                perfect match for your space instantly.
-              </p>
-              <div class="grid-gray-bar" aria-hidden="true">
-                <div class="grid-red-bar"></div>
-              </div>
-            </article>
-            <article class="grid-card grid-card-cut">
-              <div class="grid-card-icon-wrap" aria-hidden="true">
-                <span class="grid-card-icon linearicons-hammer-wrench"></span>
-              </div>
-              <h4>Fitter Connections</h4>
-              <p>Choose your perfect flooring with confidence. We can recommend experienced independent fitters who
-                provide professional carpet installation.
-              </p>
-            </article>
           </div>
-        </div>
-        <div class="grid-outer">
-          <div class="grid-outer-card">
-            <article class="grid-card-bottom grid-card-cut">
-              <div class="grid-pricing-split">
-                <div class="grid-pricing-main">
-                  <div class="grid-card-icon-wrap" aria-hidden="true">
-                    <span class="grid-card-icon linearicons-tag"></span>
-                  </div>
-                  <h4>Wholesale Pricing</h4>
-                  <p>Get direct-to-trade prices without needing a trade account. We believe premium flooring should be
-                    accessible to everyone in Leicester.
-                  </p>
-                  <div class="grid-pricing-badges">
-                    <span class="grid-pricing-badge">Public Welcome</span>
-                    <span class="grid-pricing-badge">No Hidden Fees</span>
-                  </div>
-                </div>
-                <div class="grid-pricing-metrics">
-                  <div class="grid-pricing-row">
-                    <span class="grid-pricing-label">Cost Saving</span>
-                    <span class="grid-pricing-value accent">High</span>
-                  </div>
-                  <div class="grid-pricing-track" aria-hidden="true">
-                    <div class="grid-pricing-fill cost-saving"></div>
-                  </div>
-                  <div class="grid-pricing-row">
-                    <span class="grid-pricing-label">Quality</span>
-                    <span class="grid-pricing-value">Premium</span>
-                  </div>
-                  <div class="grid-pricing-track" aria-hidden="true">
-                    <div class="grid-pricing-fill quality"></div>
-                  </div>
-                </div>
-              </div>
-            </article>
+          <div class="col-sm-6 col-lg-6">
+            <div class="services-modern">
+              <article class="box-icon-modern">
+                <div class="box-icon-modern-icon linearicons-grid"></div>
+                <h5 class="box-icon-modern-title">
+                  <a>Growing to Serve You Even Better</a>
+                </h5>
+                <p class="box-icon-modern-text">
+                  As we continue to grow, we are expanding our team to ensure every customer receives the same high
+                  level of service and attention the Devlin name is known for.
+                </p>
+              </article>
+            </div>
           </div>
-          <div class="grid-outer-card">
-            <article class="grid-card-bottom grid-card-cut">
-              <div class="grid-card-bottom-header">
-                <div class="grid-card-icon-wrap" aria-hidden="true">
-                  <span class="grid-card-icon linearicons-heart"></span>
-                </div>
-                <div class="grid-family-badge" aria-hidden="true">
-                  <span class="grid-family-badge-value">100%</span>
-                  <span class="grid-family-badge-label">Family Run</span>
-                </div>
+          <!-- <div class="col-sm-6 col-lg-4">
+              <div class="services-modern">
+                <article class="box-icon-modern">
+                  <div class="box-icon-modern-icon linearicons-bubbles"></div>
+                  <h5 class="box-icon-modern-title"><a href="single-service.html">Consultations</a></h5>
+                  <p class="box-icon-modern-text">Need consultation on what flooring suits your house? We are always ready to help!</p>
+                </article>
               </div>
-              <h4>Personal Touch</h4>
-              <p> Managed locally by the Devlin family. We provide the honest advice and personal care that big box
-                stores simply can't match.
-              </p>
-            </article>
-          </div>
-
+            </div> -->
         </div>
       </div>
     </section>
-    <div class="video-expanded-overlay" id="heroVideoOverlay">
-      <div class="video-close-btn" id="heroVideoCloseBtn" onclick="closeHeroVideo()">
-        <div class="video-close-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-          </svg>
-        </div>
-        <div class="video-close-label">Close<br>Video</div>
-      </div>
-      <video id="heroExpandedVideo" loop playsinline preload="none" controls>
-        <source src="videos/michael.mp4" type="video/mp4">
-      </video>
-    </div>
-    <script>
-      function openHeroVideo() {
-        document.getElementById('heroVideoOverlay').classList.add('active');
-        document.getElementById('heroVideoCloseBtn').classList.add('active');
-        document.getElementById('heroExpandedVideo').play();
-      }
 
-      function closeHeroVideo() {
-        document.getElementById('heroVideoOverlay').classList.remove('active');
-        document.getElementById('heroVideoCloseBtn').classList.remove('active');
-        var heroVideo = document.getElementById('heroExpandedVideo');
-        heroVideo.pause();
-        heroVideo.currentTime = 0;
-      }
-    </script>
     <!-- Icon Classic-->
     <section class="section section-sm bg-gray-200 icon-classic-grid">
       <div class="container">
@@ -2301,8 +2080,9 @@
     <section class="service-journey-heading">
       <div class="container">
         <div class="service-journey-heading-copy">
-          <h1>Installation and Free Measurement</h1>
-          <p>Free Home Measurement &amp; Professional Carpet Fitting in Groby &amp; Leicester</p>
+          <h1>Free Measurement Service & Arranged Professional Fitting</h1>
+          <p>With years of experience serving Tamworth homeowners, we make the process straightforward — from accurate
+            home measurement to arranging trusted local fitters for professional installation.</p>
         </div>
 
       </div>
@@ -2311,49 +2091,54 @@
     <section class="service-journey">
       <div class="container">
         <div class="service-journey-track">
+
+
+          <div class="service-step">
+            <div class="media">
+              <img src="images/about-1-835x418.jpg" alt="Home carpet measurement service" width="770" height="426"
+                loading="lazy" decoding="async" draggable="false">
+            </div>
+            <div class="timeline-dot">
+              <i class="fa-solid fa-ruler-combined"></i>
+            </div>
+            <div class="card-lite">
+              <h4>Free, Accurate Measurement</h4>
+              <p>We arrange a convenient visit to measure your space correctly and ensure your chosen flooring fits
+                perfectly.
+              </p>
+            </div>
+          </div>
           <div class="service-step">
             <div class="card-lite">
-              <h4>Visit Our Showroom</h4>
-              <p>Explore our wide range of carpets and flooring with friendly, expert advice in a relaxed environment.
+              <h4>Expert Guidance & Preparation</h4>
+              <p>Our team advises on quantities, underlay and fitting requirements to ensure everything is ready before
+                installation.
               </p>
             </div>
             <div class="timeline-dot">
               <i class="fa-solid fa-store"></i>
             </div>
             <div class="media">
-              <img src="images/stores/LeicesterStoreImg.JPG" alt="Devlin showroom in Leicester" width="770" height="426"
-                loading="lazy" decoding="async" draggable="false">
+              <img src="images/stores/TanworthStoreBanner.JPG" alt="Devlin showroom in Leicester" width="770"
+                height="426" loading="lazy" decoding="async" draggable="false">
             </div>
           </div>
 
           <div class="service-step">
             <div class="media">
-              <img src="images/Services/measuring-770x426.jpg" alt="Home carpet measurement service" width="770"
-                height="426" loading="lazy" decoding="async" draggable="false">
-            </div>
-            <div class="timeline-dot">
-              <i class="fa-solid fa-ruler-combined"></i>
-            </div>
-            <div class="card-lite">
-              <h4>Free Home Measurement</h4>
-              <p>We arrange a convenient measurement appointment carried out by our team or trusted independent fitters.
-              </p>
-            </div>
-          </div>
-
-          <div class="service-step">
-            <div class="card-lite">
-              <h4>Professional Installation</h4>
-              <p>We coordinate with experienced independent fitters to ensure a clean, high-quality finish for your
-                home.</p>
+              <img src="images/grid-gallery-6-1200x800-original.jpg" alt="Professional carpet fitting and installation"
+                width="770" height="426" loading="lazy" decoding="async" draggable="false">
             </div>
             <div class="timeline-dot">
               <i class="fa-solid fa-hammer"></i>
             </div>
-            <div class="media">
-              <img src="images/products/carpet/carpet-770x426.jpg" alt="Professional carpet fitting and installation"
-                width="770" height="426" loading="lazy" decoding="async" draggable="false">
+            <div class="card-lite">
+              <h4>Coordinated Pro Fitting </h4>
+              <p>We work with experienced independent local fitters and coordinate the installation process, ensuring
+                smooth communication and a high-quality finish..</p>
             </div>
+
+
           </div>
           <!-- <a class="contact-mirror-bubble" href="contacts.html" aria-label="Contact Us">
             <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
@@ -2363,118 +2148,93 @@
 
 
         </div>
-        <a class="button button-md button-icon button-icon-right button-blue-8" data-caption-animate="fadeInUp"
-          data-caption-delay="500" href="contacts.html"><span class="icon mdi mdi-chevron-right"></span>Free Visit ?
-          Call
-          Us</a>
+        <article class="quote-classic">
+          <div class="quote-classic-text">
+            <p>It’s this attention to detail and long-standing relationships with trusted fitters that has helped build
+              our reputation across Tamworth.</p>
+          </div>
+        </article>
+        <a class="button button-md button-icon button-icon-left button-blue-8" data-caption-animate="fadeInUp"
+          data-caption-delay="500" href="tel:01827265526"><span class="icon mdi mdi-phone"></span>
+          <span>01827 265526</span></a>
       </div>
     </section>
 
-    <!-- Areas we Cover -->
-    <style>
-      @keyframes slideToCenter {
-        from {
-          transform: translateX(-100%);
-          opacity: 0;
-        }
+    <!-- why choose devlin -->
+    <section class="section section-xl bg-default text-center">
+      <div class="container">
+        <div class="group-xl group-sm-justify">
+          <h4 class="wow fadeInLeft" style="width: 100%; text-align: center; margin: 0 auto;">Why Choose Devlin Flooring
+          </h4>
+          <p class="wow fadeInLeft" style="width: 100%; max-width: 980px; margin: 12px auto 0; text-align: center;">
+            Over 40 years of trusted flooring expertise, built on quality, service and long-term customer relationships.
+          </p>
+          <div class="dots-custom"></div>
+        </div>
 
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
+        <div class="owl-carousel owl-style-3" data-items="1" data-sm-items="2" data-lg-items="3" data-margin="30"
+          data-autoplay="true" data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut"
+          data-pagination-class=".dots-custom">
+          <!-- Services Creative-->
+          <article class="services-creative">
 
-      .slide-to-center {
-        visibility: hidden;
-      }
+            <div class="services-creative-caption">
+              <h5 class="services-creative-title">
+                <a href="products/carpets.html">Established Since 1980s</a>
+              </h5>
+              <p class="services-creative-text">
+                A family-founded business with decades of experience serving Tamworth.
+              </p>
+              <span class="services-creative-counter box-ordered-item">01</span>
+            </div>
+          </article>
+          <!-- Services Creative-->
+          <article class="services-creative">
 
-      .slide-to-center.animated {
-        visibility: visible;
-        animation-name: slideToCenter;
-        animation-duration: 1.2s;
-        animation-fill-mode: both;
-        animation-timing-function: ease-out;
-      }
+            <div class="services-creative-caption">
+              <h5 class="services-creative-title">
+                <a href="products/lvt.html">Expert Product Advice</a>
+              </h5>
+              <p class="services-creative-text">
+                Honest guidance to help you choose the right carpet, vinyl or flooring
+                for your home.
+              </p>
+              <span class="services-creative-counter box-ordered-item">02</span>
+            </div>
+          </article>
+          <!-- Services Creative-->
+          <article class="services-creative">
 
-      .reach-label {
-        display: block;
-        width: fit-content;
-        margin: 0 auto 8px;
-        font-size: 16px;
-        line-height: 1.2;
-        color: #db2a19;
-      }
+            <div class="services-creative-caption">
+              <h5 class="services-creative-title">
+                <a href="products/solid-engineered-wood.html">Professional Fitting Coordination</a>
+              </h5>
+              <p class="services-creative-text">
+                We manage the process with trusted local fitters to ensure a smooth
+                experience.
+              </p>
+              <span class="services-creative-counter box-ordered-item">03</span>
+            </div>
+          </article>
+          <!-- Services Creative-->
+          <article class="services-creative">
 
-      .coverage-contact-box {
-        width: 100%;
-        margin-top: 14px;
-        padding: 28px 28px;
-        background-color: #f6f6f6;
-        border-radius: 14px;
-        text-align: center;
-      }
+            <div class="services-creative-caption">
+              <h5 class="services-creative-title">
+                <a href="products/artificial-grass.html">Clear, Competitive Pricing</a>
+              </h5>
+              <p class="services-creative-text">
+                No gimmicks. No pressure. Just fair pricing and quality workmanship.
+              </p>
+              <span class="services-creative-counter box-ordered-item">04</span>
+            </div>
+          </article>
 
-      .coverage-contact-box .quote-classic {
-        margin-bottom: 14px;
-        text-align: center;
-        padding-left: 0;
-      }
+        </div>
+      </div>
+    </section>
 
-      .coverage-contact-box .quote-classic-text {
-        display: inline-block;
-        position: relative;
-        margin-bottom: 0;
-        text-align: left;
-        padding-left: 34px;
-      }
 
-      .coverage-contact-box .quote-classic-text::before {
-        left: 0;
-        top: -2px;
-        font-size: 88px;
-        line-height: 1;
-      }
-
-      .coverage-contact-box .button {
-        margin: 0;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        white-space: nowrap;
-      }
-
-      .coverage-contact-box .button .icon {
-        display: inline-flex;
-        align-items: center;
-        line-height: 1;
-      }
-
-      .review-badge-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: inherit;
-        text-decoration: underline;
-      }
-
-      .review-badge-link:hover {
-        color: #db2a19;
-      }
-
-      .review-google-icon {
-        width: 16px;
-        height: 16px;
-        flex-shrink: 0;
-      }
-
-      @media (max-width: 767.98px) {
-        .coverage-contact-box {
-          margin-top: 12px;
-          padding: 22px 20px;
-        }
-      }
-    </style>
     <style>
       /* ── Consistent section spacing overrides ── */
       .icon-classic-grid.section-sm {
@@ -2510,61 +2270,7 @@
         }
       }
     </style>
-    <section class="section section-xl bg-default" style="padding-top: 16px; padding-bottom: 0;">
-      <div class="container-fluid px-0">
-        <div class="row no-gutters align-items-stretch">
-          <div class="col-lg-6 d-flex align-items-center" style="height: 420px; padding: 0 24px;">
-            <div style="width: 100%; max-width: 600px; margin: 0 auto; text-align: left;">
-              <h1 style="margin-bottom: 8px; line-height: .95;">
-                <span class="wow slide-to-center reach-label" style="margin-left: 0;">Our Reach</span>
-                Serving Leicester & Across Leicestershire
-              </h1>
-              <p style="margin-bottom: 10px;">Our showroom is centrally located to serve homes throughout Leicester and
-                the wider Leicestershire county. We offer expert flooring advice, luxury carpets, and free professional
-                measurements delivered directly to your home.</p>
-              <div class="row no-gutters bordered-2" style="margin: 6px 0 0;">
-                <div class="col-sm-6">
-                  <h2 style="margin-bottom: 2px;">100%</h2>
-                  <p class="post-classic-time" style="margin-bottom: 0; letter-spacing: .08em;">COUNTY COVERAGE</p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-lg-6">
-            <div style="position: relative; overflow: hidden; width: 100%; height: 420px;">
-              <iframe
-                src="https://www.google.com/maps/d/embed?mid=1lp2VFv0eqXhxW_qIlQB0TCgEJOygnEI&ehbc=2E312F&noprof=1"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0"
-                allowfullscreen loading="lazy"></iframe>
-            </div>
-          </div>
-        </div>
-        <div class="row no-gutters">
-          <div class="col-12">
-            <div class="coverage-contact-box text-center" style="margin: 0 24px; padding: 12px 14px;">
-              <article class="quote-classic">
-                <div class="quote-classic-text">
-                  Not sure if we cover your specific street? Get in touch today for a friendly chat.
-                </div>
-              </article>
-              <a class="button button-md button-icon button-icon-left button-blue-8" href="tel:01164560022">
-                <span class="icon mdi mdi-phone"></span> <span>0116 456 0022</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container" style="margin-top: 0; padding-top: 0;">
-      <div class="service-journey-heading-copy">
-        <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale</span>
-        <h1>carpets and flooring Leicester</h1>
-        <p>Visit our premium showroom in Groby to explore our extensive collection of luxury carpets, hardwoods, and
-          designer flooring solutions.</p>
-      </div>
-    </section>
 
 
     <section class="map-section" style="background-color: #ffffff">
@@ -2617,7 +2323,7 @@
             font-weight: 600;
             line-height: 1.02;
             letter-spacing: 0.015em;
-            font-size: clamp(36px, 6vw, 76px);
+            font-size: clamp(30px, 4.8vw, 62px);
           }
 
           .map-section .location-info-footer {
@@ -2761,18 +2467,27 @@
             }
           }
         </style>
+        <section class="container">
+          <div class="service-journey-heading-copy">
+            <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale</span>
+            <h1>Trusted Flooring Specialists in Tamworth</h1>
+            <p>Visit our showroom to explore our full range of carpets and flooring with guidance from our experienced
+              team.</p>
+          </div>
+        </section>
         <div class="row">
           <div class="col-12 mb-4">
             <div class="map-container google-map-container">
               <iframe
-                src="https://maps.google.com/maps?q=Devlin+Wholesale+Leicester,+Laundon+Way,+Groby,+Leicester+LE6+0YG,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=Devlin+Wholesale+Tamworth,+Unit+O,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 frameborder="0" allowfullscreen></iframe>
             </div>
           </div>
-          <div class="col-12 mb-4">
+          <div class="col-12">
             <article class="location-info-card">
-              <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale Leicester</span>
-              <h2 class="location-address">Laundon Way, Groby,<br>Leicester LE6 0YG</h2>
+              <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale Tamworth</span>
+              <h2 class="location-address">Unit O, N Riverside Industrial
+                Estate,<br>Atherstone St, Fazeley, Tamworth B78 3RW</h2>
 
               <div class="location-info-footer">
                 <div class="location-meta-grid">
@@ -2786,7 +2501,7 @@
                   </div>
                   <div>
                     <p class="location-meta-label">Phone</p>
-                    <p class="location-meta-value">0116 456 0022</p>
+                    <p class="location-meta-value">01827 265526</p>
                   </div>
                   <div>
                     <p class="location-meta-label">Email</p>
@@ -2804,22 +2519,15 @@
                     </ul>
                   </div>
                 </div>
-
                 <div class="location-action-group">
                   <a class="button button-lg button-icon button-icon-right button-blue-8"
                     data-caption-animate="fadeInUp" data-caption-delay="500"
-                    href="https://www.google.com/maps/dir/?api=1&destination=Laundon+Way,+Groby,+Leicester+LE6+0YG"
+                    href="https://www.google.com/maps/dir/?api=1&destination=Unit+O,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW"
                     target="_blank" rel="noopener noreferrer"><span class="icon mdi mdi-chevron-right"></span>Get
                     Directions</a>
                 </div>
               </div>
             </article>
-          </div>
-          <div class="col-12">
-            <div class="map-container">
-              <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" frameborder="0" allowfullscreen
-                allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"></iframe>
-            </div>
           </div>
         </div>
       </div>
@@ -2839,7 +2547,7 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project1Modal">
-                  <img src="GrobyProjects/Project 1/Project1_C3.jpg" alt="96 Snake Hill Rd"
+                  <img src="TameorthProjects/Commercial Projects/Commercial1.jpg" alt="96 Snake Hill Rd"
                     style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
@@ -2860,7 +2568,7 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project2Modal">
-                  <img src="GrobyProjects/Project 2/Project2_M1.jpg" alt="77 Ashley St"
+                  <img src="TameorthProjects/Flooring/Flooring1.jpg" alt="77 Ashley St"
                     style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
@@ -2881,7 +2589,7 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project3Modal">
-                  <img src="GrobyProjects/Project 4/Project1_Staircase6.jpg" alt="598 Tallwood Dr"
+                  <img src="TameorthProjects/Hallways/Hallways1.jpg" alt="598 Tallwood Dr"
                     style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
@@ -2901,7 +2609,7 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project4Modal">
-                  <img src="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" alt="598 Tallwood Dr"
+                  <img src="TameorthProjects/Kitchen Upgrade/Kitchenupgrade1.jpg" alt="598 Tallwood Dr"
                     style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
@@ -2921,7 +2629,7 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project5Modal">
-                  <img src="GrobyProjects/Project 6/Project6_AG1.jpg" alt="598 Tallwood Dr"
+                  <img src="TameorthProjects/Landing Area/Landing Area1.jpg" alt="598 Tallwood Dr"
                     style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
@@ -2941,7 +2649,7 @@
                 data-hoverdir-target=".thumbnail-modern-caption">
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project6Modal">
-                  <img src="GrobyProjects/Project 7/Project7_Carpet4.jpg" alt="598 Tallwood Dr"
+                  <img src="TameorthProjects/Staircase Projects/Staircase1.jpg" alt="598 Tallwood Dr"
                     style="width: 474px; height: 355px; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
@@ -2972,38 +2680,63 @@
             <div class="modal-body">
               <div id="lightgallery-project1" class="row row-30" data-lightgallery="group">
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 1/Project1_C1.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 1/Project1_C1.jpg" alt="Project 1 Image 1" class="img-fluid">
+                  <a href="TameorthProjects/Commercial Projects/Commercial1.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Commercial Projects/Commercial1.jpg" alt="Project 1 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 1/Project1_C2.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 1/Project1_C2.jpg" alt="Project 1 Image 2" class="img-fluid">
+                  <a href="TameorthProjects/Commercial Projects/Commercial2.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Commercial Projects/Commercial2.jpg" alt="Project 1 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 1/Project1_C3.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 1/Project1_C3.jpg" alt="Project 1 Image 3" class="img-fluid">
+                  <a href="TameorthProjects/Commercial Projects/Commercial3.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Commercial Projects/Commercial3.jpg" alt="Project 1 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 1/Project1_C4.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 1/Project1_C4.jpg" alt="Project 1 Image 4" class="img-fluid">
+                  <a href="TameorthProjects/Commercial Projects/Commercial4.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Commercial Projects/Commercial4.jpg" alt="Project 1 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 1/Project1_C5.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 1/Project1_C5.jpg" alt="Project 1 Image 4" class="img-fluid">
+                  <a href="TameorthProjects/Commercial Projects/Commercial5.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Commercial Projects/Commercial5.jpg" alt="Project 1 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 1/Project1_C6.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 1/Project1_C6.jpg" alt="Project 1 Image 4" class="img-fluid">
+                  <a href="TameorthProjects/Commercial Projects/Commercial6.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Commercial Projects/Commercial6.jpg" alt="Project 1 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 1/Project1_C7.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 1/Project1_C7.jpg" alt="Project 1 Image 4" class="img-fluid">
+                  <a href="TameorthProjects/Commercial Projects/Commercial7.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Commercial Projects/Commercial7.jpg" alt="Project 1 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Commercial Projects/Commercial8.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Commercial Projects/Commercial8.jpg" alt="Project 1 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Commercial Projects/Commercia9.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Commercial Projects/Commercial9.jpg" alt="Project 1 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Commercial Projects/Commercial10.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Commercial Projects/Commercial10.jpg" alt="Project 1 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
               </div>
@@ -3029,48 +2762,43 @@
             <div class="modal-body">
               <div id="lightgallery-project2" class="row row-30" data-lightgallery="group">
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 2/Project2_M1.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 2/Project2_M1.jpg" alt="Project 2 Image 1" class="img-fluid">
+                  <a href="TameorthProjects/Flooring/Flooring1.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Flooring/Flooring1.jpg" alt="Project 2 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 2/Project2_M2.jpg" item">
-                    <img src="GrobyProjects/Project 2/Project2_M2.jpg" alt="Project 2 Image 2" class="img-fluid">
+                  <a href="TameorthProjects/Flooring/Flooring2.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Flooring/Flooring2.jpg" alt="Project 2 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 2/Project2_M3.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 2/Project2_M3.jpg" alt="Project 2 Image 3" class="img-fluid">
+                  <a href="TameorthProjects/Flooring/Flooring3.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Flooring/Flooring3.jpg" alt="Project 2 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 2/Project2_M4.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 2/Project2_M4.jpg" alt="Project 2 Image 4" class="img-fluid">
+                  <a href="TameorthProjects/Flooring/Flooring4.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Flooring/Flooring4.jpg" alt="Project 2 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 2/Project2_M5.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 2/Project2_M5.jpg" alt="Project 2 Image 1" class="img-fluid">
+                  <a href="TameorthProjects/Flooring/Flooring5.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Flooring/Flooring5.jpg" alt="Project 2 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 2/Project2_M6.jpg" item">
-                    <img src="GrobyProjects/Project 2/Project2_M6.jpg" alt="Project 2 Image 2" class="img-fluid">
+                  <a href="TameorthProjects/Flooring/Flooring6.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Flooring/Flooring6.jpg" alt="Project 2 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 2/Project2_M1.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 2/Project2_M1.jpg" alt="Project 2 Image 3" class="img-fluid">
+                  <a href="TameorthProjects/Flooring/Flooring7.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Flooring/Flooring7.jpg" alt="Project 2 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 2/Project2_M2.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 2/Project2_M2.jpg" alt="Project 2 Image 4" class="img-fluid">
-                  </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 2/Project2_M3.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 2/Project2_M3.jpg" alt="Project 2 Image 4" class="img-fluid">
+                  <a href="TameorthProjects/Flooring/Flooring8.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Flooring/Flooring8.jpg" alt="Project 2 Image 1" class="img-fluid">
                   </a>
                 </div>
               </div>
@@ -3094,65 +2822,35 @@
               </button>
             </div>
             <div class="modal-body">
-              <div id="lightgallery-project4" class="row row-30" data-lightgallery="group">
+              <div id="lightgallery-project3" class="row row-30" data-lightgallery="group">
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project1_Staircase6.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project1_Staircase6.jpg" alt="Project 3 Image 1"
-                      class="img-fluid">
+                  <a href="TameorthProjects/Hallways/Hallways1.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Hallways/Hallways1.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project3_Staircase3.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project3_Staircase3.jpg" alt="Project 3 Image 1"
-                      class="img-fluid">
+                  <a href="TameorthProjects/Hallways/Hallways2.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Hallways/Hallways2.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase1.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase1.jpg" alt="Project 3 Image 2"
-                      class="img-fluid">
+                  <a href="TameorthProjects/Hallways/Hallways3.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Hallways/Hallways3.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase2.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase2.jpg" alt="Project 3 Image 2"
-                      class="img-fluid">
+                  <a href="TameorthProjects/Hallways/Hallways4.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Hallways/Hallways4.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase5.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase5.jpg" alt="Project 3 Image 3"
-                      class="img-fluid">
+                  <a href="TameorthProjects/Hallways/Hallways5.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Hallways/Hallways5.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase7.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase7.jpg" alt="Project 3 Image 4"
-                      class="img-fluid">
-                  </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase11.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase10.jpg" alt="Project 3 Image 2"
-                      class="img-fluid">
-                  </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase11.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase11.jpg" alt="Project 3 Image 2"
-                      class="img-fluid">
-                  </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase14 Egineered Wood.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase14 Egineered Wood.jpg" alt="Project 3 Image 3"
-                      class="img-fluid">
-                  </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 4/Project4_Staircase15.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 4/Project4_Staircase15.jpg" alt="Project 3 Image 4"
-                      class="img-fluid">
+                  <a href="TameorthProjects/Hallways/Hallways6.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Hallways/Hallways6.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
               </div>
@@ -3176,54 +2874,57 @@
               </button>
             </div>
             <div class="modal-body">
-              <div id="lightgallery-project5" class="row row-30" data-lightgallery="group">
+              <div id="lightgallery-project4" class="row row-30" data-lightgallery="group">
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" alt="Project 3 Image 1"
+                  <a href="TameorthProjects/Kitchen Upgrade/Kitchenupgrade1.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Kitchen Upgrade/Kitchenupgrade1.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+               <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Kitchen Upgrade/Kitchenupgrade2.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Kitchen Upgrade/Kitchenupgrade2.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+               <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Kitchen Upgrade/Kitchenupgrade3.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Kitchen Upgrade/Kitchenupgrade3.jpg" alt="Project 3 Image 1"
                       class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 5/Project5_Bavarian Oak1.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Bavarian Oak1.jpg" alt="Project 3 Image 2"
+                  <a href="TameorthProjects/Kitchen Upgrade/Kitchenupgrade4.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Kitchen Upgrade/Kitchenupgrade4.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+               <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Kitchen Upgrade/Kitchenupgrade5.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Kitchen Upgrade/Kitchenupgrade5.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+               <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Kitchen Upgrade/Kitchenupgrade6.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Kitchen Upgrade/Kitchenupgrade6.jpg" alt="Project 3 Image 1"
                       class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 5/Project5_Chevron Floors.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Chevron Floors.jpg" alt="Project 3 Image 1"
+                  <a href="TameorthProjects/Kitchen Upgrade/Kitchenupgrade7.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Kitchen Upgrade/Kitchenupgrade7.jpg" alt="Project 3 Image 1"
                       class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 5/Project5_Chevron layout.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Chevron layout.jpg" alt="Project 3 Image 2"
+                  <a href="TameorthProjects/Kitchen Upgrade/Kitchenupgrade8.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Kitchen Upgrade/Kitchenupgrade8.jpg" alt="Project 3 Image 1"
                       class="img-fluid">
                   </a>
                 </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 5/Project5_Herringbone Flooring.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Herringbone Flooring.jpg" alt="Project 3 Image 1"
-                      class="img-fluid">
-                  </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 5/Project5_Natural Flooring.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Natural Flooring.jpg" alt="Project 3 Image 2"
-                      class="img-fluid">
-                  </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 5/Project5_Orion Malma LVT.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 5/Project5_Orion Malma LVT.jpg" alt="Project 3 Image 1"
-                      class="img-fluid">
-                  </a>
-                </div>
-
-
               </div>
             </div>
-
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
@@ -3243,30 +2944,51 @@
               </button>
             </div>
             <div class="modal-body">
-              <div id="lightgallery-project6" class="row row-30" data-lightgallery="group">
+              <div id="lightgallery-project5" class="row row-30" data-lightgallery="group">
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 6/Project6_AG1.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 6/Project6_AG1.jpg" alt="Project 3 Image 1" class="img-fluid">
+                  <a href="TameorthProjects/Landing Area/Landing Area1.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Landing Area/Landing Area1.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 6/Project6_AG2.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 6/Project6_AG2.jpg" alt="Project 3 Image 2" class="img-fluid">
+                  <a href="TameorthProjects/Landing Area/Landing Area2.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Landing Area/Landing Area2.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 6/Project6_AG3.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 6/Project6_AG3.jpg" alt="Project 3 Image 3" class="img-fluid">
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Landing Area/Landing Area3.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Landing Area/Landing Area3.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 6/Project6_AG4.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 6/Project6_AG4.jpg" alt="Project 3 Image 3" class="img-fluid">
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Landing Area/Landing Area5.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Landing Area/Landing Area5.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Landing Area/Landing Area6.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Landing Area/Landing Area6.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Landing Area/Landing Area7.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Landing Area/Landing Area7.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
+                  </a>
+                </div>
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Landing Area/Landing Area8.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Landing Area/Landing Area8.jpg" alt="Project 3 Image 1"
+                      class="img-fluid">
                   </a>
                 </div>
               </div>
             </div>
-
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
@@ -3287,42 +3009,47 @@
             <div class="modal-body">
               <div id="lightgallery-project6" class="row row-30" data-lightgallery="group">
                 <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 7/Project7_Carpet4.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 7/Project7_Carpet4.jpg" alt="Project 3 Image 1" class="img-fluid">
+                  <a href="TameorthProjects/Staircase Projects/Staircase1.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Staircase Projects/Staircase1.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 7/Project7_carpet5.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 7/Project7_carpet5.jpg" alt="Project 3 Image 2" class="img-fluid">
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Staircase Projects/Staircase2.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Staircase Projects/Staircase2.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 7/Project7_Hrringbone Carpet1.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 7/Project7_Hrringbone Carpet1.jpg" alt="Project 3 Image 3"
-                      class="img-fluid">
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Staircase Projects/Staircase3.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Staircase Projects/Staircase3.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 7/Project7_Invictus Carpet.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 7/Project7_Invictus Carpet.jpg" alt="Project 3 Image 3"
-                      class="img-fluid">
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Staircase Projects/Staircase4.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Staircase Projects/Staircase4.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 7/Project7_Soft Carpet2.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 7/Project7_Soft Carpet2.jpg" alt="Project 3 Image 3"
-                      class="img-fluid">
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Staircase Projects/Staircase7.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Staircase Projects/Staircase7.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
-                <div class="col-sm-6 col-lg-3">
-                  <a href="GrobyProjects/Project 7/Project7_Soft Plaid Texture.jpg" data-lightgallery="item">
-                    <img src="GrobyProjects/Project 7/Project7_Soft Plaid Texture.jpg" alt="Project 3 Image 3"
-                      class="img-fluid">
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Staircase Projects/Staircase8.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Staircase Projects/Staircase8.jpg" alt="Project 3 Image 1" class="img-fluid">
+                  </a>
+                </div>
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Staircase Projects/Staircase9.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Staircase Projects/Staircase9.jpg" alt="Project 3 Image 1" class="img-fluid">
+                  </a>
+                </div>
+                 <div class="col-sm-6 col-lg-3">
+                  <a href="TameorthProjects/Staircase Projects/Staircase10.jpg" data-lightgallery="item">
+                    <img src="TameorthProjects/Staircase Projects/Staircase10.jpg" alt="Project 3 Image 1" class="img-fluid">
                   </a>
                 </div>
               </div>
             </div>
-
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
@@ -3332,6 +3059,41 @@
 
     </section>
     <!-- what clients says -->
+    <style>
+      .review-badge-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .review-badge-link:hover {
+        color: #db2a19;
+      }
+
+      .review-google-icon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+
+      .review-stars-inline {
+        display: inline-block;
+        margin-bottom: 8px;
+        color: #d4af37;
+        letter-spacing: 2px;
+        font-size: 22px;
+        line-height: 1;
+      }
+    </style>
+    <section class="section section-sm bg-default">
+      <div class="container text-center">
+        <h4>What Our Customers Say</h4>
+        <p>Read genuine feedback from homeowners across Tamworth who value our honest advice, reliable fitting
+          coordination, and long-term quality.</p>
+      </div>
+    </section>
     <section class="section swiper-container swiper-slider swiper-slider-8" data-loop="true" data-autoplay="5000"
       data-simulate-touch="false" data-slide-effect="fade">
       <div class="swiper-wrapper text-left">
@@ -3346,17 +3108,17 @@
                 </div>
                 <div class="col-sm-11 col-md-7 col-xl-6">
                   <div class="inset-left-xl-70">
-                    <h4>What clients say</h4>
+
                     <!-- Quote Classic-->
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p class="q">The floor looks magnificent and the parquet in the hall sets it off beautifully.
-                          Your men were excellent and delightful.</p>
+                        <p class="q"><span class="review-stars-inline">★★★★★</span><br>The floor looks magnificent and
+                          the parquet in the hall sets it off beautifully. Your men were excellent and delightful.</p>
                       </div>
                       <p class="quote-classic-author">
                         <a class="review-badge-link"
-                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Devlin+Wholesale+Carpets+Leicester&ludocid=13385023826316567440#lrd=0x0:0xba6dfaf169292390,1"
+                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
                           target="_blank" rel="noopener noreferrer">
                           <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
                             height="100" viewBox="0 0 48 48" aria-hidden="true">
@@ -3373,7 +3135,8 @@
                               d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
                             </path>
                           </svg>
-                          <span>From Google Reviews</span></a>
+                          <span>Read More Reviews</span>
+                        </a>
                       </p>
                     </article>
                   </div>
@@ -3393,17 +3156,18 @@
                 </div>
                 <div class="col-sm-11 col-md-7 col-xl-6">
                   <div class="inset-left-xl-70">
-                    <h4>What clients say</h4>
+                    <!-- <h4>What Our Customers Say</h4> -->
                     <!-- Quote Classic-->
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p class="q">Fantastic service from start to finish. After our ceiling collapsed we never
-                          thought our damaged floor would look so good again.</p>
+                        <p class="q"><span class="review-stars-inline">★★★★★</span><br>Fantastic service from start to
+                          finish. After our ceiling collapsed we never thought our damaged floor would look so good
+                          again.</p>
                       </div>
                       <p class="quote-classic-author">
                         <a class="review-badge-link"
-                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Devlin+Wholesale+Carpets+Leicester&ludocid=13385023826316567440#lrd=0x0:0xba6dfaf169292390,1"
+                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
                           target="_blank" rel="noopener noreferrer">
                           <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
                             height="100" viewBox="0 0 48 48" aria-hidden="true">
@@ -3420,7 +3184,8 @@
                               d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
                             </path>
                           </svg>
-                          <span>From Google Reviews</span></a>
+                          <span>Read More Reviews</span>
+                        </a>
                       </p>
                     </article>
                   </div>
@@ -3440,17 +3205,18 @@
                 </div>
                 <div class="col-sm-11 col-md-7 col-xl-6">
                   <div class="inset-left-xl-70">
-                    <h4>What clients say</h4>
+                    <!-- <h4>What Our Customers Say</h4> -->
                     <!-- Quote Classic-->
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p class="q">I just wanted to say thank you and the team very much for the brilliant service
-                          around renovating the floors at our house.</p>
+                        <p class="q"><span class="review-stars-inline">★★★★★</span><br>I just wanted to say thank you
+                          and the team very much for the brilliant service around renovating the floors at our house.
+                        </p>
                       </div>
                       <p class="quote-classic-author">
                         <a class="review-badge-link"
-                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Devlin+Wholesale+Carpets+Leicester&ludocid=13385023826316567440#lrd=0x0:0xba6dfaf169292390,1"
+                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
                           target="_blank" rel="noopener noreferrer">
                           <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
                             height="100" viewBox="0 0 48 48" aria-hidden="true">
@@ -3467,7 +3233,8 @@
                               d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
                             </path>
                           </svg>
-                          <span>From Google Reviews</span></a>
+                          <span>Read More Reviews</span>
+                        </a>
                       </p>
                     </article>
                   </div>
@@ -3487,17 +3254,17 @@
                 </div>
                 <div class="col-sm-11 col-md-7 col-xl-6">
                   <div class="inset-left-xl-70">
-                    <h4>What clients say</h4>
+                    <!-- <h4>What Our Customers Say</h4> -->
                     <!-- Quote Classic-->
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p class="q">From beginning to end everything went smoothly. The actual installation was
-                          amazing. Timely, efficient, and perfect.</p>
+                        <p class="q"><span class="review-stars-inline">★★★★★</span><br>From beginning to end everything
+                          went smoothly. The actual installation was amazing. Timely, efficient, and perfect.</p>
                       </div>
                       <p class="quote-classic-author">
                         <a class="review-badge-link"
-                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Devlin+Wholesale+Carpets+Leicester&ludocid=13385023826316567440#lrd=0x0:0xba6dfaf169292390,1"
+                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
                           target="_blank" rel="noopener noreferrer">
                           <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
                             height="100" viewBox="0 0 48 48" aria-hidden="true">
@@ -3514,7 +3281,8 @@
                               d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
                             </path>
                           </svg>
-                          <span>From Google Reviews</span></a>
+                          <span>Read More Reviews</span>
+                        </a>
                       </p>
                     </article>
                   </div>
@@ -3817,44 +3585,7 @@
         </div>
       </div>
     </section>
-    <section class="section parallax-container" data-parallax-img="images/parallax-2.jpg">
-      <div class="parallax-content section-xxl context-dark">
-        <div class="container">
-          <h5 class="font-weight-light text-spacing-200 wow fadeInLeft mb-4">
-            We are focused on results
-          </h5>
-          <h1 class="font-weight-normal text-spacing-200 wow fadeInRight">
-            Our Facts
-          </h1>
-          <div class="counter-modern-wrap">
-            <div class="counter-modern">
-              <h3 class="counter-modern-number">
-                <span class="">0.5</span><span class="symbol">M+</span>
-              </h3>
-              <div class="counter-modern-decor"></div>
-              <p class="counter-modern-title">Projects</p>
-            </div>
-            <div class="counter-modern">
-              <h3 class="counter-modern-number">
-                <span class="counter">4</span><span class="decimal">.8</span><span class="symbol"
-                  style="font-size: 0.6em">★</span>
-              </h3>
-              <div class="counter-modern-decor"></div>
-              <p class="counter-modern-title">400+ Google Reviews</p>
-            </div>
-            <div class="counter-modern">
-              <h3 class="counter-modern-number">
-                <span class="counter">2019</span>
-              </h3>
-              <div class="counter-modern-decor"></div>
-              <p class="counter-modern-title">
-                Founder & CEO - Life time achievement award
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- Our Facts-->
     <!-- <section class="section parallax-container" data-parallax-img="images/parallax-2.jpg">
@@ -3956,38 +3687,34 @@
     <footer class="section section-md footer-creative context-dark">
       <div class="container">
         <div class="row row-60 justify-content-center justify-content-xl-between">
-          <!-- First div - Get in touch -->
+          <!-- First div - Store locations -->
+
           <div class="col-sm-8 col-md-5 col-lg-3">
             <h5 class="footer-creative-title oh-desktop"><span class="d-inline-block wow slideInDown">Get in
                 touch</span></h5>
             <ul class="footer-creative-contacts d-inline-block d-md-block">
               <li class="wow fadeInRight">
-                <p class="footer-creative-contacts-title">Phone</p><a class="phone" href="tel:01164560022">0116
-                  456 0022</a>
+                <p class="footer-creative-contacts-title">Phone</p><a class="phone" href="tel:0116 456 0022">01827
+                  265526</a>
               </li>
               <li class="wow fadeInRight" data-wow-delay=".05s">
-                <p class="footer-creative-contacts-title">Address</p><a class="address" href="#">Laundon Way, Groby,
-                  Leicester LE6 0YG</a>
+                <p class="footer-creative-contacts-title">Address</p><a class="address" href="#">Unit O, N Riverside
+                  Industrial Estate, Atherstone St, Fazeley, Tamworth B78 3RW</a>
               </li>
               <li class="wow fadeInRight" data-wow-delay=".1s">
                 <p class="footer-creative-contacts-title">E-mail</p><a class="mail"
-                  href="mailto:groby@devlinwholesale.co.uk">groby@devlinwholesale.co.uk</a>
+                  href="mailto:info@devlinwholesale.co.uk">info@devlinwholesale.co.uk</a>
               </li>
             </ul>
             <hr />
             <ul class="list-inline footer-social-list footer-social-list-2">
-              <li><a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank"
+              <li><a class="icon mdi mdi-facebook"
+                  href="https://www.facebook.com/people/Devlin-Wholesale-Leicester/61567176396456/?_rdr"></a></li>
+              <li><a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesaleleicester/"></a></li>
+              <li><a class="icon mdi mdi-whatsapp" href="https://wa.me/447789383947" target="_blank"
                   rel="noopener noreferrer"></a></li>
-              <li><a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank"
-                  rel="noopener noreferrer"></a></li>
-              <li><a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/" target="_blank"
-                  rel="noopener noreferrer"></a></li>
+              <!-- <li><a class=" icon mdi mdi-google-plus" href="#"></a></li> -->
             </ul>
-            <div style="margin-top: 10px; text-align: left; display: inline-block;">
-              <span style="display: block;">Digital Experience by</span>
-              <img src="images/logo/NXoduslogo.JPG" alt="Nxodus logo"
-                style="display: block; width: 170px; max-width: 100%; height: auto; margin-top: 6px;" />
-            </div>
           </div>
 
           <!-- Second div - Store hours with current day highlight -->
