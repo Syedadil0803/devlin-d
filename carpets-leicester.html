@@ -2047,6 +2047,25 @@
       .grid-card-cut:hover::before {
         transform: translate(20%, -30%) scale(1);
       }
+
+      .effect-letter-glow {
+        display: inline-block;
+        color: #db2a19;
+        font-size: 1.2em;
+        font-weight: 600;
+        animation: spin3d 4s linear infinite;
+      }
+
+      @keyframes spin3d {
+        0% {
+          transform: rotateY(0deg);
+        }
+
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+
     </style>
     <section class="service-journey-heading">
       <div class="container">
@@ -2059,7 +2078,7 @@
             <h1>Redefining Flooring
               in Leicester & Beyond.</h1>
           </div>
-          <p>Wholesale Prices Direct To The Public.</p>
+          <p class="effect-letter-glow">Wholesale Prices Direct To The Public.</p>
         </div>
 
       </div>
