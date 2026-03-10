@@ -2049,11 +2049,25 @@
       }
 
       .effect-letter-glow {
+        position: relative;
         display: inline-block;
         color: #db2a19;
         font-size: 1.2em;
         font-weight: 600;
+        transform-style: preserve-3d;
         animation: spin3d 4s linear infinite;
+      }
+
+      .effect-letter-glow-face {
+        display: block;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+      }
+
+      .effect-letter-glow-back {
+        position: absolute;
+        inset: 0;
+        transform: rotateY(180deg);
       }
 
       @keyframes spin3d {
@@ -2078,7 +2092,10 @@
             <h1>Redefining Flooring
               in Leicester & Beyond.</h1>
           </div>
-          <p class="effect-letter-glow">Wholesale Prices Direct To The Public.</p>
+          <p class="effect-letter-glow">
+            <span class="effect-letter-glow-face effect-letter-glow-front">Wholesale Prices Direct To The Public.</span>
+            <span class="effect-letter-glow-face effect-letter-glow-back" aria-hidden="true">Wholesale Prices Direct To The Public.</span>
+          </p>
         </div>
 
       </div>
