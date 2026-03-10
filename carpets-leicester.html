@@ -1406,12 +1406,24 @@
       width: 100%;
     }
 
-    .heading-bottom-45 {
-      margin-bottom: 45px;
-    }
-
     .heading-bottom-20 {
       margin-bottom: 20px;
+    }
+
+    .latest-projects-section .container+.container-fluid {
+      margin-top: 20px;
+    }
+
+    @media (max-width: 991.98px) {
+      .heading-bottom-20 {
+        margin-bottom: 16px;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .heading-bottom-20 {
+        margin-bottom: 12px;
+      }
     }
 
     .coverage-main-title {
@@ -3152,7 +3164,7 @@
     </section>
 
     <!-- Areas we Cover -->
-    <section class="section section-md bg-default">
+    <section class="section section-md bg-default section-bottom-0">
       <div class="container-fluid px-3 px-lg-0">
         <div class="row align-items-stretch">
           <div class="col-12 col-lg-6 order-1 order-lg-1 d-flex align-items-center px-3 pl-lg-5 pr-lg-0 mb-4 mb-lg-0">
@@ -3195,39 +3207,38 @@
       <div class="container-fluid px-3 px-lg-0">
         <div class="row">
           <div class="col-12">
-            <div class="coverage-contact-box text-center" style="margin: 32px auto; padding: 20px;">
+            <div class="coverage-contact-box text-center" style="margin: 32px auto 0; padding: 20px;">
               <article class="quote-classic">
                 <div class="quote-classic-text">
                   Get in touch with us today
                 </div>
               </article>
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                    <a class="button button-sm button-icon button-blue-8 d-block button-winona button-winona-flex"
-                      href="tel:01164560022" aria-label="Call Devlin now">
-                      <span class="content-original">
-                        <span class="icon mdi mdi-phone"></span>Call Us
-                      </span>
-                      <span class="content-dubbed">
-                        <span class="icon mdi mdi-phone"></span>01164 560022
-                      </span>
-                    </a>
-                  </div>
-                  <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                    <a class="button button-sm button-icon button-icon-left button-blue-8 d-block text-center"
-                      href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20to%20book%20a%20free%20visit."
-                      target="_blank" rel="noopener noreferrer" aria-label="Chat with Devlin on WhatsApp"
-                      style="width: 100%;">
-                      <span class="icon fa-brands fa-whatsapp"></span>WhatsApp
-                    </a>
-                  </div>
-                  <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                    <a class="button button-sm button-icon button-icon-left button-blue-8 d-block text-center"
-                      href="contacts.html" style="width: 100%;">
-                      <span class="icon mdi mdi-chevron-right"></span> <span>Contact Us</span>
-                    </a>
-                  </div>
+              <div class="row justify-content-center mx-auto" style="margin-top: 14px; max-width: 780px;"
+                aria-label="Quick contact actions">
+                <div class="col-12 col-md-4 mb-3">
+                  <a class="button button-sm button-icon button-primary d-block button-winona button-winona-flex"
+                    href="tel:01164560022" aria-label="Call Devlin now">
+                    <span class="content-original">
+                      <span class="icon fa-solid fa-phone"></span>Call Us
+                    </span>
+                    <span class="content-dubbed">
+                      <span class="icon fa-solid fa-phone"></span>0116 456 0022
+                    </span>
+                  </a>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                  <a class="button button-sm button-icon button-icon-left button-gray-3 d-block text-center"
+                    href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20to%20book%20a%20free%20visit."
+                    target="_blank" rel="noopener noreferrer" aria-label="Chat with Devlin on WhatsApp"
+                    style="width: 100%;">
+                    <span class="icon fa-brands fa-whatsapp"></span>WhatsApp
+                  </a>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                  <a class="button button-sm button-icon button-blue-8 d-block text-center"
+                    href="contacts.html" style="width: 100%;">
+                    <span class="icon mdi mdi-chevron-right"></span>Contact Us
+                  </a>
                 </div>
               </div>
             </div>
@@ -3240,9 +3251,9 @@
       
     </section> -->
 
-    <section class="section section-sm bg-default">
+    <section class="section section-md bg-default">
       <div class="container">
-        <div class="service-journey-heading-copy heading-bottom-45">
+        <div class="service-journey-heading-copy heading-bottom-20">
           <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale</span>
           <h1>Visit Our Groby, Leicester Showroom</h1>
           <p>Take a moment to read our customer reviews, locate us on Google Maps, and plan your visit to browse luxury
@@ -3311,9 +3322,9 @@
       </div>
     </section>
 
-    <section class="section section-sm bg-default">
+    <section class="section section-md bg-default">
       <div class="container">
-        <div class="service-journey-heading-copy heading-bottom-45">
+        <div class="service-journey-heading-copy heading-bottom-20">
           <h1>Explore Our Showroom Virtually</h1>
           <p>Take a 3D tour of our Groby showroom and browse luxury carpets, hardwoods, and designer flooring.</p>
         </div>
@@ -3330,8 +3341,8 @@
       </div>
     </section>
     <!-- Latest projects-->
-    <section class="section section-sm section-top-0 bg-default text-center">
-      <div class="container">
+    <section class="section section-md section-top-0 bg-default text-center latest-projects-section">
+      <div class="container heading-bottom-20">
         <h4 class="wow fadeInRight">Latest projects</h4>
       </div>
       <div class="container-fluid container-inset-0">
@@ -3837,16 +3848,15 @@
 
     </section>
     <!-- what clients says -->
-    <section class="section section-sm">
+    <section class="section section-md section-top-0">
       <div class="container">
-        <div class="service-journey-heading-copy">
+        <div class="service-journey-heading-copy heading-bottom-20">
           <h1>Loved by Our Customers</h1>
           <p>Here’s a quick summary of common feedback from our Groby, Leicester showroom reviews. You can check
             individual reviews online anytime.</p>
         </div>
       </div>
-    </section>
-    <section class="section swiper-container swiper-slider swiper-slider-8" data-loop="true" data-autoplay="5000"
+      <section class="section swiper-container swiper-slider swiper-slider-8" data-loop="true" data-autoplay="5000"
       data-simulate-touch="false" data-slide-effect="fade">
       <div class="swiper-wrapper text-left">
         <div class="swiper-slide context-dark">
@@ -4101,8 +4111,10 @@
       <div class="swiper-pagination" data-bullet-custom="true"></div>
     </section>
 
+    </section>
+    
     <!-- Our FAQ's-->
-    <section class="section section-sm bg-default text-md-left">
+    <section class="section section-md section-top-0 bg-default text-md-left">
       <div class="container">
         <h4>FAQ's</h4>
         <div class="row row-xxl row-50 justify-content-lg-between">
@@ -4251,33 +4263,36 @@
             <h3 class="font-weight-normal offset-top-1">Visit Our Groby, Leicester Showroom Today</h3>
             <p class="offset-top-1">Explore luxury and affordable carpets, LVT, and flooring in our welcoming showroom.
               Enjoy easy parking, expert advice, and a relaxed visit near beautiful Bradgate Park.</p>
-            <p class="font-italic offset-top-1">Drop in for a coffee, browse our flooring collections, or simply chat
-              with our team about your next project.</p>
 
             <a class="button button-md button-icon button-icon-right button-blue-8"
               href="https://www.google.com/maps/dir/?api=1&destination=Laundon+Way,+Groby,+Leicester+LE6+0YG"
               target="_blank" rel="noopener noreferrer"><span class="icon mdi mdi-chevron-right"></span>Plan Your Visit
               Today</a>
 
-            <div class="row row-20 justify-content-center offset-top-3">
-              <div class="col-12 col-sm-4 col-lg-3">
-                <a class="button button-md button-icon button-primary d-block button-winona button-winona-flex"
+            <div class="row justify-content-center mx-auto offset-top-3" style="max-width: 520px;">
+              <div class="col-12 col-sm-6">
+                <a class="button button-sm button-icon button-primary d-block button-winona button-winona-flex"
                   href="tel:01164560022" aria-label="Call Devlin now">
                   <span class="content-original">
-                    <span class="icon mdi mdi-phone"></span>Call Us
+                    <span class="icon fa-solid fa-phone"></span>Call Us
                   </span>
                   <span class="content-dubbed">
-                    <span class="icon mdi mdi-phone"></span>0116 456 0022
+                    <span class="icon fa-solid fa-phone"></span>0116 456 0022
                   </span>
                 </a>
               </div>
-              <div class="col-12 col-sm-4 col-lg-3">
-                <a class="button button-md button-icon button-icon-left button-blue-8 d-block"
+              <div class="col-12 col-sm-6">
+                <a class="button button-sm button-icon button-icon-left button-gray-3 d-block text-center"
                   href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20help%20with%20flooring."
-                  target="_blank" rel="noopener noreferrer"><span class="icon fa-brands fa-whatsapp"></span>WhatsApp
-                  Us</a>
+                  target="_blank" rel="noopener noreferrer" aria-label="Chat with Devlin on WhatsApp"
+                  style="width: 100%;">
+                  <span class="icon fa-brands fa-whatsapp"></span>WhatsApp
+                </a>
               </div>
             </div>
+
+            <p class="font-italic">Drop in for a coffee, browse our flooring collections, or simply chat
+              with our team about your next project.</p>
           </div>
         </div>
       </div>
