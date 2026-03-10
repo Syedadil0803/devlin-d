@@ -2018,6 +2018,26 @@
       </div>
     </section>
 
+    <style>
+      .button-winona-flex {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .button-winona-flex .icon {
+        flex-shrink: 0;
+        margin-right: 6px;
+      }
+
+      .button-winona-flex .content-original,
+      .button-winona-flex .content-dubbed {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+    </style>
+
     <!-- Icon Classic-->
     <section class="section section-sm bg-gray-200 icon-classic-grid">
       <div class="container">
@@ -2157,11 +2177,15 @@
           data-caption-delay="500" href="tel:01827265526"><span class="icon mdi mdi-phone"></span>
           <span>01827 265526</span></a> -->
 
-        <div class="button button-md button-blue-8 button-winona" href="tel:01827265526">
-          <span class="icon mdi mdi-phone"></span>
-          <span class="content-original">Call Our Tamworth Showroom Today</span>
-          <span class="content-dubbed">01827 265526</span>
-        </div>
+        <a class="button button-md button-blue-8 button-winona button-winona-flex" href="tel:01827265526"
+          aria-label="Call Devlin Tamworth now">
+          <span class="content-original">
+            <span class="icon mdi mdi-phone"></span>Call Our Tamworth Showroom
+          </span>
+          <span class="content-dubbed">
+            <span class="icon mdi mdi-phone"></span>01827 265526
+          </span>
+        </a>
 
       </div>
     </section>
@@ -3471,8 +3495,15 @@
 
             <div class="row row-20 justify-content-center offset-top-3">
               <div class="col-12 col-sm-4 col-lg-3">
-                <a class="button button-md button-icon button-icon-left button-primary d-block"
-                  href="tel:01164560022"><span class="icon mdi mdi-phone"></span>Call Us</a>
+                <a class="button button-md button-icon button-primary d-block button-winona button-winona-flex"
+                  href="tel:01827265526" aria-label="Call Devlin Tamworth now">
+                  <span class="content-original">
+                    <span class="icon mdi mdi-phone"></span>Call Us
+                  </span>
+                  <span class="content-dubbed">
+                    <span class="icon mdi mdi-phone"></span>01827 265526
+                  </span>
+                </a>
               </div>
               <div class="col-12 col-sm-4 col-lg-3">
                 <a class="button button-md button-icon button-icon-left button-blue-8 d-block"

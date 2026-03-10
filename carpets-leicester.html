@@ -2079,7 +2079,6 @@
           transform: rotateY(360deg);
         }
       }
-
     </style>
     <section class="service-journey-heading">
       <div class="container">
@@ -2094,7 +2093,8 @@
           </div>
           <p class="effect-letter-glow">
             <span class="effect-letter-glow-face effect-letter-glow-front">Wholesale Prices Direct To The Public.</span>
-            <span class="effect-letter-glow-face effect-letter-glow-back" aria-hidden="true">Wholesale Prices Direct To The Public.</span>
+            <span class="effect-letter-glow-face effect-letter-glow-back" aria-hidden="true">Wholesale Prices Direct To
+              The Public.</span>
           </p>
         </div>
 
@@ -2363,12 +2363,37 @@
             </article>
           </div>
 
+          <style>
+            .button-winona-flex {
+              position: relative;
+              overflow: hidden;
+            }
+
+            .button-winona-flex .icon {
+              flex-shrink: 0;
+              margin-right: 6px;
+            }
+
+            .button-winona-flex .content-original,
+            .button-winona-flex .content-dubbed {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 100%;
+            }
+          </style>
+
           <div class="row justify-content-center mx-auto" style="margin-top: 14px; max-width: 520px;"
             aria-label="Quick contact actions">
             <div class="col-12 col-sm-6" style="margin-bottom: 10px;">
-              <a class="button button-sm button-icon button-icon-left button-primary d-block text-center"
-                href="tel:01164560022" aria-label="Call Devlin now" style="width: 100%;">
-                <span class="icon fa-solid fa-phone"></span>Call Now
+              <a class="button button-sm button-icon button-primary d-block button-winona button-winona-flex"
+                href="tel:01164560022" aria-label="Call Devlin now">
+                <span class="content-original">
+                  <span class="icon fa-solid fa-phone"></span>Call Us
+                </span>
+                <span class="content-dubbed">
+                  <span class="icon fa-solid fa-phone"></span>0116 456 0022
+                </span>
               </a>
             </div>
             <div class="col-12 col-sm-6" style="margin-bottom: 10px;">
@@ -2538,10 +2563,22 @@
                 the wider Leicestershire County.</p>
               <p style="margin-bottom: 10px;">We offer expert flooring advice, luxury and affordable carpets, LVT, and
                 other quality flooring options, plus free professional measurements.</p>
-              <div class="row no-gutters bordered-2" style="margin: 6px 0 0;">
-                <div class="col-sm-6">
+              <div class="row no-gutters " style="margin: 25px 0 0;">
+                <!-- <div class="col-sm-6">
                   <h2 style="margin-bottom: 2px;">100%</h2>
                   <p class="post-classic-time" style="margin-bottom: 0; letter-spacing: .08em;">COUNTY COVERAGE</p>
+                </div> -->
+                <div class="col-10">
+                  <article class="progress-linear">
+                    <div class="progress-header">
+                      <p class="post-classic-time" style="margin-bottom: 0; letter-spacing: .08em;">COUNTY COVERAGE</p>
+
+                    </div>
+                    <div class="progress-bar-linear-wrap">
+                      <div class="progress-bar-linear"><span class="progress-value">100</span><span
+                          class="progress-marker"></span></div>
+                    </div>
+                  </article>
                 </div>
               </div>
             </div>
@@ -2566,9 +2603,14 @@
               </article>
               <div class="row justify-content-center" style="max-width: 980px; margin: 0 auto;">
                 <div class="col-12 col-sm-6 col-lg-4" style="margin-bottom: 10px;">
-                  <a class="button button-sm button-icon button-icon-left button-blue-8 d-block text-center"
-                    href="tel:01164560022" style="width: 100%;">
-                    <span class="icon mdi mdi-phone"></span> <span>Call Now</span>
+                  <a class="button button-sm button-icon button-blue-8 d-block button-winona button-winona-flex"
+                    href="tel:01164560022" aria-label="Call Devlin now">
+                    <span class="content-original">
+                      <span class="icon mdi mdi-phone"></span>Call Us
+                    </span>
+                    <span class="content-dubbed">
+                      <span class="icon mdi mdi-phone"></span>01164 560022
+                    </span>
                   </a>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4" style="margin-bottom: 10px;">
@@ -3794,8 +3836,15 @@
 
             <div class="row row-20 justify-content-center offset-top-3">
               <div class="col-12 col-sm-4 col-lg-3">
-                <a class="button button-md button-icon button-icon-left button-primary d-block"
-                  href="tel:01164560022"><span class="icon mdi mdi-phone"></span>Call Us</a>
+                <a class="button button-md button-icon button-primary d-block button-winona button-winona-flex"
+                  href="tel:01164560022" aria-label="Call Devlin now">
+                  <span class="content-original">
+                    <span class="icon mdi mdi-phone"></span>Call Us
+                  </span>
+                  <span class="content-dubbed">
+                    <span class="icon mdi mdi-phone"></span>0116 456 0022
+                  </span>
+                </a>
               </div>
               <div class="col-12 col-sm-4 col-lg-3">
                 <a class="button button-md button-icon button-icon-left button-blue-8 d-block"
@@ -3931,10 +3980,8 @@
             <ul class="list-inline footer-social-list footer-social-list-2">
               <li><a class="icon mdi mdi-facebook" href="https://www.facebook.com/profile.php?id=61567176396456"
                   target="_blank" rel="noopener noreferrer"></a></li>
-              <li><a class="icon mdi mdi-twitter" 
-                  rel="noopener noreferrer"></a></li>
-              <li><a class="icon mdi mdi-instagram" 
-                  rel="noopener noreferrer"></a></li>
+              <li><a class="icon mdi mdi-twitter" rel="noopener noreferrer"></a></li>
+              <li><a class="icon mdi mdi-instagram" rel="noopener noreferrer"></a></li>
             </ul>
 
             <div style="margin-top: 10px; text-align: left; display: inline-block;">
