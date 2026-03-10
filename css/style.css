@@ -13391,7 +13391,6 @@ html.rd-navbar-fixed-linked .page {
 }
 
 .swiper-custom-container-3 {
-	/* padding-bottom: 80px; */
 	background: #f7f7f7;
 }
 
@@ -13435,13 +13434,13 @@ html.rd-navbar-fixed-linked .page {
 
 @media (min-width: 992px) {
 	.swiper-custom-container-3 {
-		padding-bottom: 80px;
+		padding-bottom: 45px;
 	}
 }
 
 @media (min-width: 1600px) {
 	.swiper-custom-container-3 {
-		padding-bottom: 110px;
+		padding-bottom: 65px;
 	}
 }
 

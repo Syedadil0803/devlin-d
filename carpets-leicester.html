@@ -40,7 +40,7 @@
   <style>
     .service-journey {
       background: #f6f6f6;
-      padding: 0 0 64px;
+      padding: 0;
       overflow-x: hidden;
     }
 
@@ -53,7 +53,6 @@
 
     .service-journey-heading {
       background: #f6f6f6;
-      padding: 64px 0 20px;
     }
 
     .service-step {
@@ -249,10 +248,6 @@
         padding: 0 0 56px;
       }
 
-      .service-journey-heading {
-        padding: 48px 0 16px;
-      }
-
       .service-step {
         grid-template-columns: minmax(0, 1fr);
         gap: 18px;
@@ -310,10 +305,6 @@
     @media (max-width: 575.98px) {
       .service-journey {
         padding: 0 0 46px;
-      }
-
-      .service-journey-heading {
-        padding: 40px 0 14px;
       }
 
       .service-journey .container,
@@ -1394,15 +1385,6 @@
       color: #1f6f43;
     }
 
-    .service-journey-heading {
-      padding-top: 0;
-      padding-bottom: 20px;
-    }
-
-    .icon-classic-grid+.service-journey-heading {
-      padding: 32px 0 20px;
-    }
-
     .service-journey-heading .container {
       display: flex;
       margin-bottom: 0;
@@ -1415,8 +1397,21 @@
       width: 100%;
     }
 
+    .heading-bottom-45 {
+      margin-bottom: 45px;
+    }
+
+    .service-journey-heading-copy h1 {
+      margin-bottom: 0;
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 1.08;
+      overflow-wrap: anywhere;
+    }
+
     .hero-heading-group {
       display: inline-block;
+      max-width: 100%;
       text-align: left;
     }
 
@@ -1428,15 +1423,48 @@
     }
 
     @media (max-width: 576px) {
+      .service-journey-heading-copy h1 {
+        font-size: 30px;
+        line-height: 1.12;
+      }
+
+      .hero-heading-kicker {
+        margin-bottom: 8px;
+      }
+
+      .hero-heading-kicker .post-classic-time {
+        white-space: normal;
+      }
+
       .hero-heading-group {
-        text-align: left;
+        text-align: center;
+      }
+
+      .effect-letter-glow {
+        display: block;
+        font-size: 1rem;
+        line-height: 1.35;
+        animation: none;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .service-journey-heading-copy h1 {
+        font-size: 36px;
       }
     }
 
     .Rated-title {
-      font-size: 18px;
+      font-size: 22px;
+      font-weight: 600;
       line-height: 1.2;
       margin: 0;
+    }
+
+    @media (max-width: 575.98px) {
+      .Rated-title {
+        font-size: 20px;
+      }
     }
 
     .area-link-with-icon {
@@ -1478,8 +1506,32 @@
       transition: color .2s ease;
     }
 
+    .icon-classic-grid .box-icon-classic-icon {
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      font-size: 22px;
+      margin-right: 10px;
+    }
+
     .icon-classic-grid .box-icon-classic:hover .box-icon-classic-title {
       color: #db2a19;
+    }
+
+    .journey-cta-block {
+      padding: 24px 0;
+    }
+
+    @media (max-width: 991.98px) {
+      .journey-cta-block {
+        padding: 20px 0;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .journey-cta-block {
+        padding: 16px 0;
+      }
     }
 
     .service-journey-track>.contact-mirror-bubble {
@@ -1506,16 +1558,7 @@
 
       .service-journey-heading .container {
         flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .service-journey-heading {
-        padding-top: 0;
-        padding-bottom: 16px;
-      }
-
-      .icon-classic-grid+.service-journey-heading {
-        padding: 24px 0 16px;
+        align-items: center;
       }
 
       .service-journey-track>.contact-mirror-bubble {
@@ -1583,7 +1626,7 @@
       display: flex;
       align-items: center;
       background: #031e2b;
-      padding: 20px 0 64px;
+      padding: 0;
     }
 
     .grid>.container {
@@ -2016,6 +2059,10 @@
     }
 
     @media (max-width: 991px) {
+      .grid {
+        min-height: 0;
+      }
+
       .grid-inner {
         grid-template-columns: 1fr;
       }
@@ -2271,38 +2318,19 @@
 
   <!-- Page Styles: Section Spacing Overrides -->
   <style>
-    /* ── Consistent section spacing overrides ── */
-    .icon-classic-grid.section-sm {
-      padding: 24px 0;
-    }
-
-    .section.section-xl.bg-default {
-      padding: 64px 0;
-    }
-
     .map-section {
       padding-top: 0;
       padding-bottom: 32px;
     }
 
-    @media (max-width: 991.98px) {
-      .section.section-xl.bg-default {
-        padding: 48px 0;
-      }
-
-      .icon-classic-grid.section-sm {
-        padding: 20px 0;
-      }
+    .map-section.map-section-flush {
+      padding-top: 0;
+      padding-bottom: 0;
     }
 
-    @media (max-width: 575.98px) {
-      .section.section-xl.bg-default {
-        padding: 40px 0;
-      }
-
-      .icon-classic-grid.section-sm {
-        padding: 16px 0;
-      }
+    .map-section.container-fluid {
+      margin-top: 0;
+      margin-bottom: 0;
     }
   </style>
 
@@ -2312,9 +2340,9 @@
       position: relative;
       overflow: hidden;
       width: 100%;
-      height: min(56vw, 600px);
-      min-height: 260px;
-      max-height: 600px;
+      height: min(62vw, 720px);
+      min-height: 320px;
+      max-height: 720px;
     }
 
     .map-section .map-container iframe {
@@ -2768,10 +2796,11 @@
     </div>
 
     <!-- section Redefining Flooring in Leicester & Beyond -->
-    <section class="service-journey-heading">
-      <div class="container">
+    <section class="section section-md section-top-0 section-bottom-0">
+      <div class="service-journey-heading">
+        <div class="container">
 
-        <div class="service-journey-heading-copy">
+        <div class="service-journey-heading-copy heading-bottom-45">
           <div class="hero-heading-group">
             <div class="hero-heading-kicker">
               <span class="post-classic-time p-1">Leicester’s Trusted Wholesaler</span>
@@ -2786,10 +2815,10 @@
           </p>
         </div>
 
+        </div>
       </div>
-    </section>
-    <section class="grid">
-      <div class="container">
+      <div class="grid">
+        <div class="container">
         <div class="grid-inner">
           <article class="grid-left" role="button" tabindex="0" onclick="openHeroVideo()"
             onkeydown="if(event.key === 'Enter' || event.key === ' '){ event.preventDefault(); openHeroVideo(); }">
@@ -2892,6 +2921,7 @@
           </div>
 
         </div>
+        </div>
       </div>
     </section>
     <div class="video-expanded-overlay" id="heroVideoOverlay">
@@ -2924,14 +2954,15 @@
       }
     </script>
     <!-- Icon Classic-->
-    <section class="section section-sm bg-gray-200 icon-classic-grid">
+    <section class="section section-top-0 section-bottom-0 bg-default icon-classic-grid"
+      style="margin: 45px 0; padding: 18px 0;">
       <div class="container">
         <div class="row row-md">
           <div class="col-sm-6 col-xl-3 wow fadeInUp" data-wow-delay="0s">
             <article class="box-icon-classic">
               <div class="unit unit-spacing-xxs flex-column text-center flex-md-row text-md-left">
                 <div class="unit-left">
-                  <div class="box-icon-classic-icon-self linearicons-gradient2"></div>
+                  <div class="box-icon-classic-icon linearicons-gradient2"></div>
                 </div>
                 <div class="unit-body">
                   <h5 class="box-icon-classic-title Rated-title">Local Experts</h5>
@@ -2944,7 +2975,7 @@
             <article class="box-icon-classic">
               <div class="unit unit-spacing-xxs flex-column text-center flex-md-row text-md-left">
                 <div class="unit-left">
-                  <div class="box-icon-classic-icon-self linearicons-texture"></div>
+                  <div class="box-icon-classic-icon linearicons-texture"></div>
                 </div>
                 <div class="unit-body">
                   <h5 class="box-icon-classic-title Rated-title">Highly Rated</h5>
@@ -2957,7 +2988,7 @@
             <article class="box-icon-classic">
               <div class="unit unit-spacing-xxs flex-column text-center flex-md-row text-md-left">
                 <div class="unit-left">
-                  <div class="box-icon-classic-icon-self linearicons-color-sampler"></div>
+                  <div class="box-icon-classic-icon linearicons-color-sampler"></div>
                 </div>
                 <div class="unit-body">
                   <h5 class="box-icon-classic-title Rated-title">Repeat Business</h5>
@@ -2970,7 +3001,7 @@
             <article class="box-icon-classic">
               <div class="unit unit-spacing-xxs flex-column text-center flex-md-row text-md-left">
                 <div class="unit-left">
-                  <div class="box-icon-classic-icon-self linearicons-eye-dropper"></div>
+                  <div class="box-icon-classic-icon linearicons-eye-dropper"></div>
                 </div>
                 <div class="unit-body">
                   <h5 class="box-icon-classic-title Rated-title">Store Experience</h5>
@@ -2985,19 +3016,19 @@
 
 
     <!-- section Step Into Comfort -->
-    <section class="service-journey-heading">
-      <div class="container">
-        <div class="service-journey-heading-copy">
-          <h1>Step Into Comfort</h1>
-          <p>Step into our Groby, Leicester showroom, explore a wide range of carpets, and enjoy free professional
-            measurements.</p>
+    <section class="section section-top-0 section-bottom-0 section-sm">
+      <div class="service-journey-heading" style="padding: 24px 0 18px;">
+        <div class="container">
+          <div class="service-journey-heading-copy">
+            <h1>Step Into Comfort</h1>
+            <p>Step into our Groby, Leicester showroom, explore a wide range of carpets, and enjoy free professional
+              measurements.</p>
+          </div>
         </div>
-
       </div>
-    </section>
 
-    <section class="service-journey">
-      <div class="container">
+      <div class="service-journey">
+        <div class="container">
         <div class="service-journey-track">
           <div class="service-step">
             <div class="card-lite">
@@ -3044,7 +3075,7 @@
             </div>
           </div>
         </div>
-        <div class="text-center" style="margin-top: 26px;">
+        <div class="text-center journey-cta-block">
           <div class="coverage-contact-box text-center" style="margin: 0 auto 8px; padding: 10px 14px;">
             <article class="quote-classic" style="padding-top: 0; margin: 0;">
               <div class="quote-classic-text" style="margin-bottom: 0;">
@@ -3056,7 +3087,7 @@
 
           <div class="row justify-content-center mx-auto" style="margin-top: 14px; max-width: 520px;"
             aria-label="Quick contact actions">
-            <div class="col-12 col-sm-6" style="margin-bottom: 10px;">
+            <div class="col-12 col-sm-6 mb-3">
               <a class="button button-sm button-icon button-primary d-block button-winona button-winona-flex"
                 href="tel:01164560022" aria-label="Call Devlin now">
                 <span class="content-original">
@@ -3067,7 +3098,7 @@
                 </span>
               </a>
             </div>
-            <div class="col-12 col-sm-6" style="margin-bottom: 10px;">
+            <div class="col-12 col-sm-6 mb-3">
               <a class="button button-sm button-icon button-icon-left button-gray-3 d-block text-center"
                 href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20to%20book%20a%20free%20visit."
                 target="_blank" rel="noopener noreferrer" aria-label="Chat with Devlin on WhatsApp"
@@ -3081,10 +3112,10 @@
     </section>
 
     <!-- Areas we Cover -->
-    <section class="section section-xl bg-default" style="padding-top: 16px; padding-bottom: 0;">
-      <div class="container-fluid px-0">
-        <div class="row no-gutters align-items-stretch">
-          <div class="col-lg-6 d-flex align-items-center px-3 pl-lg-5 pr-lg-0" style="height: 480px;">
+    <section class="section section-sm bg-default">
+      <div class="container-fluid px-3 px-lg-0">
+        <div class="row align-items-stretch">
+          <div class="col-12 col-lg-6 order-1 order-lg-1 d-flex align-items-center px-3 pl-lg-5 pr-lg-0 mb-4 mb-lg-0">
             <div style="width: 100%; text-align: left;">
               <h1 style="margin-bottom: 8px; line-height: .95;">
                 <span class="wow slide-to-center reach-label" style="margin-left: 0;">Our Reach</span>
@@ -3094,12 +3125,12 @@
                 the wider Leicestershire County.</p>
               <p style="margin-bottom: 10px;">We offer expert flooring advice, luxury and affordable carpets, LVT, and
                 other quality flooring options, plus free professional measurements.</p>
-              <div class="row no-gutters " style="margin: 25px 0 0;">
+              <div class="row" style="margin: 25px 0 0;">
                 <!-- <div class="col-sm-6">
                   <h2 style="margin-bottom: 2px;">100%</h2>
                   <p class="post-classic-time" style="margin-bottom: 0; letter-spacing: .08em;">COUNTY COVERAGE</p>
                 </div> -->
-                <div class="col-10">
+                <div class="col-12 col-md-10">
                   <article class="progress-linear">
                     <div class="progress-header">
                       <span class="post-classic-time"
@@ -3118,8 +3149,8 @@
             </div>
           </div>
 
-          <div class="col-lg-6 d-flex align-items-center px-3 pr-lg-5 pl-lg-0" style="height: 480px;">
-            <div style="position: relative; overflow: hidden; width: 100%; height: 100%;">
+          <div class="col-12 col-lg-6 order-2 order-lg-2 d-flex align-items-center px-3 pr-lg-5 pl-lg-0">
+            <div style="position: relative; overflow: hidden; width: 100%; min-height: clamp(320px, 48vw, 520px); height: 100%;">
               <iframe
                 src="https://www.google.com/maps/d/embed?mid=1lp2VFv0eqXhxW_qIlQB0TCgEJOygnEI&ehbc=2E312F&noprof=1"
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0"
@@ -3127,9 +3158,14 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-top-0 section-bottom-0 bg-default">
+      <div class="container-fluid px-3 px-lg-0">
         <div class="row">
           <div class="col-12">
-            <div class="coverage-contact-box text-center">
+            <div class="coverage-contact-box text-center" style="margin: 0 auto;">
               <article class="quote-classic">
                 <div class="quote-classic-text">
                   Get in touch with us today
@@ -3138,29 +3174,29 @@
               <div class="container">
                 <div class="row justify-content-center">
                   <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                  <a class="button button-sm button-icon button-blue-8 d-block button-winona button-winona-flex"
-                    href="tel:01164560022" aria-label="Call Devlin now">
-                    <span class="content-original">
-                      <span class="icon mdi mdi-phone"></span>Call Us
-                    </span>
-                    <span class="content-dubbed">
-                      <span class="icon mdi mdi-phone"></span>01164 560022
-                    </span>
-                  </a>
+                    <a class="button button-sm button-icon button-blue-8 d-block button-winona button-winona-flex"
+                      href="tel:01164560022" aria-label="Call Devlin now">
+                      <span class="content-original">
+                        <span class="icon mdi mdi-phone"></span>Call Us
+                      </span>
+                      <span class="content-dubbed">
+                        <span class="icon mdi mdi-phone"></span>01164 560022
+                      </span>
+                    </a>
                   </div>
                   <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                  <a class="button button-sm button-icon button-icon-left button-blue-8 d-block text-center"
-                    href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20to%20book%20a%20free%20visit."
-                    target="_blank" rel="noopener noreferrer" aria-label="Chat with Devlin on WhatsApp"
-                    style="width: 100%;">
-                    <span class="icon fa-brands fa-whatsapp"></span>WhatsApp
-                  </a>
+                    <a class="button button-sm button-icon button-icon-left button-blue-8 d-block text-center"
+                      href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20to%20book%20a%20free%20visit."
+                      target="_blank" rel="noopener noreferrer" aria-label="Chat with Devlin on WhatsApp"
+                      style="width: 100%;">
+                      <span class="icon fa-brands fa-whatsapp"></span>WhatsApp
+                    </a>
                   </div>
                   <div class="col-12 col-sm-6 col-lg-4 mb-3">
-                  <a class="button button-sm button-icon button-icon-left button-blue-8 d-block text-center"
-                    href="contacts.html" style="width: 100%;">
-                    <span class="icon mdi mdi-chevron-right"></span> <span>Contact Us</span>
-                  </a>
+                    <a class="button button-sm button-icon button-icon-left button-blue-8 d-block text-center"
+                      href="contacts.html" style="width: 100%;">
+                      <span class="icon mdi mdi-chevron-right"></span> <span>Contact Us</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -3170,42 +3206,38 @@
       </div>
     </section>
 
-    <section class="container" style="margin-top: 0; padding-top: 0;">
-      <div class="service-journey-heading-copy">
-        <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale</span>
-        <h1>Visit Our Groby, Leicester Showroom</h1>
-        <p>Take a moment to read our customer reviews, locate us on Google Maps, and plan your visit to browse luxury
-          carpets, hardwoods, and designer flooring solutions.</p>
+    <section class="section section-sm bg-default">
+      <div class="container">
+        <div class="service-journey-heading-copy heading-bottom-45">
+          <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale</span>
+          <h1>Visit Our Groby, Leicester Showroom</h1>
+          <p>Take a moment to read our customer reviews, locate us on Google Maps, and plan your visit to browse luxury
+            carpets, hardwoods, and designer flooring solutions.</p>
+        </div>
       </div>
-    </section>
-
-    <section class="map-section" style="background-color: #ffffff">
-      <div style="
-            width: 100%;
-            max-width: none;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 0 30px;
-          ">
+      <div class="map-section map-section-flush">
         <div class="row">
-          <div class="col-12 mb-4">
+          <div class="col-12">
             <div class="map-container google-map-container">
               <iframe
                 src="https://maps.google.com/maps?q=Devlin+Wholesale+Leicester,+Laundon+Way,+Groby,+Leicester+LE6+0YG,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 frameborder="0" allowfullscreen></iframe>
             </div>
           </div>
-          <div class="col-12 mb-4">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-top-0 section-bottom-0 bg-default">
+      <div class="map-section map-section-flush container-fluid">
+        <div class="row">
+          <div class="col-12">
             <article class="location-info-card">
               <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale Leicester</span>
               <h2 class="location-address">Laundon Way, Groby,<br>Leicester LE6 0YG</h2>
 
               <div class="location-info-footer">
                 <div class="location-meta-grid">
-                  <!-- <div>
-                    <p class="location-meta-label">Availability</p>
-                    <p class="location-meta-value">Open Mon-Sat</p>
-                  </div> -->
                   <div>
                     <p class="location-meta-label">Parking</p>
                     <p class="location-meta-value">Free On-site</p>
@@ -3241,12 +3273,19 @@
               </div>
             </article>
           </div>
-          <section class="section-sm container">
-            <div class="service-journey-heading-copy">
-              <h1>Explore Our Showroom Virtually</h1>
-              <p>Take a 3D tour of our Groby showroom and browse luxury carpets, hardwoods, and designer flooring.</p>
-            </div>
-          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sm bg-default">
+      <div class="container">
+        <div class="service-journey-heading-copy heading-bottom-45">
+          <h1>Explore Our Showroom Virtually</h1>
+          <p>Take a 3D tour of our Groby showroom and browse luxury carpets, hardwoods, and designer flooring.</p>
+        </div>
+      </div>
+      <div class="map-section map-section-flush container-fluid px-3 px-lg-0" style="padding: 0;">
+        <div class="row">
           <div class="col-12">
             <div class="map-container">
               <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" frameborder="0" allowfullscreen
@@ -3257,7 +3296,7 @@
       </div>
     </section>
     <!-- Latest projects-->
-    <section class="section section-xl bg-default text-center">
+    <section class="section section-sm section-top-0 bg-default text-center">
       <div class="container">
         <h4 class="wow fadeInRight">Latest projects</h4>
       </div>
@@ -3272,7 +3311,7 @@
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project1Modal">
                   <img src="GrobyProjects/Project 1/Project1_C3.jpg" alt="96 Snake Hill Rd"
-                    style="width: 474px; height: 355px; object-fit: cover;" />
+                    style="width: 100%; height: auto; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
@@ -3293,7 +3332,7 @@
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project2Modal">
                   <img src="GrobyProjects/Project 2/Project2_M1.jpg" alt="77 Ashley St"
-                    style="width: 474px; height: 355px; object-fit: cover;" />
+                    style="width: 100%; height: auto; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
@@ -3314,7 +3353,7 @@
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project3Modal">
                   <img src="GrobyProjects/Project 4/Project1_Staircase6.jpg" alt="598 Tallwood Dr"
-                    style="width: 474px; height: 355px; object-fit: cover;" />
+                    style="width: 100%; height: auto; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
@@ -3334,7 +3373,7 @@
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project4Modal">
                   <img src="GrobyProjects/Project 5/Project5_Bare Timber Oak.jpg" alt="598 Tallwood Dr"
-                    style="width: 474px; height: 355px; object-fit: cover;" />
+                    style="width: 100%; height: auto; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
@@ -3354,7 +3393,7 @@
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project5Modal">
                   <img src="GrobyProjects/Project 6/Project6_AG1.jpg" alt="598 Tallwood Dr"
-                    style="width: 474px; height: 355px; object-fit: cover;" />
+                    style="width: 100%; height: auto; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
@@ -3374,7 +3413,7 @@
                 <!-- Main Project Image (Thumbnail) -->
                 <a class="thumbnail-modern-figure" href="#" data-toggle="modal" data-target="#project6Modal">
                   <img src="GrobyProjects/Project 7/Project7_Carpet4.jpg" alt="598 Tallwood Dr"
-                    style="width: 474px; height: 355px; object-fit: cover;" />
+                    style="width: 100%; height: auto; object-fit: cover;" />
                 </a>
                 <div class="thumbnail-modern-caption">
                   <h5 class="thumbnail-modern-title">
@@ -3764,11 +3803,13 @@
 
     </section>
     <!-- what clients says -->
-    <section class="section-sm container">
-      <div class="service-journey-heading-copy">
-        <h1>Loved by Our Customers</h1>
-        <p>Here’s a quick summary of common feedback from our Groby, Leicester showroom reviews. You can check
-          individual reviews online anytime.</p>
+    <section class="section section-sm">
+      <div class="container">
+        <div class="service-journey-heading-copy">
+          <h1>Loved by Our Customers</h1>
+          <p>Here’s a quick summary of common feedback from our Groby, Leicester showroom reviews. You can check
+            individual reviews online anytime.</p>
+        </div>
       </div>
     </section>
     <section class="section swiper-container swiper-slider swiper-slider-8" data-loop="true" data-autoplay="5000"
@@ -4027,7 +4068,7 @@
     </section>
 
     <!-- Our FAQ's-->
-    <section class="section section-xl bg-default text-md-left">
+    <section class="section section-sm bg-default text-md-left">
       <div class="container">
         <h4>FAQ's</h4>
         <div class="row row-xxl row-50 justify-content-lg-between">
