@@ -13434,13 +13434,13 @@ html.rd-navbar-fixed-linked .page {
 
 @media (min-width: 992px) {
 	.swiper-custom-container-3 {
-		padding-bottom: 70px;
+		padding-bottom: 80px;
 	}
 }
 
 @media (min-width: 1600px) {
 	.swiper-custom-container-3 {
-		padding-bottom: 90px;
+		padding-bottom: 110px;
 	}
 }
 
