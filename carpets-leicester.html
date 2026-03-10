@@ -2441,26 +2441,31 @@
       line-height: 1.02;
       letter-spacing: 0.015em;
       /* font-size: clamp(36px, 6vw, 76px); */
-      font-size: 20px;;
+      font-size: 20px;
+      ;
     }
 
     .map-section .location-info-footer {
       margin-top: 18px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      column-gap: 18px;
-      align-items: start;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
       border-top: 1px solid #e4e8ee;
       padding-top: 16px;
     }
 
     .map-section .location-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(4, max-content);
-      column-gap: 52px;
-      row-gap: 14px;
-      justify-content: start;
-      align-items: start;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 28px;
+      justify-content: flex-start;
+      align-items: flex-end;
+      min-width: 0;
+    }
+
+    .map-section .location-meta-grid>div {
+      flex: 0 0 auto;
     }
 
     .map-section .location-meta-label {
@@ -2475,10 +2480,11 @@
 
     .map-section .location-meta-value {
       color: #151a2d;
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 500;
       line-height: 1.15;
       letter-spacing: 0.01em;
+      white-space: nowrap;
     }
 
     .map-section .location-hours-list {
@@ -2505,43 +2511,26 @@
       font-weight: 500;
     }
 
-    @media (max-width: 1199.98px) {
-      .map-section .location-meta-grid {
-        grid-template-columns: repeat(2, minmax(180px, 1fr));
-      }
-
-      .map-section .location-meta-grid .location-hours-block {
-        grid-column: 1 / -1;
-      }
-
-      .map-section .location-action-group {
-        width: 100%;
-        margin-left: 0;
-        justify-content: flex-start;
-      }
-    }
-
     .map-section .location-action-group {
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
       margin-left: auto;
+      flex: 0 0 auto;
     }
 
-    @media (max-width: 1399.98px) {
+    @media (max-width: 1199.98px) {
       .map-section .location-info-footer {
-        grid-template-columns: 1fr;
-        row-gap: 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
       }
 
       .map-section .location-meta-grid {
+        display: grid;
         grid-template-columns: repeat(2, minmax(180px, 1fr));
         column-gap: 18px;
         row-gap: 10px;
-      }
-
-      .map-section .location-meta-grid .location-hours-block {
-        grid-column: 1 / -1;
       }
 
       .map-section .location-action-group {
@@ -3287,16 +3276,58 @@
       </div>
     </section>
 
+   <div class="parallax-container" data-parallax-img="images/parallax-3.jpg">
+      <div class="parallax-content section-inset-9 context-dark">
+        <div class="container">
+          <div class="row row-90 justify-content-center justify-content-xl-between align-items-lg-end">
+            <div class="col-sm-6 col-md-3">
+              <div class="counter-classic">
+                <h3 class="counter-classic-number"><span>9.2/10</span>
+                </h3>
+                <h6 class="counter-classic-title">Customer Service </h6>
+                <div class="counter-classic-decor"></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="counter-classic">
+                <h3 class="counter-classic-number"><span>8.7/10</span>
+                </h3>
+                <h6 class="counter-classic-title">Price</h6>
+                <div class="counter-classic-decor"></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="counter-classic">
+                <h3 class="counter-classic-number"><span>9/10</span>
+                </h3>
+                <h6 class="counter-classic-title">Quality</h6>
+                <div class="counter-classic-decor"></div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="counter-classic">
+                <h3 class="counter-classic-number"><span>8.5/10</span>
+                </h3>
+                <h6 class="counter-classic-title">Product Variety</h6>
+                <div class="counter-classic-decor"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section class="section section-top-0 section-bottom-0 bg-default">
       <div class="map-section map-section-flush container-fluid">
         <div class="row">
           <div class="col-12">
             <article class="location-info-card">
-              <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale Leicester</span>
-              <h2 class="location-address">Laundon Way, Groby,<br>Leicester LE6 0YG</h2>
-
               <div class="location-info-footer">
                 <div class="location-meta-grid">
+                  <div>
+                    <p class="location-meta-label">Address</p>
+                    <p class="location-meta-value">Laundon Way, Groby, Leicester LE6 0YG</p>
+                  </div>
                   <div>
                     <p class="location-meta-label">Parking</p>
                     <p class="location-meta-value">Free On-site</p>
@@ -3309,16 +3340,9 @@
                     <p class="location-meta-label">Email</p>
                     <p class="location-meta-value">info@devlinwholesale.co.uk</p>
                   </div>
-                  <div class="location-hours-block">
+                  <div>
                     <p class="location-meta-label">Store Timings</p>
-                    <ul class="location-hours-list">
-                      <li><span class="location-hours-day">Mon-Fri</span><span class="location-hours-time">9:00 am -
-                          6:00 pm</span></li>
-                      <li><span class="location-hours-day">Saturday</span><span class="location-hours-time">9:00 am -
-                          5:00 pm</span></li>
-                      <li><span class="location-hours-day">Sunday</span><span class="location-hours-time">10:00 am -
-                          4:00 pm</span></li>
-                    </ul>
+                    <p class="location-meta-value">Mon-Fri 9-6 | Sat 9-5 | Sun 10-4</p>
                   </div>
                 </div>
 
