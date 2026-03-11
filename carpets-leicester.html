@@ -2532,6 +2532,12 @@
       white-space: nowrap;
     }
 
+    .map-section .location-meta-grid>div:first-child .location-meta-value,
+    .map-section .location-meta-grid>div:nth-child(4) .location-meta-value {
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
     .map-section .location-timings-value {
       white-space: normal;
       line-height: 1.25;
@@ -2556,16 +2562,15 @@
 
     @media (max-width: 1199.98px) {
       .map-section .location-info-footer {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 14px;
-      }
-
-      .map-section .location-meta-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(180px, 1fr));
         column-gap: 18px;
         row-gap: 10px;
+        align-items: start;
+      }
+
+      .map-section .location-meta-grid {
+        display: contents;
       }
 
       .map-section .location-meta-grid>div {
@@ -2574,10 +2579,16 @@
         min-height: auto;
       }
 
+      .map-section .location-meta-value {
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+
       .map-section .location-action-group {
         width: 100%;
         margin-left: 0;
         justify-content: flex-start;
+        grid-column: 2 / 3;
       }
     }
 
@@ -2595,9 +2606,9 @@
         font-size: 16px;
       }
 
-      .map-section .location-meta-grid {
+      .map-section .location-info-footer {
         grid-template-columns: 1fr;
-        gap: 16px;
+        row-gap: 16px;
       }
 
       .map-section .location-meta-value {
@@ -2605,7 +2616,12 @@
       }
 
       .map-section .location-action-group .button {
-        width: 100%;
+        width: auto;
+      }
+
+      .map-section .location-action-group {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
       }
     }
 
@@ -3210,7 +3226,7 @@
     <!-- Areas we Cover -->
     <section class="section section-md bg-default section-bottom-0">
       <div class="container-fluid px-3 px-lg-0">
-        <div class="row align-items-stretch">
+        <div class="row align-items-stretch mx-0">
           <div class="col-12 col-lg-6 order-1 order-lg-1 d-flex align-items-center px-3 pl-lg-5 pr-lg-0 mb-4 mb-lg-0">
             <div style="width: 100%; text-align: left;">
               <h1 class="coverage-main-title" style="margin-bottom: 12px; display: block; line-height: .95;">
@@ -3221,7 +3237,7 @@
                 the wider Leicestershire County.</p>
               <p>We offer expert flooring advice, luxury and affordable carpets, LVT, and
                 other quality flooring options, plus free professional measurements.</p>
-              <div class="row" style="margin-top: 20px;">
+              <div class="row mx-0" style="margin-top: 20px;">
                 <div class="col-12 col-md-10 pr-3">
                   <article class="progress-linear">
                     <div class="progress-header">
@@ -3253,7 +3269,7 @@
         </div>
       </div>
       <div class="container-fluid px-3 px-lg-0">
-        <div class="row">
+        <div class="row mx-0">
           <div class="col-12">
             <div class="coverage-contact-box text-center" style="margin: 32px auto 0; padding: 20px;">
               <article class="quote-classic">
