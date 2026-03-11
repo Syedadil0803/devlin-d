@@ -1220,6 +1220,31 @@
         width: 100%;
       }
 
+      .heading-bottom-30 {
+        margin-bottom: 30px;
+      }
+
+      .service-journey-heading-copy h1 {
+        margin-bottom: 12px;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 1.08;
+        overflow-wrap: anywhere;
+      }
+
+      .service-journey-heading-copy>p {
+        font-size: 18px;
+        margin-bottom: 0;
+      }
+
+      /* Keep section intro text under headings consistent with Leicester */
+      .section .container>h1+p,
+      .section .container>h4+p,
+      .section .container .group-xl>h4+p,
+      .section .container .text-center>h3+p {
+        font-size: 18px;
+      }
+
       .hero-heading-group {
         display: inline-block;
         text-align: left;
@@ -1233,15 +1258,41 @@
       }
 
       @media (max-width: 576px) {
+        .service-journey-heading-copy h1 {
+          font-size: 30px;
+          line-height: 1.12;
+        }
+
+        .service-journey-heading-copy>p {
+          font-size: 18px;
+        }
+
         .hero-heading-group {
           text-align: left;
         }
       }
 
+      @media (max-width: 991.98px) {
+        .service-journey-heading-copy h1 {
+          font-size: 36px;
+        }
+
+        .heading-bottom-30 {
+          margin-bottom: 24px;
+        }
+      }
+
       .Rated-title {
         font-size: 18px;
+        font-weight: 600;
         line-height: 1.2;
         margin: 0;
+      }
+
+      @media (max-width: 575.98px) {
+        .Rated-title {
+          font-size: 16px;
+        }
       }
 
       .area-link-with-icon {
@@ -2542,15 +2593,15 @@
           </div>
         <section class="container">
           <div style="margin-top: 30px; margin-bottom: 30px;">
-            <p class="text-center" style="margin: 0 0 20px;">And</p>
-            <p class="text-center" style="margin: 0;">
+            <p class="text-center" style="margin: 0 0 20px; font-size: 18px;">And</p>
+            <p class="text-center" style="margin: 0; font-size: 18px;">
               Independent ratings on <a href="https://wheree.com" target="_blank" rel="noopener noreferrer">Wheree</a>
               also highlight the strong service and value customers experience at our Tamworth showroom.
             </p>
           </div>
         </section>
-              <section class="section parallax-container" data-parallax-img="images/parallax-4.jpg" style="margin: 0;">
-        <div class="parallax-content section-md context-dark" style="padding-top: 0; padding-bottom: 0;">
+              <section class="section parallax-container" data-parallax-img="images/parallax-4.jpg">
+        <div class="parallax-content section-md context-dark">
           <div class="container">
             <!-- <h3 class="font-weight-bold text-spacing-200">#2</h3> -->
             <div class="row row-lg row-30">
@@ -3188,6 +3239,21 @@
         flex-shrink: 0;
       }
 
+      .swiper-slide-caption .inset-left-xl-70>h4 {
+        font-size: 14px;
+        line-height: 1.2;
+      }
+
+      .swiper-slide-caption .quote-classic-text .q {
+        font-size: 17px;
+        line-height: 1.5;
+      }
+
+      .swiper-slide-caption .quote-classic-text .q b {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
       .review-stars-inline {
         display: inline-block;
         margin-bottom: 8px;
@@ -3197,11 +3263,13 @@
         line-height: 1;
       }
     </style>
-    <section class="section section-md bg-default">
-      <div class="container text-center">
-        <h1>Trusted by Tamworth Customers</h1>
-        <p>Here’s a brief summary of common feedback from our Google reviews. You can explore individual customer
-          reviews online anytime.</p>
+    <section class="section section-md section-top-0 bg-default">
+      <div class="container">
+        <div class="service-journey-heading-copy heading-bottom-30">
+          <h1>Trusted by Tamworth Customers</h1>
+          <p>Here’s a brief summary of common feedback from our Google reviews. You can explore individual customer
+            reviews online anytime.</p>
+        </div>
       </div>
     </section>
     <section class="section swiper-container swiper-slider swiper-slider-8" data-loop="true" data-autoplay="5000"
@@ -3223,7 +3291,7 @@
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p class="q"><b>Exceptional Service: </b> Our customers often describe our team as helpful,
+                        <p class="q"><b>Exceptional Service: </b><br />Our customers often describe our team as helpful,
                           friendly, professional, and willing to go above and beyond.</p>
                       </div>
                       <p class="quote-classic-author">
@@ -3270,7 +3338,7 @@
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p class="q"><b>Quality & Expertise: </b> Customers frequently praise the quality of our
+                        <p class="q"><b>Quality & Expertise: </b><br />Customers frequently praise the quality of our
                           flooring installations and the team’s extensive knowledge of carpets and flooring.</p>
                       </div>
                       <p class="quote-classic-author">
@@ -3317,7 +3385,7 @@
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p class="q"><b>Choice & Value:</b> Many customers are impressed by our 10,000 sq ft showroom,
+                        <p class="q"><b>Choice & Value:</b><br />Many customers are impressed by our 10,000 sq ft showroom,
                           wide flooring selection, and competitive pricing.</p>
                       </div>
                       <p class="quote-classic-author">
@@ -3364,7 +3432,7 @@
                     <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
                       data-caption-delay="0">
                       <div class="quote-classic-text">
-                        <p class="q"><b>Reliability: </b>Many customers return and recommend our business to friends and
+                        <p class="q"><b>Reliability: </b><br />Many customers return and recommend our business to friends and
                           family, frequently giving perfect 10/10 ratings.</p>
                       </div>
                       <p class="quote-classic-author">
@@ -3552,21 +3620,19 @@
       <div class="parallax-content section-lg context-dark">
         <div class="container-fluid">
           <div class="text-center">
-
-            <h3 class="font-weight-normal offset-top-1">Thinking About New Carpets or Flooring?</h3>
-            <p class="offset-top-1">Visit our Tamworth showroom to explore carpets and flooring in person. Our team is
-              always happy to offer honest advice and help you find the right solution for your home.</p>
-            <p class="font-italic offset-top-1">Many customers simply drop in for advice before making a decision —
-              you're always welcome.</p>
+            <h4 class="font-weight-normal offset-top-1" style="font-size: 32px;">Visit Our Tamworth Showroom Today</h4>
+            <p class="offset-top-1" style="font-size: 18px;">Visit our Tamworth showroom to explore carpets and flooring
+              in person. Our team is always happy to offer honest advice and help you find the right solution for your
+              home.</p>
 
             <a class="button button-md button-icon button-icon-right button-blue-8"
               href="https://www.google.com/maps/dir/?api=1&destination=Unit+O,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW"
               target="_blank" rel="noopener noreferrer"><span class="icon mdi mdi-chevron-right"></span>Plan Your Visit
               Today</a>
 
-            <div class="row row-20 justify-content-center offset-top-3">
-              <div class="col-12 col-sm-4 col-lg-3">
-                <a class="button button-md button-icon button-primary d-block button-winona button-winona-flex"
+            <div class="row justify-content-center mx-auto offset-top-3" style="max-width: 520px;">
+              <div class="col-12 col-sm-6">
+                <a class="button button-sm button-icon button-primary d-block button-winona button-winona-flex"
                   href="tel:01827265526" aria-label="Call Devlin Tamworth now">
                   <span class="content-original">
                     <span class="icon mdi mdi-phone"></span>Call Us
@@ -3576,13 +3642,16 @@
                   </span>
                 </a>
               </div>
-              <div class="col-12 col-sm-4 col-lg-3">
-                <a class="button button-md button-icon button-icon-left button-blue-8 d-block"
+              <div class="col-12 col-sm-6">
+                <a class="button button-sm button-icon button-icon-left button-gray-3 d-block text-center"
                   href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20help%20with%20flooring."
-                  target="_blank" rel="noopener noreferrer"><span class="icon fa-brands fa-whatsapp"></span>WhatsApp
-                  Us</a>
+                  target="_blank" rel="noopener noreferrer" style="width: 100%;"><span
+                    class="icon fa-brands fa-whatsapp"></span>WhatsApp</a>
               </div>
             </div>
+
+            <p class="font-italic">Many customers simply drop in for advice before making a decision —
+              you're always welcome.</p>
           </div>
         </div>
       </div>
