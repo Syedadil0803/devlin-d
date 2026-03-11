@@ -2352,6 +2352,22 @@
       line-height: 1;
     }
 
+    .coverage-map-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.92);
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: 700;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      white-space: nowrap;
+    }
+
     .review-badge-link {
       display: inline-flex;
       align-items: center;
@@ -3224,10 +3240,14 @@
           <div class="col-12 col-lg-6 order-2 order-lg-2 d-flex align-items-center px-3 pr-lg-5 pl-lg-0">
             <div
               style="position: relative; overflow: hidden; width: 100%; min-height: clamp(320px, 48vw, 520px); height: 100%;">
-              <iframe
+              <iframe id="coverageMapIframe"
                 src="https://www.google.com/maps/d/embed?mid=1lp2VFv0eqXhxW_qIlQB0TCgEJOygnEI&ehbc=2E312F&noprof=1"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; pointer-events: none;"
+                frameborder="0"
                 allowfullscreen loading="lazy"></iframe>
+              <button id="coverageMapToggleBtn" onclick="toggleCoverageMapInteraction()" class="coverage-map-button">
+                Enable Map Interaction
+              </button>
             </div>
           </div>
         </div>
@@ -4598,6 +4618,21 @@
   </script>
   <!-- birminghum live blog -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function toggleCoverageMapInteraction() {
+      const iframe = document.getElementById("coverageMapIframe");
+      const button = document.getElementById("coverageMapToggleBtn");
+      if (!iframe || !button) return;
+
+      if (iframe.style.pointerEvents === "none") {
+        iframe.style.pointerEvents = "auto";
+        button.textContent = "Disable Map Interaction";
+      } else {
+        iframe.style.pointerEvents = "none";
+        button.textContent = "Enable Map Interaction";
+      }
+    }
+  </script>
 
   <!-- Initialize LightGallery for each project -->
   <script>
