@@ -841,11 +841,11 @@
         position: relative;
         z-index: 1;
         max-width: none !important;
-        background-color: #fff;
+        background-color: #0b4f8a;
         padding: 16px 20px;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        border: 1px solid rgba(0, 136, 204, 0.15);
+        box-shadow: 0 10px 22px rgba(5, 21, 43, 0.28);
+        border: 1px solid rgba(120, 182, 255, 0.34);
         overflow: hidden;
         min-height: auto;
         display: flex;
@@ -857,7 +857,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(145deg, rgba(0, 136, 204, 0.05), transparent 60%);
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), transparent 60%);
         pointer-events: none;
       }
 
@@ -958,7 +958,7 @@
         margin: 0 0 6px !important;
         text-align: left;
         line-height: 1.2 !important;
-        color: #222;
+        color: #f2f7ff;
       }
 
       .why-devlin-cards .why-devlin-card .box-icon-modern-text {
@@ -966,7 +966,7 @@
         margin: 0 !important;
         text-align: left;
         line-height: 1.4 !important;
-        color: #555 !important;
+        color: rgba(226, 238, 255, 0.92) !important;
       }
 
       /* Alternative eye-catching shape: dock-right card */
@@ -977,10 +977,10 @@
         border-radius: 16px;
         border: 0;
         background:
-          linear-gradient(180deg, #12151d 0%, #0a0d14 100%);
+          linear-gradient(180deg, #0b4f8a 0%, #07345d 100%);
         box-shadow:
-          0 12px 26px rgba(0, 0, 0, 0.45),
-          0 0 16px rgba(0, 195, 255, 0.22);
+          0 12px 26px rgba(5, 21, 43, 0.44),
+          0 0 16px rgba(120, 182, 255, 0.26);
         min-height: 195px;
         padding-top: 4px;
         padding-bottom: 10px;
@@ -1990,16 +1990,31 @@
       .why-devlin-tamworth-grid .services-modern {
         padding: 28px 20px;
         height: 100%;
+        background: #031e2b;
+        border: 1px solid rgba(120, 182, 255, 0.34);
+        border-radius: 0;
+        box-shadow: 0 10px 22px rgba(5, 21, 43, 0.28);
+      }
 
+      .why-devlin-tamworth-grid .services-modern::before {
+        display: none;
       }
 
       .why-devlin-tamworth-grid .services-modern .box-icon-modern {
         max-width: none;
       }
 
+      .why-devlin-tamworth-grid .services-modern .box-icon-modern-icon {
+        color: #db2a19;
+      }
+
       .why-devlin-tamworth-grid .box-icon-modern-title,
+      .why-devlin-tamworth-grid .box-icon-modern-title a {
+        color: #f2f7ff;
+      }
+
       .why-devlin-tamworth-grid .box-icon-modern-text {
-        max-width: none;
+        color: rgba(226, 238, 255, 0.92);
       }
 
       .why-devlin-tamworth-grid .services-modern:hover .box-icon-modern-title,
