@@ -1,6 +1,6 @@
 .service-journey {
   background: #f6f6f6;
-  padding: 0 0 64px;
+  padding: 0 0 18px;
   overflow-x: hidden;
 }
 
@@ -13,7 +13,7 @@
 
 .service-journey-heading {
   background: #f6f6f6;
-  padding: 64px 0 20px;
+  padding: 80px 0 0;
 }
 
 .service-step {
