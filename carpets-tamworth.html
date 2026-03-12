@@ -39,9 +39,7 @@
   <!-- <link rel="stylesheet" href="css/one.css" /> -->
   <!-- Campaign Widgets -->
   <link rel="stylesheet" href="campaign-widgets/campaign-widgets.css" />
-
-  <!-- Campaign Widgets -->
-  <link rel="stylesheet" href="campaign-widgets/campaign-widgets.css" />
+  <!-- Page Styles: IE panel and base swiper sizing -->
   <style>
     .ie-panel {
       display: none;
@@ -88,6 +86,7 @@
   </style>
   <!-- Accordian footer -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Page Styles: accordion and tooltip helpers -->
   <style>
     /* Remove white background from accordion buttons and add dropdown icons */
     .accordion-button {
@@ -234,52 +233,6 @@
       "item": "https://www.devlinwholesale.co.uk/"
     }
   ]
-}
-</script>
-
-  <!-- Tamworth LocalBusiness -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.devlinwholesale.co.uk/#tamworth",
-  "name": "Devlin Wholesale – Tamworth",
-  "image": "https://www.devlinwholesale.co.uk/images/logo-2.png",
-  "url": "https://www.devlinwholesale.co.uk/",
-  "telephone": "01827 265526",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Unit O, N Riverside Industrial Estate, Atherstone St, Fazeley",
-    "addressLocality": "Tamworth",
-    "postalCode": "B78 3RW",
-    "addressCountry": "UK"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 52.6128,
-    "longitude": -1.7011
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "19:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "09:00",
-      "closes": "17:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Sunday",
-      "opens": "10:00",
-      "closes": "16:00"
-    }
-  ],
-  "priceRange": "££"
 }
 </script>
 
@@ -511,6 +464,1734 @@
 }
 </script>
 
+
+
+  <!-- Page Styles: Consolidated from body -->
+
+  <!-- Page Styles: hero slider sizing -->
+  <style>
+    /* Hide pagination dot — only one slide */
+    .leicester-hero .swiper-slider-7 .swiper-pagination {
+      display: none !important;
+    }
+
+    /* Keep container spacing, but pull image down to fill the bottom gutter */
+    .leicester-hero .swiper-slide-bg {
+      height: 70vh;
+    }
+
+    @media (min-width: 992px) {
+      .leicester-hero .swiper-slide-bg {
+        height: calc(80vh + 60px);
+      }
+    }
+
+    @media (min-width: 1600px) {
+      .leicester-hero .swiper-slide-bg {
+        height: calc(80vh + 90px);
+      }
+    }
+  </style>
+
+
+  <!-- Page Styles: hero video layering -->
+  <style>
+    .swiper-slider-7 .swiper-slide {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .swiper-slider-7 .swiper-slide-caption {
+      position: relative;
+      z-index: 2;
+    }
+
+    .tamworth-hero-video-full {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+
+
+
+  <!-- Page Styles: service journey and heading -->
+  <style>
+    .service-journey {
+      background: #f6f6f6;
+      padding: 0;
+      /* overflow-x: hidden; */
+    }
+
+    .service-journey .container,
+    .service-journey-heading .container {
+      max-width: 1140px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .service-journey-heading {
+      background: #f6f6f6;
+    }
+
+    .service-step {
+      display: grid;
+      grid-template-columns: 1fr 72px 1fr;
+      gap: 74px;
+      align-items: center;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 2;
+      touch-action: pan-y;
+    }
+
+    .service-step> :first-child {
+      padding-right: 22px;
+    }
+
+    .service-step> :last-child {
+      padding-left: 22px;
+    }
+
+    .service-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .service-step .card-lite {
+      background: transparent;
+      border: 0;
+      text-align: center;
+      padding: 12px 8px;
+      opacity: 0;
+      transform: translateY(120px) scale(0.95);
+    }
+
+    .service-journey-heading-copy>p {
+      font-size: 18px;
+    }
+
+    .service-step .card-lite h4 {
+      margin-bottom: 4px;
+      font-size: 24px;
+    }
+
+    .service-step .card-lite p {
+      font-size: 16px;
+    }
+
+    .service-step .media img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+      -webkit-user-drag: none;
+      user-select: none;
+      -webkit-user-select: none;
+      pointer-events: none;
+    }
+
+    .service-step .media {
+      opacity: 0;
+      transform: translateY(120px) scale(0.95);
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .service-step .timeline-dot {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 3px solid #101010;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #101010;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .service-journey-track {
+      position: relative;
+    }
+
+    .service-journey-track::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      background: #d6d6d6;
+      z-index: 1;
+      top: 36px;
+      bottom: 36px;
+    }
+
+    .service-journey.is-visible .service-step:nth-child(1) .card-lite,
+    .service-journey.is-visible .service-step:nth-child(1) .media {
+      -webkit-animation: slide-top-instant 0.75s ease-out 0.1s both;
+      animation: slide-top-instant 0.75s ease-out 0.1s both;
+    }
+
+    .service-journey.is-visible .service-step:nth-child(2) .card-lite,
+    .service-journey.is-visible .service-step:nth-child(2) .media {
+      -webkit-animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.45s both;
+      animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.45s both;
+    }
+
+    .service-journey.is-visible .service-step:nth-child(3) .card-lite,
+    .service-journey.is-visible .service-step:nth-child(3) .media {
+      -webkit-animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
+      animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
+    }
+
+    @-webkit-keyframes slide-top {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(120px) scale(0.95);
+        transform: translateY(120px) scale(0.95);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes slide-top {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(120px) scale(0.95);
+        transform: translateY(120px) scale(0.95);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @-webkit-keyframes slide-top-instant {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(120px);
+        transform: translateY(120px);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slide-top-instant {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(120px);
+        transform: translateY(120px);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1199.98px) {
+      .service-journey .container {
+        max-width: 980px;
+      }
+
+      .service-journey-heading .container {
+        max-width: 980px;
+      }
+
+      .service-step {
+        gap: 42px;
+      }
+
+      .service-step> :first-child {
+        padding-right: 12px;
+      }
+
+      .service-step> :last-child {
+        padding-left: 12px;
+      }
+
+      .service-step .media img {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .service-journey {
+        padding: 0 0 56px;
+      }
+
+      .service-step {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        margin-bottom: 38px;
+      }
+
+      .service-step> :first-child,
+      .service-step> :last-child {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .service-journey-track::before {
+        display: none;
+      }
+
+      .service-step .card-lite {
+        text-align: center;
+        order: 1;
+      }
+
+      .service-step .timeline-dot {
+        display: flex;
+        order: 2;
+        justify-self: center;
+        align-self: center;
+        margin: 6px auto 2px;
+      }
+
+      .service-step .media {
+        order: 3;
+      }
+
+      .service-step .card-lite,
+      .service-step .media {
+        transform: translateY(90px) scale(0.96);
+      }
+
+      .service-journey.is-visible .service-step .card-lite,
+      .service-journey.is-visible .service-step .media {
+        transform: translateY(0) scale(1);
+      }
+
+      .service-step .media img {
+        height: 220px;
+      }
+
+      .service-step .timeline-dot {
+        width: 62px;
+        height: 62px;
+        font-size: 19px;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .service-journey {
+        padding: 0 0 46px;
+      }
+
+      .service-journey .container,
+      .service-journey-heading .container {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .service-step {
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+
+      .service-step .card-lite {
+        padding: 8px 2px;
+      }
+
+      .service-step .card-lite h4 {
+        font-size: 20px;
+        line-height: 1.25;
+      }
+
+      .service-step .media img {
+        height: 190px;
+      }
+
+      .service-step .timeline-dot {
+        width: 56px;
+        height: 56px;
+        font-size: 17px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .service-step .card-lite,
+      .service-step .media {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        animation: none !important;
+        -webkit-animation: none !important;
+      }
+    }
+
+    /* Fullscreen video overlay */
+    .video-expanded-overlay {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .video-expanded-overlay video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .video-expanded-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Close button */
+    .video-close-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10000;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .video-close-btn.active {
+      display: flex;
+    }
+
+    .video-close-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-close-circle svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    .video-close-label {
+      color: white;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 767.98px) {
+      .video-close-btn {
+        top: 14px;
+        right: 14px;
+        gap: 8px;
+      }
+
+      .video-close-circle {
+        width: 48px;
+        height: 48px;
+      }
+
+      .video-close-label {
+        font-size: 11px;
+      }
+    }
+
+    .why-devlin-wa-rail {
+      position: static;
+    }
+
+    .why-devlin-whatsapp {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 11000;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      writing-mode: vertical-rl;
+      background: #25d366;
+      color: #fff !important;
+      text-decoration: none !important;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      border-radius: 12px 0 0 12px;
+      padding: 12px 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .why-devlin-whatsapp:hover {
+      transform: translateY(-50%) translateX(-2px);
+      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.28);
+    }
+
+    .why-devlin-whatsapp .fa-whatsapp {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .why-devlin-whatsapp.external-link-tooltip::before {
+      left: auto;
+      right: calc(100% + 12px);
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%) translateX(6px);
+      writing-mode: horizontal-tb;
+      white-space: nowrap;
+      min-width: auto;
+    }
+
+    .why-devlin-whatsapp.external-link-tooltip::after {
+      left: auto;
+      right: calc(100% + 1px);
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-left-color: #151515;
+    }
+
+    .why-devlin-whatsapp.external-link-tooltip:hover::before {
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .contact-mirror-bubble {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 122px;
+      height: 122px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 24% 24%, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.12) 42%, rgba(255, 255, 255, 0.03) 68%),
+        radial-gradient(circle at 76% 30%, rgba(0, 195, 255, 0.32), rgba(0, 195, 255, 0) 52%),
+        radial-gradient(circle at 30% 78%, rgba(37, 211, 102, 0.28), rgba(37, 211, 102, 0) 48%),
+        radial-gradient(circle at 82% 78%, rgba(255, 166, 0, 0.24), rgba(255, 166, 0, 0) 46%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.06));
+      backdrop-filter: blur(10px) saturate(1.15);
+      -webkit-backdrop-filter: blur(10px) saturate(1.15);
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      color: #fff !important;
+      text-decoration: none !important;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      box-shadow:
+        0 16px 30px rgba(0, 0, 0, 0.28),
+        inset 0 1px 1px rgba(255, 255, 255, 0.45),
+        inset 0 -10px 20px rgba(0, 0, 0, 0.12);
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+      flex-shrink: 0;
+    }
+
+    .contact-mirror-bubble:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow:
+        0 20px 36px rgba(0, 0, 0, 0.32),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5),
+        inset 0 -10px 20px rgba(0, 0, 0, 0.1);
+      filter: brightness(1.04);
+    }
+
+    .contact-mirror-bubble i {
+      font-size: 40px;
+      line-height: 1;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+      color: #0f4c81;
+    }
+
+    .contact-mirror-bubble span {
+      line-height: 1;
+      color: #1f6f43;
+    }
+
+    .service-journey-heading {
+      padding-bottom: 30px;
+    }
+
+    .icon-classic-grid+.service-journey-heading {
+      padding-bottom: 30px;
+    }
+
+    .service-journey-heading .container {
+      display: flex;
+      margin-bottom: 0;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .service-journey-heading-copy {
+      text-align: center;
+      width: 100%;
+    }
+
+    .heading-bottom-30 {
+      margin-bottom: 30px;
+    }
+
+    .service-journey-heading-copy h1 {
+      margin-bottom: 12px;
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 1.08;
+      overflow-wrap: anywhere;
+    }
+
+    .service-journey-heading-copy>p {
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+
+
+    .service-journey .card-lite h4 {
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .service-journey .card-lite p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .service-journey .quote-classic .quote-classic-text p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .journey-cta-block {
+      padding: 18px 0;
+    }
+
+    .journey-cta-block .quote-classic-text {
+      font-size: 18px;
+    }
+
+    .section .container>h1+p,
+    .section .container>h4+p,
+    .section .container .group-xl>h4+p,
+    .section .container .text-center>h3+p {
+      font-size: 18px;
+    }
+
+    .hero-heading-group {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .hero-heading-kicker {
+      display: block;
+      width: auto;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 576px) {
+      .service-journey-heading-copy h1 {
+        font-size: 30px;
+        line-height: 1.12;
+      }
+
+      .service-journey-heading-copy>p {
+        font-size: 18px;
+      }
+
+      .hero-heading-group {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .service-journey-heading-copy h1 {
+        font-size: 36px;
+      }
+
+      .heading-bottom-30 {
+        margin-bottom: 24px;
+      }
+    }
+
+    .Rated-title {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    @media (max-width: 575.98px) {
+      .Rated-title {
+        font-size: 16px;
+      }
+    }
+
+    .area-link-with-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .area-link-with-icon .linearicons-map-marker {
+      color: #db2a19;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .box-icon-classic .unit {
+      align-items: center;
+    }
+
+    .box-icon-classic .unit-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .icon-classic-grid .row {
+      row-gap: 14px;
+    }
+
+    .icon-classic-grid .col-sm-6 {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .icon-classic-grid .box-icon-classic-title {
+      transition: color .2s ease;
+    }
+
+    .icon-classic-grid .box-icon-classic-icon {
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      font-size: 22px;
+      margin-right: 10px;
+    }
+
+    .icon-classic-grid .box-icon-classic:hover .box-icon-classic-title {
+      color: #db2a19;
+    }
+
+    .service-journey-track>.contact-mirror-bubble {
+      margin: 28px 48px 0 auto;
+    }
+
+    @media (max-width: 991.98px) {
+      .journey-cta-block {
+        padding: 18px 0;
+      }
+
+      .why-devlin-whatsapp {
+        top: 50%;
+        right: 0;
+        padding: 10px 8px;
+        font-size: 12px;
+      }
+
+      .contact-mirror-bubble {
+        width: 110px;
+        height: 110px;
+        font-size: 12px;
+      }
+
+      .contact-mirror-bubble i {
+        font-size: 34px;
+      }
+
+      .service-journey-heading .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .service-journey-track>.contact-mirror-bubble {
+        margin-right: 16px;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .journey-cta-block {
+        padding: 16px 0;
+      }
+    }
+
+    .center-video-bubble {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid #0088cc;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      position: relative;
+      background: #000;
+      animation: pulseBubbleCenter 2.5s infinite;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseBubbleCenter {
+
+      0%,
+      100% {
+        box-shadow: 0 6px 25px rgba(0, 136, 204, 0.3), 0 0 0 0 rgba(0, 136, 204, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 6px 25px rgba(0, 136, 204, 0.3), 0 0 0 15px rgba(0, 136, 204, 0);
+      }
+    }
+
+    .center-video-bubble video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .center-video-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .center-video-play-overlay svg {
+      width: 56px;
+      height: 56px;
+      fill: white;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+    }
+  </style>
+
+  <!-- Page Styles: hero feature grid -->
+  <style>
+    .grid {
+      min-height: 920px;
+      display: flex;
+      align-items: center;
+      background: #031e2b;
+      padding: 20px 0 64px;
+    }
+
+    .grid>.container {
+      width: 100%;
+    }
+
+    .grid-inner {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .grid-outer {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 22px;
+    }
+
+    .grid-outer-left,
+    .grid-outer-right {
+      display: grid;
+    }
+
+    .grid-outer-card {
+      display: block;
+    }
+
+    .grid-left {
+      min-height: 430px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .grid-left img,
+    .grid-left video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .grid-left-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(3, 30, 43, 0.12), rgba(3, 30, 43, 0.62));
+    }
+
+    .grid-founder-note {
+      position: absolute;
+      left: 24px;
+      bottom: 22px;
+      z-index: 3;
+      max-width: 420px;
+      max-height: 380px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: rgba(3, 30, 43, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      text-align: left;
+    }
+
+    .grid-founder-note-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .grid-founder-note-line {
+      width: 32px;
+      height: 2px;
+      background: #db2a19;
+    }
+
+    .grid-founder-note-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .grid-founder-note-title {
+      margin: 0 0 4px;
+      font-size: 20px;
+      line-height: 1.18;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .grid-founder-note-text {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #bfc7cf;
+    }
+
+    .grid-left-play {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 0 0 rgba(219, 42, 25, 0.65);
+      animation: grid-play-pulse 2s infinite;
+    }
+
+    @keyframes grid-play-pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(219, 42, 25, 0.65);
+      }
+
+      70% {
+        box-shadow: 0 0 0 20px rgba(219, 42, 25, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(219, 42, 25, 0);
+      }
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+
+    .play-button-pulse {
+      animation: pulse-red 2s infinite;
+    }
+
+    @keyframes pulse-red {
+      0% {
+        box-shadow: 0 0 0 0 rgba(219, 42, 25, 0.7);
+      }
+
+      70% {
+        box-shadow: 0 0 0 20px rgba(219, 42, 25, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(219, 42, 25, 0);
+      }
+    }
+
+    .play-button-video {
+      position: relative;
+      overflow: hidden;
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .play-button-video-preview {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .play-button-video-shade {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .play-button-video-icon {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      font-size: 60px;
+      line-height: 1;
+      transform: translateX(4px);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .grid-right {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+      color: #fff;
+      min-height: 254px;
+      padding: 28px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .grid-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(219, 42, 25, 0.65);
+      box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.35);
+    }
+
+    .grid-card-bottom {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+      color: #fff;
+      min-height: 254px;
+      height: 254px;
+      padding: 28px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .grid-card-bottom:hover {
+      transform: translateY(-4px);
+      border-color: rgba(219, 42, 25, 0.65);
+      box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.35);
+    }
+
+    .grid-card h4 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: #fff;
+      text-align: left;
+    }
+
+    .grid-card-bottom h4 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: #fff;
+      text-align: left;
+    }
+
+    .grid-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.65;
+      text-align: left;
+    }
+
+    .grid-card-bottom p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.65;
+      text-align: left;
+    }
+
+    .grid-card-bottom-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .grid-pricing-split {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .grid-pricing-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .grid-pricing-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .grid-pricing-badge {
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #d1d5db;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .grid-pricing-metrics {
+      width: 220px;
+      max-width: 100%;
+      padding-left: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .grid-pricing-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .grid-pricing-label {
+      color: #9ca3af;
+    }
+
+    .grid-pricing-value {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .grid-pricing-value.accent {
+      color: #db2a19;
+    }
+
+    .grid-pricing-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .grid-gray-bar {
+      width: 100%;
+      height: 3px;
+      margin-top: 14px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.14);
+      overflow: hidden;
+    }
+
+    .grid-red-bar {
+      width: 40%;
+      height: 100%;
+      border-radius: 9999px;
+      background: #db2a19;
+      box-shadow: 0 0 10px rgba(219, 42, 25, 0.35);
+    }
+
+    .grid-pricing-fill {
+      height: 100%;
+      border-radius: 9999px;
+    }
+
+    .grid-pricing-fill.cost-saving {
+      width: 80%;
+      background: linear-gradient(90deg, #8f1a11, #db2a19);
+    }
+
+    .grid-pricing-fill.quality {
+      width: 100%;
+      background: #ffffff;
+    }
+
+    .grid-family-badge {
+      text-align: right;
+      line-height: 1.05;
+    }
+
+    .grid-family-badge-value {
+      display: block;
+      color: #ffffff;
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    .grid-family-badge-label {
+      display: block;
+      /* margin-top: 2px; */
+      color: #db2a19;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .grid-card-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .grid-card-icon-wrap .grid-card-icon {
+      color: #db2a19;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .grid-card:hover .grid-card-icon-wrap {
+      background: rgba(219, 42, 25, 0.14);
+    }
+
+    .grid-card-bottom:hover .grid-card-icon-wrap {
+      background: rgba(219, 42, 25, 0.14);
+    }
+
+    @media (max-width: 991px) {
+      .grid-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-outer {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-right {
+        grid-template-rows: auto;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .grid {
+        min-height: 0;
+        padding: 20px 0 48px;
+      }
+
+      .grid-left {
+        min-height: 320px;
+      }
+
+      .grid-founder-note {
+        left: 16px;
+        right: 16px;
+        bottom: 14px;
+        max-width: none;
+        padding: 12px 14px;
+      }
+
+      .grid-founder-note-title {
+        font-size: 18px;
+      }
+
+      .grid-founder-note-text {
+        font-size: 13px;
+      }
+
+      .grid-card {
+        padding: 22px 18px;
+      }
+
+      .grid-card-bottom {
+        height: auto;
+        padding: 22px 18px;
+      }
+
+      .grid-card h4 {
+        font-size: 22px;
+      }
+
+      .grid-card-bottom h4 {
+        font-size: 22px;
+      }
+
+      .grid-pricing-split {
+        flex-direction: column;
+      }
+
+      .grid-pricing-metrics {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 8px;
+      }
+    }
+  </style>
+
+  <!-- Page Styles: Tamworth trust cards -->
+  <style>
+    .grid-card-cut {
+      position: relative;
+    }
+
+    .grid-card-cut::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 128px;
+      height: 128px;
+      border-bottom-left-radius: 9999px;
+      background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+      transform: translate(30%, -30%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+
+    .grid-card-cut:hover::before {
+      transform: translate(20%, -30%) scale(1);
+    }
+
+    .why-devlin-tamworth-grid .services-modern {
+      padding: 28px 20px;
+      height: 100%;
+      background: #031e2b;
+      border: 1px solid rgba(120, 182, 255, 0.34);
+      border-radius: 0;
+      box-shadow: 0 10px 22px rgba(5, 21, 43, 0.28);
+    }
+
+    .why-devlin-tamworth-grid .services-modern::before {
+      display: none;
+    }
+
+    .why-devlin-tamworth-grid .services-modern .box-icon-modern {
+      max-width: none;
+    }
+
+    .why-devlin-tamworth-grid .services-modern .box-icon-modern-icon {
+      color: #db2a19;
+    }
+
+    .why-devlin-tamworth-grid .box-icon-modern-title,
+    .why-devlin-tamworth-grid .box-icon-modern-title a {
+      color: #f2f7ff;
+    }
+
+    .why-devlin-tamworth-grid .box-icon-modern-text {
+      color: rgba(226, 238, 255, 0.92);
+    }
+
+    .why-devlin-tamworth-grid .services-modern:hover .box-icon-modern-title,
+    .why-devlin-tamworth-grid .services-modern:hover .box-icon-modern-title a {
+      color: #db2a19;
+    }
+
+    @media (max-width: 767.98px) {
+      .why-devlin-tamworth-grid .services-modern {
+        padding: 22px 16px;
+      }
+    }
+  </style>
+
+
+  <!-- Page Styles: button winona utility -->
+  <style>
+    .button-winona-flex {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button-winona-flex .icon {
+      flex-shrink: 0;
+      margin-right: 6px;
+    }
+
+    .button-winona-flex .content-original,
+    .button-winona-flex .content-dubbed {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+  </style>
+
+
+
+
+  <!-- Page Styles: section spacing overrides -->
+  <style>
+    /* ── Consistent section spacing overrides ── */
+    .icon-classic-grid.section-sm {
+      padding: 24px 0;
+    }
+
+    .section.section-xl.bg-default {
+      padding: 64px 0;
+    }
+
+    .map-section {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    @media (max-width: 991.98px) {
+      .section.section-xl.bg-default {
+        padding: 48px 0;
+      }
+
+      .icon-classic-grid.section-sm {
+        padding: 20px 0;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .section.section-xl.bg-default {
+        padding: 40px 0;
+      }
+
+      .icon-classic-grid.section-sm {
+        padding: 16px 0;
+      }
+    }
+  </style>
+
+
+
+
+  <!-- Page Styles: Tamworth map section -->
+  <style>
+    .map-section .map-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: min(56vw, 600px);
+      min-height: 260px;
+      max-height: 600px;
+    }
+
+    .map-section .map-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .map-section .google-map-container::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .map-section .location-info-card {
+      background: #ffffff;
+      border: 1px solid #dce3eb;
+      padding: 28px 40px;
+      text-align: left;
+    }
+
+    .map-section .location-address {
+      margin: 0;
+      color: #151a2d;
+      text-transform: uppercase;
+      font-family: "Roboto", sans-serif;
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: 0.015em;
+      font-size: clamp(30px, 4.8vw, 62px);
+    }
+
+    .map-section .location-info-footer {
+      /* margin-top: 18px; */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid #e4e8ee;
+      padding-top: 16px;
+    }
+
+    .map-section .location-meta-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0;
+      justify-content: flex-start;
+      align-items: stretch;
+      min-width: 0;
+    }
+
+    .map-section .location-meta-grid>div {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 52px;
+      padding: 0 18px;
+    }
+
+    .map-section .location-meta-grid>div:first-child {
+      padding-left: 0;
+    }
+
+    .map-section .location-meta-grid>div:last-child {
+      margin-left: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .map-section .location-meta-label {
+      margin-bottom: 4px;
+      color: #7f90a8;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .map-section .location-meta-value {
+      margin: 0;
+      color: #151a2d;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .map-section .location-meta-grid>div:first-child .location-meta-value,
+    .map-section .location-meta-grid>div:nth-child(4) .location-meta-value {
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .map-section .location-timings-value {
+      white-space: normal;
+      line-height: 1.25;
+      display: grid;
+      gap: 4px;
+    }
+
+    .map-section .timing-line {
+      display: block;
+      font-size: 16px;
+      line-height: 1.3;
+      color: #1f2937;
+    }
+
+    @media (max-width: 1199.98px) {
+      .map-section .location-info-footer {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+        column-gap: 32px;
+        row-gap: 10px;
+        align-items: start;
+      }
+
+      .map-section .location-meta-grid {
+        display: contents;
+      }
+
+      .map-section .location-meta-grid>div {
+        border-right: 0;
+        padding: 0;
+        min-height: auto;
+      }
+
+      .map-section .location-meta-value {
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+
+      .map-section .location-info-footer .location-action-group {
+        width: 100%;
+        margin-left: 0 !important;
+        justify-content: flex-start !important;
+        grid-column: 2 / 3;
+      }
+    }
+
+    .map-section .location-action-group {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      margin-left: auto;
+      flex: 0 0 auto;
+    }
+
+    @media (max-width: 767.98px) {
+      .map-section .map-container {
+        height: min(70vw, 420px);
+        min-height: 220px;
+      }
+
+      .map-section .location-info-card {
+        padding: 28px 20px;
+      }
+
+      .map-section .location-id {
+        font-size: 16px;
+      }
+
+      .map-section .location-info-footer {
+        grid-template-columns: 1fr;
+        row-gap: 16px;
+      }
+
+      .map-section .location-meta-value {
+        font-size: 16px;
+      }
+
+      .map-section .location-action-group .button {
+        width: auto;
+      }
+
+      .map-section .location-info-footer .location-action-group {
+        grid-column: 1 / -1;
+        margin-left: 0 !important;
+        justify-content: flex-start !important;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .map-section .map-container {
+        height: min(36vw, 600px);
+      }
+    }
+  </style>
+
+  <!-- Page Styles: reviews section typography -->
+  <style>
+    .review-badge-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    .review-badge-link:hover {
+      color: #db2a19;
+    }
+
+    .review-google-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .swiper-slide-caption .inset-left-xl-70>h4 {
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .swiper-slide-caption .quote-classic-text .q {
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .swiper-slide-caption .quote-classic-text .q b {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .review-stars-inline {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #d4af37;
+      letter-spacing: 2px;
+      font-size: 22px;
+      line-height: 1;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -670,52 +2351,6 @@
         </div>
       </header>
       <!-- Hero slider utility styles -->
-      <style>
-        /* Hide pagination dot — only one slide */
-        .leicester-hero .swiper-slider-7 .swiper-pagination {
-          display: none !important;
-        }
-
-        /* Keep container spacing, but pull image down to fill the bottom gutter */
-        .leicester-hero .swiper-slide-bg {
-          height: 70vh;
-        }
-
-        @media (min-width: 992px) {
-          .leicester-hero .swiper-slide-bg {
-            height: calc(80vh + 60px);
-          }
-        }
-
-        @media (min-width: 1600px) {
-          .leicester-hero .swiper-slide-bg {
-            height: calc(80vh + 90px);
-          }
-        }
-      </style>
-
-      <style>
-        .swiper-slider-7 .swiper-slide {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .swiper-slider-7 .swiper-slide-caption {
-          position: relative;
-          z-index: 2;
-        }
-
-        .tamworth-hero-video-full {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          z-index: 0;
-          pointer-events: none;
-        }
-      </style>
-
       <!-- Original Swiper (unchanged from v1) -->
       <div class="swiper-container swiper-slider swiper-slider-7" data-loop="false" data-simulate-touch="false"
         data-add-slides="1">
@@ -747,1043 +2382,6 @@
         </div>
       </div>
     </section>
-
-    <style>
-      .service-journey {
-        background: #f6f6f6;
-        padding: 0;
-        /* overflow-x: hidden; */
-      }
-
-      .service-journey .container,
-      .service-journey-heading .container {
-        max-width: 1140px;
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .service-journey-heading {
-        background: #f6f6f6;
-      }
-
-      .service-step {
-        display: grid;
-        grid-template-columns: 1fr 72px 1fr;
-        gap: 74px;
-        align-items: center;
-        margin-bottom: 48px;
-        position: relative;
-        z-index: 2;
-        touch-action: pan-y;
-      }
-
-      .service-step> :first-child {
-        padding-right: 22px;
-      }
-
-      .service-step> :last-child {
-        padding-left: 22px;
-      }
-
-      .service-step:last-child {
-        margin-bottom: 0;
-      }
-
-      .service-step .card-lite {
-        background: transparent;
-        border: 0;
-        text-align: center;
-        padding: 12px 8px;
-        opacity: 0;
-        transform: translateY(120px) scale(0.95);
-      }
-
-      .service-journey-heading-copy>p {
-        font-size: 18px;
-      }
-
-      .service-step .card-lite h4 {
-        margin-bottom: 4px;
-        font-size: 24px;
-      }
-
-      .service-step .card-lite p {
-        font-size: 16px;
-      }
-
-      .service-step .media img {
-        width: 100%;
-        height: 280px;
-        object-fit: cover;
-        border-radius: 14px;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-        -webkit-user-drag: none;
-        user-select: none;
-        -webkit-user-select: none;
-        pointer-events: none;
-      }
-
-      .service-step .media {
-        opacity: 0;
-        transform: translateY(120px) scale(0.95);
-        min-width: 0;
-        overflow: hidden;
-      }
-
-      .service-step .timeline-dot {
-        position: relative;
-        width: 72px;
-        height: 72px;
-        margin: 0 auto;
-        border-radius: 50%;
-        border: 3px solid #101010;
-        background: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 22px;
-        color: #101010;
-        z-index: 2;
-        flex-shrink: 0;
-      }
-
-      .service-journey-track {
-        position: relative;
-      }
-
-      .service-journey-track::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 2px;
-        background: #d6d6d6;
-        z-index: 1;
-        top: 36px;
-        bottom: 36px;
-      }
-
-      .service-journey.is-visible .service-step:nth-child(1) .card-lite,
-      .service-journey.is-visible .service-step:nth-child(1) .media {
-        -webkit-animation: slide-top-instant 0.75s ease-out 0.1s both;
-        animation: slide-top-instant 0.75s ease-out 0.1s both;
-      }
-
-      .service-journey.is-visible .service-step:nth-child(2) .card-lite,
-      .service-journey.is-visible .service-step:nth-child(2) .media {
-        -webkit-animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.45s both;
-        animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.45s both;
-      }
-
-      .service-journey.is-visible .service-step:nth-child(3) .card-lite,
-      .service-journey.is-visible .service-step:nth-child(3) .media {
-        -webkit-animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
-        animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
-      }
-
-      @-webkit-keyframes slide-top {
-        0% {
-          opacity: 0;
-          -webkit-transform: translateY(120px) scale(0.95);
-          transform: translateY(120px) scale(0.95);
-        }
-
-        100% {
-          opacity: 1;
-          -webkit-transform: translateY(0) scale(1);
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      @keyframes slide-top {
-        0% {
-          opacity: 0;
-          -webkit-transform: translateY(120px) scale(0.95);
-          transform: translateY(120px) scale(0.95);
-        }
-
-        100% {
-          opacity: 1;
-          -webkit-transform: translateY(0) scale(1);
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      @-webkit-keyframes slide-top-instant {
-        0% {
-          opacity: 0;
-          -webkit-transform: translateY(120px);
-          transform: translateY(120px);
-        }
-
-        100% {
-          opacity: 1;
-          -webkit-transform: translateY(0);
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slide-top-instant {
-        0% {
-          opacity: 0;
-          -webkit-transform: translateY(120px);
-          transform: translateY(120px);
-        }
-
-        100% {
-          opacity: 1;
-          -webkit-transform: translateY(0);
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 1199.98px) {
-        .service-journey .container {
-          max-width: 980px;
-        }
-
-        .service-journey-heading .container {
-          max-width: 980px;
-        }
-
-        .service-step {
-          gap: 42px;
-        }
-
-        .service-step> :first-child {
-          padding-right: 12px;
-        }
-
-        .service-step> :last-child {
-          padding-left: 12px;
-        }
-
-        .service-step .media img {
-          height: 250px;
-        }
-      }
-
-      @media (max-width: 991.98px) {
-        .service-journey {
-          padding: 0 0 56px;
-        }
-
-        .service-step {
-          grid-template-columns: minmax(0, 1fr);
-          gap: 18px;
-          margin-bottom: 38px;
-        }
-
-        .service-step> :first-child,
-        .service-step> :last-child {
-          padding-left: 0;
-          padding-right: 0;
-        }
-
-        .service-journey-track::before {
-          display: none;
-        }
-
-        .service-step .card-lite {
-          text-align: center;
-          order: 1;
-        }
-
-        .service-step .timeline-dot {
-          display: flex;
-          order: 2;
-          justify-self: center;
-          align-self: center;
-          margin: 6px auto 2px;
-        }
-
-        .service-step .media {
-          order: 3;
-        }
-
-        .service-step .card-lite,
-        .service-step .media {
-          transform: translateY(90px) scale(0.96);
-        }
-
-        .service-journey.is-visible .service-step .card-lite,
-        .service-journey.is-visible .service-step .media {
-          transform: translateY(0) scale(1);
-        }
-
-        .service-step .media img {
-          height: 220px;
-        }
-
-        .service-step .timeline-dot {
-          width: 62px;
-          height: 62px;
-          font-size: 19px;
-        }
-      }
-
-      @media (max-width: 575.98px) {
-        .service-journey {
-          padding: 0 0 46px;
-        }
-
-        .service-journey .container,
-        .service-journey-heading .container {
-          padding-left: 14px;
-          padding-right: 14px;
-        }
-
-        .service-step {
-          gap: 14px;
-          margin-bottom: 28px;
-        }
-
-        .service-step .card-lite {
-          padding: 8px 2px;
-        }
-
-        .service-step .card-lite h4 {
-          font-size: 20px;
-          line-height: 1.25;
-        }
-
-        .service-step .media img {
-          height: 190px;
-        }
-
-        .service-step .timeline-dot {
-          width: 56px;
-          height: 56px;
-          font-size: 17px;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-
-        .service-step .card-lite,
-        .service-step .media {
-          opacity: 1;
-          transform: none;
-          transition: none;
-          animation: none !important;
-          -webkit-animation: none !important;
-        }
-      }
-
-      /* Fullscreen video overlay */
-      .video-expanded-overlay {
-        position: fixed;
-        inset: 0;
-        background: #000;
-        z-index: 9999;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.5s ease;
-      }
-
-      .video-expanded-overlay video {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      .video-expanded-overlay.active {
-        opacity: 1;
-        pointer-events: all;
-      }
-
-      /* Close button */
-      .video-close-btn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 10000;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        cursor: pointer;
-      }
-
-      .video-close-btn.active {
-        display: flex;
-      }
-
-      .video-close-circle {
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.15);
-        border: 2px solid white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backdrop-filter: blur(4px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      }
-
-      .video-close-circle svg {
-        width: 24px;
-        height: 24px;
-        fill: white;
-      }
-
-      .video-close-label {
-        color: white;
-        font-size: 13px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        font-weight: 700;
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-        text-align: center;
-        line-height: 1.4;
-      }
-
-      @media (max-width: 767.98px) {
-        .video-close-btn {
-          top: 14px;
-          right: 14px;
-          gap: 8px;
-        }
-
-        .video-close-circle {
-          width: 48px;
-          height: 48px;
-        }
-
-        .video-close-label {
-          font-size: 11px;
-        }
-      }
-
-      /* Why Devlin 4 cards */
-      .why-devlin-cards .why-devlin-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
-        z-index: 1;
-        max-width: none !important;
-        background-color: #0b4f8a;
-        padding: 16px 20px;
-        border-radius: 12px;
-        box-shadow: 0 10px 22px rgba(5, 21, 43, 0.28);
-        border: 1px solid rgba(120, 182, 255, 0.34);
-        overflow: hidden;
-        min-height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .why-devlin-cards .why-devlin-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), transparent 60%);
-        pointer-events: none;
-      }
-
-      .why-devlin-cards .why-devlin-card:hover {
-        transform: translateY(-3px);
-        z-index: 10;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
-      }
-
-      .ping {
-        -webkit-animation: none;
-        animation: none;
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        opacity: 1;
-      }
-
-      .ping.ping-active {
-        -webkit-animation: ping 0.8s ease-in-out 2 both;
-        animation: ping 0.8s ease-in-out 2 both;
-        -webkit-transform-origin: center center;
-        transform-origin: center center;
-        will-change: transform, opacity;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-      }
-
-      .ping.ping-secondary.ping-active {
-        -webkit-animation-delay: 0.12s;
-        animation-delay: 0.12s;
-      }
-
-      .ping.ping-right-top.ping-active {
-        -webkit-animation-delay: 0.24s;
-        animation-delay: 0.24s;
-      }
-
-      .ping.ping-right-bottom.ping-active {
-        -webkit-animation-delay: 0.36s;
-        animation-delay: 0.36s;
-      }
-
-      @-webkit-keyframes ping {
-        0% {
-          -webkit-transform: scale(1);
-          transform: scale(1);
-          opacity: 1;
-        }
-
-        20% {
-          -webkit-transform: scale(0.94);
-          transform: scale(0.94);
-          opacity: 0.92;
-        }
-
-        65% {
-          -webkit-transform: scale(1.04);
-          transform: scale(1.04);
-          opacity: 1;
-        }
-
-        100% {
-          -webkit-transform: scale(1);
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      @keyframes ping {
-        0% {
-          -webkit-transform: scale(1);
-          transform: scale(1);
-          opacity: 1;
-        }
-
-        20% {
-          -webkit-transform: scale(0.94);
-          transform: scale(0.94);
-          opacity: 0.92;
-        }
-
-        65% {
-          -webkit-transform: scale(1.04);
-          transform: scale(1.04);
-          opacity: 1;
-        }
-
-        100% {
-          -webkit-transform: scale(1);
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      .why-devlin-cards .why-devlin-card .box-icon-modern-title {
-        font-weight: 700 !important;
-        font-size: 16px !important;
-        margin: 0 0 6px !important;
-        text-align: left;
-        line-height: 1.2 !important;
-        color: #f2f7ff;
-      }
-
-      .why-devlin-cards .why-devlin-card .box-icon-modern-text {
-        font-size: 13.5px !important;
-        margin: 0 !important;
-        text-align: left;
-        line-height: 1.4 !important;
-        color: rgba(226, 238, 255, 0.92) !important;
-      }
-
-      /* Alternative eye-catching shape: dock-right card */
-      .why-devlin-cards .why-devlin-card.ping,
-      .why-devlin-cards .why-devlin-card.ping-secondary,
-      .why-devlin-cards .why-devlin-card.ping-right-top,
-      .why-devlin-cards .why-devlin-card.ping-right-bottom {
-        border-radius: 16px;
-        border: 0;
-        background:
-          linear-gradient(180deg, #0b4f8a 0%, #07345d 100%);
-        box-shadow:
-          0 12px 26px rgba(5, 21, 43, 0.44),
-          0 0 16px rgba(120, 182, 255, 0.26);
-        min-height: 195px;
-        padding-top: 4px;
-        padding-bottom: 10px;
-      }
-
-      .why-devlin-cards .why-devlin-card.ping {
-        clip-path: polygon(0 0, 100% 0, 100% 68%, 82% 68%, 82% 100%, 0 100%);
-      }
-
-      .why-devlin-cards .why-devlin-card.ping-secondary {
-        clip-path: polygon(0 0, 82% 0, 82% 32%, 100% 32%, 100% 100%, 0 100%);
-      }
-
-      /* Right column top card: cut at left-bottom */
-      .why-devlin-cards .why-devlin-card.ping-right-top {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 13% 100%, 13% 74%, 0 74%);
-        padding-left: 30px;
-      }
-
-      /* Right column bottom card: cut at top-left */
-      .why-devlin-cards .why-devlin-card.ping-right-bottom {
-        clip-path: polygon(0 24%, 13% 24%, 13% 0, 100% 0, 100% 100%, 0 100%);
-        padding-left: 30px;
-        padding-top: 14px;
-        margin-top: 10px;
-      }
-
-      .why-devlin-cards .why-devlin-card.ping-right-top .box-icon-modern-title,
-      .why-devlin-cards .why-devlin-card.ping-right-top .box-icon-modern-text,
-      .why-devlin-cards .why-devlin-card.ping-right-bottom .box-icon-modern-title,
-      .why-devlin-cards .why-devlin-card.ping-right-bottom .box-icon-modern-text {
-        margin-left: 8px !important;
-      }
-
-      .why-devlin-cards .why-devlin-card.ping::before,
-      .why-devlin-cards .why-devlin-card.ping-secondary::before {
-        background:
-          radial-gradient(circle at 90% 82%, rgba(0, 183, 255, 0.26) 0 14px, transparent 15px),
-          radial-gradient(circle at 76% 68%, rgba(0, 183, 255, 0.18) 0 12px, transparent 13px),
-          linear-gradient(140deg, rgba(0, 183, 255, 0.12), transparent 45%);
-      }
-
-      .why-devlin-cards .why-devlin-card.ping-right-top::before,
-      .why-devlin-cards .why-devlin-card.ping-right-bottom::before {
-        background:
-          radial-gradient(circle at 10% 82%, rgba(0, 183, 255, 0.26) 0 14px, transparent 15px),
-          radial-gradient(circle at 24% 68%, rgba(0, 183, 255, 0.18) 0 12px, transparent 13px),
-          linear-gradient(220deg, rgba(0, 183, 255, 0.12), transparent 45%);
-      }
-
-      .why-devlin-cards .why-devlin-card.ping .box-icon-modern-title,
-      .why-devlin-cards .why-devlin-card.ping-secondary .box-icon-modern-title,
-      .why-devlin-cards .why-devlin-card.ping-right-top .box-icon-modern-title,
-      .why-devlin-cards .why-devlin-card.ping-right-bottom .box-icon-modern-title {
-        color: #f2f7ff !important;
-      }
-
-      .why-devlin-cards .why-devlin-card.ping .box-icon-modern-text,
-      .why-devlin-cards .why-devlin-card.ping-secondary .box-icon-modern-text,
-      .why-devlin-cards .why-devlin-card.ping-right-top .box-icon-modern-text,
-      .why-devlin-cards .why-devlin-card.ping-right-bottom .box-icon-modern-text {
-        color: rgba(226, 238, 255, 0.86) !important;
-      }
-
-      @media (min-width: 992px) {
-        .why-devlin-cards .why-devlin-left {
-          padding-right: 26px;
-        }
-
-        .why-devlin-cards .why-devlin-right {
-          padding-left: 26px;
-          transform: none;
-        }
-      }
-
-      @media (max-width: 991.98px) {
-        .why-devlin-cards .why-devlin-card {
-          padding: 14px 16px;
-        }
-
-        .why-devlin-cards .why-devlin-left,
-        .why-devlin-cards .why-devlin-right,
-        .why-devlin-cards .why-devlin-center {
-          padding-left: 15px;
-          padding-right: 15px;
-        }
-      }
-
-      @media (max-width: 575.98px) {
-        .why-devlin-cards .why-devlin-card {
-          text-align: center;
-        }
-
-        .why-devlin-cards .why-devlin-card .box-icon-modern-title,
-        .why-devlin-cards .why-devlin-card .box-icon-modern-text {
-          text-align: center;
-        }
-      }
-
-      .why-devlin-cards {
-        position: relative;
-      }
-
-      .why-devlin-wa-rail {
-        position: static;
-      }
-
-      .why-devlin-whatsapp {
-        position: fixed;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 11000;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        writing-mode: vertical-rl;
-        background: #25d366;
-        color: #fff !important;
-        text-decoration: none !important;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: .02em;
-        border-radius: 12px 0 0 12px;
-        padding: 12px 10px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
-        transition: transform .2s ease, box-shadow .2s ease;
-      }
-
-      .why-devlin-whatsapp:hover {
-        transform: translateY(-50%) translateX(-2px);
-        box-shadow: 0 14px 26px rgba(0, 0, 0, 0.28);
-      }
-
-      .why-devlin-whatsapp .fa-whatsapp {
-        font-size: 20px;
-        line-height: 1;
-      }
-
-      .why-devlin-whatsapp.external-link-tooltip::before {
-        left: auto;
-        right: calc(100% + 12px);
-        top: 50%;
-        bottom: auto;
-        transform: translateY(-50%) translateX(6px);
-        writing-mode: horizontal-tb;
-        white-space: nowrap;
-        min-width: auto;
-      }
-
-      .why-devlin-whatsapp.external-link-tooltip::after {
-        left: auto;
-        right: calc(100% + 1px);
-        top: 50%;
-        bottom: auto;
-        transform: translateY(-50%);
-        border: 6px solid transparent;
-        border-left-color: #151515;
-      }
-
-      .why-devlin-whatsapp.external-link-tooltip:hover::before {
-        transform: translateY(-50%) translateX(0);
-      }
-
-      .contact-mirror-bubble {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-        width: 122px;
-        height: 122px;
-        border-radius: 50%;
-        background:
-          radial-gradient(circle at 24% 24%, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.12) 42%, rgba(255, 255, 255, 0.03) 68%),
-          radial-gradient(circle at 76% 30%, rgba(0, 195, 255, 0.32), rgba(0, 195, 255, 0) 52%),
-          radial-gradient(circle at 30% 78%, rgba(37, 211, 102, 0.28), rgba(37, 211, 102, 0) 48%),
-          radial-gradient(circle at 82% 78%, rgba(255, 166, 0, 0.24), rgba(255, 166, 0, 0) 46%),
-          linear-gradient(145deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.06));
-        backdrop-filter: blur(10px) saturate(1.15);
-        -webkit-backdrop-filter: blur(10px) saturate(1.15);
-        border: 1px solid rgba(255, 255, 255, 0.52);
-        color: #fff !important;
-        text-decoration: none !important;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: .08em;
-        text-transform: uppercase;
-        box-shadow:
-          0 16px 30px rgba(0, 0, 0, 0.28),
-          inset 0 1px 1px rgba(255, 255, 255, 0.45),
-          inset 0 -10px 20px rgba(0, 0, 0, 0.12);
-        transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-        flex-shrink: 0;
-      }
-
-      .contact-mirror-bubble:hover {
-        transform: translateY(-2px) scale(1.03);
-        box-shadow:
-          0 20px 36px rgba(0, 0, 0, 0.32),
-          inset 0 1px 1px rgba(255, 255, 255, 0.5),
-          inset 0 -10px 20px rgba(0, 0, 0, 0.1);
-        filter: brightness(1.04);
-      }
-
-      .contact-mirror-bubble i {
-        font-size: 40px;
-        line-height: 1;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
-        color: #0f4c81;
-      }
-
-      .contact-mirror-bubble span {
-        line-height: 1;
-        color: #1f6f43;
-      }
-
-      .service-journey-heading {
-        padding-bottom: 30px;
-      }
-
-      .icon-classic-grid+.service-journey-heading {
-        padding-bottom: 30px;
-      }
-
-      .service-journey-heading .container {
-        display: flex;
-        margin-bottom: 0;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .service-journey-heading-copy {
-        text-align: center;
-        width: 100%;
-      }
-
-      .heading-bottom-30 {
-        margin-bottom: 30px;
-      }
-
-      .service-journey-heading-copy h1 {
-        margin-bottom: 12px;
-        font-size: 36px;
-        font-weight: 400;
-        line-height: 1.08;
-        overflow-wrap: anywhere;
-      }
-
-      .service-journey-heading-copy>p {
-        font-size: 18px;
-        margin-bottom: 0;
-      }
-
-      /* Match Leicester typography for journey and trust copy */
-      .service-journey .card-lite h4 {
-        font-size: 24px;
-        line-height: 1.2;
-      }
-
-      .service-journey .card-lite p {
-        font-size: 16px;
-        line-height: 1.5;
-      }
-
-      .service-journey .quote-classic .quote-classic-text p {
-        font-size: 18px;
-        line-height: 1.5;
-        margin: 0;
-      }
-
-      .journey-cta-block {
-        padding: 18px 0;
-      }
-
-      .journey-cta-block .quote-classic-text {
-        font-size: 18px;
-      }
-
-      /* Keep section intro text under headings consistent with Leicester */
-      .section .container>h1+p,
-      .section .container>h4+p,
-      .section .container .group-xl>h4+p,
-      .section .container .text-center>h3+p {
-        font-size: 18px;
-      }
-
-      .hero-heading-group {
-        display: inline-block;
-        text-align: left;
-      }
-
-      .hero-heading-kicker {
-        display: block;
-        width: auto;
-        text-align: left;
-        margin-bottom: 10px;
-      }
-
-      @media (max-width: 576px) {
-        .service-journey-heading-copy h1 {
-          font-size: 30px;
-          line-height: 1.12;
-        }
-
-        .service-journey-heading-copy>p {
-          font-size: 18px;
-        }
-
-        .hero-heading-group {
-          text-align: left;
-        }
-      }
-
-      @media (max-width: 991.98px) {
-        .service-journey-heading-copy h1 {
-          font-size: 36px;
-        }
-
-        .heading-bottom-30 {
-          margin-bottom: 24px;
-        }
-      }
-
-      .Rated-title {
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 1.2;
-        margin: 0;
-      }
-
-      @media (max-width: 575.98px) {
-        .Rated-title {
-          font-size: 16px;
-        }
-      }
-
-      .area-link-with-icon {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .area-link-with-icon .linearicons-map-marker {
-        color: #db2a19;
-        font-size: 28px;
-        line-height: 1;
-      }
-
-      .box-icon-classic .unit {
-        align-items: center;
-      }
-
-      .box-icon-classic .unit-left {
-        display: flex;
-        align-items: center;
-      }
-
-      .icon-classic-grid .row {
-        row-gap: 14px;
-      }
-
-      .icon-classic-grid .col-sm-6 {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-
-      .icon-classic-grid .box-icon-classic-title {
-        transition: color .2s ease;
-      }
-
-      .icon-classic-grid .box-icon-classic-icon {
-        width: 48px;
-        height: 48px;
-        line-height: 48px;
-        font-size: 22px;
-        margin-right: 10px;
-      }
-
-      .icon-classic-grid .box-icon-classic:hover .box-icon-classic-title {
-        color: #db2a19;
-      }
-
-      .service-journey-track>.contact-mirror-bubble {
-        margin: 28px 48px 0 auto;
-      }
-
-      @media (max-width: 991.98px) {
-        .journey-cta-block {
-          padding: 18px 0;
-        }
-
-        .service-step {
-          grid-template-columns: minmax(0, 1fr);
-        }
-
-        .why-devlin-whatsapp {
-          top: 50%;
-          right: 0;
-          padding: 10px 8px;
-          font-size: 12px;
-        }
-
-        .contact-mirror-bubble {
-          width: 110px;
-          height: 110px;
-          font-size: 12px;
-        }
-
-        .contact-mirror-bubble i {
-          font-size: 34px;
-        }
-
-        .service-journey-heading .container {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .service-journey-track>.contact-mirror-bubble {
-          margin-right: 16px;
-        }
-      }
-
-      @media (max-width: 575.98px) {
-        .journey-cta-block {
-          padding: 16px 0;
-        }
-      }
-
-      .center-video-bubble {
-        width: 220px;
-        height: 220px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 6px solid #0088cc;
-        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
-        position: relative;
-        background: #000;
-        animation: pulseBubbleCenter 2.5s infinite;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-
-      @keyframes pulseBubbleCenter {
-
-        0%,
-        100% {
-          box-shadow: 0 6px 25px rgba(0, 136, 204, 0.3), 0 0 0 0 rgba(0, 136, 204, 0.4);
-        }
-
-        50% {
-          box-shadow: 0 6px 25px rgba(0, 136, 204, 0.3), 0 0 0 15px rgba(0, 136, 204, 0);
-        }
-      }
-
-      .center-video-bubble video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        pointer-events: none;
-      }
-
-      .center-video-play-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(0, 0, 0, 0.3);
-      }
-
-      .center-video-play-overlay svg {
-        width: 56px;
-        height: 56px;
-        fill: white;
-        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
-      }
-    </style>
     <div class="why-devlin-wa-rail">
       <a class="why-devlin-whatsapp external-link-tooltip"
         href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20help%20with%20flooring."
@@ -1793,576 +2391,6 @@
         <span>WhatsApp</span>
       </a>
     </div>
-    <style>
-      .grid {
-        min-height: 920px;
-        display: flex;
-        align-items: center;
-        background: #031e2b;
-        padding: 20px 0 64px;
-      }
-
-      .grid>.container {
-        width: 100%;
-      }
-
-      .grid-inner {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
-        gap: 22px;
-        align-items: stretch;
-      }
-
-      .grid-outer {
-        margin-top: 22px;
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
-        gap: 22px;
-      }
-
-      .grid-outer-left,
-      .grid-outer-right {
-        display: grid;
-      }
-
-      .grid-outer-card {
-        display: block;
-      }
-
-      .grid-left {
-        min-height: 430px;
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
-      }
-
-      .grid-left img,
-      .grid-left video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .grid-left-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(180deg, rgba(3, 30, 43, 0.12), rgba(3, 30, 43, 0.62));
-      }
-
-      .grid-founder-note {
-        position: absolute;
-        left: 24px;
-        bottom: 22px;
-        z-index: 3;
-        max-width: 420px;
-        max-height: 380px;
-        padding: 14px 18px;
-        border-radius: 16px;
-        background: rgba(3, 30, 43, 0.78);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        text-align: left;
-      }
-
-      .grid-founder-note-top {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 4px;
-      }
-
-      .grid-founder-note-line {
-        width: 32px;
-        height: 2px;
-        background: #db2a19;
-      }
-
-      .grid-founder-note-kicker {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #ffffff;
-      }
-
-      .grid-founder-note-title {
-        margin: 0 0 4px;
-        font-size: 20px;
-        line-height: 1.18;
-        font-weight: 700;
-        color: #ffffff;
-      }
-
-      .grid-founder-note-text {
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.45;
-        color: #bfc7cf;
-      }
-
-      .grid-left-play {
-        width: 78px;
-        height: 78px;
-        border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.35);
-        background: rgba(255, 255, 255, 0.14);
-        color: #fff;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        box-shadow: 0 0 0 0 rgba(219, 42, 25, 0.65);
-        animation: grid-play-pulse 2s infinite;
-      }
-
-      @keyframes grid-play-pulse {
-        0% {
-          box-shadow: 0 0 0 0 rgba(219, 42, 25, 0.65);
-        }
-
-        70% {
-          box-shadow: 0 0 0 20px rgba(219, 42, 25, 0);
-        }
-
-        100% {
-          box-shadow: 0 0 0 0 rgba(219, 42, 25, 0);
-        }
-      }
-
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-      }
-
-      .play-button-pulse {
-        animation: pulse-red 2s infinite;
-      }
-
-      @keyframes pulse-red {
-        0% {
-          box-shadow: 0 0 0 0 rgba(219, 42, 25, 0.7);
-        }
-
-        70% {
-          box-shadow: 0 0 0 20px rgba(219, 42, 25, 0);
-        }
-
-        100% {
-          box-shadow: 0 0 0 0 rgba(219, 42, 25, 0);
-        }
-      }
-
-      .play-button-video {
-        position: relative;
-        overflow: hidden;
-        width: 128px;
-        height: 128px;
-        border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        background: transparent;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .play-button-video-preview {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-      }
-
-      .play-button-video-shade {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.25);
-      }
-
-      .play-button-video-icon {
-        position: relative;
-        z-index: 2;
-        color: #fff;
-        font-size: 60px;
-        line-height: 1;
-        transform: translateX(4px);
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-      }
-
-      .grid-right {
-        display: grid;
-        gap: 22px;
-      }
-
-      .grid-card {
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-        color: #fff;
-        min-height: 254px;
-        padding: 28px 26px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: left;
-        border-radius: 28px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-          border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-          box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-          background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .grid-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(219, 42, 25, 0.65);
-        box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.35);
-      }
-
-      .grid-card-bottom {
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-        color: #fff;
-        min-height: 254px;
-        height: 254px;
-        padding: 28px 26px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: left;
-        border-radius: 28px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-          border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-          box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-          background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .grid-card-bottom:hover {
-        transform: translateY(-4px);
-        border-color: rgba(219, 42, 25, 0.65);
-        box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.35);
-      }
-
-      .grid-card h4 {
-        margin: 0 0 10px;
-        font-size: 24px;
-        color: #fff;
-        text-align: left;
-      }
-
-      .grid-card-bottom h4 {
-        margin: 0 0 10px;
-        font-size: 24px;
-        color: #fff;
-        text-align: left;
-      }
-
-      .grid-card p {
-        margin: 0;
-        color: rgba(255, 255, 255, 0.84);
-        line-height: 1.65;
-        text-align: left;
-      }
-
-      .grid-card-bottom p {
-        margin: 0;
-        color: rgba(255, 255, 255, 0.84);
-        line-height: 1.65;
-        text-align: left;
-      }
-
-      .grid-card-bottom-header {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 14px;
-        margin-bottom: 12px;
-      }
-
-      .grid-pricing-split {
-        display: flex;
-        gap: 18px;
-        align-items: center;
-      }
-
-      .grid-pricing-main {
-        flex: 1;
-        min-width: 0;
-      }
-
-      .grid-pricing-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 14px;
-      }
-
-      .grid-pricing-badge {
-        padding: 4px 10px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.08);
-        color: #d1d5db;
-        font-size: 12px;
-        line-height: 1.2;
-      }
-
-      .grid-pricing-metrics {
-        width: 220px;
-        max-width: 100%;
-        padding-left: 8px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .grid-pricing-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 13px;
-      }
-
-      .grid-pricing-label {
-        color: #9ca3af;
-      }
-
-      .grid-pricing-value {
-        font-weight: 700;
-        color: #ffffff;
-      }
-
-      .grid-pricing-value.accent {
-        color: #db2a19;
-      }
-
-      .grid-pricing-track {
-        width: 100%;
-        height: 8px;
-        border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.08);
-        overflow: hidden;
-      }
-
-      .grid-gray-bar {
-        width: 100%;
-        height: 3px;
-        margin-top: 14px;
-        border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.14);
-        overflow: hidden;
-      }
-
-      .grid-red-bar {
-        width: 40%;
-        height: 100%;
-        border-radius: 9999px;
-        background: #db2a19;
-        box-shadow: 0 0 10px rgba(219, 42, 25, 0.35);
-      }
-
-      .grid-pricing-fill {
-        height: 100%;
-        border-radius: 9999px;
-      }
-
-      .grid-pricing-fill.cost-saving {
-        width: 80%;
-        background: linear-gradient(90deg, #8f1a11, #db2a19);
-      }
-
-      .grid-pricing-fill.quality {
-        width: 100%;
-        background: #ffffff;
-      }
-
-      .grid-family-badge {
-        text-align: right;
-        line-height: 1.05;
-      }
-
-      .grid-family-badge-value {
-        display: block;
-        color: #ffffff;
-        font-size: 36px;
-        font-weight: 700;
-      }
-
-      .grid-family-badge-label {
-        display: block;
-        /* margin-top: 2px; */
-        color: #db2a19;
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-      }
-
-      .grid-card-icon-wrap {
-        width: 52px;
-        height: 52px;
-        border-radius: 14px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 16px;
-        background: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .grid-card-icon-wrap .grid-card-icon {
-        color: #db2a19;
-        font-size: 28px;
-        line-height: 1;
-      }
-
-      .grid-card:hover .grid-card-icon-wrap {
-        background: rgba(219, 42, 25, 0.14);
-      }
-
-      .grid-card-bottom:hover .grid-card-icon-wrap {
-        background: rgba(219, 42, 25, 0.14);
-      }
-
-      @media (max-width: 991px) {
-        .grid-inner {
-          grid-template-columns: 1fr;
-        }
-
-        .grid-outer {
-          grid-template-columns: 1fr;
-        }
-
-        .grid-right {
-          grid-template-rows: auto;
-        }
-      }
-
-      @media (max-width: 575px) {
-        .grid {
-          min-height: 0;
-          padding: 20px 0 48px;
-        }
-
-        .grid-left {
-          min-height: 320px;
-        }
-
-        .grid-founder-note {
-          left: 16px;
-          right: 16px;
-          bottom: 14px;
-          max-width: none;
-          padding: 12px 14px;
-        }
-
-        .grid-founder-note-title {
-          font-size: 18px;
-        }
-
-        .grid-founder-note-text {
-          font-size: 13px;
-        }
-
-        .grid-card {
-          padding: 22px 18px;
-        }
-
-        .grid-card-bottom {
-          height: auto;
-          padding: 22px 18px;
-        }
-
-        .grid-card h4 {
-          font-size: 22px;
-        }
-
-        .grid-card-bottom h4 {
-          font-size: 22px;
-        }
-
-        .grid-pricing-split {
-          flex-direction: column;
-        }
-
-        .grid-pricing-metrics {
-          width: 100%;
-          padding-left: 0;
-          margin-top: 8px;
-        }
-      }
-    </style>
-    <style>
-      .grid-card-cut {
-        position: relative;
-      }
-
-      .grid-card-cut::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 128px;
-        height: 128px;
-        border-bottom-left-radius: 9999px;
-        background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
-        transform: translate(30%, -30%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        pointer-events: none;
-      }
-
-      .grid-card-cut:hover::before {
-        transform: translate(20%, -30%) scale(1);
-      }
-
-      .why-devlin-tamworth-grid .services-modern {
-        padding: 28px 20px;
-        height: 100%;
-        background: #031e2b;
-        border: 1px solid rgba(120, 182, 255, 0.34);
-        border-radius: 0;
-        box-shadow: 0 10px 22px rgba(5, 21, 43, 0.28);
-      }
-
-      .why-devlin-tamworth-grid .services-modern::before {
-        display: none;
-      }
-
-      .why-devlin-tamworth-grid .services-modern .box-icon-modern {
-        max-width: none;
-      }
-
-      .why-devlin-tamworth-grid .services-modern .box-icon-modern-icon {
-        color: #db2a19;
-      }
-
-      .why-devlin-tamworth-grid .box-icon-modern-title,
-      .why-devlin-tamworth-grid .box-icon-modern-title a {
-        color: #f2f7ff;
-      }
-
-      .why-devlin-tamworth-grid .box-icon-modern-text {
-        color: rgba(226, 238, 255, 0.92);
-      }
-
-      .why-devlin-tamworth-grid .services-modern:hover .box-icon-modern-title,
-      .why-devlin-tamworth-grid .services-modern:hover .box-icon-modern-title a {
-        color: #db2a19;
-      }
-
-      @media (max-width: 767.98px) {
-        .why-devlin-tamworth-grid .services-modern {
-          padding: 22px 16px;
-        }
-      }
-    </style>
     <!-- Services-->
     <section class="section section-md bg-default section-top-0 section-bottom-0 pt-4 pt-lg-0">
       <div class="container">
@@ -2441,27 +2469,6 @@
         </div>
       </div>
     </section>
-
-    <style>
-      .button-winona-flex {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .button-winona-flex .icon {
-        flex-shrink: 0;
-        margin-right: 6px;
-      }
-
-      .button-winona-flex .content-original,
-      .button-winona-flex .content-dubbed {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-      }
-    </style>
-
     <!-- Icon Classic-->
     <section class="section section-top-0 section-bottom-0 bg-default icon-classic-grid" style="margin: 20px 0;">
       <div class="container">
@@ -2527,7 +2534,8 @@
         <div class="container">
           <div class="service-journey-heading-copy">
             <h1> Free Measurement Service & Trusted Fitter Recommendations</h1>
-            <p>We make the process simple, from free home measurement to recommending experienced independent fitters for
+            <p>We make the process simple, from free home measurement to recommending experienced independent fitters
+              for
               professional installation.</p>
           </div>
         </div>
@@ -2536,60 +2544,56 @@
       <div class="service-journey">
         <div class="container">
           <div class="service-journey-track">
-
-
-          <div class="service-step">
-            <div class="media">
-              <img src="images/about-1-835x418.jpg" alt="Home carpet measurement service" width="770" height="426"
-                loading="lazy" decoding="async" draggable="false">
-            </div>
-            <div class="timeline-dot">
-              <i class="fa-solid fa-ruler-combined"></i>
-            </div>
-            <div class="card-lite">
-              <h4>Stress-free from start to finish</h4>
-              <p>We arrange a convenient visit to measure your space and help you choose flooring that fits perfectly.
-              </p>
-            </div>
-          </div>
-          <div class="service-step">
-            <div class="card-lite">
-              <h4>Expert Flooring Advice</h4>
-              <p>Our team guides you on quantities, underlay and preparation so everything is ready before installation.
-              </p>
-            </div>
-            <div class="timeline-dot">
-              <i class="fa-solid fa-store"></i>
-            </div>
-            <div class="media">
-              <img src="images/stores/TanworthStoreBanner.JPG" alt="Devlin showroom in Tamworth" width="770"
-                height="426" loading="lazy" decoding="async" draggable="false">
-            </div>
-          </div>
-
-          <div class="service-step">
-            <div class="media">
-              <img src="images/grid-gallery-6-1200x800-original.jpg" alt="Professional carpet fitting and installation"
-                width="770" height="426" loading="lazy" decoding="async" draggable="false">
-            </div>
-            <div class="timeline-dot">
-              <i class="fa-solid fa-hammer"></i>
-            </div>
-            <div class="card-lite">
-              <h4>Trusted Local Fitters</h4>
-              <p>We recommend experienced independent local fitters and help coordinate communication to ensure a smooth
-                installation process.</p>
+            <div class="service-step">
+              <div class="media">
+                <img src="images/about-1-835x418.jpg" alt="Home carpet measurement service" width="770" height="426"
+                  loading="lazy" decoding="async" draggable="false">
+              </div>
+              <div class="timeline-dot">
+                <i class="fa-solid fa-ruler-combined"></i>
+              </div>
+              <div class="card-lite">
+                <h4>Stress-free from start to finish</h4>
+                <p>We arrange a convenient visit to measure your space and help you choose flooring that fits perfectly.
+                </p>
+              </div>
             </div>
 
+            <div class="service-step">
+              <div class="card-lite">
+                <h4>Expert Flooring Advice</h4>
+                <p>Our team guides you on quantities, underlay and preparation so everything is ready before
+                  installation.
+                </p>
+              </div>
+              <div class="timeline-dot">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <div class="media">
+                <img src="images/stores/TanworthStoreBanner.JPG" alt="Devlin showroom in Tamworth" width="770"
+                  height="426" loading="lazy" decoding="async" draggable="false">
+              </div>
+            </div>
 
-          </div>
-          <!-- <a class="contact-mirror-bubble" href="contacts.html" aria-label="Contact Us">
+            <div class="service-step">
+              <div class="media">
+                <img src="images/grid-gallery-6-1200x800-original.jpg"
+                  alt="Professional carpet fitting and installation" width="770" height="426" loading="lazy"
+                  decoding="async" draggable="false">
+              </div>
+              <div class="timeline-dot">
+                <i class="fa-solid fa-hammer"></i>
+              </div>
+              <div class="card-lite">
+                <h4>Trusted Local Fitters</h4>
+                <p>We recommend experienced independent local fitters and help coordinate communication to ensure a
+                  smooth installation process.</p>
+              </div>
+            </div>
+            <!-- <a class="contact-mirror-bubble" href="contacts.html" aria-label="Contact Us">
             <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
             <span>Contact Us</span>
           </a> -->
-
-
-
           </div>
           <div class="text-center journey-cta-block">
             <article class="quote-classic">
@@ -2618,10 +2622,13 @@
     <section class="section section-md bg-default text-center">
       <div class="container">
         <div class="group-xl group-sm-justify">
-          <h1 class="wow fadeInLeft" style="width: 100%; text-align: center; margin: 0 auto; font-size: 36px; font-weight: 400; line-height: 1.08;">Why Tamworth Homeowners
+          <h1 class="wow fadeInLeft"
+            style="width: 100%; text-align: center; margin: 0 auto; font-size: 36px; font-weight: 400; line-height: 1.08;">
+            Why Tamworth Homeowners
             Choose Devlin
           </h1>
-          <p class="wow fadeInLeft" style="width: 100%; max-width: 980px; margin: 12px auto 0; text-align: center; font-size: 18px;">
+          <p class="wow fadeInLeft"
+            style="width: 100%; max-width: 980px; margin: 12px auto 0; text-align: center; font-size: 18px;">
             For years, local homeowners have trusted our Tamworth showroom for honest advice, quality flooring, and
             personal service.
           </p>
@@ -2662,7 +2669,8 @@
 
             <div class="services-creative-caption">
               <h5 class="services-creative-title text-center">
-                <a class="d-block text-center" href="products/solid-engineered-wood.html">Personal Showroom Experience</a>
+                <a class="d-block text-center" href="products/solid-engineered-wood.html">Personal Showroom
+                  Experience</a>
               </h5>
               <p class="services-creative-text">
                 Visit our Tamworth showroom to explore carpets and flooring with friendly, knowledgeable guidance.
@@ -2688,46 +2696,6 @@
         </div>
       </div>
     </section>
-
-
-    <style>
-      /* ── Consistent section spacing overrides ── */
-      .icon-classic-grid.section-sm {
-        padding: 24px 0;
-      }
-
-      .section.section-xl.bg-default {
-        padding: 64px 0;
-      }
-
-      .map-section {
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-
-      @media (max-width: 991.98px) {
-        .section.section-xl.bg-default {
-          padding: 48px 0;
-        }
-
-        .icon-classic-grid.section-sm {
-          padding: 20px 0;
-        }
-      }
-
-      @media (max-width: 575.98px) {
-        .section.section-xl.bg-default {
-          padding: 40px 0;
-        }
-
-        .icon-classic-grid.section-sm {
-          padding: 16px 0;
-        }
-      }
-    </style>
-
-
-
     <section class="map-section" style="background-color: #ffffff">
       <div style="
             width: 100%;
@@ -2736,209 +2704,6 @@
             margin-right: auto;
             padding: 0;
           ">
-        <style>
-          .map-section .map-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: min(56vw, 600px);
-            min-height: 260px;
-            max-height: 600px;
-          }
-
-          .map-section .map-container iframe {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-          }
-
-          .map-section .google-map-container::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.45);
-            pointer-events: none;
-            z-index: 1;
-          }
-
-          .map-section .location-info-card {
-            background: #ffffff;
-            border: 1px solid #dce3eb;
-            padding: 28px 40px;
-            text-align: left;
-          }
-
-          .map-section .location-address {
-            margin: 0;
-            color: #151a2d;
-            text-transform: uppercase;
-            font-family: "Roboto", sans-serif;
-            font-weight: 600;
-            line-height: 1.02;
-            letter-spacing: 0.015em;
-            font-size: clamp(30px, 4.8vw, 62px);
-          }
-
-          .map-section .location-info-footer {
-            /* margin-top: 18px; */
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            border-top: 1px solid #e4e8ee;
-            padding-top: 16px;
-          }
-
-          .map-section .location-meta-grid {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 0;
-            justify-content: flex-start;
-            align-items: stretch;
-            min-width: 0;
-          }
-
-          .map-section .location-meta-grid>div {
-            flex: 0 0 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            min-height: 52px;
-            padding: 0 18px;
-          }
-
-          .map-section .location-meta-grid>div:first-child {
-            padding-left: 0;
-          }
-
-          .map-section .location-meta-grid>div:last-child {
-            margin-left: 0;
-            padding-left: 0;
-            padding-right: 0;
-          }
-
-          .map-section .location-meta-label {
-            margin-bottom: 4px;
-            color: #7f90a8;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.2;
-          }
-
-          .map-section .location-meta-value {
-            margin: 0;
-            color: #151a2d;
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 1.15;
-            letter-spacing: 0.01em;
-            white-space: nowrap;
-          }
-
-          .map-section .location-meta-grid>div:first-child .location-meta-value,
-          .map-section .location-meta-grid>div:nth-child(4) .location-meta-value {
-            white-space: normal;
-            overflow-wrap: anywhere;
-          }
-
-          .map-section .location-timings-value {
-            white-space: normal;
-            line-height: 1.25;
-            display: grid;
-            gap: 4px;
-          }
-
-          .map-section .timing-line {
-            display: block;
-            font-size: 16px;
-            line-height: 1.3;
-            color: #1f2937;
-          }
-
-          @media (max-width: 1199.98px) {
-            .map-section .location-info-footer {
-              display: grid;
-              grid-template-columns: repeat(2, minmax(180px, 1fr));
-              column-gap: 32px;
-              row-gap: 10px;
-              align-items: start;
-            }
-
-            .map-section .location-meta-grid {
-              display: contents;
-            }
-
-            .map-section .location-meta-grid>div {
-              border-right: 0;
-              padding: 0;
-              min-height: auto;
-            }
-
-            .map-section .location-meta-value {
-              white-space: normal;
-              overflow-wrap: anywhere;
-            }
-
-            .map-section .location-info-footer .location-action-group {
-              width: 100%;
-              margin-left: 0 !important;
-              justify-content: flex-start !important;
-              grid-column: 2 / 3;
-            }
-          }
-
-          .map-section .location-action-group {
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            margin-left: auto;
-            flex: 0 0 auto;
-          }
-
-          @media (max-width: 767.98px) {
-            .map-section .map-container {
-              height: min(70vw, 420px);
-              min-height: 220px;
-            }
-
-            .map-section .location-info-card {
-              padding: 28px 20px;
-            }
-
-            .map-section .location-id {
-              font-size: 16px;
-            }
-
-            .map-section .location-info-footer {
-              grid-template-columns: 1fr;
-              row-gap: 16px;
-            }
-
-            .map-section .location-meta-value {
-              font-size: 16px;
-            }
-
-            .map-section .location-action-group .button {
-              width: auto;
-            }
-
-            .map-section .location-info-footer .location-action-group {
-              grid-column: 1 / -1;
-              margin-left: 0 !important;
-              justify-content: flex-start !important;
-            }
-          }
-
-          @media (min-width: 1200px) {
-            .map-section .map-container {
-              height: min(36vw, 600px);
-            }
-          }
-        </style>
         <section class="container">
           <div class="service-journey-heading-copy">
             <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale</span>
@@ -2948,73 +2713,75 @@
           </div>
         </section>
         <div class="row mx-0">
-            <div class="col-12 px-0 mb-0">
+          <div class="col-12 px-0 mb-0">
             <div class="map-container google-map-container">
               <iframe
                 src="https://maps.google.com/maps?q=Devlin+Wholesale+Tamworth,+Unit+O,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 frameborder="0" allowfullscreen></iframe>
             </div>
           </div>
-          </div>
+        </div>
         <section class="">
           <div style="margin-top: 30px; margin-bottom: 30px;">
             <p class="text-center" style="margin: 0 0 20px; font-size: 18px;">And</p>
             <p class="text-center" style="margin: 0; font-size: 18px;">
-              Independent ratings on <a href="https://devlin-wholesale-carpets-and-flooring-tamworth.wheree.com" target="_blank" rel="noopener noreferrer">Wheree</a>
+              Independent ratings on <a href="https://devlin-wholesale-carpets-and-flooring-tamworth.wheree.com"
+                target="_blank" rel="noopener noreferrer">Wheree</a>
               also highlight the strong service and value customers experience at our Tamworth showroom.
             </p>
           </div>
         </section>
-              <section class="section parallax-container" data-parallax-img="images/parallax-4.jpg">
-        <div class="parallax-content section-md context-dark">
-          <div class="container">
-            <!-- <h3 class="font-weight-bold text-spacing-200">#2</h3> -->
-            <div class="row row-lg row-30">
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                <article class="box-icon-creative">
-                  <div class="box-icon-creative-body">
-                    <div class="box-icon-creative-icon linearicons-trophy2"></div>
-                    <p class="box-icon-creative-title"><a href="#">9.2/10 <br/>Customer Service</a></p>
-                  </div>
-                </article>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                <article class="box-icon-creative">
-                  <div class="box-icon-creative-body">
-                    <div class="box-icon-creative-icon linearicons-flag"></div>
-                    <p class="box-icon-creative-title"><a href="#">8.7/10 <br/>Price</a></p>
-                  </div>
-                </article>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                <article class="box-icon-creative">
-                  <div class="box-icon-creative-body">
-                    <div class="box-icon-creative-icon linearicons-gradient2"></div>
-                    <p class="box-icon-creative-title"><a href="#">9/10 <br/>Quality</a></p>
-                  </div>
-                </article>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                <article class="box-icon-creative">
-                  <div class="box-icon-creative-body">
-                    <div class="box-icon-creative-icon linearicons-medal-empty icon-big"></div>
-                    <p class="box-icon-creative-title"><a href="#">8.5/10 <br/>Product Variety</a></p>
-                  </div>
-                </article>
+        <section class="section parallax-container" data-parallax-img="images/parallax-4.jpg">
+          <div class="parallax-content section-md context-dark">
+            <div class="container">
+              <!-- <h3 class="font-weight-bold text-spacing-200">#2</h3> -->
+              <div class="row row-lg row-30">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <article class="box-icon-creative">
+                    <div class="box-icon-creative-body">
+                      <div class="box-icon-creative-icon linearicons-trophy2"></div>
+                      <p class="box-icon-creative-title"><a href="#">9.2/10 <br />Customer Service</a></p>
+                    </div>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <article class="box-icon-creative">
+                    <div class="box-icon-creative-body">
+                      <div class="box-icon-creative-icon linearicons-flag"></div>
+                      <p class="box-icon-creative-title"><a href="#">8.7/10 <br />Price</a></p>
+                    </div>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <article class="box-icon-creative">
+                    <div class="box-icon-creative-body">
+                      <div class="box-icon-creative-icon linearicons-gradient2"></div>
+                      <p class="box-icon-creative-title"><a href="#">9/10 <br />Quality</a></p>
+                    </div>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <article class="box-icon-creative">
+                    <div class="box-icon-creative-body">
+                      <div class="box-icon-creative-icon linearicons-medal-empty icon-big"></div>
+                      <p class="box-icon-creative-title"><a href="#">8.5/10 <br />Product Variety</a></p>
+                    </div>
+                  </article>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
         <div class="row mx-0">
-      
+
           <div class="col-12">
             <article class="location-info-card">
               <div class="location-info-footer">
                 <div class="location-meta-grid">
                   <div>
                     <p class="location-meta-label">Address</p>
-                    <p class="location-meta-value">Unit O, N Riverside Industrial Estate,<br>Atherstone St, Fazeley,<br>Tamworth B78 3RW</p>
+                    <p class="location-meta-value">Unit O, N Riverside Industrial Estate,<br>Atherstone St,
+                      Fazeley,<br>Tamworth B78 3RW</p>
                   </div>
                   <div>
                     <p class="location-meta-label">Parking</p>
@@ -3585,49 +3352,6 @@
 
     </section>
     <!-- what clients says -->
-    <style>
-      .review-badge-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: inherit;
-        text-decoration: underline;
-      }
-
-      .review-badge-link:hover {
-        color: #db2a19;
-      }
-
-      .review-google-icon {
-        width: 16px;
-        height: 16px;
-        flex-shrink: 0;
-      }
-
-      .swiper-slide-caption .inset-left-xl-70>h4 {
-        font-size: 14px;
-        line-height: 1.2;
-      }
-
-      .swiper-slide-caption .quote-classic-text .q {
-        font-size: 17px;
-        line-height: 1.5;
-      }
-
-      .swiper-slide-caption .quote-classic-text .q b {
-        font-size: 20px;
-        font-weight: 700;
-      }
-
-      .review-stars-inline {
-        display: inline-block;
-        margin-bottom: 8px;
-        color: #d4af37;
-        letter-spacing: 2px;
-        font-size: 22px;
-        line-height: 1;
-      }
-    </style>
     <section class="section section-md section-top-0 bg-default">
       <div class="container">
         <div class="service-journey-heading-copy heading-bottom-30">
@@ -3636,255 +3360,260 @@
             reviews online anytime.</p>
         </div>
       </div>
-    <section class="swiper-container swiper-slider swiper-slider-8" data-loop="true" data-autoplay="5000"
-      data-simulate-touch="false" data-slide-effect="fade">
-      <div class="swiper-wrapper text-left">
-        <div class="swiper-slide context-dark">
-          <div class="swiper-slide-caption section-lg">
-            <div class="container">
-              <div class="row justify-content-center justify-content-md-between">
-                <div class="col-5 d-none d-md-block position-static">
-                  <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
-                      height="574" />
+      <section class="swiper-container swiper-slider swiper-slider-8" data-loop="true" data-autoplay="5000"
+        data-simulate-touch="false" data-slide-effect="fade">
+        <div class="swiper-wrapper text-left">
+          <div class="swiper-slide context-dark">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                  <div class="col-5 d-none d-md-block position-static">
+                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
+                        height="574" />
+                    </div>
+                  </div>
+                  <div class="col-sm-11 col-md-7 col-xl-6">
+                    <div class="inset-left-xl-70">
+                      <h4>What clients say</h4>
+                      <!-- Quote Classic-->
+                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
+                        data-caption-delay="0">
+                        <div class="quote-classic-text">
+                          <p class="q"><b>Exceptional Service: </b><br />Our customers often describe our team as
+                            helpful,
+                            friendly, professional, and willing to go above and beyond.</p>
+                        </div>
+                        <p class="quote-classic-author">
+                          <a class="review-badge-link"
+                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
+                              <path fill="#FFC107"
+                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                              <path fill="#FF3D00"
+                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                              </path>
+                              <path fill="#4CAF50"
+                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                              </path>
+                              <path fill="#1976D2"
+                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                            </svg>
+                            <span>From Google Reviews</span></a>
+                        </p>
+                      </article>
+                    </div>
                   </div>
                 </div>
-                <div class="col-sm-11 col-md-7 col-xl-6">
-                  <div class="inset-left-xl-70">
-                    <h4>What clients say</h4>
-                    <!-- Quote Classic-->
-                    <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
-                      data-caption-delay="0">
-                      <div class="quote-classic-text">
-                        <p class="q"><b>Exceptional Service: </b><br />Our customers often describe our team as helpful,
-                          friendly, professional, and willing to go above and beyond.</p>
-                      </div>
-                      <p class="quote-classic-author">
-                        <a class="review-badge-link"
-                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
-                          target="_blank" rel="noopener noreferrer">
-                          <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
-                            height="100" viewBox="0 0 48 48" aria-hidden="true">
-                            <path fill="#FFC107"
-                              d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                            <path fill="#FF3D00"
-                              d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                            </path>
-                            <path fill="#4CAF50"
-                              d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                            </path>
-                            <path fill="#1976D2"
-                              d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                          </svg>
-                          <span>From Google Reviews</span></a>
-                      </p>
-                    </article>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide context-dark">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                  <div class="col-5 d-none d-md-block position-static">
+                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
+                        height="574" />
+                    </div>
+                  </div>
+                  <div class="col-sm-11 col-md-7 col-xl-6">
+                    <div class="inset-left-xl-70">
+                      <h4>What clients say</h4>
+                      <!-- Quote Classic-->
+                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
+                        data-caption-delay="0">
+                        <div class="quote-classic-text">
+                          <p class="q"><b>Quality & Expertise: </b><br />Customers frequently praise the quality of our
+                            flooring installations and the team’s extensive knowledge of carpets and flooring.</p>
+                        </div>
+                        <p class="quote-classic-author">
+                          <a class="review-badge-link"
+                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
+                              <path fill="#FFC107"
+                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                              <path fill="#FF3D00"
+                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                              </path>
+                              <path fill="#4CAF50"
+                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                              </path>
+                              <path fill="#1976D2"
+                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                            </svg>
+                            <span>From Google Reviews</span></a>
+                        </p>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide context-dark">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                  <div class="col-5 d-none d-md-block position-static">
+                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
+                        height="574" />
+                    </div>
+                  </div>
+                  <div class="col-sm-11 col-md-7 col-xl-6">
+                    <div class="inset-left-xl-70">
+                      <h4>What clients say</h4>
+                      <!-- Quote Classic-->
+                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
+                        data-caption-delay="0">
+                        <div class="quote-classic-text">
+                          <p class="q"><b>Choice & Value:</b><br />Many customers are impressed by our 10,000 sq ft
+                            showroom,
+                            wide flooring selection, and competitive pricing.</p>
+                        </div>
+                        <p class="quote-classic-author">
+                          <a class="review-badge-link"
+                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
+                              <path fill="#FFC107"
+                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                              <path fill="#FF3D00"
+                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                              </path>
+                              <path fill="#4CAF50"
+                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                              </path>
+                              <path fill="#1976D2"
+                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                            </svg>
+                            <span>From Google Reviews</span></a>
+                        </p>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide context-dark">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                  <div class="col-5 d-none d-md-block position-static">
+                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
+                        height="574" />
+                    </div>
+                  </div>
+                  <div class="col-sm-11 col-md-7 col-xl-6">
+                    <div class="inset-left-xl-70">
+                      <h4>What clients say</h4>
+                      <!-- Quote Classic-->
+                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
+                        data-caption-delay="0">
+                        <div class="quote-classic-text">
+                          <p class="q"><b>Reliability: </b><br />Many customers return and recommend our business to
+                            friends and
+                            family, frequently giving perfect 10/10 ratings.</p>
+                        </div>
+                        <p class="quote-classic-author">
+                          <a class="review-badge-link"
+                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
+                              <path fill="#FFC107"
+                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                              <path fill="#FF3D00"
+                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                              </path>
+                              <path fill="#4CAF50"
+                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                              </path>
+                              <path fill="#1976D2"
+                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                            </svg>
+                            <span>From Google Reviews</span></a>
+                        </p>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide context-dark">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                  <div class="col-5 d-none d-md-block position-static">
+                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
+                        height="574" />
+                    </div>
+                  </div>
+                  <div class="col-sm-11 col-md-7 col-xl-6">
+                    <div class="inset-left-xl-70">
+                      <h4>What clients say</h4>
+                      <!-- Quote Classic-->
+                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
+                        data-caption-delay="0">
+                        <div class="quote-classic-text">
+                          <p class="q"><b>Reliability: </b><br />Many customers return and recommend our business to
+                            friends and family, frequently giving perfect 10/10 ratings.</p>
+                        </div>
+                        <p class="quote-classic-author">
+                          <a class="review-badge-link"
+                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
+                              <path fill="#FFC107"
+                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                              <path fill="#FF3D00"
+                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                              </path>
+                              <path fill="#4CAF50"
+                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                              </path>
+                              <path fill="#1976D2"
+                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                            </svg>
+                            <span>From Google Reviews</span></a>
+                        </p>
+                      </article>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="swiper-slide context-dark">
-          <div class="swiper-slide-caption section-lg">
-            <div class="container">
-              <div class="row justify-content-center justify-content-md-between">
-                <div class="col-5 d-none d-md-block position-static">
-                  <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
-                      height="574" />
-                  </div>
-                </div>
-                <div class="col-sm-11 col-md-7 col-xl-6">
-                  <div class="inset-left-xl-70">
-                    <h4>What clients say</h4>
-                    <!-- Quote Classic-->
-                    <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
-                      data-caption-delay="0">
-                      <div class="quote-classic-text">
-                        <p class="q"><b>Quality & Expertise: </b><br />Customers frequently praise the quality of our
-                          flooring installations and the team’s extensive knowledge of carpets and flooring.</p>
-                      </div>
-                      <p class="quote-classic-author">
-                        <a class="review-badge-link"
-                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
-                          target="_blank" rel="noopener noreferrer">
-                          <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
-                            height="100" viewBox="0 0 48 48" aria-hidden="true">
-                            <path fill="#FFC107"
-                              d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                            <path fill="#FF3D00"
-                              d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                            </path>
-                            <path fill="#4CAF50"
-                              d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                            </path>
-                            <path fill="#1976D2"
-                              d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                          </svg>
-                          <span>From Google Reviews</span></a>
-                      </p>
-                    </article>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <!-- Swiper Navigation-->
+        <div class="swiper-navigation__module">
+          <div class="swiper-pagination__fraction"><span class="swiper-pagination__fraction-index"></span><span
+              class="swiper-pagination__fraction-divider">/</span><span
+              class="swiper-pagination__fraction-count"></span>
           </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
-        <div class="swiper-slide context-dark">
-          <div class="swiper-slide-caption section-lg">
-            <div class="container">
-              <div class="row justify-content-center justify-content-md-between">
-                <div class="col-5 d-none d-md-block position-static">
-                  <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
-                      height="574" />
-                  </div>
-                </div>
-                <div class="col-sm-11 col-md-7 col-xl-6">
-                  <div class="inset-left-xl-70">
-                    <h4>What clients say</h4>
-                    <!-- Quote Classic-->
-                    <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
-                      data-caption-delay="0">
-                      <div class="quote-classic-text">
-                        <p class="q"><b>Choice & Value:</b><br />Many customers are impressed by our 10,000 sq ft showroom,
-                          wide flooring selection, and competitive pricing.</p>
-                      </div>
-                      <p class="quote-classic-author">
-                        <a class="review-badge-link"
-                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
-                          target="_blank" rel="noopener noreferrer">
-                          <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
-                            height="100" viewBox="0 0 48 48" aria-hidden="true">
-                            <path fill="#FFC107"
-                              d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                            <path fill="#FF3D00"
-                              d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                            </path>
-                            <path fill="#4CAF50"
-                              d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                            </path>
-                            <path fill="#1976D2"
-                              d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                          </svg>
-                          <span>From Google Reviews</span></a>
-                      </p>
-                    </article>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide context-dark">
-          <div class="swiper-slide-caption section-lg">
-            <div class="container">
-              <div class="row justify-content-center justify-content-md-between">
-                <div class="col-5 d-none d-md-block position-static">
-                  <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
-                      height="574" />
-                  </div>
-                </div>
-                <div class="col-sm-11 col-md-7 col-xl-6">
-                  <div class="inset-left-xl-70">
-                    <h4>What clients say</h4>
-                    <!-- Quote Classic-->
-                    <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
-                      data-caption-delay="0">
-                      <div class="quote-classic-text">
-                        <p class="q"><b>Reliability: </b><br />Many customers return and recommend our business to friends and
-                          family, frequently giving perfect 10/10 ratings.</p>
-                      </div>
-                      <p class="quote-classic-author">
-                        <a class="review-badge-link"
-                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
-                          target="_blank" rel="noopener noreferrer">
-                          <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
-                            height="100" viewBox="0 0 48 48" aria-hidden="true">
-                            <path fill="#FFC107"
-                              d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                            <path fill="#FF3D00"
-                              d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                            </path>
-                            <path fill="#4CAF50"
-                              d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                            </path>
-                            <path fill="#1976D2"
-                              d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                          </svg>
-                          <span>From Google Reviews</span></a>
-                      </p>
-                    </article>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide context-dark">
-          <div class="swiper-slide-caption section-lg">
-            <div class="container">
-              <div class="row justify-content-center justify-content-md-between">
-                <div class="col-5 d-none d-md-block position-static">
-                  <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
-                      height="574" />
-                  </div>
-                </div>
-                <div class="col-sm-11 col-md-7 col-xl-6">
-                  <div class="inset-left-xl-70">
-                    <h4>What clients say</h4>
-                    <!-- Quote Classic-->
-                    <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
-                      data-caption-delay="0">
-                      <div class="quote-classic-text">
-                        <p class="q"><b>Reliability: </b><br />Many customers return and recommend our business to friends and family, frequently giving perfect 10/10 ratings.</p>
-                      </div>
-                      <p class="quote-classic-author">
-                        <a class="review-badge-link"
-                          href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
-                          target="_blank" rel="noopener noreferrer">
-                          <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
-                            height="100" viewBox="0 0 48 48" aria-hidden="true">
-                            <path fill="#FFC107"
-                              d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                            <path fill="#FF3D00"
-                              d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                            </path>
-                            <path fill="#4CAF50"
-                              d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                            </path>
-                            <path fill="#1976D2"
-                              d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                            </path>
-                          </svg>
-                          <span>From Google Reviews</span></a>
-                      </p>
-                    </article>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Swiper Navigation-->
-      <div class="swiper-navigation__module">
-        <div class="swiper-pagination__fraction"><span class="swiper-pagination__fraction-index"></span><span
-            class="swiper-pagination__fraction-divider">/</span><span class="swiper-pagination__fraction-count"></span>
-        </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-      <!-- Swiper Pagination-->
-      <div class="swiper-pagination" data-bullet-custom="true"></div>
-    </section>
+        <!-- Swiper Pagination-->
+        <div class="swiper-pagination" data-bullet-custom="true"></div>
+      </section>
     </section>
     <!-- Our FAQ's-->
     <section class="section section-md bg-default text-md-left">
@@ -4061,7 +3790,8 @@
               </div>
             </div>
 
-            <p class="font-italic" style="margin-top: 20px;">Many customers simply drop in for advice before making a decision —
+            <p class="font-italic" style="margin-top: 20px;">Many customers simply drop in for advice before making a
+              decision —
               you're always welcome.</p>
           </div>
         </div>
@@ -4331,42 +4061,6 @@
           }, 2000);
         }
       }, 500);
-    });
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const whyDevlinSection = document.querySelector('.why-devlin-cards');
-      if (!whyDevlinSection) return;
-
-      const cards = whyDevlinSection.querySelectorAll('.why-devlin-card.ping');
-      if (!cards.length) return;
-
-      function activatePing() {
-        cards.forEach(function (card) {
-          card.classList.remove('ping-active');
-          void card.offsetWidth;
-          card.classList.add('ping-active');
-        });
-      }
-
-      const rect = whyDevlinSection.getBoundingClientRect();
-      const vh = window.innerHeight || document.documentElement.clientHeight;
-      if (rect.top < vh * 0.92 && rect.bottom > vh * 0.08) {
-        activatePing();
-      }
-
-      const observer = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
-              activatePing();
-            }
-          });
-        },
-        { threshold: [0.1], rootMargin: '0px 0px -6% 0px' }
-      );
-
-      observer.observe(whyDevlinSection);
     });
   </script>
   <script>
