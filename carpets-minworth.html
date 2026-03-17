@@ -1811,68 +1811,71 @@
     }
   </style>
 
-  <!-- Page Styles: Tamworth trust cards -->
+  <!-- Page Styles: Minworth cut cards -->
   <style>
-    .grid-card-cut {
-      position: relative;
+    .minworth-cut-grid {
+      margin-top: 8px;
     }
 
-    .grid-card-cut::before {
+    .minworth-cut-grid>div {
+      display: flex;
+    }
+
+    .minworth-cut-card {
+      position: relative;
+      width: 100%;
+      padding: 24px 20px;
+      background: transparent;
+      border: 1px solid #e8e1df;
+      box-shadow: 0 10px 22px rgba(16, 24, 40, 0.08);
+      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .minworth-cut-card::before {
       content: "";
       position: absolute;
       top: 0;
       right: 0;
-      width: 128px;
-      height: 128px;
-      border-bottom-left-radius: 9999px;
-      background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
-      transform: translate(30%, -30%);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      pointer-events: none;
+      width: 26px;
+      height: 26px;
+      background: #db2a19;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
     }
 
-    .grid-card-cut:hover::before {
-      transform: translate(20%, -30%) scale(1);
-    }
-
-    .why-devlin-tamworth-grid .services-modern {
-      padding: 28px 20px;
-      height: 100%;
-      background: #031e2b;
-      border: 1px solid rgba(120, 182, 255, 0.34);
-      border-radius: 0;
-      box-shadow: 0 10px 22px rgba(5, 21, 43, 0.28);
-    }
-
-    .why-devlin-tamworth-grid .services-modern::before {
-      display: none;
-    }
-
-    .why-devlin-tamworth-grid .services-modern .box-icon-modern {
+    .minworth-cut-card .box-icon-modern {
       max-width: none;
+      text-align: left;
     }
 
-    .why-devlin-tamworth-grid .services-modern .box-icon-modern-icon {
+    .minworth-cut-card .box-icon-modern-icon {
       color: #db2a19;
+      margin-bottom: 12px;
     }
 
-    .why-devlin-tamworth-grid .box-icon-modern-title,
-    .why-devlin-tamworth-grid .box-icon-modern-title a {
-      color: #f2f7ff;
+    .minworth-cut-card .box-icon-modern-title,
+    .minworth-cut-card .box-icon-modern-title a {
+      color: #231815;
     }
 
-    .why-devlin-tamworth-grid .box-icon-modern-text {
-      color: rgba(226, 238, 255, 0.92);
+    .minworth-cut-card .box-icon-modern-text {
+      color: #5f626c;
     }
 
-    .why-devlin-tamworth-grid .services-modern:hover .box-icon-modern-title,
-    .why-devlin-tamworth-grid .services-modern:hover .box-icon-modern-title a {
+    .minworth-cut-card:hover {
+      transform: translateY(-4px);
+      border-color: #d7dade;
+      box-shadow: 0 16px 28px rgba(16, 24, 40, 0.12);
+    }
+
+    .minworth-cut-card:hover .box-icon-modern-title,
+    .minworth-cut-card:hover .box-icon-modern-title a {
       color: #db2a19;
     }
 
     @media (max-width: 767.98px) {
-      .why-devlin-tamworth-grid .services-modern {
-        padding: 22px 16px;
+      .minworth-cut-card {
+        padding: 20px 16px;
       }
     }
   </style>
@@ -2377,13 +2380,13 @@
             <div class="swiper-slide-caption section-md">
               <div class="swiper-box">
                 <h6 class="oh swiper-subtitle">
-                  <span class="d-inline-block" data-caption-animate="slideInLeft" data-caption-delay="500">Premium
-                    Flooring Choices for Every Room.</span>
+                  <span class="d-inline-block" data-caption-animate="slideInLeft" data-caption-delay="500">Birmingham’s
+                    destination for wholesale flooring.</span>
                 </h6>
                 <h3 class="swiper-title">
-                  <span class="d-block" data-caption-animate="fadeInRight" data-caption-delay="200">Trusted by
-                    Minworth</span><span class="d-block" data-caption-animate="fadeInRight"
-                    data-caption-delay="300">Homeowners</span>
+                  <span class="d-block" data-caption-animate="fadeInRight" data-caption-delay="200">Minworth
+                    Flooring</span><span class="d-block" data-caption-animate="fadeInRight"
+                    data-caption-delay="300">Specialists</span>
                 </h3>
                 <a class="button button-xl button-icon button-icon-right button-blue-8"
                   data-caption-animate="slideInLeft" data-caption-delay="200"
@@ -2417,7 +2420,8 @@
         <div class="swiper-navigation__module">
           <div class="swiper-pagination__fraction">
             <span class="swiper-pagination__fraction-index"></span><span
-              class="swiper-pagination__fraction-divider">/</span><span class="swiper-pagination__fraction-count"></span>
+              class="swiper-pagination__fraction-divider">/</span><span
+              class="swiper-pagination__fraction-count"></span>
           </div>
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
@@ -2437,63 +2441,60 @@
     <!-- Services-->
     <section class="section section-md bg-default section-top-0 section-bottom-0 pt-4 pt-lg-0">
       <div class="container">
-        <h4 class="wow fadeInLeft" style="text-align: center;">Tamworth’s Trusted Flooring Specialists</h4>
+        <h4 class="wow fadeInLeft" style="text-align: center;">Big Range. Wholesale Prices.</h4>
         <p class="wow fadeInLeft" style="max-width: 980px; margin: 12px auto 0; text-align: center;">
-          Serving Tamworth homes for two decades with honest advice, competitive pricing, and flooring you trust.
+          Our Minworth warehouse offers a huge in-store selection of carpets, flooring and furniture at
+          genuine wholesale prices.
         </p>
-        <div class="row no-md-gutters justify-content-center why-devlin-tamworth-grid">
+        <div class="row no-md-gutters justify-content-center minworth-cut-grid">
           <div class="col-sm-6 col-lg-6">
-            <div class="services-modern">
+            <div class="minworth-cut-card">
               <article class="box-icon-modern">
                 <div class="box-icon-modern-icon linearicons-shield-check"></div>
                 <h5 class="box-icon-modern-title">
-                  <a>Established & Trusted</a>
+                  <a>Massive In-Store Range</a>
                 </h5>
                 <p class="box-icon-modern-text">
-                  Serving Tamworth for over 15 years, our showroom is known for honest advice, quality flooring, and
-                  competitive pricing.
+                  Hundreds of carpets, vinyl, laminate and flooring options available to view and compare in person.
                 </p>
               </article>
             </div>
           </div>
           <div class="col-sm-6 col-lg-6">
-            <div class="services-modern">
+            <div class="minworth-cut-card">
               <article class="box-icon-modern">
                 <div class="box-icon-modern-icon linearicons-bubbles"></div>
                 <h5 class="box-icon-modern-title">
-                  <a>Personal Service</a>
+                  <a>Wholesale Prices</a>
                 </h5>
                 <p class="box-icon-modern-text">
-                  Many customers speak directly with John, reflecting the trusted relationships and straightforward
-                  service our Tamworth showroom is known for.
+                  Direct-to-public pricing that keeps flooring affordable without compromising quality.
                 </p>
               </article>
             </div>
           </div>
           <div class="col-sm-6 col-lg-6">
-            <div class="services-modern">
+            <div class="minworth-cut-card">
               <article class="box-icon-modern">
                 <div class="box-icon-modern-icon linearicons-heart"></div>
                 <h5 class="box-icon-modern-title">
-                  <a>Devlin Family Legacy</a>
+                  <a>Family-Run Business</a>
                 </h5>
                 <p class="box-icon-modern-text">
-                  Part of the Devlin family business, built on over four decades of quality flooring, integrity, and
-                  customer care.
+                  Part of the Devlin family flooring business that has been serving customers since 1990.
                 </p>
               </article>
             </div>
           </div>
           <div class="col-sm-6 col-lg-6">
-            <div class="services-modern">
+            <div class="minworth-cut-card">
               <article class="box-icon-modern">
                 <div class="box-icon-modern-icon linearicons-grid"></div>
                 <h5 class="box-icon-modern-title">
-                  <a>Growing for You</a>
+                  <a>Convenient Birmingham Location</a>
                 </h5>
                 <p class="box-icon-modern-text">
-                  As demand grows, we’re expanding our team to maintain the personal service and attention customers
-                  expect.
+                  Easy to reach from Birmingham and surrounding areas with a large showroom to explore.
 
                 </p>
               </article>
@@ -2575,9 +2576,9 @@
       <div class="service-journey-heading" style="padding: 80px 0 30px;">
         <div class="container">
           <div class="service-journey-heading-copy">
-            <h1> Free Measurement Service & Trusted Fitter Recommendations</h1>
-            <p>We simplify the process, from free home measurements to arranging experienced independent fitters for
-              installation.</p>
+            <h1> Organised. Spacious. Easy to Browse.</h1>
+            <p>Browse carpets and flooring displayed clearly to help you compare styles, colours and textures
+              with ease.</p>
           </div>
         </div>
       </div>
@@ -2594,17 +2595,17 @@
                 <i class="fa-solid fa-ruler-combined"></i>
               </div>
               <div class="card-lite">
-                <h4>Stress-free from start to finish</h4>
-                <p>We arrange a convenient visit to measure your space and help you choose flooring that fits perfectly.
+                <h4>Well-Organised Displays</h4>
+                <p>Carpets, vinyl and flooring arranged clearly so customers can browse comfortably and compare
+                  options.
                 </p>
               </div>
             </div>
 
             <div class="service-step">
               <div class="card-lite">
-                <h4>Expert Flooring Advice</h4>
-                <p>Our team guides you on quantities, underlay and preparation so everything is ready before
-                  installation.
+                <h4>Huge Variety to Explore</h4>
+                <p>A large selection of flooring styles available to view in person before making a decision.
                 </p>
               </div>
               <div class="timeline-dot">
@@ -2625,9 +2626,8 @@
                 <i class="fa-solid fa-hammer"></i>
               </div>
               <div class="card-lite">
-                <h4>Trusted Local Fitters</h4>
-                <p>We recommend experienced independent local fitters and help coordinate communication to ensure a
-                  smooth installation process.</p>
+                <h4>Friendly Expert Guidance</h4>
+                <p>Our team is always available to answer questions and help you choose the right flooring..</p>
               </div>
             </div>
             <!-- <a class="contact-mirror-bubble" href="contacts.html" aria-label="Contact Us">
@@ -2647,7 +2647,7 @@
             <a class="button button-sm button-blue-8 button-winona button-winona-flex" href="tel:01827265526"
               aria-label="Call Devlin Tamworth now">
               <span class="content-original">
-                <span class="icon mdi mdi-phone"></span>Call Our Tamworth Showroom
+                <span class="icon mdi mdi-phone"></span>Call Our Minworth Showroom
               </span>
               <span class="content-dubbed">
                 <span class="icon mdi mdi-phone"></span>01827 265526
@@ -2657,83 +2657,316 @@
         </div>
       </div>
     </section>
-
-    <!-- why choose devlin -->
-    <section class="section section-md bg-default text-center">
+    <!-- what clients says -->
+    <section class="section section-md bg-default">
       <div class="container">
-        <div class="group-xl group-sm-justify">
-          <h1 class="wow fadeInLeft"
-            style="width: 100%; text-align: center; margin: 0 auto; font-size: 36px; font-weight: 400; line-height: 1.08;">
-            Why Tamworth Chooses Devlin
-          </h1>
-          <p class="wow fadeInLeft"
-            style="width: 100%; max-width: 980px; margin: 12px auto 0; text-align: center; font-size: 18px;">
-            For years, Tamworth has trusted our showroom for honest advice, quality flooring, and personal service.
-          </p>
-          <div class="dots-custom"></div>
+        <div class="service-journey-heading-copy heading-bottom-30">
+          <h1>A Reputation Built by Customers</h1>
+          <p>Our Minworth store is highly rated by customers for its range, value and friendly service.</p>
         </div>
-
-        <div class="owl-carousel owl-style-3" data-items="1" data-sm-items="2" data-lg-items="3" data-margin="30"
-          data-autoplay="true" data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut"
-          data-pagination-class=".dots-custom">
-          <!-- Services Creative-->
-          <article class="services-creative">
-
-            <div class="services-creative-caption">
-              <h5 class="services-creative-title text-center">
-                <a class="d-block text-center" href="products/carpets.html">Honest Flooring Advice</a>
-              </h5>
-              <p class="services-creative-text">
-                We help customers choose flooring that suits their home, lifestyle, and budget without pressure.
-              </p>
-              <span class="services-creative-counter box-ordered-item">01</span>
+      </div>
+      <section class="swiper-container swiper-slider swiper-slider-8" data-loop="true" data-autoplay="5000"
+        data-simulate-touch="false" data-slide-effect="fade">
+        <div class="swiper-wrapper text-left">
+          <div class="swiper-slide context-dark">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                  <div class="col-5 d-none d-md-block position-static">
+                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
+                        height="574" />
+                    </div>
+                  </div>
+                  <div class="col-sm-11 col-md-7 col-xl-6">
+                    <div class="inset-left-xl-70">
+                      <h4>What clients say</h4>
+                      <!-- Quote Classic-->
+                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
+                        data-caption-delay="0">
+                        <div class="quote-classic-text">
+                          <p class="q"><b>Knowledgeable Staff: </b><br />Customers often mention knowledgeable staff who
+                            provide expert advice and go above and beyond
+                            to help.</p>
+                        </div>
+                        <p class="quote-classic-author">
+                          <a class="review-badge-link"
+                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
+                              <path fill="#FFC107"
+                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                              <path fill="#FF3D00"
+                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                              </path>
+                              <path fill="#4CAF50"
+                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                              </path>
+                              <path fill="#1976D2"
+                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                            </svg>
+                            <span>From Google Reviews</span></a>
+                        </p>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </article>
-          <!-- Services Creative-->
-          <article class="services-creative">
-
-            <div class="services-creative-caption">
-              <h5 class="services-creative-title text-center">
-                <a class="d-block text-center" href="products/lvt.html">Local Reputation Built Over Years</a>
-              </h5>
-              <p class="services-creative-text">
-                Many customers return to us or recommend Devlin to friends and family across Tamworth.
-              </p>
-              <span class="services-creative-counter box-ordered-item">02</span>
+          </div>
+          <div class="swiper-slide context-dark">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                  <div class="col-5 d-none d-md-block position-static">
+                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
+                        height="574" />
+                    </div>
+                  </div>
+                  <div class="col-sm-11 col-md-7 col-xl-6">
+                    <div class="inset-left-xl-70">
+                      <h4>What clients say</h4>
+                      <!-- Quote Classic-->
+                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
+                        data-caption-delay="0">
+                        <div class="quote-classic-text">
+                          <p class="q"><b>Value for Money: </b><br />Many reviewers highlight brilliant flooring quality
+                            at unbeatable wholesale prices and excellent
+                            value.</p>
+                        </div>
+                        <p class="quote-classic-author">
+                          <a class="review-badge-link"
+                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
+                              <path fill="#FFC107"
+                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                              <path fill="#FF3D00"
+                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                              </path>
+                              <path fill="#4CAF50"
+                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                              </path>
+                              <path fill="#1976D2"
+                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                            </svg>
+                            <span>From Google Reviews</span></a>
+                        </p>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </article>
-          <!-- Services Creative-->
-          <article class="services-creative">
-
-            <div class="services-creative-caption">
-              <h5 class="services-creative-title text-center">
-                <a class="d-block text-center" href="products/solid-engineered-wood.html">Personal Showroom
-                  Experience</a>
-              </h5>
-              <p class="services-creative-text">
-                Visit our Tamworth showroom to explore carpets and flooring with friendly, knowledgeable guidance.
-              </p>
-              <span class="services-creative-counter box-ordered-item">03</span>
+          </div>
+          <div class="swiper-slide context-dark">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                  <div class="col-5 d-none d-md-block position-static">
+                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
+                        height="574" />
+                    </div>
+                  </div>
+                  <div class="col-sm-11 col-md-7 col-xl-6">
+                    <div class="inset-left-xl-70">
+                      <h4>What clients say</h4>
+                      <!-- Quote Classic-->
+                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
+                        data-caption-delay="0">
+                        <div class="quote-classic-text">
+                          <p class="q"><b>Installation Quality:</b><br />Customers frequently praise experienced fitters
+                            for professional work, politeness and leaving spaces
+                            clean and tidy.</p>
+                        </div>
+                        <p class="quote-classic-author">
+                          <a class="review-badge-link"
+                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
+                              <path fill="#FFC107"
+                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                              <path fill="#FF3D00"
+                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                              </path>
+                              <path fill="#4CAF50"
+                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                              </path>
+                              <path fill="#1976D2"
+                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                            </svg>
+                            <span>From Google Reviews</span></a>
+                        </p>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </article>
-          <!-- Services Creative-->
-          <!-- <article class="services-creative">
-
-            <div class="services-creative-caption">
-              <h5 class="services-creative-title text-center">
-                <a class="d-block text-center" href="products/artificial-grass.html">Local Installation Partners</a>
-              </h5>
-              <p class="services-creative-text">
-                We recommend experienced independent fitters many customers choose for professional flooring
-                installation.
-              </p>
-              <span class="services-creative-counter box-ordered-item">04</span>
+          </div>
+          <div class="swiper-slide context-dark">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                  <div class="col-5 d-none d-md-block position-static">
+                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
+                        height="574" />
+                    </div>
+                  </div>
+                  <div class="col-sm-11 col-md-7 col-xl-6">
+                    <div class="inset-left-xl-70">
+                      <h4>What clients say</h4>
+                      <!-- Quote Classic-->
+                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
+                        data-caption-delay="0">
+                        <div class="quote-classic-text">
+                          <p class="q"><b>Extensive Range: </b><br />Reviewers regularly mention the large showroom
+                            selection of carpets, laminate and luxury vinyl
+                            flooring.</p>
+                        </div>
+                        <p class="quote-classic-author">
+                          <a class="review-badge-link"
+                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
+                              <path fill="#FFC107"
+                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                              <path fill="#FF3D00"
+                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                              </path>
+                              <path fill="#4CAF50"
+                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                              </path>
+                              <path fill="#1976D2"
+                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                            </svg>
+                            <span>From Google Reviews</span></a>
+                        </p>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </article> -->
-
+          </div>
+          <div class="swiper-slide context-dark">
+            <div class="swiper-slide-caption section-lg">
+              <div class="container">
+                <div class="row justify-content-center justify-content-md-between">
+                  <div class="col-5 d-none d-md-block position-static">
+                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
+                        height="574" />
+                    </div>
+                  </div>
+                  <div class="col-sm-11 col-md-7 col-xl-6">
+                    <div class="inset-left-xl-70">
+                      <h4>What clients say</h4>
+                      <!-- Quote Classic-->
+                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
+                        data-caption-delay="0">
+                        <div class="quote-classic-text">
+                          <p class="q"><b>Reliability: </b><br />Many customers return and recommend our business to
+                            friends and family, frequently giving perfect 10/10 ratings.</p>
+                        </div>
+                        <p class="quote-classic-author">
+                          <a class="review-badge-link"
+                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
+                              <path fill="#FFC107"
+                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                              <path fill="#FF3D00"
+                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                              </path>
+                              <path fill="#4CAF50"
+                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                              </path>
+                              <path fill="#1976D2"
+                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                              </path>
+                            </svg>
+                            <span>From Google Reviews</span></a>
+                        </p>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Swiper Navigation-->
+        <div class="swiper-navigation__module">
+          <div class="swiper-pagination__fraction"><span class="swiper-pagination__fraction-index"></span><span
+              class="swiper-pagination__fraction-divider">/</span><span
+              class="swiper-pagination__fraction-count"></span>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <!-- Swiper Pagination-->
+        <div class="swiper-pagination" data-bullet-custom="true"></div>
+      </section>
+      <div class="container-fluid px-3 px-lg-0">
+        <div class="row mx-0">
+          <div class="col-12">
+            <div class="coverage-contact-box text-center" style="margin: 32px auto 0; padding: 20px;">
+              <article class="quote-classic" style="text-align: center;">
+                <div class="" style="text-align: center;">
+                  Get in touch with us today
+                </div>
+              </article>
+              <div class="row justify-content-center text-center mx-auto" style="margin-top: 14px; max-width: 780px;"
+                aria-label="Quick contact actions">
+                <div class="col-12 col-md-4 mb-3">
+                  <a class="button button-sm button-icon button-primary d-block button-winona button-winona-flex"
+                    href="tel:01164560022" aria-label="Call Devlin now">
+                    <span class="content-original">
+                      <span class="icon fa-solid fa-phone"></span>Call Us
+                    </span>
+                    <span class="content-dubbed">
+                      <span class="icon fa-solid fa-phone"></span>0116 456 0022
+                    </span>
+                  </a>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                  <a class="button button-sm button-icon button-icon-left button-gray-3 d-block text-center"
+                    href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20to%20book%20a%20free%20visit."
+                    target="_blank" rel="noopener noreferrer" aria-label="Chat with Devlin on WhatsApp"
+                    style="width: 100%;">
+                    <span class="icon fa-brands fa-whatsapp"></span>WhatsApp
+                  </a>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                  <a class="button button-sm button-icon button-blue-8 d-block text-center" href="contacts.html"
+                    style="width: 100%;">
+                    <span class="icon mdi mdi-chevron-right"></span>Contact Us
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+
+
+
+
     <section class="map-section" style="background-color: #ffffff">
       <div style="
             width: 100%;
@@ -2745,9 +2978,9 @@
         <section class="container">
           <div class="service-journey-heading-copy">
             <span class="post-classic-time" style="font-size: 14px;">Devlin Wholesale</span>
-            <h1 style="margin-top: 20px;">Trusted Flooring Specialists in Tamworth</h1>
-            <p>Here’s a summary of common feedback from our Google reviews. You can explore individual customer reviews
-              online anytime.</p>
+            <h1 style="margin-top: 20px;">Find Us in Minworth</h1>
+            <p>Check out what customers say, then find us on Google. Drop by to see our huge Carpet &amp; Flooring
+              collection.</p>
           </div>
         </section>
         <div class="row mx-0">
@@ -2759,59 +2992,8 @@
             </div>
           </div>
         </div>
-        <section class="">
-          <div style="margin-top: 30px; margin-bottom: 30px;">
-            <p class="text-center" style="margin: 0 0 20px; font-size: 18px;">And</p>
-            <p class="text-center" style="margin: 0; font-size: 18px;">
-              Independent ratings on <a href="https://devlin-wholesale-carpets-and-flooring-tamworth.wheree.com"
-                target="_blank" rel="noopener noreferrer">Wheree</a>
-              also highlight the strong service and value customers experience at our Tamworth showroom.
-            </p>
-          </div>
-        </section>
-        <section class="section parallax-container" data-parallax-img="images/parallax-4.jpg">
-          <div class="parallax-content section-md context-dark">
-            <div class="container">
-              <!-- <h3 class="font-weight-bold text-spacing-200">#2</h3> -->
-              <div class="row row-lg row-30">
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <article class="box-icon-creative">
-                    <div class="box-icon-creative-body">
-                      <div class="box-icon-creative-icon linearicons-trophy2"></div>
-                      <p class="box-icon-creative-title"><a href="#">9.2/10 <br />Customer Service</a></p>
-                    </div>
-                  </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <article class="box-icon-creative">
-                    <div class="box-icon-creative-body">
-                      <div class="box-icon-creative-icon linearicons-flag"></div>
-                      <p class="box-icon-creative-title"><a href="#">8.7/10 <br />Price</a></p>
-                    </div>
-                  </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <article class="box-icon-creative">
-                    <div class="box-icon-creative-body">
-                      <div class="box-icon-creative-icon linearicons-gradient2"></div>
-                      <p class="box-icon-creative-title"><a href="#">9/10 <br />Quality</a></p>
-                    </div>
-                  </article>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <article class="box-icon-creative">
-                    <div class="box-icon-creative-body">
-                      <div class="box-icon-creative-icon linearicons-medal-empty icon-big"></div>
-                      <p class="box-icon-creative-title"><a href="#">8.5/10 <br />Product Variety</a></p>
-                    </div>
-                  </article>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div class="row mx-0">
 
+        <div class="row mx-0">
           <div class="col-12">
             <article class="location-info-card">
               <div class="location-info-footer">
@@ -2855,6 +3037,51 @@
         </div>
       </div>
     </section>
+    <section class="section section-md section-bottom-0">
+      <div class="container-fluid container-inset-0">
+        <div class="row no-gutters">
+          <div class="col-md-4 col-lg-5 col-xl-6 box-transform-wrap box-transform-1">
+            <div class="box-transform" style="background-image: url(images/bg-index-12.jpg);"></div>
+          </div>
+          <div class="col-md-8 col-lg-7 col-xl-6 bg-image-3">
+            <div class="tabs-custom tabs-custom-3" id="tabs-12">
+              <div class="tab-content tab-content-4 section-inset-7">
+                <div class="tab-pane fade show active" id="tabs-12-1">
+                  <h4 class="oh-desktop"><span class="d-inline-block wow slideInLeft">Experience the Flooring
+                      Firsthand</span></h4>
+                  <p class="wow fadeInRight">Since 1999, we have been providing great flooring solutions and customer
+                    service for homeowners and commercial clients.</p>
+                  <div class="button-wrap oh-desktop"><a
+                      class="button button-icon button-icon-right button-primary wow slideInUp"
+                      href="about-us.html"><span class="icon mdi mdi-chevron-right"></span>Read more</a></div>
+                </div>
+                <div class="tab-pane fade" id="tabs-12-2">
+                  <h4>Providing The Best Flooring</h4>
+                  <p>We aim to achieve excellence in everything we do, while also improve the level of our products and
+                    services for all our customers.</p><a class="button button-icon button-icon-right button-primary"
+                    href="#"><span class="icon mdi mdi-chevron-right"></span>Read more</a>
+                </div>
+                <div class="tab-pane fade" id="tabs-12-3">
+                  <h4>Our company Goals</h4>
+                  <p>Our global goals are to create, manufacture, and install the best flooring that meets our
+                    customers’ expectations.</p><a class="button button-icon button-icon-right button-primary"
+                    href="#"><span class="icon mdi mdi-chevron-right"></span>Read more</a>
+                </div>
+              </div>
+              <ul class="nav nav-tabs-3">
+                <li class="nav-item-3" role="presentation"><a class="nav-link-3 active" href="#tabs-12-1"
+                    data-toggle="tab"><span>About us</span></a></li>
+                <li class="nav-item-3" role="presentation"><a class="nav-link-3" href="#tabs-12-2"
+                    data-toggle="tab"><span>Mission & vision</span></a></li>
+                <li class="nav-item-3" role="presentation"><a class="nav-link-3" href="#tabs-12-3"
+                    data-toggle="tab"><span>Our Goals</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- What we of
     <!-- Latest projects-->
     <section class="section section-md bg-default text-center">
       <div class="container heading-bottom-30">
@@ -3389,270 +3616,7 @@
       </div>
 
     </section>
-    <!-- what clients says -->
-    <section class="section section-md section-top-0 bg-default">
-      <div class="container">
-        <div class="service-journey-heading-copy heading-bottom-30">
-          <h1>Trusted by Tamworth Customers</h1>
-          <p>Here’s a brief summary of common feedback from our Google reviews. You can explore individual customer
-            reviews online anytime.</p>
-        </div>
-      </div>
-      <section class="swiper-container swiper-slider swiper-slider-8" data-loop="true" data-autoplay="5000"
-        data-simulate-touch="false" data-slide-effect="fade">
-        <div class="swiper-wrapper text-left">
-          <div class="swiper-slide context-dark">
-            <div class="swiper-slide-caption section-lg">
-              <div class="container">
-                <div class="row justify-content-center justify-content-md-between">
-                  <div class="col-5 d-none d-md-block position-static">
-                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
-                        height="574" />
-                    </div>
-                  </div>
-                  <div class="col-sm-11 col-md-7 col-xl-6">
-                    <div class="inset-left-xl-70">
-                      <h4>What clients say</h4>
-                      <!-- Quote Classic-->
-                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
-                        data-caption-delay="0">
-                        <div class="quote-classic-text">
-                          <p class="q"><b>Exceptional Service: </b><br />Our customers often describe our team as
-                            helpful,
-                            friendly, professional, and willing to go above and beyond.</p>
-                        </div>
-                        <p class="quote-classic-author">
-                          <a class="review-badge-link"
-                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
-                            target="_blank" rel="noopener noreferrer">
-                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
-                              <path fill="#FFC107"
-                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                              </path>
-                              <path fill="#FF3D00"
-                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                              </path>
-                              <path fill="#4CAF50"
-                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                              </path>
-                              <path fill="#1976D2"
-                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                              </path>
-                            </svg>
-                            <span>From Google Reviews</span></a>
-                        </p>
-                      </article>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide context-dark">
-            <div class="swiper-slide-caption section-lg">
-              <div class="container">
-                <div class="row justify-content-center justify-content-md-between">
-                  <div class="col-5 d-none d-md-block position-static">
-                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
-                        height="574" />
-                    </div>
-                  </div>
-                  <div class="col-sm-11 col-md-7 col-xl-6">
-                    <div class="inset-left-xl-70">
-                      <h4>What clients say</h4>
-                      <!-- Quote Classic-->
-                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
-                        data-caption-delay="0">
-                        <div class="quote-classic-text">
-                          <p class="q"><b>Quality & Expertise: </b><br />Customers frequently praise the quality of our
-                            flooring installations and the team’s extensive knowledge of carpets and flooring.</p>
-                        </div>
-                        <p class="quote-classic-author">
-                          <a class="review-badge-link"
-                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
-                            target="_blank" rel="noopener noreferrer">
-                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
-                              <path fill="#FFC107"
-                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                              </path>
-                              <path fill="#FF3D00"
-                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                              </path>
-                              <path fill="#4CAF50"
-                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                              </path>
-                              <path fill="#1976D2"
-                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                              </path>
-                            </svg>
-                            <span>From Google Reviews</span></a>
-                        </p>
-                      </article>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide context-dark">
-            <div class="swiper-slide-caption section-lg">
-              <div class="container">
-                <div class="row justify-content-center justify-content-md-between">
-                  <div class="col-5 d-none d-md-block position-static">
-                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
-                        height="574" />
-                    </div>
-                  </div>
-                  <div class="col-sm-11 col-md-7 col-xl-6">
-                    <div class="inset-left-xl-70">
-                      <h4>What clients say</h4>
-                      <!-- Quote Classic-->
-                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
-                        data-caption-delay="0">
-                        <div class="quote-classic-text">
-                          <p class="q"><b>Choice & Value:</b><br />Many customers are impressed by our 10,000 sq ft
-                            showroom,
-                            wide flooring selection, and competitive pricing.</p>
-                        </div>
-                        <p class="quote-classic-author">
-                          <a class="review-badge-link"
-                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
-                            target="_blank" rel="noopener noreferrer">
-                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
-                              <path fill="#FFC107"
-                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                              </path>
-                              <path fill="#FF3D00"
-                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                              </path>
-                              <path fill="#4CAF50"
-                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                              </path>
-                              <path fill="#1976D2"
-                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                              </path>
-                            </svg>
-                            <span>From Google Reviews</span></a>
-                        </p>
-                      </article>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide context-dark">
-            <div class="swiper-slide-caption section-lg">
-              <div class="container">
-                <div class="row justify-content-center justify-content-md-between">
-                  <div class="col-5 d-none d-md-block position-static">
-                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
-                        height="574" />
-                    </div>
-                  </div>
-                  <div class="col-sm-11 col-md-7 col-xl-6">
-                    <div class="inset-left-xl-70">
-                      <h4>What clients say</h4>
-                      <!-- Quote Classic-->
-                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
-                        data-caption-delay="0">
-                        <div class="quote-classic-text">
-                          <p class="q"><b>Reliability: </b><br />Many customers return and recommend our business to
-                            friends and
-                            family, frequently giving perfect 10/10 ratings.</p>
-                        </div>
-                        <p class="quote-classic-author">
-                          <a class="review-badge-link"
-                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
-                            target="_blank" rel="noopener noreferrer">
-                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
-                              <path fill="#FFC107"
-                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                              </path>
-                              <path fill="#FF3D00"
-                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                              </path>
-                              <path fill="#4CAF50"
-                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                              </path>
-                              <path fill="#1976D2"
-                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                              </path>
-                            </svg>
-                            <span>From Google Reviews</span></a>
-                        </p>
-                      </article>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide context-dark">
-            <div class="swiper-slide-caption section-lg">
-              <div class="container">
-                <div class="row justify-content-center justify-content-md-between">
-                  <div class="col-5 d-none d-md-block position-static">
-                    <div class="quote-classic-figure"><img src="images/clients-26-960x574.jpg" alt="" width="960"
-                        height="574" />
-                    </div>
-                  </div>
-                  <div class="col-sm-11 col-md-7 col-xl-6">
-                    <div class="inset-left-xl-70">
-                      <h4>What clients say</h4>
-                      <!-- Quote Classic-->
-                      <article class="quote-classic quote-classic-2 quote-classic-4" data-caption-animate="fadeInLeft"
-                        data-caption-delay="0">
-                        <div class="quote-classic-text">
-                          <p class="q"><b>Reliability: </b><br />Many customers return and recommend our business to
-                            friends and family, frequently giving perfect 10/10 ratings.</p>
-                        </div>
-                        <p class="quote-classic-author">
-                          <a class="review-badge-link"
-                            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Unit+O,+Devlin+Wholesale+Carpets+and+Flooring+Tamworth,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW&ludocid=17440941396164210442&lsig=AB86z5U2bq_MvwwqybiWZMLRIqOY&hl=en&gl=GB#lrd=0x4870a950ae283b31:0xf20aabcb32c5ef0a,1"
-                            target="_blank" rel="noopener noreferrer">
-                            <svg class="review-google-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                              width="100" height="100" viewBox="0 0 48 48" aria-hidden="true">
-                              <path fill="#FFC107"
-                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                              </path>
-                              <path fill="#FF3D00"
-                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                              </path>
-                              <path fill="#4CAF50"
-                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                              </path>
-                              <path fill="#1976D2"
-                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                              </path>
-                            </svg>
-                            <span>From Google Reviews</span></a>
-                        </p>
-                      </article>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Swiper Navigation-->
-        <div class="swiper-navigation__module">
-          <div class="swiper-pagination__fraction"><span class="swiper-pagination__fraction-index"></span><span
-              class="swiper-pagination__fraction-divider">/</span><span
-              class="swiper-pagination__fraction-count"></span>
-          </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-        <!-- Swiper Pagination-->
-        <div class="swiper-pagination" data-bullet-custom="true"></div>
-      </section>
-    </section>
+
     <!-- Our FAQ's-->
     <section class="section section-md bg-default text-md-left">
       <div class="container">
@@ -3798,39 +3762,87 @@
       <div class="parallax-content section-lg context-dark">
         <div class="container-fluid">
           <div class="text-center">
-            <h4 class="font-weight-normal offset-top-1" style="font-size: 32px;">Visit Our Tamworth Showroom Today</h4>
-            <p class="offset-top-1" style="font-size: 18px;">Visit our Tamworth showroom to explore carpets and flooring
-              in person. Our team is always happy to offer honest advice and help you find the right solution for your
-              home.</p>
+            <h4 class="font-weight-normal offset-top-1" style="font-size: 32px;">Over 30 Years of Flooring Experience
+            </h4>
+            <p class="offset-top-1" style="font-size: 18px;">For over thirty years, the Devlin family has provided
+              quality flooring at fair prices. Visit our
+              Minworth showroom for expert advice.</p>
 
-            <a class="button button-md button-icon button-icon-right button-blue-8"
-              href="https://www.google.com/maps/dir/?api=1&destination=Unit+O,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW"
-              target="_blank" rel="noopener noreferrer"><span class="icon mdi mdi-chevron-right"></span>Plan Your Visit
-              Today</a>
+            <div class="row tamworth-cta-row">
+              <div class="col-12 col-lg-6 text-left">
+                <a class="button button-md button-icon button-icon-right button-blue-8"
+                  href="https://www.google.com/maps/dir/?api=1&destination=Unit+O,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW"
+                  target="_blank" rel="noopener noreferrer"><span class="icon mdi mdi-chevron-right"></span>Plan Your
+                  Visit
+                  Today</a>
 
-            <div class="row justify-content-center mx-auto offset-top-3" style="max-width: 520px;">
-              <div class="col-12 col-sm-6 mb-2 mb-sm-0">
-                <a class="button button-sm button-icon button-primary d-block button-winona button-winona-flex"
-                  href="tel:01827265526" aria-label="Call Devlin Tamworth now">
-                  <span class="content-original">
-                    <span class="icon mdi mdi-phone"></span>Call Us
-                  </span>
-                  <span class="content-dubbed">
-                    <span class="icon mdi mdi-phone"></span>01827 265526
-                  </span>
-                </a>
+                <div class="row justify-content-start no-gutters offset-top-3" style="max-width: 520px;">
+                  <div class="col-12 col-sm-6 mb-2 mb-sm-0 pr-sm-2">
+                    <a class="button button-sm button-icon button-primary d-block button-winona button-winona-flex"
+                      href="tel:01827265526" aria-label="Call Devlin Tamworth now">
+                      <span class="content-original">
+                        <span class="icon mdi mdi-phone"></span>Call Us
+                      </span>
+                      <span class="content-dubbed">
+                        <span class="icon mdi mdi-phone"></span>01827 265526
+                      </span>
+                    </a>
+                  </div>
+                  <div class="col-12 col-sm-6 pl-sm-2">
+                    <a class="button button-sm button-icon button-icon-left button-gray-3 d-block text-center"
+                      href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20help%20with%20flooring."
+                      target="_blank" rel="noopener noreferrer" style="width: 100%;"><span
+                        class="icon fa-brands fa-whatsapp"></span>WhatsApp</a>
+                  </div>
+                </div>
               </div>
-              <div class="col-12 col-sm-6">
-                <a class="button button-sm button-icon button-icon-left button-gray-3 d-block text-center"
-                  href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%2C%20I%27d%20like%20help%20with%20flooring."
-                  target="_blank" rel="noopener noreferrer" style="width: 100%;"><span
-                    class="icon fa-brands fa-whatsapp"></span>WhatsApp</a>
+              <div class="col-12 col-lg-6 mt-4 mt-lg-0 text-left">
+                <div class="slick-quote">
+                  <!-- Slick Carousel-->
+                  <div class="slick-slider carousel-parent" data-autoplay="true" data-swipe="true" data-items="1"
+                    data-child="#child-carousel-5" data-for="#child-carousel-5" data-slide-effect="true">
+                    <div class="item">
+                      <!-- Quote Modern-->
+                      <article class="quote-modern">
+                        <h5 class="quote-modern-author">Michael Devlin</h5>
+                        <p class="quote-modern-status">Founder</p>
+                      </article>
+                    </div>
+                    <div class="item">
+                      <!-- Quote Modern-->
+                      <article class="quote-modern">
+                        <h5 class="quote-modern-author">Peter Devlin,</h5>
+                        <p class="quote-modern-status">Twin Manager</p>
+                      </article>
+                    </div>
+                    <div class="item">
+                      <!-- Quote Modern-->
+                      <article class="quote-modern">
+                        <h5 class="quote-modern-author">Christopher Devlin,</h5>
+                        <p class="quote-modern-status">Twin Manager</p>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="slick-slider child-carousel" id="child-carousel-5" data-arrows="true"
+                    data-for=".carousel-parent" data-items="4" data-sm-items="4" data-md-items="4" data-lg-items="4"
+                    data-xl-items="4" data-slide-to-scroll="1">
+                    <div class="item"><img class="img-circle" src="images/Team/team-head.jpg" alt="" width="83"
+                        height="83" />
+                    </div>
+                    <div class="item"><img class="img-circle" src="images/Team/team-10.jpg" alt="" width="83"
+                        height="83" />
+                    </div>
+                    <div class="item"><img class="img-circle" src="images/Team/team5.jpg" alt="" width="83"
+                        height="83" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <p class="font-italic" style="margin-top: 20px;">Many customers simply drop in for advice before making a
-              decision —
-              you're always welcome.</p>
+            <p class="font-italic" style="margin-top: 20px;">Feel free to stop by for a coffee and a chat about your
+              project—no pressure, just friendly, expert
+              help.</p>
           </div>
         </div>
       </div>
