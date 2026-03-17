@@ -18621,6 +18621,15 @@ disabled look for disabled choices in the results dropdown
 	opacity: 1;
 }
 
+/* Keep quote carousel avatars square so border-radius:50% renders as a true circle */
+.slick-quote .child-carousel .img-circle {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
 *+.slick-quote {
 	margin-top: 32px;
 }
