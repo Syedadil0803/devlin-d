@@ -2150,6 +2150,63 @@
     }
   </style>
 
+  <!-- Page Styles: Minworth Coverage Contact CTA Box (copied from Leicester) -->
+  <style>
+    .coverage-contact-box {
+      width: min(1140px, calc(100% - 48px));
+      margin: 14px auto 18px;
+      background-color: #f6f6f6;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .coverage-contact-box .quote-classic {
+      margin-bottom: 14px;
+      text-align: center;
+      padding-left: 0;
+    }
+
+    .coverage-contact-box .quote-classic-text {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 0;
+      text-align: left;
+      padding-left: 34px;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .coverage-contact-box .quote-classic-text::before {
+      left: 0;
+      top: -2px;
+      font-size: 88px;
+      line-height: 1;
+    }
+
+    .coverage-contact-box .button {
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: normal;
+    }
+
+    .coverage-contact-box .button .icon {
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
+    }
+
+    @media (max-width: 767.98px) {
+      .coverage-contact-box {
+        width: calc(100% - 24px);
+        margin-top: 12px;
+        padding: 22px 20px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -3075,12 +3132,12 @@
         <div class="row mx-0">
           <div class="col-12">
             <div class="coverage-contact-box text-center" style="margin: 32px auto 0; padding: 20px;">
-              <article class="quote-classic" style="text-align: center;">
-                <div class="" style="text-align: center;">
+              <article class="quote-classic">
+                <div class="quote-classic-text">
                   Get in touch with us today
                 </div>
               </article>
-              <div class="row justify-content-center text-center mx-auto" style="margin-top: 14px; max-width: 780px;"
+              <div class="row justify-content-center mx-auto" style="margin-top: 14px; max-width: 780px;"
                 aria-label="Quick contact actions">
                 <div class="col-12 col-md-4 mb-3">
                   <a class="button button-sm button-icon button-primary d-block button-winona button-winona-flex"
@@ -3113,11 +3170,6 @@
         </div>
       </div>
     </section>
-
-
-
-
-
     <section class="map-section" style="background-color: #ffffff">
       <div style="
             width: 100%;
