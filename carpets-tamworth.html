@@ -2198,6 +2198,11 @@
       font-weight: 700;
     }
 
+    /* Reduce height only for Tamworth reviews slider */
+    .swiper-slider-8.reviews-slider-compact {
+      min-height: clamp(340px, 24vw, 460px);
+    }
+
     .review-stars-inline {
       display: inline-block;
       margin-bottom: 8px;
@@ -3371,11 +3376,11 @@
             reviews online anytime.</p>
         </div>
       </div>
-      <section class="swiper-container swiper-slider swiper-slider-8" data-loop="false" data-autoplay="5000"
+      <section class="swiper-container swiper-slider swiper-slider-8 reviews-slider-compact" data-loop="false" data-autoplay="5000"
         data-simulate-touch="false" data-slide-effect="fade">
         <div class="swiper-wrapper text-left">
           <div class="swiper-slide context-dark">
-            <div class="swiper-slide-caption section-lg">
+            <div class="swiper-slide-caption section-sm">
               <div class="container">
                 <div class="row justify-content-center justify-content-md-between">
                   <div class="col-5 d-none d-md-block" style="position: relative;">
@@ -3452,7 +3457,7 @@
             </div>
           </div>
           <div class="swiper-slide context-dark">
-            <div class="swiper-slide-caption section-lg">
+            <div class="swiper-slide-caption section-sm">
               <div class="container">
                 <div class="row justify-content-center justify-content-md-between">
                   <div class="col-5 d-none d-md-block" style="position: relative;">
@@ -3528,7 +3533,7 @@
             </div>
           </div>
           <div class="swiper-slide context-dark">
-            <div class="swiper-slide-caption section-lg">
+            <div class="swiper-slide-caption section-sm">
               <div class="container">
                 <div class="row justify-content-center justify-content-md-between">
                   <div class="col-5 d-none d-md-block" style="position: relative;">
@@ -3605,7 +3610,7 @@
             </div>
           </div>
           <div class="swiper-slide context-dark">
-            <div class="swiper-slide-caption section-lg">
+            <div class="swiper-slide-caption section-sm">
               <div class="container">
                 <div class="row justify-content-center justify-content-md-between">
                   <div class="col-5 d-none d-md-block" style="position: relative;">
@@ -3682,7 +3687,7 @@
             </div>
           </div>
           <div class="swiper-slide context-dark">
-            <div class="swiper-slide-caption section-lg">
+            <div class="swiper-slide-caption section-sm">
               <div class="container">
                 <div class="row justify-content-center justify-content-md-between">
                   <div class="col-5 d-none d-md-block" style="position: relative;">
