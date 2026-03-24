@@ -8269,7 +8269,7 @@ h3+img {
 } */
 
 .container+.container-fluid {
-	margin-top: 45px;
+	margin-top: 30px;
 }
 
 .row+.button-wrap {
@@ -19213,7 +19213,7 @@ disabled look for disabled choices in the results dropdown
 	width: 100%;
 	overflow: hidden;
 	background: #fff;
-	padding: 45px 0;
+	padding: 30px 0 0;
 	-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 	mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
