@@ -2727,7 +2727,7 @@
         </div>
         <div class="video-close-label">Close<br>Video</div>
       </div>
-      <video id="heroExpandedVideo" loop playsinline preload="none" controls>
+      <video id="heroExpandedVideo" loop playsinline preload="none" controls muted>
         <source src="videos/michael.mp4" type="video/mp4">
       </video>
     </div>
@@ -2735,7 +2735,9 @@
       function openHeroVideo() {
         document.getElementById('heroVideoOverlay').classList.add('active');
         document.getElementById('heroVideoCloseBtn').classList.add('active');
-        document.getElementById('heroExpandedVideo').play();
+        var heroVideo = document.getElementById('heroExpandedVideo');
+        heroVideo.muted = true;
+        heroVideo.play();
       }
 
       function closeHeroVideo() {
@@ -2947,7 +2949,7 @@
                 <div class="item">
                   <!-- Quote Modern-->
                   <article class="quote-modern">
-                    <h5 class="quote-modern-author">Stephen Devlin,</h5>
+                    <h5 class="quote-modern-author">Stephen Devlin</h5>
                     <p class="quote-modern-status">Manager</p>
                   </article>
                 </div>
@@ -3980,8 +3982,7 @@
                     <a class="collapsed" id="accordion-left-card-head-2" data-toggle="collapse"
                       data-parent="#accordion-left" href="#accordion-left-card-body-2"
                       aria-controls="accordion-left-card-body-2" aria-expanded="false" role="button">
-                    
-                      
+                      Are independent fitters part of your company?
                       <div class="card-arrow"></div>
                     </a>
                   </div>
@@ -4260,10 +4261,11 @@
 
                 </ul>
                 <!-- Rights-->
-                <p class="rights">
+                 <p class="rights">
                   <span>&copy;&nbsp;</span><span class="copyright-year"></span>
                   <span>&nbsp;</span><span>Devlin
                     Wholesale</span> <span>.&nbsp;</span><a href="privacy-policy.html">Privacy
+                    policy</a><span>.&nbsp;</span><a href="cookie-policy.html">Cookie
                     policy</a>
                 </p>
               </div>
