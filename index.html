@@ -2441,7 +2441,7 @@
     <div class="cookie-widget-overlay" onclick="hideCookieWidget()"></div>
     <div class="cookie-widget-content">
       <div class="cookie-widget-header">
-        <h5>Customize Consent Preferences</h5>
+        <h5 class="modal-title">Cookie Preferences</h5>
         <button class="close-btn" onclick="hideCookieWidget()" aria-label="Close">×</button>
       </div>
 
@@ -2576,7 +2576,7 @@
             Reject All
           </button>
           <button class="btn btn-save" onclick="savePreferences()">
-            Save Preferences
+            Save My Preferences
           </button>
           <button class="btn btn-accept" onclick="acceptAllCookies()">
             Accept All
@@ -2744,7 +2744,7 @@
       background: #fff;
       border-radius: 3px;
       width: 100%;
-      max-width: 600px;
+      max-width: 840px;
       max-height: 90vh;
       overflow: hidden;
       display: flex;
@@ -2767,6 +2767,8 @@
       margin: 0;
       font-weight: 600;
       color: #333;
+      font-size: 1.25rem;
+      line-height: 1.2;
     }
 
     .close-btn {
@@ -2809,6 +2811,13 @@
       display: flex;
       gap: 12px;
       justify-content: flex-end;
+      width: 100%;
+    }
+
+    .footer-actions .btn {
+      flex: 1 1 0;
+      min-width: 0;
+      text-align: center;
     }
 
     /* Cookie Categories */
