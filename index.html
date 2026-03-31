@@ -2458,10 +2458,12 @@
           <!-- Necessary -->
           <div class="cookie-category">
             <div class="cookie-category-header" onclick="toggleCategory('necessaryDetails')">
+              <div class="category-leading">
+                <i class="fas fa-chevron-down expand-icon"></i>
+              </div>
               <div class="category-info">
                 <div class="category-title">
                   <span>Necessary</span>
-                  <span class="always-active-badge">Always Active</span>
                 </div>
               </div>
               <div class="category-controls">
@@ -2469,7 +2471,7 @@
                   <input type="checkbox" id="necessaryCookies" checked disabled>
                   <label for="necessaryCookies" class="disabled-label"></label>
                 </div>
-                <i class="fas fa-chevron-down expand-icon"></i>
+                <span class="always-active-badge">Always Active</span>
               </div>
             </div>
             <div class="cookie-category-details" id="necessaryDetails">
@@ -2484,6 +2486,9 @@
           <!-- Functional -->
           <div class="cookie-category">
             <div class="cookie-category-header" onclick="toggleCategory('functionalDetails')">
+              <div class="category-leading">
+                <i class="fas fa-chevron-down expand-icon"></i>
+              </div>
               <div class="category-info">
                 <div class="category-title">
                   <span>Functional</span>
@@ -2513,6 +2518,9 @@
           <!-- Analytics -->
           <div class="cookie-category">
             <div class="cookie-category-header" onclick="toggleCategory('analyticsDetails')">
+              <div class="category-leading">
+                <i class="fas fa-chevron-down expand-icon"></i>
+              </div>
               <div class="category-info">
                 <div class="category-title">
                   <span>Analytics</span>
@@ -2542,6 +2550,9 @@
           <!-- Performance -->
           <div class="cookie-category">
             <div class="cookie-category-header" onclick="toggleCategory('performanceDetails')">
+              <div class="category-leading">
+                <i class="fas fa-chevron-down expand-icon"></i>
+              </div>
               <div class="category-info">
                 <div class="category-title">
                   Performance
@@ -2644,11 +2655,12 @@
     }
 
     .learn-more-link {
-      color: #007bff;
+      color: #031e2b;
       text-decoration: none;
     }
 
     .learn-more-link:hover {
+      color: #031e2b;
       text-decoration: underline;
     }
 
@@ -2681,35 +2693,44 @@
 
     .btn-customize {
       background: #fff;
-      border-color: #007bff;
-      color: #007bff;
+      border-color: #031e2b;
+      color: #031e2b;
     }
 
     .btn-customize:hover {
-      background: #007bff;
+      background: #031e2b;
       color: #fff;
     }
 
     .btn-accept {
-      background: #007bff;
-      border-color: #007bff;
+      background: #031e2b;
+      border-color: #031e2b;
       color: #fff;
     }
 
     .btn-accept:hover {
-      background: #0056b3;
-      border-color: #0056b3;
-    }
-
-    .btn-save {
-      background: #28a745;
-      border-color: #28a745;
+      background: #0b3347;
+      border-color: #0b3347;
       color: #fff;
     }
 
+    .btn-accept:focus,
+    .btn-accept:active {
+      background: #0b3347;
+      border-color: #0b3347;
+      color: #fff;
+    }
+
+    .btn-save {
+      background: #fff;
+      border-color: #031e2b;
+      color: #031e2b;
+    }
+
     .btn-save:hover {
-      background: #1e7e34;
-      border-color: #1e7e34;
+      background: #031e2b;
+      border-color: #031e2b;
+      color: #fff;
     }
 
     /* Cookie Widget Modal */
@@ -2846,6 +2867,15 @@
       flex: 1;
     }
 
+    .category-leading {
+      width: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
     .category-title {
       display: flex;
       align-items: center;
@@ -2862,7 +2892,7 @@
     }
 
     .category-icon.functional {
-      color: #17a2b8;
+      color: #031e2b;
     }
 
     .category-icon.analytics {
@@ -2870,16 +2900,15 @@
     }
 
     .category-icon.performance {
-      color: #007bff;
+      color: #031e2b;
     }
 
     .always-active-badge {
-      background: #28a745;
-      color: #fff;
-      font-size: 0.7rem;
-      padding: 2px 6px;
-      border-radius: 2px;
+      color: #28a745;
+      font-size: 0.78rem;
+      font-weight: 600;
       margin-left: 8px;
+      white-space: nowrap;
     }
 
     .category-controls {
