@@ -18,6 +18,11 @@
   // ---- Configuration ----
   const CONFIG_URL = window.CW_CONFIG_URL || 'https://cdn.aairavx.com/campaign-config.json';
   const MARQUEE_SPEED = 60; // pixels per second
+  const ANNOUNCEMENT_SLOT_SELECTOR = window.CW_ANNOUNCEMENT_SLOT_SELECTOR || '.cw-announcement-slot';
+  const ENABLE_PROMO_CARD = window.CW_ENABLE_PROMO_CARD !== false;
+
+  // SessionStorage key for caching the config (persists until tab/browser closes)
+  const CACHE_KEY = 'cw_config_cache';
 
   // ---- Utility Functions ----
 
@@ -161,8 +166,24 @@
 
   // ---- Announcement Bar (Marquee Ticker) ----
 
+  function mountAnnouncementBar(bar, _config) {
+    var target = null;
+    
+    // Dedicated placeholder section/div (e.g. <section class="cw-announcement-slot"></section>)
+    if (typeof ANNOUNCEMENT_SLOT_SELECTOR === 'string' && ANNOUNCEMENT_SLOT_SELECTOR.trim()) {
+      target = document.querySelector(ANNOUNCEMENT_SLOT_SELECTOR.trim());
+      if (target) {
+        target.innerHTML = '';
+        target.appendChild(bar);
+        return target;
+      }
+    }
+    return null;
+  }
+
   function renderAnnouncementBar(config) {
     if (!shouldShow(config)) return;
+    if (document.getElementById('cw-announcement-bar')) return;
 
     var announcements = config.announcements;
     if (!announcements || announcements.length === 0) return;
@@ -222,8 +243,12 @@
 
     bar.appendChild(track);
 
-    // Insert into page
-    document.body.prepend(bar);
+    // Insert into page only if slot exists
+    var slotElement = mountAnnouncementBar(bar, config);
+    if (!slotElement) {
+      console.warn('[Campaign Widgets] Announcement slot not found. Add ' + ANNOUNCEMENT_SLOT_SELECTOR + ' to your page.');
+      return;
+    }
 
     // Bar height is fixed at 40px via CSS — use constant instead of measuring
     var BAR_HEIGHT = 40;
@@ -235,29 +260,36 @@
 
       document.body.style.setProperty('--cw-bar-height', BAR_HEIGHT + 'px');
       document.body.classList.add('cw-has-announcement-bar');
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var slotTop = slotElement.getBoundingClientRect().top + scrollTop;
+      var TOP_ZONE_THRESHOLD = 140;
+      if (slotTop <= TOP_ZONE_THRESHOLD) {
+        document.body.classList.add('cw-should-offset-fixed');
 
-      // Throttle scroll handler for better performance
-      var scrollTimeout = null;
-      var lastScrollY = 0;
-      
-      function updateBarOffset() {
-        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollY !== lastScrollY) {
-          var visibleBarHeight = Math.max(0, BAR_HEIGHT - scrollY);
+        // Collapse reserved top space as the bar scrolls away.
+        var scrollTimeout = null;
+        var lastScrollY = -1;
+
+        function updateTopBarSpace() {
+          var y = window.pageYOffset || document.documentElement.scrollTop;
+          if (y === lastScrollY) return;
+          var visibleBarHeight = Math.max(0, BAR_HEIGHT - y);
           document.body.style.setProperty('--cw-bar-height', visibleBarHeight + 'px');
-          lastScrollY = scrollY;
+          lastScrollY = y;
         }
-      }
-      
-      // Adjust navbar offset as bar scrolls out of view (throttled)
-      window.addEventListener('scroll', function () {
-        if (!scrollTimeout) {
-          scrollTimeout = setTimeout(function() {
-            updateBarOffset();
+
+        updateTopBarSpace();
+        window.addEventListener('scroll', function () {
+          if (scrollTimeout) return;
+          scrollTimeout = setTimeout(function () {
+            updateTopBarSpace();
             scrollTimeout = null;
-          }, 16); // ~60fps
-        }
-      }, { passive: true });
+          }, 16);
+        }, { passive: true });
+      } else {
+        document.body.style.setProperty('--cw-bar-height', BAR_HEIGHT + 'px');
+        document.body.classList.remove('cw-should-offset-fixed');
+      }
     });
   }
 
@@ -454,7 +486,35 @@
 
   // ---- Main: Fetch config & initialize ----
 
+  /**
+   * Render widgets from the config data
+   */
+  function renderWidgets(data) {
+    // Render announcement bar
+    if (data.announcementBar) {
+      renderAnnouncementBar(data.announcementBar);
+    }
+
+    // Render promo card
+    if (ENABLE_PROMO_CARD && data.promoCard) {
+      renderPromoCard(data.promoCard);
+    }
+  }
+
   function init() {
+    // Check sessionStorage for cached config
+    try {
+      var cached = sessionStorage.getItem(CACHE_KEY);
+      if (cached) {
+        var data = JSON.parse(cached);
+        renderWidgets(data);
+        return; // Skip API call
+      }
+    } catch (e) {
+      // sessionStorage unavailable or corrupted — fall through to fetch
+    }
+
+    // No cache — fetch from API
     fetch(CONFIG_URL, {
       cache: 'no-cache',
       headers: { 'Accept': 'application/json' },
@@ -466,16 +526,14 @@
         return response.json();
       })
       .then(function (data) {
-
-        // Render announcement bar
-        if (data.announcementBar) {
-          renderAnnouncementBar(data.announcementBar);
+        // Store in sessionStorage for the rest of this session
+        try {
+          sessionStorage.setItem(CACHE_KEY, JSON.stringify(data));
+        } catch (e) {
+          // Storage full or unavailable — continue without caching
         }
 
-        // Render promo card
-        if (data.promoCard) {
-          renderPromoCard(data.promoCard);
-        }
+        renderWidgets(data);
       })
       .catch(function (error) {
         console.warn('[Campaign Widgets] Could not load campaign config:', error.message);
