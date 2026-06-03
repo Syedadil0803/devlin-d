@@ -9,6 +9,9 @@
  * 
  * Config URL can be overridden:
  *   window.CW_CONFIG_URL = 'https://your-url.com/config.json';
+ *
+ * Local development (auto on localhost):
+ *   ./campaign-widgets/campaign-config.dev.json
  * ============================================
  */
 
@@ -188,6 +191,14 @@
     var announcements = config.announcements;
     if (!announcements || announcements.length === 0) return;
 
+    // Filter announcements by their individual schedule
+    var visibleAnnouncements = announcements.filter(function(ann) {
+      if (typeof ann === 'string') return true;
+      return isWithinDateRange(ann.startDate, ann.endDate);
+    });
+    if (visibleAnnouncements.length === 0) return;
+
+    var isLoopOn = config.loop !== false;
     var style = config.style || {};
 
     // Build the bar
@@ -208,10 +219,11 @@
     // Build one set of announcement items
     function buildAnnouncementSet() {
       var fragment = document.createDocumentFragment();
-      announcements.forEach(function (announcement) {
+      visibleAnnouncements.forEach(function (announcement) {
         // Handle both old string format and new object format
         var text = typeof announcement === 'string' ? announcement : announcement.text;
         var url = typeof announcement === 'object' && announcement.url ? announcement.url : null;
+        var openInNewTab = typeof announcement === 'object' && announcement.openInNewTab ? true : false;
         // Auto-detect rich text if it contains HTML tags, or use explicit richText flag
         var isRichText = typeof announcement === 'object' && 
                         (announcement.richText === true || /<[^>]+>/.test(text));
@@ -222,6 +234,8 @@
         if (url) {
           attrs.className += ' cw-announcement-link';
           attrs.href = url;
+          attrs.target = openInNewTab ? '_blank' : '_self';
+          if (openInNewTab) attrs.rel = 'noopener noreferrer';
           attrs.style = { textDecoration: 'underline', color: 'inherit' };
         }
 
@@ -236,10 +250,16 @@
       return fragment;
     }
 
-    // Duplicate the content for seamless infinite scroll
-    // We need at least 2 copies so when one scrolls off, the other takes over
-    track.appendChild(buildAnnouncementSet());
-    track.appendChild(buildAnnouncementSet());
+    // Build sets and add to track
+    function buildWrappedSet(minWidth) {
+      var wrapper = createElement('span', {
+        className: 'cw-announcement-bar__set',
+        style: minWidth ? { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', minWidth: minWidth } : { display: 'inline-flex', alignItems: 'center', justifyContent: 'center' },
+      });
+      var fragment = buildAnnouncementSet();
+      wrapper.appendChild(fragment);
+      return wrapper;
+    }
 
     bar.appendChild(track);
 
@@ -254,9 +274,36 @@
     var BAR_HEIGHT = 40;
 
     requestAnimationFrame(function () {
-      var halfWidth = track.scrollWidth / 2;
-      var duration = halfWidth / MARQUEE_SPEED;
-      bar.style.setProperty('--cw-marquee-duration', duration + 's');
+      var containerWidth = bar.clientWidth;
+
+      if (isLoopOn) {
+        // Loop ON: add enough copies to fill container, then double for seamless scroll
+        // First add 2 sets to measure
+        track.appendChild(buildWrappedSet(null));
+        track.appendChild(buildWrappedSet(null));
+        var halfWidth = track.scrollWidth / 2;
+
+        if (halfWidth > 0 && containerWidth > 0) {
+          var needed = Math.max(1, Math.ceil(containerWidth / halfWidth));
+          if (needed > 1) {
+            track.innerHTML = '';
+            for (var i = 0; i < needed * 2; i++) {
+              track.appendChild(buildWrappedSet(null));
+            }
+            halfWidth = track.scrollWidth / 2;
+          }
+        }
+
+        var duration = Math.max(5, halfWidth / MARQUEE_SPEED);
+        bar.style.setProperty('--cw-marquee-duration', duration + 's');
+      } else {
+        // Loop OFF: 2 sets, each fills the full bar width
+        track.appendChild(buildWrappedSet(containerWidth + 'px'));
+        track.appendChild(buildWrappedSet(containerWidth + 'px'));
+        var halfWidth = track.scrollWidth / 2;
+        var duration = Math.max(5, halfWidth / MARQUEE_SPEED);
+        bar.style.setProperty('--cw-marquee-duration', duration + 's');
+      }
 
       document.body.style.setProperty('--cw-bar-height', BAR_HEIGHT + 'px');
       document.body.classList.add('cw-has-announcement-bar');
@@ -428,7 +475,7 @@
           
           // Only add colons with spacing if they don't already exist in the template
           // Check if colons are already present between closing and opening tags
-          if (!/(<\/[^>]+>)\s*:\s*(<[^>]+>)/.test(updatedText)) {
+          if (!(/(<\/[^>]+>)\s*:\s*(<[^>]+>)/.test(updatedText))) {
             // Add colons with equal spacing (only if h/m/s units are present and no colons exist)
             updatedText = updatedText.replace(/(\d+h)(<\/[^>]+>)\s*/gi, '$1 : $2');
             updatedText = updatedText.replace(/(\d+m)(<\/[^>]+>)\s*/gi, '$1 : $2');
