@@ -3586,6 +3586,8 @@
     } else {
       iframe.style.pointerEvents = "none";
       button.textContent = "Enable Map Interaction";
+      // Refresh map to reset to default view
+      iframe.src = iframe.src;
     }
   }
 </script>
