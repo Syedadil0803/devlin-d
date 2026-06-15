@@ -10266,7 +10266,7 @@ p.rights a:hover {
 * Animate.css
 */
 .animated {
-	animation-duration: .7s;
+	animation-duration: 2.0s;
 	animation-fill-mode: both;
 	opacity: 1;
 }
