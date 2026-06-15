@@ -955,7 +955,8 @@
         </div>
       </div>
     </div>
-    <!-- Brand Logos Scrolling Banner -->
+    <!-- Brand Logos Scrolling Banner (commented out) -->
+    <!--
     <section class="section section-md bg-default section-top-0">
       <div class="container text-center">
         <h4 class="oh-desktop">
@@ -964,33 +965,19 @@
       </div>
       <div class="brands-scroll-container">
         <div class="brands-scroll-track" id="brandTrack">
-          <!-- Brands will be auto-duplicated by JavaScript -->
-          <!-- You can adjust the height property in the style="" attribute to resize logos -->
-          <div class="brand-logo-item"><img src="images/brands/westex.png" alt="Westex Carpets"
-              style="height: 55px; width: auto;" /></div>
-          <div class="brand-logo-item"><img src="images/brands/Brintons-Carpets.jpg" alt="Brintons Carpets"
-              style="height: 45px; width: auto;" /></div>
-          <div class="brand-logo-item"><img src="images/brands/Abingdon.webp" alt="Abingdon Flooring"
-              style="height: 60px; width: auto;" /></div>
-          <div class="brand-logo-item"><img src="images/brands/brockway-logo.png" alt="Brockway Carpets"
-              style="height: 60px; width: auto;" /></div>
-          <div class="brand-logo-item"><img src="images/brands/cormar-carpet-co-logo.jpg" alt="Cormar Carpets"
-              style="height: 60px; width: auto;" /></div>
-          <div class="brand-logo-item"><img src="images/brands/alternative-flooring.JPG" alt="Alternative Flooring"
-              style="height: 60px; width: auto;" /></div>
-          <div class="brand-logo-item"><img src="images/brands/karndean-flooring.jpg" alt="Karndean Designflooring"
-              style="height: 60px; width: auto;" /></div>
-          <div class="brand-logo-item"><img src="images/brands/Amtico-logo.webp" alt="Amtico"
-              style="height: 100px; width: auto;" /></div>
-          <div class="brand-logo-item"><img src="images/brands/moduleo.png" alt="Moduleo"
-              style="height: 60px; width: auto;" /></div>
-          <div class="brand-logo-item"><img src="images/brands/Invictus.jpg" alt="Invictus Flooring"
-              style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/westex.png" alt="Westex Carpets" style="height: 55px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/Brintons-Carpets.jpg" alt="Brintons Carpets" style="height: 45px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/Abingdon.webp" alt="Abingdon Flooring" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/brockway-logo.png" alt="Brockway Carpets" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/cormar-carpet-co-logo.jpg" alt="Cormar Carpets" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/alternative-flooring.JPG" alt="Alternative Flooring" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/karndean-flooring.jpg" alt="Karndean Designflooring" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/Amtico-logo.webp" alt="Amtico" style="height: 100px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/moduleo.png" alt="Moduleo" style="height: 60px; width: auto;" /></div>
+          <div class="brand-logo-item"><img src="images/brands/Invictus.jpg" alt="Invictus Flooring" style="height: 60px; width: auto;" /></div>
         </div>
       </div>
     </section>
-
-    <!-- Auto-duplicate brands for seamless scrolling -->
     <script>
       (function () {
         var track = document.getElementById('brandTrack');
@@ -1000,24 +987,45 @@
         }
       })();
     </script>
+    -->
     <!-- Our Clients-->
-    <!-- <section class="section section-md bg-default text-center">
+    <section class="section section-md section-top-0 bg-default text-center">
       <div class="container">
+        <h4 class="oh-desktop" style="margin-bottom: 30px;">
+          <span class="d-inline-block wow slideInDown">Trusted Brands We Carry</span>
+        </h4>
+        <style>
+          .clients-creative {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            height: 100px;
+          }
+          .clients-creative img {
+            max-height: 60px;
+            width: auto;
+            object-fit: contain;
+          }
+          *+.owl-carousel {
+            margin-top: 0 !important;
+          }
+        </style>
         <div class="owl-carousel" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="4" data-margin="30"
           data-autoplay="true" data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut">
-          <a class="clients-creative" href="#"><img src="images/brands/westex.png" alt="Westex Carpets" width="270" height="143" style="height: 55px; width: auto;" /></a>
-          <a class="clients-creative" href="#"><img src="images/brands/Brintons-Carpets.jpg" alt="Brintons Carpets" width="270" height="143" style="height: 45px; width: auto;" /></a>
-          <a class="clients-creative" href="#"><img src="images/brands/Abingdon.webp" alt="Abingdon Flooring" width="270" height="143" style="height: 60px; width: auto;" /></a>
-          <a class="clients-creative" href="#"><img src="images/brands/brockway-logo.png" alt="Brockway Carpets" width="270" height="143" style="height: 60px; width: auto;" /></a>
-          <a class="clients-creative" href="#"><img src="images/brands/cormar-carpet-co-logo.jpg" alt="Cormar Carpets" width="270" height="143" style="height: 60px; width: auto;" /></a>
-          <a class="clients-creative" href="#"><img src="images/brands/alternative-flooring.JPG" alt="Alternative Flooring" width="270" height="143" style="height: 60px; width: auto;" /></a>
-          <a class="clients-creative" href="#"><img src="images/brands/karndean-flooring.jpg" alt="Karndean Designflooring" width="270" height="143" style="height: 60px; width: auto;" /></a>
-          <a class="clients-creative" href="#"><img src="images/brands/Amtico-logo.webp" alt="Amtico" width="270" height="143" style="height: 100px; width: auto;" /></a>
-          <a class="clients-creative" href="#"><img src="images/brands/moduleo.png" alt="Moduleo" width="270" height="143" style="height: 60px; width: auto;" /></a>
-          <a class="clients-creative" href="#"><img src="images/brands/Invictus.jpg" alt="Invictus Flooring" width="270" height="143" style="height: 60px; width: auto;" /></a>
+          <a class="clients-creative" href="#"><img src="images/brands/westex.png" alt="Westex Carpets" /></a>
+          <a class="clients-creative" href="#"><img src="images/brands/Brintons-Carpets.jpg" alt="Brintons Carpets" /></a>
+          <a class="clients-creative" href="#"><img src="images/brands/Abingdon.webp" alt="Abingdon Flooring" /></a>
+          <a class="clients-creative" href="#"><img src="images/brands/brockway-logo.png" alt="Brockway Carpets" /></a>
+          <a class="clients-creative" href="#"><img src="images/brands/cormar-carpet-co-logo.jpg" alt="Cormar Carpets" /></a>
+          <a class="clients-creative" href="#"><img src="images/brands/alternative-flooring.JPG" alt="Alternative Flooring" /></a>
+          <a class="clients-creative" href="#"><img src="images/brands/karndean-flooring.jpg" alt="Karndean Designflooring" /></a>
+          <a class="clients-creative" href="#"><img src="images/brands/Amtico-logo.webp" alt="Amtico" style="max-height: 80px;" /></a>
+          <a class="clients-creative" href="#"><img src="images/brands/moduleo.png" alt="Moduleo" /></a>
+          <a class="clients-creative" href="#"><img src="images/brands/Invictus.jpg" alt="Invictus Flooring" /></a>
         </div>
       </div>
-    </section> -->
+    </section>
     <!-- Services-->
     <section class="section section-inset-5 bg-default section-top-0 section-bottom-0">
       <div class="container">
