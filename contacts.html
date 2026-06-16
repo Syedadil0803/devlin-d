@@ -380,6 +380,41 @@
       }
     }
   </style>
+  <style>
+    .mail-copy {
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+    }
+    .mail-copy::before {
+      content: 'Click to copy';
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 6px 12px;
+      background-color: #151515;
+      color: #ffffff;
+      font-size: 12px;
+      white-space: nowrap;
+      border-radius: 4px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+      z-index: 10000;
+    }
+    .mail-copy:hover::before {
+      opacity: 1;
+      visibility: visible;
+    }
+    .mail-copy.copied::before {
+      content: 'Copied!';
+      opacity: 1;
+      visibility: visible;
+      background-color: #4CAF50;
+    }
+  </style>
 
 </head>
 
@@ -599,7 +634,7 @@
                       <span class="icon mdi mdi-email-outline"></span>
                     </div>
                     <div class="unit-body">
-                      <a class="mail" href="mailto:info@devlinwholesale.co.uk">info@devlinwholesale.co.uk</a>
+                      <a class="mail mail-copy" href="mailto:info@devlinwholesale.co.uk" onclick="event.preventDefault();copyEmail(this)" data-email="info@devlinwholesale.co.uk">info@devlinwholesale.co.uk</a>
                     </div>
                   </div>
                 </div>
@@ -665,7 +700,7 @@
                       <span class="icon mdi mdi-email-outline"></span>
                     </div>
                     <div class="unit-body">
-                      <a class="mail" href="mailto:groby@devlinwholesale.co.uk">groby@devlinwholesale.co.uk</a>
+                      <a class="mail mail-copy" href="mailto:groby@devlinwholesale.co.uk" onclick="event.preventDefault();copyEmail(this)" data-email="groby@devlinwholesale.co.uk">groby@devlinwholesale.co.uk</a>
                     </div>
                   </div>
                 </div>
@@ -730,7 +765,7 @@
                     </div>
                     <div class="unit-body">
 
-                      <a class="mail" href="mailto:minworth@devlinwholesale.co.uk">minworth@devlinwholesale.co.uk</a>
+                      <a class="mail mail-copy" href="mailto:minworth@devlinwholesale.co.uk" onclick="event.preventDefault();copyEmail(this)" data-email="minworth@devlinwholesale.co.uk">minworth@devlinwholesale.co.uk</a>
                     </div>
                   </div>
                 </div>
@@ -797,7 +832,7 @@
                       <span class="icon mdi mdi-email-outline"></span>
                     </div>
                     <div class="unit-body">
-                      <a class="mail" href="mailto:info@devlincarpets.com">info@devlincarpets.com</a>
+                      <a class="mail mail-copy" href="mailto:info@devlincarpets.com" onclick="event.preventDefault();copyEmail(this)" data-email="info@devlincarpets.com">info@devlincarpets.com</a>
                     </div>
                   </div>
                 </div>
@@ -1075,6 +1110,17 @@
         element.style.borderRadius = "5px";
       });
     });
+  </script>
+  <script>
+    function copyEmail(el) {
+      var email = el.getAttribute('data-email');
+      navigator.clipboard.writeText(email).then(function() {
+        el.classList.add('copied');
+        setTimeout(function() {
+          el.classList.remove('copied');
+        }, 1500);
+      });
+    }
   </script>
 </body>
 
