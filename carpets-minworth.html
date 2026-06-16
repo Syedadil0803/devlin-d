@@ -2157,6 +2157,15 @@
         padding: 22px 20px;
       }
     }
+    @media (min-width: 768px) {
+      a.phone[href^="tel"] {
+        pointer-events: none;
+        cursor: default;
+      }
+      a.button[href^="tel"] {
+        cursor: default;
+      }
+    }
   </style>
 
 </head>
@@ -4115,6 +4124,13 @@
   </script>
   <!-- Campaign Widgets -->
   <script src="campaign-widgets/campaign-widgets.js"></script>
+  <script>
+    document.querySelectorAll('a[href^="tel"]').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        if (window.innerWidth >= 768) e.preventDefault();
+      });
+    });
+  </script>
 </body>
 
 </html>
