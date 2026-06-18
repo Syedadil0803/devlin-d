@@ -1049,11 +1049,12 @@
                       <div style="font-size:14px; margin-bottom:5px;">Loading video...</div>
                       <div style="font-size:12px; opacity:0.7;">Please wait</div>
                     </div>
-                    <iframe id="facebookIframe" src="" width="100%" height="476"
-                      style="border:none; overflow:hidden; display:none;" scrolling="no" frameborder="0"
-                      allowfullscreen="true"
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                    </iframe>
+                    <video id="aboutVideo" controls playsinline preload="metadata" width="100%"
+                      poster="images/about-video-poster.jpg"
+                      style="display:block; width:100%; max-height:80vh; background:#000;">
+                      <source src="videos/devlin-about.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
                     <button onclick="closeFacebookModal()"
                       style="position:absolute; top:10px; right:15px; background:rgba(255,255,255,0.9); border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:bold; color:#333; z-index:10001;">✖</button>
                   </div>
@@ -1513,84 +1514,52 @@
   </script>
   <!-- script for fb integrated video -->
   <script>
-    const FACEBOOK_VIDEO_URL = "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FDevlinWholesale%2Fvideos%2F1262601114583427%2F&show_text=false&width=320&t=0";
-
+    // Self-hosted video (no Facebook / third party) — videos/devlin-about.mp4
     let modalOpen = false;
     let scrollPosition = 0;
 
     function showInstantLoader() {
-      // Show instant loader immediately on click
       document.getElementById("instantLoader").style.display = "flex";
     }
 
     function openFacebookModal() {
       const modal = document.getElementById("fbModal");
-      const iframe = document.getElementById("facebookIframe");
+      const video = document.getElementById("aboutVideo");
       const loadingIndicator = document.getElementById("loadingIndicator");
       const instantLoader = document.getElementById("instantLoader");
 
-      // Small delay to ensure instant loader shows first
       setTimeout(() => {
-        // Store current scroll position and prevent background scrolling
         scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
         document.body.classList.add('modal-open');
         document.body.style.top = `-${scrollPosition}px`;
 
-        // Hide instant loader and show modal with loading
         instantLoader.style.display = "none";
+        if (loadingIndicator) loadingIndicator.style.display = "none";
         modal.style.display = "flex";
         modalOpen = true;
 
-        // Show loading indicator
-        loadingIndicator.style.display = "block";
-        iframe.style.display = "none";
+        if (video) { try { video.currentTime = 0; video.play(); } catch (e) {} }
 
-        // Load iframe immediately
-        iframe.src = FACEBOOK_VIDEO_URL;
-
-        // Set timeout fallback in case onload doesn't fire
-        const loadTimeout = setTimeout(() => {
-          loadingIndicator.style.display = "none";
-          iframe.style.display = "block";
-        }, 8000); // 8 second fallback
-
-        iframe.onload = function () {
-          clearTimeout(loadTimeout);
-          loadingIndicator.style.display = "none";
-          iframe.style.display = "block";
-        };
-
-        // Add event listeners
         document.addEventListener('keydown', handleEscapeKey);
         modal.addEventListener('click', handleModalClick);
-      }, 100); // Small delay to show instant loader first
+      }, 100);
     }
 
     function closeFacebookModal() {
       const modal = document.getElementById("fbModal");
-      const iframe = document.getElementById("facebookIframe");
-      const loadingIndicator = document.getElementById("loadingIndicator");
+      const video = document.getElementById("aboutVideo");
       const instantLoader = document.getElementById("instantLoader");
 
-      // Hide all modals immediately
       modal.style.display = "none";
       instantLoader.style.display = "none";
       modalOpen = false;
 
-      // Completely stop video by replacing iframe
-      const newIframe = iframe.cloneNode(true);
-      newIframe.src = "";
-      iframe.parentNode.replaceChild(newIframe, iframe);
+      if (video) { try { video.pause(); video.currentTime = 0; } catch (e) {} }
 
-      // Reset loading state
-      loadingIndicator.style.display = "none";
-
-      // Restore background scrolling
       document.body.classList.remove('modal-open');
       document.body.style.top = '';
       window.scrollTo(0, scrollPosition);
 
-      // Remove event listeners
       document.removeEventListener('keydown', handleEscapeKey);
       modal.removeEventListener('click', handleModalClick);
     }
@@ -1610,16 +1579,8 @@
     // Handle page visibility change
     document.addEventListener('visibilitychange', function () {
       if (document.hidden && modalOpen) {
-        const iframe = document.getElementById("facebookIframe");
-        const tempSrc = iframe.src;
-        iframe.src = "";
-
-        document.addEventListener('visibilitychange', function restoreVideo() {
-          if (!document.hidden && modalOpen) {
-            iframe.src = tempSrc;
-            document.removeEventListener('visibilitychange', restoreVideo);
-          }
-        }, { once: true });
+        const video = document.getElementById("aboutVideo");
+        if (video) video.pause();
       }
     });
 
