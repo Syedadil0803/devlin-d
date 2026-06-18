@@ -1780,7 +1780,7 @@
           </p>
         </div>
       </div>
-      <div style="height: 16px; background-color: #031E2B;"></div>
+      <!-- <div style="height: 16px; background-color: #031E2B;"></div> -->
       <style>
         .service-journey-heading-copy {
           text-align: center;
@@ -1865,30 +1865,196 @@
         }
       </style>
 
-      <div style="overflow: hidden">
+      <!-- ============================================================
+           STORE LOCATOR — replaces the Google Maps embed entirely.
+           No third-party calls, no cookies. Click a pin → opens that
+           store's accordion (and vice-versa).
+           VERIFY: Lichfield phone + WhatsApp are temporary placeholders.
+           ============================================================ -->
+      <style>
+        .dw-locator { display: flex; flex-wrap: wrap; align-items: stretch;
+          font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+        .dw-locator * { box-sizing: border-box; }
+        .dw-locator__map { flex: 1 1 72%; min-width: 0; position: relative;
+          background: #0a1726; display: flex; align-items: flex-start; justify-content: center; padding: 0; }
+        .dw-mapimg { position: relative; width: 100%; line-height: 0; }
+        .dw-mapimg img { width: 100%; height: auto; display: block; }
+        /* invisible clickable hotspots over the baked-in pins */
+        .dw-hotspot { position: absolute; transform: translate(-50%, -50%);
+          width: 9%; height: 13%; background: transparent; border: none; cursor: pointer;
+          border-radius: 50%; padding: 0; }
+        /* real vector UK map (large viewBox ~940 tall — sizes are in user units) */
+        .dw-uk path { fill: #f3f6f5; stroke: #ccd6da; stroke-width: 2.2; stroke-linejoin: round; }
+        .dw-uk { filter: drop-shadow(0 8px 16px rgba(31,53,61,.12)); }
+        .dw-leader { stroke: #c2ccd0; stroke-width: 2; }
+        .dw-lbl-dot { fill: #db2a19; }
+        .dw-map-title { fill: #151515; font: 700 26px "Roboto", sans-serif; letter-spacing: .14em; opacity: .5; }
+        .dw-pin-label { fill: #151515; font: 700 25px "Roboto", sans-serif; letter-spacing: .02em;
+          paint-order: stroke; stroke: #fff; stroke-width: 6px; stroke-linejoin: round; }
+        .dw-pin.is-active .dw-pin-label { fill: #db2a19; }
+        .dw-pin.is-active .dw-leader { stroke: #db2a19; }
+        .dw-pin { cursor: pointer; }
+        .dw-pin .dw-pin__drop { fill: #db2a19; transition: fill .15s ease; }
+        .dw-pin .dw-pin__dot { fill: #fff; }
+        .dw-pin .dw-pin__ring { fill: rgba(219,42,25,.18); opacity: 0; transition: opacity .15s ease; }
+        .dw-pin:hover .dw-pin__drop { fill: #b9220f; }
+        .dw-pin.is-active .dw-pin__drop { fill: #b9220f; }
+        .dw-pin.is-active .dw-pin__ring { opacity: 1; }
 
-        <div class="map-container" style="position: relative; overflow: hidden">
-          <iframe id="mapIframe"
-            src="https://www.google.com/maps/d/u/5/embed?mid=1njvegtzYQCVrsB2vgp0mEHfi4tvioys&ehbc=2E312F&noprof=1"
-            style="
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  border: 0;
-                  pointer-events: none;
-                " allowfullscreen="" loading="lazy"></iframe>
-          <div class="map-button-wrapper">
-            <button id="mapToggleBtn" onclick="toggleMapInteraction()" class="map-button">
-              Enable Map Interaction
-            </button>
-          </div>
+        .dw-locator__panel { flex: 1 1 28%; min-width: 0; background: #fff; padding: 0;
+          border-left: 1px solid #ececec; }
+        .dw-acc-item { border-bottom: 1px solid #ececec; transition: background .15s ease; background: #f4f5f6; }
+        .dw-acc-item.open { background: #ffffff; }
+        .dw-acc-head { width: 100%; display: flex; align-items: center; justify-content: space-between;
+          gap: 12px; background: none; border: none; cursor: pointer; padding: 16px 24px; text-align: left;
+          font-family: inherit; color: #151515; }
+        .dw-acc-headtext { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+        .dw-acc-name { font-weight: 400; font-size: 20px; letter-spacing: .05em; text-transform: uppercase; color: inherit; }
+        .dw-acc-loc { font-weight: 400; font-size: 15px; letter-spacing: normal; text-transform: none;
+          color: #888; line-height: 1.6; }
+        .dw-acc-item.open .dw-acc-name { color: #db2a19; }
+        .dw-acc-chev { color: #db2a19; flex: 0 0 auto; width: 22px; text-align: center;
+          font-size: 0; line-height: 1; }
+        .dw-acc-chev::before { content: "+"; font-size: 24px; font-weight: 400; }
+        .dw-acc-item.open .dw-acc-chev::before { content: "\2212"; } /* minus */
+        .dw-acc-body { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+        .dw-acc-item.open .dw-acc-body { max-height: 520px; }
+        .dw-acc-inner { padding: 0 24px 24px; text-align: left; }
+        .dw-addr { display: flex; gap: 8px; font-size: 14px; color: #555; line-height: 1.5; margin: 0 0 14px; }
+        .dw-addr svg { flex: 0 0 auto; margin-top: 2px; }
+        .dw-block { margin-bottom: 16px; }
+        .dw-block__label { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px;
+          text-transform: uppercase; letter-spacing: .06em; color: #151515; margin-bottom: 8px; }
+        .dw-block__label svg { color: #db2a19; }
+        .dw-block__label .mdi { color: #db2a19; font-size: 17px; line-height: 1; }
+        .dw-block a { display: inline-block; margin-left: 20px; color: #db2a19; text-decoration: none; font-size: 15px; font-weight: 600; }
+        .dw-hours { width: calc(100% - 20px); margin-left: 20px; border-collapse: collapse; font-size: 15px; color: #555; }
+        .dw-hours td { padding: 4px 0; }
+        .dw-hours td:last-child { text-align: right; color: #151515; }
+        .dw-btns { display: flex; gap: 8px; margin-top: 20px; flex-wrap: nowrap; }
+        .dw-btn { flex: 1 1 0; min-width: 0; text-align: center; padding: 14px 8px; border-radius: 4px;
+          font-weight: 900; font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+          text-decoration: none; cursor: pointer; transition: background .15s ease, transform .15s ease;
+          white-space: nowrap; }
+        .dw-btn-msg { background: #db2a19; color: #fff; }
+        .dw-btn-msg:hover { background: #b9220f; transform: translateY(-1px); color: #fff; }
+        .dw-btn-dir { background: #fff; color: #151515; border: 1.5px solid #151515; }
+        .dw-btn-dir:hover { background: #151515; color: #fff; transform: translateY(-1px); }
+        .dw-acc-head:focus-visible, .dw-btn:focus-visible { outline: 2px solid #db2a19; outline-offset: 2px; }
+        /* tel: link is only useful on mobile — disable click on desktop */
+        @media (min-width: 992px) {
+          .dw-block a[href^="tel:"] { pointer-events: none; cursor: default; }
+        }
+        @media (max-width: 991px) {
+          .dw-locator__map { min-height: 360px; flex-basis: 100%; }
+          .dw-locator__panel { flex-basis: 100%; max-height: none; border-left: none; border-top: 1px solid #ececec; }
+        }
+      </style>
+
+      <div class="dw-locator">
+        <!-- LEFT: crafted light UK map (self-hosted SVG, no Google) -->
+        <div class="dw-locator__map">
+          <div class="dw-mapimg"><img src="images/map.png" alt="Map of Devlin Wholesale showrooms across the Midlands"/><button class="dw-pin dw-hotspot" data-store="lichfield" style="left:47%;top:15%" aria-label="lichfield" onclick="dwOpenStore('lichfield')"></button><button class="dw-pin dw-hotspot" data-store="tamworth" style="left:61%;top:24%" aria-label="tamworth" onclick="dwOpenStore('tamworth')"></button><button class="dw-pin dw-hotspot" data-store="minworth" style="left:62.5%;top:41%" aria-label="minworth" onclick="dwOpenStore('minworth')"></button><button class="dw-pin dw-hotspot" data-store="leicester" style="left:89%;top:39%" aria-label="leicester" onclick="dwOpenStore('leicester')"></button></div>
         </div>
 
+        <!-- RIGHT: store accordion -->
+        <div class="dw-locator__panel">
+          <!-- Leicester -->
+          <div class="dw-acc-item open" data-store="leicester">
+            <button class="dw-acc-head" onclick="dwOpenStore('leicester')"><span class="dw-acc-headtext"><span class="dw-acc-name">Leicester</span><span class="dw-acc-loc">Laundon Way, Groby, Leicestershire LE6 0YG</span></span><span class="dw-acc-chev">&#9662;</span>
+            </button><div class="dw-acc-body"><div class="dw-acc-inner">
+              <div class="dw-block">
+                <div class="dw-block__label"><i class="mdi mdi-phone"></i>Call us</div>
+                <a href="tel:01164560022">0116 456 0022</a>
+              </div>
+              <div class="dw-block">
+                <div class="dw-block__label"><i class="mdi mdi-clock"></i>Opening Times</div>
+                <table class="dw-hours"><tr><td>Monday &ndash; Friday</td><td>9am &ndash; 6pm</td></tr><tr><td>Saturday</td><td>9am &ndash; 5pm</td></tr><tr><td>Sunday</td><td>10am &ndash; 4pm</td></tr></table>
+              </div>
+              <div class="dw-btns">
+                <a class="dw-btn dw-btn-msg" href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Leicester%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Leicester%2C%20Laundon%20Way%2C%20Groby%2C%20Leicester%20LE6%200YG">Get directions</a>
+              </div>
+            </div></div>
+          </div>
+          <!-- Tamworth -->
+          <div class="dw-acc-item" data-store="tamworth">
+            <button class="dw-acc-head" onclick="dwOpenStore('tamworth')"><span class="dw-acc-headtext"><span class="dw-acc-name">Tamworth</span><span class="dw-acc-loc">Atherstone St, Fazeley, Staffordshire B78 3RW</span></span><span class="dw-acc-chev">&#9662;</span>
+            </button><div class="dw-acc-body"><div class="dw-acc-inner">
+              <div class="dw-block">
+                <div class="dw-block__label"><i class="mdi mdi-phone"></i>Call us</div>
+                <a href="tel:01827265526">01827 265526</a>
+              </div>
+              <div class="dw-block">
+                <div class="dw-block__label"><i class="mdi mdi-clock"></i>Opening Times</div>
+                <table class="dw-hours"><tr><td>Monday &ndash; Friday</td><td>9am &ndash; 7pm</td></tr><tr><td>Saturday</td><td>9am &ndash; 5pm</td></tr><tr><td>Sunday</td><td>10am &ndash; 4pm</td></tr></table>
+              </div>
+              <div class="dw-btns">
+                <a class="dw-btn dw-btn-msg" href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Tamworth%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%2C%20Unit%20O%2C%20N%20Riverside%20Industrial%20Estate%2C%20Fazeley%2C%20Tamworth%20B78%203RW">Get directions</a>
+              </div>
+            </div></div>
+          </div>
+          <!-- Minworth -->
+          <div class="dw-acc-item" data-store="minworth">
+            <button class="dw-acc-head" onclick="dwOpenStore('minworth')"><span class="dw-acc-headtext"><span class="dw-acc-name">Minworth</span><span class="dw-acc-loc">Stockton Cl, Sutton Coldfield, West Midlands B76 1DH</span></span><span class="dw-acc-chev">&#9662;</span>
+            </button><div class="dw-acc-body"><div class="dw-acc-inner">
+              <div class="dw-block">
+                <div class="dw-block__label"><i class="mdi mdi-phone"></i>Call us</div>
+                <a href="tel:01213132303">0121 313 2303</a>
+              </div>
+              <div class="dw-block">
+                <div class="dw-block__label"><i class="mdi mdi-clock"></i>Opening Times</div>
+                <table class="dw-hours"><tr><td>Monday &ndash; Friday</td><td>9am &ndash; 6pm</td></tr><tr><td>Saturday</td><td>9am &ndash; 5pm</td></tr><tr><td>Sunday</td><td>10am &ndash; 4pm</td></tr></table>
+              </div>
+              <div class="dw-btns">
+                <a class="dw-btn dw-btn-msg" href="https://wa.me/447967551357?text=Hi%20Devlin%20Wholesale%20Minworth%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Minworth%2C%20Stockton%20Cl%2C%20Sutton%20Coldfield%2C%20Birmingham%20B76%201DH">Get directions</a>
+              </div>
+            </div></div>
+          </div>
+          <!-- Lichfield  (VERIFY: phone + WhatsApp are placeholders) -->
+          <div class="dw-acc-item" data-store="lichfield">
+            <button class="dw-acc-head" onclick="dwOpenStore('lichfield')"><span class="dw-acc-headtext"><span class="dw-acc-name">Lichfield</span><span class="dw-acc-loc">Prospect Drive, Lichfield, Staffordshire WS14 9UX</span></span><span class="dw-acc-chev">&#9662;</span>
+            </button><div class="dw-acc-body"><div class="dw-acc-inner">
+              <div class="dw-block">
+                <div class="dw-block__label"><i class="mdi mdi-phone"></i>Call us</div>
+                <!-- VERIFY: real Lichfield phone needed -->
+                <a href="tel:01543263486">01543 263486</a>
+              </div>
+              <div class="dw-block">
+                <div class="dw-block__label"><i class="mdi mdi-clock"></i>Opening Times</div>
+                <table class="dw-hours"><tr><td>Monday &ndash; Friday</td><td>9am &ndash; 6pm</td></tr><tr><td>Saturday</td><td>9am &ndash; 5pm</td></tr><tr><td>Sunday</td><td>Closed</td></tr></table>
+              </div>
+              <div class="dw-btns">
+                <!-- VERIFY: Lichfield has no dedicated WhatsApp; using main number temporarily -->
+                <a class="dw-btn dw-btn-msg" href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Lichfield%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Lichfield%2C%20Unit%2013%20Prospect%20Drive%2C%20Britannia%20Enterprise%20Park%2C%20Lichfield%20WS14%209UX">Get directions</a>
+              </div>
+            </div></div>
+          </div>
+        </div>
       </div>
+
+      <script>
+        function dwOpenStore(id) {
+          document.querySelectorAll('.dw-acc-item').forEach(function (it) {
+            it.classList.toggle('open', it.getAttribute('data-store') === id);
+          });
+          document.querySelectorAll('.dw-pin').forEach(function (p) {
+            p.classList.toggle('is-active', p.getAttribute('data-store') === id);
+          });
+          var open = document.querySelector('.dw-acc-item[data-store="' + id + '"]');
+          if (open) open.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+        // default selection = Leicester pin active on load
+        document.addEventListener('DOMContentLoaded', function () {
+          var first = document.querySelector('.dw-pin[data-store="leicester"]');
+          if (first) first.classList.add('is-active');
+        });
+      </script>
     </section>
-    <div style="height: 16px; background-color: #031E2B;"></div>
+    <!-- <div style="height: 16px; background-color: #031E2B;"></div> -->
     <!-- Our FAQ's-->
     <section class="section section-md bg-default text-md-left">
       <div class="container">
@@ -2407,7 +2573,7 @@
               </h6>
               <span class="footer-creative-contacts-title small mb-0">Phone:
               </span>
-              <a class="phone">0154 326 3486</a>
+              <a class="phone">01543 263486</a>
             </div>
 
             <!-- Social links -->
