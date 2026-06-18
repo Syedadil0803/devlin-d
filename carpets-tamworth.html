@@ -589,20 +589,20 @@
 
     .service-journey.is-visible .service-step:nth-child(1) .card-lite,
     .service-journey.is-visible .service-step:nth-child(1) .media {
-      -webkit-animation: slide-top-instant 0.75s ease-out 0.1s both;
-      animation: slide-top-instant 0.75s ease-out 0.1s both;
+      -webkit-animation: slide-top-instant 0.5s ease-out 0s both;
+      animation: slide-top-instant 0.5s ease-out 0s both;
     }
 
     .service-journey.is-visible .service-step:nth-child(2) .card-lite,
     .service-journey.is-visible .service-step:nth-child(2) .media {
-      -webkit-animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.45s both;
-      animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.45s both;
+      -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.07s both;
+      animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.07s both;
     }
 
     .service-journey.is-visible .service-step:nth-child(3) .card-lite,
     .service-journey.is-visible .service-step:nth-child(3) .media {
-      -webkit-animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
-      animation: slide-top 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
+      -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.14s both;
+      animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.14s both;
     }
 
     @-webkit-keyframes slide-top {
@@ -4142,14 +4142,14 @@
       const observer = new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
-            if (entry.intersectionRatio >= 0.18) {
+            if (entry.intersectionRatio >= 0.08) {
               journeySection.classList.add('is-visible');
             } else if (entry.intersectionRatio === 0) {
               journeySection.classList.remove('is-visible');
             }
           });
         },
-        { threshold: [0, 0.18], rootMargin: "0px" }
+        { threshold: [0, 0.08], rootMargin: "0px 0px -8% 0px" }
       );
 
       observer.observe(journeySection);
