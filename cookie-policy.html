@@ -16,9 +16,9 @@
     <meta charset="utf-8">
     <link rel="icon" href="images/favicon-100x100.png" type="image/x-icon">
     <!-- Stylesheets-->
-    <link rel="stylesheet" type="text/css"
-        href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="preload" href="/fonts/roboto-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/local-fonts.css" />
+  <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -131,7 +131,7 @@
         }
     </style>
     <!-- Accordian footer -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/css/fontawesome-6.4.0-all.min.css" rel="stylesheet">
     <style>
         /* Remove white background from accordion buttons and add dropdown icons */
         .accordion-button {
@@ -475,12 +475,11 @@
         <section class="section section-lg bg-default text-md-left">
             <div class="container">
                 <h3>Cookie Policy</h3>
-                <p class="last-updated">Last updated: 16 June 2025</p>
+                <p class="last-updated">Last updated: 22 June 2026</p>
 
                 <div class="content-block">
-                    <p>This Cookie Policy explains how Devlin Wholesale uses cookies and similar technologies on our
-                        website. By using our site, you consent to the use of cookies as described in this policy —
-                        subject to your cookie preferences.</p>
+                    <p>This Cookie Policy explains the current use of cookies and similar browser-storage technologies
+                        on the Devlin Wholesale website.</p>
                 </div>
 
                 <div class="content-block">
@@ -488,34 +487,31 @@
                     <p>Cookies are small text files that are placed on your device (computer, tablet, smartphone) when
                         you visit a website. They help websites function efficiently and provide useful information to
                         website owners.</p>
-                    <p>Some cookies are essential to make the site work properly, while others help us understand how
-                        visitors interact with our site.</p>
+                    <p>Similar technologies include local storage and session storage, which can save information in
+                        your browser without using a traditional cookie.</p>
                 </div>
 
                 <div class="content-block">
-                    <h4>Types of Cookies We Use</h4>
-
-                    <div class="cookie-type">1. Strictly Necessary Cookies</div>
-                    <p>These cookies are essential for the website to function correctly. They enable basic features
-                        like page navigation and access to secure areas of the website. These cookies do not store any
-                        personally identifiable information.</p>
-
-                    <div class="cookie-type">2. Performance & Analytics Cookies</div>
-                    <p>We use <strong>Google Analytics</strong> to collect information about how visitors use our site.
-                        These cookies help us understand:</p>
-                    <ul class="bullet-list"></ul>
-                    <li>Which pages are most visited</li>
-                    <li>How users move around the site</li>
-                    <li>How long visitors stay on pages</li>
-                    </ul>
-                    <p>The data collected is aggregated and anonymous — it does not personally identify you. To learn
-                        more about how Google handles data, visit: <a class="a-class"
-                            href="https://policies.google.com/technologies/partner-sites"
-                            target="_blank">https://policies.google.com/technologies/partner-sites</a></p>
+                    <h4>Our Current Use of Cookies</h4>
+                    <p>We do not currently set analytics, advertising, personalisation or campaign cookies. We also do
+                        not use Google Analytics, advertising pixels, embedded Google Maps, virtual-tour embeds, or
+                        campaign-widget browser storage. Because the website does not currently use non-essential
+                        cookies or similar technologies, a consent banner is not displayed.</p>
+                    <p>Our web-hosting and security infrastructure may use strictly necessary technical measures to
+                        deliver pages, balance traffic, prevent abuse and maintain security. Where such a measure is
+                        strictly necessary to provide the website or keep it secure, consent is not normally required
+                        under the Privacy and Electronic Communications Regulations.</p>
                 </div>
 
                 <div class="content-block">
-                    <h4>Managing Cookies</h4>
+                    <h4>External Links</h4>
+                    <p>The site contains links to third-party services such as Google Maps, WhatsApp and social-media
+                        platforms. These services are contacted only when you choose to click their links. Once you
+                        leave our website, the third party may use cookies or other technologies under its own policy.</p>
+                </div>
+
+                <div class="content-block">
+                    <h4>Managing Browser Data</h4>
                     <p>You can control or delete cookies through your browser settings. Most browsers allow you to:</p>
                     <ul class="bullet-list">
                         <li>View what cookies you have and delete them</li>
@@ -523,7 +519,8 @@
                         <li>Block all cookies from being set</li>
                         <li>Clear all cookies when you close your browser</li>
                     </ul>
-                    <p>Please note that disabling certain cookies may affect how the website functions.</p>
+                    <p>Deleting or blocking cookies should not affect the main functionality of this website in its
+                        current configuration.</p>
                     <p>To find out how to manage cookies in your browser, use the following links:</p>
                     <div class="browser-links">
                         <ul class="bullet-list">
@@ -548,10 +545,10 @@
                 </div>
 
                 <div class="content-block">
-                    <h4>Future Changes to Cookies</h4>
-                    <p>As our website grows and more features are added (e.g. online store or customer tools), we may
-                        use additional cookies. When that happens, this policy will be updated to reflect those changes.
-                    </p>
+                    <h4>Future Changes</h4>
+                    <p>If we introduce analytics, embedded third-party content, marketing tools, or other non-essential
+                        browser storage in future, we will update this policy and obtain consent before those
+                        technologies are activated where the law requires it.</p>
                 </div>
             </div>
         </section>
@@ -606,15 +603,15 @@
                             <ul class="list-inline footer-social-list footer-social-list-2">
                                 <li>
                                     <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/"
-                                        target="_blank"></a>
+                                        target="_blank" rel="noopener noreferrer"></a>
                                 </li>
                                 <li>
                                     <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en"
-                                        target="_blank"></a>
+                                        target="_blank" rel="noopener noreferrer"></a>
                                 </li>
                                 <li>
                                     <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/"
-                                        target="_blank"></a>
+                                        target="_blank" rel="noopener noreferrer"></a>
                                 </li>
                             </ul>
                         </div>
@@ -813,8 +810,8 @@
         });
     </script>
     <!-- Javascript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script src="js/cookie-consent.js"></script>
+    <script src="/js/vendor/bootstrap-5.3.0.bundle.min.js"></script>
+
 </body>
 
 </html>

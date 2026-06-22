@@ -25,8 +25,8 @@
     content="Explore premium laminate flooring at Devlin Wholesale — stylish, hard-wearing, and ideal for modern homes and commercial spaces.">
 
   <!-- Stylesheets-->
-  <link rel="stylesheet" type="text/css"
-    href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500" />
+  <link rel="preload" href="/fonts/roboto-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/local-fonts.css" />
   <link rel="stylesheet" href="/css/bootstrap.css" />
   <link rel="stylesheet" href="/css/fonts.css" />
   <link rel="stylesheet" href="/css/style.css" />
@@ -48,7 +48,7 @@
     }
   </style>
   <!-- Accordian footer -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="/css/fontawesome-6.4.0-all.min.css" rel="stylesheet">
   <style>
     /* Remove white background from accordion buttons and add dropdown icons */
     .accordion-button {
@@ -909,14 +909,14 @@
             <div class="mt-4">
               <ul class="list-inline footer-social-list footer-social-list-2">
                 <li>
-                  <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank"></a>
+                  <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank" rel="noopener noreferrer"></a>
                 </li>
                 <li>
-                  <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank"></a>
+                  <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank" rel="noopener noreferrer"></a>
                 </li>
                 <li>
                   <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/"
-                    target="_blank"></a>
+                    target="_blank" rel="noopener noreferrer"></a>
                 </li>
               </ul>
             </div>
@@ -1082,7 +1082,7 @@
     </footer>
   </div>
   <!-- Javascript-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/vendor/bootstrap-5.3.0.bundle.min.js"></script>
   <!-- Global Mailform Output-->
   <div class="snackbars" id="form-output-global"></div>
   <!-- Javascript-->
@@ -1112,7 +1112,7 @@
       });
     });
   </script>
-<script src="../js/cookie-consent.js"></script>
+
 </body>
 
 </html>

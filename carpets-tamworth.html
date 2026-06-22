@@ -28,17 +28,13 @@
   <link rel="icon" href="images/favicon-100x100.png" type="image/x-icon" />
   <!-- <link rel="icon" href="images/favicon-150x150.png" type="image/x-icon" /> -->
   <!-- Stylesheets-->
-  <link rel="stylesheet" type="text/css"
-    href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+  <link rel="preload" href="/fonts/roboto-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/local-fonts.css" />
   <link rel="stylesheet" href="css/bootstrap.css" />
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/style.css" />
   <!-- <link rel="stylesheet" href="css/one.css" /> -->
   <!-- Campaign Widgets -->
-  <link rel="stylesheet" href="campaign-widgets/campaign-widgets.css" />
   <!-- Page Styles: IE panel and base swiper sizing -->
   <style>
     .ie-panel {
@@ -85,7 +81,7 @@
     }
   </style>
   <!-- Accordian footer -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="/css/fontawesome-6.4.0-all.min.css" rel="stylesheet">
   <!-- Page Styles: accordion and tooltip helpers -->
   <style>
     /* Remove white background from accordion buttons and add dropdown icons */
@@ -2281,7 +2277,7 @@
                         <a class="rd-nav-link" href="#">Our Stores</a>
                         <ul class="rd-menu rd-navbar-dropdown">
                           <li class="rd-dropdown-item">
-                            <a class="rd-dropdown-link" target="_blank"
+                            <a class="rd-dropdown-link" target="_blank" rel="noopener noreferrer"
                               href="https://devlin-leicester.vercel.app/">Leicester</a>
                           </li>
                           <li class="rd-dropdown-item">
@@ -2681,15 +2677,6 @@
               online anytime.</p>
           </div>
         </section>
-        <!-- <div class="row mx-0">
-          <div class="col-12 px-0 mb-0">
-            <div class="map-container google-map-container">
-              <iframe
-                src="https://maps.google.com/maps?q=Devlin+Wholesale+Tamworth,+Unit+O,+N+Riverside+Industrial+Estate,+Atherstone+St,+Fazeley,+Tamworth+B78+3RW,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                frameborder="0" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div> -->
         <div class="row mx-0">
 
           <div class="col-12">
@@ -3983,13 +3970,13 @@
             <hr />
             <ul class="list-inline footer-social-list footer-social-list-2">
               <li>
-                <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank"></a>
+                <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank" rel="noopener noreferrer"></a>
               </li>
               <li>
-                <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank"></a>
+                <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank" rel="noopener noreferrer"></a>
               </li>
               <li>
-                <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/" target="_blank"></a>
+                <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/" target="_blank" rel="noopener noreferrer"></a>
               </li>
               <!-- <li><a class=" icon mdi mdi-google-plus" href="#"></a></li> -->
             </ul>
@@ -4094,7 +4081,7 @@
     });
   </script>
   <!-- birminghum live blog -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/vendor/bootstrap-5.3.0.bundle.min.js"></script>
 
   <!-- Initialize LightGallery for each project -->
   <script>
@@ -4160,7 +4147,6 @@
     });
   </script>
   <!-- Campaign Widgets -->
-  <script src="campaign-widgets/campaign-widgets.js"></script>
   <script>
     document.querySelectorAll('a[href^="tel"]').forEach(function (el) {
       el.addEventListener('click', function (e) {
@@ -4168,7 +4154,6 @@
       });
     });
   </script>
-  <script src="js/cookie-consent.js"></script>
 </body>
 
 </html>

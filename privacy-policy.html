@@ -19,8 +19,8 @@
   <meta charset="utf-8">
   <link rel="icon" href="images/favicon-100x100.png" type="image/x-icon">
   <!-- Stylesheets-->
-  <link rel="stylesheet" type="text/css"
-    href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
+  <link rel="preload" href="/fonts/roboto-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/local-fonts.css" />
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
@@ -134,7 +134,7 @@
     }
   </style>
   <!-- Accordian footer -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="/css/fontawesome-6.4.0-all.min.css" rel="stylesheet">
   <style>
     /* Remove white background from accordion buttons and add dropdown icons */
     .accordion-button {
@@ -296,7 +296,7 @@
                       <a class="rd-nav-link" href="#">Our Stores</a>
                       <ul class="rd-menu rd-navbar-dropdown">
                         <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" target="_blank" href="https://devlin-leicester.vercel.app/">Leicester</a>
+                          <a class="rd-dropdown-link" target="_blank" rel="noopener noreferrer" href="https://devlin-leicester.vercel.app/">Leicester</a>
                         </li>
                         <li class="rd-dropdown-item">
                           <a class="rd-dropdown-link" href="carpets-tamworth.html">Tamworth</a>
@@ -358,7 +358,7 @@
     <section class="section section-lg bg-default text-md-left">
       <div class="container">
         <h3>Privacy Policy</h3>
-        <p class="last-updated">Last updated: 16 June 2025</p>
+        <p class="last-updated">Last updated: 22 June 2026</p>
         <!-- Terms list-->
         <dl class="list-terms">
           <dt class="heading-6">Who We Are</dt>
@@ -369,8 +369,8 @@
             personal information when you visit our website, contact us, or engage with our services.</dd>
 
           <dt class="heading-6">What Personal Data We Collect</dt>
-          <dd>We do not currently collect personal data through forms on our website. However, when you choose to
-            contact us via phone, email, or our integrated WhatsApp chat, we may collect personal information that you
+          <dd>We do not currently collect personal data through active forms on our website. However, when you choose to
+            contact us via phone, email, WhatsApp, or another linked service, we may collect personal information that you
             provide voluntarily. This can include: Your name, contact details such as email address or phone number,
             address details (if you provide them for quotations or service delivery), and any information you provide as
             part of your enquiry. We do not collect or store payment details via the website, as we do not currently
@@ -389,11 +389,19 @@
             company news by phone, email, or messaging services. You can opt out of receiving marketing messages at any
             time by contacting us or using any unsubscribe link provided in our communications.</dd>
 
-          <dt class="heading-6">Cookies and Analytics</dt>
-          <dd>We use cookies on our website to enhance user experience and to collect anonymous information about how
-            visitors use the site. This includes the use of Google Analytics, which helps us understand traffic
-            patterns, popular pages, and user behaviour. Cookies are small text files stored on your device. You can
-            control cookie settings through your browser and choose to disable them if you prefer.</dd>
+          <dt class="heading-6">Website Technology, Cookies and Analytics</dt>
+          <dd>We do not currently use Google Analytics, advertising pixels, behavioural tracking, embedded maps,
+            virtual-tour embeds, campaign widgets, or non-essential cookies on this website. Website fonts, icons,
+            styles and scripts are hosted locally. Our hosting provider may process technical information such as your
+            IP address, browser type, requested page, date and time, and security logs in order to deliver and protect
+            the website. This processing is based on our legitimate interests in operating a secure and reliable
+            website. Please see our Cookie Policy for more information.</dd>
+
+          <dt class="heading-6">External Links and Services</dt>
+          <dd>Our website contains links to external services including Google Maps, WhatsApp and social-media
+            platforms. These services are not loaded automatically by our pages. If you choose to follow one of these
+            links, the external provider will process information under its own privacy policy. We recommend reviewing
+            the relevant provider's privacy information before using its service.</dd>
 
           <dt class="heading-6">How We Store Your Information</dt>
           <dd>We store personal information provided to us through phone, email, or WhatsApp communications in a secure
@@ -403,10 +411,11 @@
           </dd>
 
           <dt class="heading-6">Disclosure of Information</dt>
-          <dd>We may disclose your personal data to third parties who help us provide services to you. These may include
-            delivery providers, flooring fitters, or other subcontractors who assist in carrying out work on our behalf.
-            We ensure that these parties handle your data in accordance with data protection law and only use it for the
-            specific purposes required. We do not sell or rent your personal information to any third parties.</dd>
+          <dd>We may disclose personal data to service providers who help us operate the website or provide services to
+            you. These may include our website-hosting provider, communications providers, delivery providers, flooring
+            fitters, or other subcontractors working on our behalf. We require providers acting for us to handle data
+            only for the relevant purpose and in accordance with data-protection law. We do not sell or rent personal
+            information.</dd>
 
           <dt class="heading-6">Your Rights Under UK GDPR</dt>
           <dd>You have the right to: request access to any personal data we hold about you, request correction of
@@ -477,14 +486,14 @@
             <div class="mt-4">
               <ul class="list-inline footer-social-list footer-social-list-2">
                 <li>
-                  <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank"></a>
+                  <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank" rel="noopener noreferrer"></a>
                 </li>
                 <li>
-                  <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank"></a>
+                  <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank" rel="noopener noreferrer"></a>
                 </li>
                 <li>
                   <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/"
-                    target="_blank"></a>
+                    target="_blank" rel="noopener noreferrer"></a>
                 </li>
               </ul>
             </div>
@@ -681,8 +690,8 @@
     });
   </script>
   <!-- Javascript-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script src="js/cookie-consent.js"></script>
+  <script src="/js/vendor/bootstrap-5.3.0.bundle.min.js"></script>
+
 </body>
 
 </html>

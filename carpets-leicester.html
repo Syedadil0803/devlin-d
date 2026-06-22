@@ -4,7 +4,7 @@
 <head>
   <title>Carpets Leicester | Devlin Wholesale Leicester Flooring Showroom</title>
   <meta property="og:title" content="Carpets Leicester | Devlin Wholesale Leicester Flooring Showroom" />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="robots" content="noindex, nofollow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="description"
     content="Visit Devlin Wholesale Leicester for carpets, LVT, laminate, vinyl and expert flooring advice. Free home measurement and trusted fitting support across Leicestershire." />
   <meta name="keywords"
@@ -28,11 +28,8 @@
   <link rel="icon" href="images/favicon-100x100.png" type="image/x-icon" />
   <!-- <link rel="icon" href="images/favicon-150x150.png" type="image/x-icon" /> -->
   <!-- Stylesheets-->
-  <link rel="stylesheet" type="text/css"
-    href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+  <link rel="preload" href="/fonts/roboto-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/local-fonts.css" />
   <link rel="stylesheet" href="css/bootstrap.css" />
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/style.css" />
@@ -359,8 +356,6 @@
       }
     }
   </style>
-  <!-- Campaign Widgets -->
-  <link rel="stylesheet" href="campaign-widgets/campaign-widgets.css" />
   <!-- Page Styles: IE Panel and Base Swiper Slide Background -->
   <style>
     .ie-panel {
@@ -407,7 +402,7 @@
     }
   </style>
   <!-- Accordian footer -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="/css/fontawesome-6.4.0-all.min.css" rel="stylesheet">
   <!-- Page Styles: Footer Accordion and External Link Tooltip -->
   <style>
     /* External Link Tooltip */
@@ -2624,7 +2619,7 @@
                     <source src="videos/michael.mp4" type="video/mp4">
                   </video>
                   <span class="play-button-video-shade" aria-hidden="true"></span>
-                  <span class="play-button-video-icon material-symbols-outlined" aria-hidden="true">play_arrow</span>
+                  <svg class="play-button-video-icon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z" /></svg>
                 </button>
               </div>
               <div class="grid-founder-note">
@@ -2967,18 +2962,6 @@
             </div>
           </div>
 
-          <div class="col-12 col-lg-6 order-2 order-lg-2 d-flex align-items-start px-3 pr-lg-5 pl-lg-0">
-            <div
-              style="position: relative; overflow: hidden; width: 100%; min-height: clamp(320px, 48vw, 520px); height: 100%;">
-              <iframe id="coverageMapIframe"
-                src="https://www.google.com/maps/d/embed?mid=1lp2VFv0eqXhxW_qIlQB0TCgEJOygnEI&ehbc=2E312F&noprof=1"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; pointer-events: none;"
-                frameborder="0" allowfullscreen loading="lazy"></iframe>
-              <button id="coverageMapToggleBtn" onclick="toggleCoverageMapInteraction()" class="coverage-map-button">
-                Enable Map Interaction
-              </button>
-            </div>
-          </div>
         </div>
       </div>
       <div class="container-fluid px-3 px-lg-0">
@@ -3031,17 +3014,6 @@
           <h1 style="margin-top: 20px;">Visit Our Groby, Leicester Showroom</h1>
           <p>Take a moment to read our customer reviews, locate us on Google Maps. Plan
             a visit to explore our range of Carpets & Flooring.</p>
-        </div>
-      </div>
-      <div class="map-section map-section-flush">
-        <div class="row">
-          <div class="col-12">
-            <div class="map-container google-map-container">
-              <iframe
-                src="https://maps.google.com/maps?q=Devlin+Wholesale+Leicester,+Laundon+Way,+Groby,+Leicester+LE6+0YG,+United+Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                frameborder="0" allowfullscreen></iframe>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -3139,24 +3111,6 @@
       </div>
     </section>
 
-    <section class="section section-md bg-default">
-      <div class="container">
-        <div class="service-journey-heading-copy heading-bottom-30">
-          <h1>Explore Our Showroom Virtually</h1>
-          <p>Take a 3D tour of our Groby showroom and browse luxury carpets, hardwoods, and designer flooring.</p>
-        </div>
-      </div>
-      <div class="map-section map-section-flush  px-3 px-lg-0" style="padding: 0;">
-        <div class="row">
-          <div class="col-12">
-            <div class="map-container">
-              <iframe src="https://my.matterport.com/show/?m=hkLjQnC7Rv2" frameborder="0" allowfullscreen
-                allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <!-- Latest projects-->
     <section class="section section-md section-top-0 bg-default text-center latest-projects-section">
       <div class="container heading-bottom-30">
@@ -4198,9 +4152,9 @@
               <li><a class="icon mdi mdi-facebook" href="https://www.facebook.com/profile.php?id=61567176396456"
                   target="_blank" rel="noopener noreferrer"></a></li>
               <li><a class="icon mdi mdi-twitter" rel="noopener noreferrer" href="https://x.com/devlinwholesale"
-                  target="_blank"></a></li>
+                  target="_blank" rel="noopener noreferrer"></a></li>
               <li><a class="icon mdi mdi-instagram" rel="noopener noreferrer"
-                  href="https://www.instagram.com/devlinwholesale/" target="_blank"></a></li>
+                  href="https://www.instagram.com/devlinwholesale/" target="_blank" rel="noopener noreferrer"></a></li>
             </ul>
 
             <div style="margin-top: 10px; text-align: left; display: inline-block;">
@@ -4309,22 +4263,7 @@
     });
   </script>
   <!-- birminghum live blog -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    function toggleCoverageMapInteraction() {
-      const iframe = document.getElementById("coverageMapIframe");
-      const button = document.getElementById("coverageMapToggleBtn");
-      if (!iframe || !button) return;
-
-      if (iframe.style.pointerEvents === "none") {
-        iframe.style.pointerEvents = "auto";
-        button.textContent = "Disable Map Interaction";
-      } else {
-        iframe.style.pointerEvents = "none";
-        button.textContent = "Enable Map Interaction";
-      }
-    }
-  </script>
+  <script src="/js/vendor/bootstrap-5.3.0.bundle.min.js"></script>
 
   <!-- Initialize LightGallery for each project -->
   <script>
@@ -4416,9 +4355,6 @@
       observer.observe(journeySection);
     });
   </script>
-  <!-- Campaign Widgets -->
-  <script src="campaign-widgets/campaign-widgets.js"></script>
-<script src="js/cookie-consent.js"></script>
 </body>
 
 </html>
