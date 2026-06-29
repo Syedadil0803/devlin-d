@@ -1775,34 +1775,30 @@
           font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
         }
 
-        .dw-locator * {
-          box-sizing: border-box;
-        }
-
         .dw-locator__map {
           flex: 1 1 72%;
           min-width: 0;
           position: relative;
-          background: #0a1726;
-          display: flex;
-          align-items: flex-start;
-          justify-content: center;
           padding: 0;
+          align-self: stretch;
         }
 
         .dw-mapimg {
-          position: relative;
+          position: absolute;
+          inset: 0;
           width: 100%;
+          height: 100%;
           line-height: 0;
         }
 
         .dw-mapimg img {
           width: 100%;
-          height: auto;
+          height: 100%;
           display: block;
+          object-fit: cover;
+          object-position: 30% center;
         }
 
-        /* invisible clickable hotspots over the baked-in pins */
         .dw-hotspot {
           position: absolute;
           transform: translate(-50%, -50%);
@@ -1895,10 +1891,14 @@
         .dw-locator__panel {
           flex: 1 1 28%;
           min-width: 0;
+          display: flex;
+          flex-direction: column;
           background: #fff;
           padding: 0;
           border-left: 1px solid #ececec;
         }
+
+        /* open item stretches to fill remaining panel height */
 
         .dw-acc-item {
           border-bottom: 1px solid #ececec;
@@ -1960,27 +1960,71 @@
           text-align: center;
           font-size: 0;
           line-height: 1;
+          position: relative;
         }
 
+        /* FA chevron icons */
         .dw-acc-chev::before {
-          content: "+";
-          font-size: 24px;
-          font-weight: 400;
+          content: "\f078"; /* chevron-down */
+          font-family: "Font Awesome 6 Free";
+          font-weight: 900;
+          font-style: normal;
+          -webkit-font-smoothing: antialiased;
+          font-size: 15px;
+          display: block;
+          transition: transform .25s ease;
         }
 
         .dw-acc-item.open .dw-acc-chev::before {
-          content: "\2212";
+          content: "\f077"; /* chevron-up */
+          transform: none;
+          color: #bbb;
         }
 
-        /* minus */
+        .dw-acc-item.open .dw-acc-head {
+          cursor: not-allowed;
+        }
+
+        /* Tooltip on the open chevron */
+        .dw-acc-item.open .dw-acc-chev::after {
+          content: "Already open — pick another store";
+          position: absolute;
+          bottom: calc(100% + 8px);
+          right: 0;
+          background: #151515;
+          color: #fff;
+          font-family: inherit;
+          font-size: 11px;
+          font-weight: 400;
+          line-height: 1.4;
+          white-space: nowrap;
+          padding: 6px 10px;
+          border-radius: 4px;
+          pointer-events: none;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity .2s ease, visibility .2s ease;
+          box-shadow: 0 2px 8px rgba(0,0,0,.25);
+          z-index: 20;
+        }
+
+        .dw-acc-item.open .dw-acc-head:hover .dw-acc-chev::after {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        /* arrow pointer for the tooltip */
+        .dw-acc-item.open .dw-acc-chev {
+          overflow: visible;
+        }
+
+        /* active open item fills panel height like the map — handled by align-self: stretch above */
         .dw-acc-body {
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height .3s ease;
+          display: none;
         }
 
         .dw-acc-item.open .dw-acc-body {
-          max-height: 520px;
+          display: block;
         }
 
         .dw-acc-inner {
@@ -2116,13 +2160,23 @@
 
         @media (max-width: 991px) {
           .dw-locator__map {
-            min-height: 360px;
             flex-basis: 100%;
+          }
+
+          .dw-mapimg {
+            position: relative;
+            inset: auto;
+            height: auto;
+          }
+
+          .dw-mapimg img {
+            height: auto;
+            object-fit: unset;
           }
 
           .dw-locator__panel {
             flex-basis: 100%;
-            max-height: none;
+            height: auto;
             border-left: none;
             border-top: 1px solid #ececec;
           }
@@ -2148,7 +2202,7 @@
           <div class="dw-acc-item open" data-store="leicester">
             <button class="dw-acc-head" onclick="dwOpenStore('leicester')"><span class="dw-acc-headtext"><span
                   class="dw-acc-name">Leicester</span><span class="dw-acc-loc">Laundon Way, Groby, Leicestershire LE6
-                  0YG</span></span><span class="dw-acc-chev">&#9662;</span>
+                  0YG</span></span><span class="dw-acc-chev"></span>
             </button>
             <div class="dw-acc-body">
               <div class="dw-acc-inner">
@@ -2188,7 +2242,7 @@
           <div class="dw-acc-item" data-store="tamworth">
             <button class="dw-acc-head" onclick="dwOpenStore('tamworth')"><span class="dw-acc-headtext"><span
                   class="dw-acc-name">Tamworth</span><span class="dw-acc-loc">Atherstone St, Fazeley, Staffordshire B78
-                  3RW</span></span><span class="dw-acc-chev">&#9662;</span>
+                  3RW</span></span><span class="dw-acc-chev"></span>
             </button>
             <div class="dw-acc-body">
               <div class="dw-acc-inner">
@@ -2228,7 +2282,7 @@
           <div class="dw-acc-item" data-store="minworth">
             <button class="dw-acc-head" onclick="dwOpenStore('minworth')"><span class="dw-acc-headtext"><span
                   class="dw-acc-name">Minworth</span><span class="dw-acc-loc">Stockton Cl, Sutton Coldfield, West
-                  Midlands B76 1DH</span></span><span class="dw-acc-chev">&#9662;</span>
+                  Midlands B76 1DH</span></span><span class="dw-acc-chev"></span>
             </button>
             <div class="dw-acc-body">
               <div class="dw-acc-inner">
@@ -2268,7 +2322,7 @@
           <div class="dw-acc-item" data-store="lichfield">
             <button class="dw-acc-head" onclick="dwOpenStore('lichfield')"><span class="dw-acc-headtext"><span
                   class="dw-acc-name">Lichfield</span><span class="dw-acc-loc">Prospect Drive, Lichfield, Staffordshire
-                  WS14 9UX</span></span><span class="dw-acc-chev">&#9662;</span>
+                  WS14 9UX</span></span><span class="dw-acc-chev"></span>
             </button>
             <div class="dw-acc-body">
               <div class="dw-acc-inner">
@@ -2314,12 +2368,8 @@
           const current = document.querySelector('.dw-acc-item[data-store="' + id + '"]');
           const pin = document.querySelector('.dw-pin[data-store="' + id + '"]');
 
-          // If already open, close it
-          if (current.classList.contains('open')) {
-            current.classList.remove('open');
-            if (pin) pin.classList.remove('is-active');
-            return;
-          }
+          // Already open — do nothing (always keep one open)
+          if (current.classList.contains('open')) return;
 
           // Close all accordions and deactivate all pins
           document.querySelectorAll('.dw-acc-item').forEach(function (it) {
