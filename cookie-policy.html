@@ -16,9 +16,9 @@
     <meta charset="utf-8">
     <link rel="icon" href="images/favicon-100x100.png" type="image/x-icon">
     <!-- Stylesheets-->
-    <link rel="preload" href="/fonts/roboto-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/css/local-fonts.css" />
-  <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="preload" href="fonts/roboto-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/local-fonts.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -36,6 +36,23 @@
         html.ie-10 .ie-panel,
         html.lt-ie-10 .ie-panel {
             display: block;
+        }
+
+        /* boxed CTA for the affiliated external-site nav link ("Our Roots") */
+        .rd-navbar-nav .nav-cta {
+            display: inline-block;
+            border: 1.5px solid #02283a;
+            border-radius: 4px;
+            padding: 7px 16px !important;
+            color: #02283a !important;
+            font-weight: 700;
+            line-height: 1.2;
+            transition: background-color .15s ease, color .15s ease;
+        }
+
+        .rd-navbar-nav .nav-cta:hover {
+            background-color: #02283a;
+            color: #ffffff !important;
         }
     </style>
     <!-- privacy policy stylings -->
@@ -131,7 +148,7 @@
         }
     </style>
     <!-- Accordian footer -->
-    <link href="/css/fontawesome-6.4.0-all.min.css" rel="stylesheet">
+    <link href="css/fontawesome-6.4.0-all.min.css" rel="stylesheet">
     <style>
         /* Remove white background from accordion buttons and add dropdown icons */
         .accordion-button {
@@ -146,7 +163,6 @@
         .accordion-button:not(.collapsed) {
             background-color: transparent !important;
             color: inherit !important;
-            pointer-events: none;
         }
 
         .accordion-button:focus {
@@ -290,6 +306,18 @@
             }
         }
     </style>
+
+    <!-- navbar styles -->
+    <style>
+        .rd-navbar-static .rd-navbar-nav {
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .rd-navbar-static .rd-navbar-nav .rd-nav-item:last-child {
+            margin-left: auto !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -367,65 +395,21 @@
                                     <!-- RD Navbar Nav-->
                                     <ul class="rd-navbar-nav">
                                         <li class="rd-nav-item">
-                                            <a class="rd-nav-link" href="./">Home</a>
-                                        </li>
-
-                                        <li class="rd-nav-item">
-                                            <a class="rd-nav-link" href="/products.html">Products</a>
+                                            <a class="rd-nav-link js-silent-anchor" href="#work">Our Work</a>
                                         </li>
                                         <li class="rd-nav-item">
-                                            <a class="rd-nav-link" href="services.html">Services</a>
-                                        </li>
-                                        <li class="rd-nav-item">
-                                            <a class="rd-nav-link" href="#">Stories</a>
-                                            <ul class="rd-menu rd-navbar-dropdown">
-                                                <li class="rd-dropdown-item">
-                                                    <a class="rd-dropdown-link" href="blog.html">Blogs</a>
-                                                </li>
-                                                <li class="rd-dropdown-item">
-                                                    <a class="rd-dropdown-link" href="projects.html">Projects</a>
-                                                </li>
-                                            </ul>
+                                            <a class="rd-nav-link js-silent-anchor" href="#contact">Contacts</a>
                                         </li>
                                         <!-- <li class="rd-nav-item">
-                        <a class="rd-nav-link" href="projects.html">Projects</a>
-                      <li class="rd-nav-item">
-                        <a class="rd-nav-link" href="blog.html">Blogs</a>
+                        <a class="rd-nav-link" href="https://www.devlinwholesale.co.uk/" target="_blank" rel="noopener noreferrer"><span class="post-classic-time" style="font-size: 14px;">Visit Devlin Wholesale</span></a>
                       </li> -->
                                         <li class="rd-nav-item">
-                                            <a class="rd-nav-link" href="#">Connect</a>
-                                            <ul class="rd-menu rd-navbar-dropdown">
-                                                <li class="rd-dropdown-item">
-                                                    <a class="rd-dropdown-link" href="about-us.html">About Us</a>
-                                                </li>
-                                                <li class="rd-dropdown-item">
-                                                    <a class="rd-dropdown-link" href="contacts.html">Contact Us</a>
-                                                </li>
-                                            </ul>
+                                            <a class="rd-nav-link js-silent-anchor js-nav-tooltip nav-cta"
+                                                href="https://www.devlinwholesale.co.uk/" target="_blank"
+                                                rel="noopener noreferrer"
+                                                data-tooltip="Explore Devlin Wholesale — our products, services and the family behind the brand">Our
+                                                Roots ↗</a>
                                         </li>
-                                        <li class="rd-nav-item active">
-                                            <a class="rd-nav-link" href="#">Our Stores</a>
-                                            <ul class="rd-menu rd-navbar-dropdown">
-                                                <li class="rd-dropdown-item">
-                                                    <a class="rd-dropdown-link"
-                                                        href="carpets-leicester.html">Leicester</a>
-                                                </li>
-                                                <li class="rd-dropdown-item">
-                                                    <a class="rd-dropdown-link" href="carpets-tamworth.html">Tamworth</a>
-                                                </li>
-                                                <li class="rd-dropdown-item">
-                                                    <a class="rd-dropdown-link"
-                                                        href="carpets-minworth.html">Minworth</a>
-                                                </li>
-                                                <li class=" rd-dropdown-item">
-                                                    <a class="rd-dropdown-link external-link-tooltip"
-                                                        href="https://www.devlincarpets.com/" target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        data-tooltip="You will be redirected to an affiliated website (Devlin Carpets - Lichfield)">Lichfield</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-
                                     </ul>
                                 </div>
                             </div>
@@ -433,17 +417,12 @@
                                 <ul class="list-inline footer-social-list footer-social-list-2">
                                     <li>
                                         <a class="icon-header mdi mdi-facebook"
-                                            href="https://www.facebook.com/DevlinWholesale/" target="_blank"
-                                            rel="noopener noreferrer"></a>
-                                    </li>
-                                    <li>
-                                        <a class="icon-header mdi mdi-twitter"
-                                            href="https://x.com/devlinwholesale?lang=en" target="_blank"
-                                            rel="noopener noreferrer"></a>
+                                            href="https://www.facebook.com/profile.php?id=61567176396456"
+                                            target="_blank" rel="noopener noreferrer"></a>
                                     </li>
                                     <li>
                                         <a class="icon-header mdi mdi-instagram"
-                                            href="https://www.instagram.com/devlinwholesale/" target="_blank"
+                                            href="https://www.instagram.com/devlinleicester/" target="_blank"
                                             rel="noopener noreferrer"></a>
                                     </li>
                                     <!-- <li><a class="icon-header mdi mdi-google-plus" href="#"></a></li> -->
@@ -478,49 +457,88 @@
                 <p class="last-updated">Last updated: 22 June 2026</p>
 
                 <div class="content-block">
-                    <p>This Cookie Policy explains the current use of cookies and similar browser-storage technologies
-                        on the Devlin Wholesale website.</p>
+                    <p>This Cookie Policy explains what cookies are, how Devlin Wholesale uses them on our Groby
+                        Leicester showroom website, and what choices you have regarding their use. We are committed to
+                        being transparent about the technologies we use and ensuring your privacy is respected in line
+                        with UK GDPR and the Privacy and Electronic Communications Regulations (PECR).</p>
                 </div>
 
                 <div class="content-block">
                     <h4>What Are Cookies?</h4>
-                    <p>Cookies are small text files that are placed on your device (computer, tablet, smartphone) when
-                        you visit a website. They help websites function efficiently and provide useful information to
-                        website owners.</p>
-                    <p>Similar technologies include local storage and session storage, which can save information in
-                        your browser without using a traditional cookie.</p>
+                    <p>Cookies are small text files that are placed on your device — computer, tablet or smartphone —
+                        when you visit a website. They are widely used to make websites work efficiently and to provide
+                        information to website owners.
+                    </p>
+                    <p>Cookies are not harmful and cannot access any other information on your device. They simply help
+                        websites remember your preferences and understand how visitors interact with the site.
+                        Some cookies are essential for the website to function properly and cannot be switched off.
+                        Others are optional and will only be activated with your explicit consent.</p>
                 </div>
 
                 <div class="content-block">
-                    <h4>Our Current Use of Cookies</h4>
-                    <p>We do not currently set analytics, advertising, personalisation or campaign cookies. We also do
-                        not use Google Analytics, advertising pixels, embedded Google Maps, virtual-tour embeds, or
-                        campaign-widget browser storage. Because the website does not currently use non-essential
-                        cookies or similar technologies, a consent banner is not displayed.</p>
-                    <p>Our web-hosting and security infrastructure may use strictly necessary technical measures to
-                        deliver pages, balance traffic, prevent abuse and maintain security. Where such a measure is
-                        strictly necessary to provide the website or keep it secure, consent is not normally required
-                        under the Privacy and Electronic Communications Regulations.</p>
-                </div>
+                    <h4>How We Use Cookies</h4>
 
-                <div class="content-block">
-                    <h4>External Links</h4>
-                    <p>The site contains links to third-party services such as Google Maps, WhatsApp and social-media
-                        platforms. These services are contacted only when you choose to click their links. Once you
-                        leave our website, the third party may use cookies or other technologies under its own policy.</p>
-                </div>
+                    <p>We use a small number of cookies on our website. We do not use cookies for advertising or to
+                        track your behaviour across other websites. The cookies we use fall into the following
+                        categories:</p>
 
-                <div class="content-block">
-                    <h4>Managing Browser Data</h4>
-                    <p>You can control or delete cookies through your browser settings. Most browsers allow you to:</p>
+                    <div class="cookie-type">1. Strictly Necessary Cookies</div>
+                    <p>Strictly necessary cookies are essential for our website to function correctly. Without these
+                        cookies certain features of the website would not work and the site may not perform as intended.
+                        These cookies do not collect any personally identifiable information and cannot be switched off
+                        as they are integral to how the website operates. No consent is required for these cookies under
+                        UK GDPR and PECR.</p>
+                    <p>
+                        Examples of what strictly necessary cookies do on our website include:
+                    </p>
                     <ul class="bullet-list">
-                        <li>View what cookies you have and delete them</li>
+                        <li>Remembering your cookie consent preferences</li>
+                        <li>Enabling secure browsing sessions</li>
+                        <li>Ensuring the website loads and navigates correctly</li>
+                    </ul>
+
+                    <div class="cookie-type">2. Functional Cookies</div>
+                    <p>We use third party tools to enhance your experience on our website. These tools may set their own
+                        cookies when you interact with them. We do not control these cookies and they are only activated
+                        with your explicit consent.</p>
+                    <ul class="bullet-list">
+                        <li>Google Maps </li>
+                        <li>Matterport</li>
+
+                    </ul>
+                    <p>For any future third party tools we integrate, we will update this section and seek your consent
+                        accordingly.</p>
+
+                    <div class="cookie-type">3. Performance / Analytics Cookies</div>
+                    <p>We currently do not use performance cookies on this website. Should this change in the future, we
+                        will update this policy and ask for your consent before any performance cookies are set.</p>
+
+                    <div class="cookie-type">4. Third-Party Content</div>
+                    <p>Some pages on our website embed content or tools provided by third parties such as <b>Google</b>
+                        and <b>Matterport</b>. These third parties may set their own cookies independently of our cookie
+                        consent system. We recommend reviewing their individual privacy policies for full details of how
+                        they handle your data.</p>
+
+                </div>
+
+                <div class="content-block">
+                    <h4>Managing Your Cookie Preferences</h4>
+                    <p>Through Our Website
+                        You can update or withdraw your cookie consent at any time by clicking the Cookie Settings link
+                        in the footer of our website. Changes will take effect immediately and do not require you to
+                        adjust your browser settings.
+                        Through Your Browser
+                    </p>
+                    <p>You can also control or delete cookies directly through your browser settings. Most browsers
+                        allow you to:</p>
+                    <ul class="bullet-list">
+                        <li>View what cookies are stored and delete them</li>
                         <li>Block third-party cookies</li>
                         <li>Block all cookies from being set</li>
                         <li>Clear all cookies when you close your browser</li>
                     </ul>
-                    <p>Deleting or blocking cookies should not affect the main functionality of this website in its
-                        current configuration.</p>
+                    <p>Please note that disabling certain cookies through your browser may affect how our website
+                        functions, including the ability to view our interactive map and virtual showroom tour.</p>
                     <p>To find out how to manage cookies in your browser, use the following links:</p>
                     <div class="browser-links">
                         <ul class="bullet-list">
@@ -545,10 +563,14 @@
                 </div>
 
                 <div class="content-block">
-                    <h4>Future Changes</h4>
-                    <p>If we introduce analytics, embedded third-party content, marketing tools, or other non-essential
-                        browser storage in future, we will update this policy and obtain consent before those
-                        technologies are activated where the law requires it.</p>
+                    <h4>Updates to This Policy</h4>
+                    <p>As our website grows and new features are added — such as an online store, customer tools or
+                        additional third party integrations — we may need to use additional cookies. When that happens
+                        this policy will be updated to reflect those changes.
+                        Where changes are significant we will notify you by displaying a prominent notice on our website
+                        or by re-presenting the cookie consent popup so you can review and update your preferences. </p>
+                    <p>We encourage you to check this page periodically to stay informed about how we use cookies.
+                    </p>
                 </div>
             </div>
         </section>
@@ -556,64 +578,39 @@
         <footer class="section section-md footer-creative context-dark">
             <div class="container">
                 <div class="row row-60 justify-content-center justify-content-xl-between">
-                    <!-- First div - Store locations -->
-                    <div class="col-sm-8 col-md-4 col-lg-3">
-                        <h5 class="footer-creative-title oh-desktop">
-                            <span class="d-inline-block wow slideInDown">Our Stores</span>
-                        </h5>
-                        <!-- Leicester Location -->
-                        <div class="store-location mb-3 wow fadeInRight">
-                            <h6 class="footer-creative-contacts-title mb-1">
-                                Devlin Wholesale Leicester
-                            </h6>
-                            <span class="footer-creative-contacts-title small mb-0">Phone:
-                            </span>
-                            <a class="phone">0116 456 0022</a>
-                        </div>
-                        <!-- Tamworth Location -->
-                        <div class="store-location mb-3 wow fadeInRight" data-wow-delay=".05s">
-                            <h6 class="footer-creative-contacts-title mb-1">
-                                Devlin Wholesale Tamworth
-                            </h6>
-                            <span class="footer-creative-contacts-title small mb-0">Phone:
-                            </span>
-                            <a class="phone">01827 265526</a>
-                        </div>
-                        <!-- Minworth Location -->
-                        <div class="store-location mb-3 wow fadeInRight" data-wow-delay=".1s">
-                            <h6 class="footer-creative-contacts-title mb-1">
-                                Devlin Wholesale Minworth
-                            </h6>
-                            <span class="footer-creative-contacts-title small mb-0">Phone:
-                            </span>
-                            <a class="phone">0121 313 2303</a>
-                        </div>
-                        <!-- Lichfield Location -->
-                        <div class="store-location mb-3 wow fadeInRight" data-wow-delay=".1s">
-                            <h6 class="footer-creative-contacts-title mb-1">
-                                Devlin Wholesale Lichfield
-                            </h6>
-                            <span class="footer-creative-contacts-title small mb-0">Phone:
-                            </span>
-                            <a class="phone">0154 326 3486</a>
-                        </div>
+                    <!-- First div - Get in touch -->
+                    <div class="col-sm-8 col-md-5 col-lg-3">
+                        <h5 class="footer-creative-title oh-desktop"><span class="d-inline-block wow slideInDown">Get in
+                                touch</span></h5>
+                        <ul class="footer-creative-contacts d-inline-block d-md-block">
+                            <li class="wow fadeInRight">
+                                <p class="footer-creative-contacts-title">Phone</p><a class="phone"
+                                    href="tel:01164560022">0116
+                                    456 0022</a>
+                            </li>
+                            <li class="wow fadeInRight" data-wow-delay=".05s">
+                                <p class="footer-creative-contacts-title">Address</p><a class="phone" href="#">Laundon
+                                    Way, Groby,
+                                    Leicester LE6 0YG</a>
+                            </li>
+                            <li class="wow fadeInRight" data-wow-delay=".1s">
+                                <p class="footer-creative-contacts-title ">E-mail</p><a class="mail phone"
+                                    href="mailto:groby@devlinwholesale.co.uk">groby@devlinwholesale.co.uk</a>
+                            </li>
+                        </ul>
+                        <hr />
+                        <ul class="list-inline footer-social-list footer-social-list-2">
+                            <li><a class="icon mdi mdi-facebook"
+                                    href="https://www.facebook.com/profile.php?id=61567176396456" target="_blank"
+                                    rel="noopener noreferrer"></a></li>
+                            <li><a class="icon mdi mdi-instagram" rel="noopener noreferrer"
+                                    href="https://www.instagram.com/devlinleicester/" target="_blank"></a></li>
+                        </ul>
 
-                        <!-- Social links -->
-                        <div class="mt-4">
-                            <ul class="list-inline footer-social-list footer-social-list-2">
-                                <li>
-                                    <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/"
-                                        target="_blank" rel="noopener noreferrer"></a>
-                                </li>
-                                <li>
-                                    <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en"
-                                        target="_blank" rel="noopener noreferrer"></a>
-                                </li>
-                                <li>
-                                    <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/"
-                                        target="_blank" rel="noopener noreferrer"></a>
-                                </li>
-                            </ul>
+                        <div style="margin-top: 10px; text-align: left; display: inline-block;">
+                            <span style="display: block;">Digital Experience by</span>
+                            <img src="images/logo/NXoduslogo.JPG" alt="Nxodus logo"
+                                style="display: block; width: 170px; max-width: 100%; height: auto; margin-top: 6px;" />
                         </div>
                     </div>
 
@@ -623,154 +620,61 @@
                             <span class="d-inline-block wow slideInDown">Opening Hours</span>
                         </h5>
 
-                        <div class="store-hours wow fadeInRight">
-                            <div class="accordion" id="storeHoursAccordion">
-                                <!-- Leicester & Minworth -->
-                                <div class="accordion-item">
-                                    <h6 class="accordion-header" id="headingLeicester">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseLeicester" aria-expanded="true"
-                                            aria-controls="collapseLeicester">
-                                            Leicester & Minworth
-                                        </button>
-                                    </h6>
-
-                                    <div id="collapseLeicester" class="accordion-collapse collapse show"
-                                        aria-labelledby="headingLeicester" data-bs-parent="#storeHoursAccordion">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled store-hours-list">
-                                                <li class="d-flex justify-content-between day-monday">
-                                                    <span>Monday</span><span>9:00 am - 6:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-tuesday">
-                                                    <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-wednesday">
-                                                    <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-thursday">
-                                                    <span>Thursday</span><span>9:00 am - 6:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-friday">
-                                                    <span>Friday</span><span>9:00 am - 6:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-saturday">
-                                                    <span>Saturday</span><span>9:00 am - 5:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-sunday">
-                                                    <span>Sunday</span><span>10:00 am - 4:00 pm</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Tamworth -->
-                                <div class="accordion-item">
-                                    <h6 class="accordion-header" id="headingTamworth">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseTamworth"
-                                            aria-expanded="false" aria-controls="collapseTamworth">
-                                            Tamworth
-                                        </button>
-                                    </h6>
-                                    <div id="collapseTamworth" class="accordion-collapse collapse"
-                                        aria-labelledby="headingTamworth" data-bs-parent="#storeHoursAccordion">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled store-hours-list">
-                                                <li class="d-flex justify-content-between day-monday">
-                                                    <span>Monday</span><span>9:00 am - 7:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-tuesday">
-                                                    <span>Tuesday</span><span>9:00 am - 7:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-wednesday">
-                                                    <span>Wednesday</span><span>9:00 am - 7:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-thursday">
-                                                    <span>Thursday</span><span>9:00 am - 7:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-friday">
-                                                    <span>Friday</span><span>9:00 am - 7:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-saturday">
-                                                    <span>Saturday</span><span>9:00 am - 5:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-sunday">
-                                                    <span>Sunday</span><span>10:00 am - 4:00 pm</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Lichfield -->
-                                <div class="accordion-item">
-                                    <h6 class="accordion-header" id="headingLichfield">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseLichfield"
-                                            aria-expanded="false" aria-controls="collapseLichfield">
-                                            Lichfield
-                                        </button>
-                                    </h6>
-                                    <div id="collapseLichfield" class="accordion-collapse collapse"
-                                        aria-labelledby="headingLichfield" data-bs-parent="#storeHoursAccordion">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled store-hours-list">
-                                                <li class="d-flex justify-content-between day-monday">
-                                                    <span>Monday</span><span>9:00 am - 6:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-tuesday">
-                                                    <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-wednesday">
-                                                    <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-thursday">
-                                                    <span>Thursday</span><span>9:00 am - 6:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-friday">
-                                                    <span>Friday</span><span>9:00 am - 6:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-saturday">
-                                                    <span>Saturday</span><span>9:00 am - 5:00 pm</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between day-sunday closed">
-                                                    <span>Sunday</span><span>Closed</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="store-hours wow fadeInRight" style="margin-top: 24px;">
+                            <ul class="list-unstyled store-hours-list">
+                                <li class="d-flex justify-content-between day-monday">
+                                    <span>Monday</span><span>9:00 am - 6:00 pm</span>
+                                </li>
+                                <li class="d-flex justify-content-between day-tuesday">
+                                    <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
+                                </li>
+                                <li class="d-flex justify-content-between day-wednesday">
+                                    <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
+                                </li>
+                                <li class="d-flex justify-content-between day-thursday">
+                                    <span>Thursday</span><span>9:00 am - 6:00 pm</span>
+                                </li>
+                                <li class="d-flex justify-content-between day-friday">
+                                    <span>Friday</span><span>9:00 am - 6:00 pm</span>
+                                </li>
+                                <li class="d-flex justify-content-between day-saturday">
+                                    <span>Saturday</span><span>9:00 am - 5:00 pm</span>
+                                </li>
+                                <li class="d-flex justify-content-between day-sunday">
+                                    <span>Sunday</span><span>10:00 am - 4:00 pm</span>
+                                </li>
+                            </ul>
                         </div>
+                        <ul class="footer-creative-contacts d-inline-block d-md-block" style="margin-top: 22px;">
+                            <li>
+                                <p class="footer-creative-contacts-title" style="white-space: nowrap;">Part of Devlin
+                                    Wholesale</p>
+                                <a class="phone" href="https://www.devlinwholesale.co.uk/" target="_blank"
+                                    rel="noopener noreferrer">
+                                    Visit our main website
+                                </a>
+                            </li>
+                        </ul>
                     </div>
+
                     <!-- Keeping the third div the same as in the original code -->
                     <div class="col-sm-10 col-md-12 col-lg-3 col-xl-3">
                         <div class="oh-desktop">
                             <div class="inset-left-xl-20 wow slideInLeft">
-                                <a class="brand" href="./"
+                                <a class="brand js-silent-anchor" href="#top"
                                     style="background-color: white; display: inline-block; padding: 4px;">
                                     <img src="images/logo-2.png" alt="logo image" width="180" height="49"
                                         style="background-color: white;" />
                                 </a>
                                 <p>Providing trustworthy flooring products and solutions.</p>
-                                <ul class="footer-creative-list d-inline-block d-sm-block">
-                                    <li><a href="about-us.html">About us</a></li>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="products.html">Products</a></li>
-                                    <li><a href="projects.html">Projects</a></li>
-                                    <li><a href="blog.html">Blogs</a></li>
-                                    <li><a href="contacts.html">Contacts</a></li>
-
-                                </ul>
                                 <!-- Rights-->
                                 <p class="rights">
                                     <span>&copy;&nbsp;</span><span class="copyright-year"></span>
                                     <span>&nbsp;</span><span>Devlin
                                         Wholesale</span> <span>.&nbsp;</span><a href="privacy-policy.html">Privacy
-                                        policy</a><span>.&nbsp;</span><a href="">Cookie
-                                        policy</a>
+                                        policy</a><span>.&nbsp;</span><a href="cookie-policy.html">Cookie
+                                        policy</a><span>.&nbsp;</span><a href="#" onclick="showCookieWidget(); return false;">Cookie
+                                        settings</a>
                                 </p>
                             </div>
                         </div>
@@ -810,9 +714,10 @@
         });
     </script>
     <!-- Javascript-->
-    <script src="/js/vendor/bootstrap-5.3.0.bundle.min.js"></script>
-
-<script src="js/cookie-consent.js"></script>
+    <script src="js/vendor/bootstrap-5.3.0.bundle.min.js"></script>
+    <!-- Nav external-link tooltip (shared, fixed-position so the header's overflow:hidden can't clip it) -->
+    <script src="js/nav-tooltip.js"></script>
+    <script src="js/cookie-consent.js"></script>
 </body>
 
 </html>
