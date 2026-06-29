@@ -19408,3 +19408,69 @@ disabled look for disabled choices in the results dropdown
 		height: 70px;
 	}
 }
+
+/* ============================================================
+   Accordion overrides — removes Bootstrap defaults, adds FA chevrons
+   ============================================================ */
+.accordion-button {
+	background-color: transparent !important;
+	color: inherit !important;
+	border: none !important;
+	box-shadow: none !important;
+	padding: 0.75rem 0 !important;
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+}
+
+.accordion-button:not(.collapsed) {
+	background-color: transparent !important;
+	color: inherit !important;
+}
+
+.accordion-button:focus {
+	box-shadow: none !important;
+	border-color: transparent !important;
+	outline: none;
+}
+
+/* Base ::after — shared reset so the FA glyph renders */
+.accordion-button::after {
+	font-family: "Font Awesome 6 Free";
+	font-weight: 900;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	display: inline-block;
+	background-image: none !important;
+	width: auto;
+	height: auto;
+	margin-left: auto;
+	flex-shrink: 0;
+	transition: none !important;
+}
+
+/* Closed state — chevron-down */
+.accordion-button.collapsed::after {
+	content: "\f107";
+	transform: none !important;
+}
+
+/* Open state — chevron-up */
+.accordion-button:not(.collapsed)::after {
+	content: "\f106";
+	transform: none !important;
+}
+
+.accordion-item {
+	background-color: transparent;
+	border: none;
+}
+
+.accordion-header {
+	margin-bottom: 0;
+}
