@@ -16,8 +16,8 @@
     <meta charset="utf-8">
     <link rel="icon" href="images/favicon-100x100.png" type="image/x-icon">
     <!-- Stylesheets-->
-    <link rel="preload" href="fonts/roboto-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/local-fonts.css">
+    <link rel="preload" href="/fonts/roboto-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/css/local-fonts.css" />
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
@@ -36,23 +36,6 @@
         html.ie-10 .ie-panel,
         html.lt-ie-10 .ie-panel {
             display: block;
-        }
-
-        /* boxed CTA for the affiliated external-site nav link ("Our Roots") */
-        .rd-navbar-nav .nav-cta {
-            display: inline-block;
-            border: 1.5px solid #02283a;
-            border-radius: 4px;
-            padding: 7px 16px !important;
-            color: #02283a !important;
-            font-weight: 700;
-            line-height: 1.2;
-            transition: background-color .15s ease, color .15s ease;
-        }
-
-        .rd-navbar-nav .nav-cta:hover {
-            background-color: #02283a;
-            color: #ffffff !important;
         }
     </style>
     <!-- privacy policy stylings -->
@@ -148,7 +131,7 @@
         }
     </style>
     <!-- Accordian footer -->
-    <link href="css/fontawesome-6.4.0-all.min.css" rel="stylesheet">
+    <link href="/css/fontawesome-6.4.0-all.min.css" rel="stylesheet">
     <style>
         /* Remove white background from accordion buttons and add dropdown icons */
         .accordion-button {
@@ -163,6 +146,7 @@
         .accordion-button:not(.collapsed) {
             background-color: transparent !important;
             color: inherit !important;
+            pointer-events: none;
         }
 
         .accordion-button:focus {
@@ -306,18 +290,6 @@
             }
         }
     </style>
-
-    <!-- navbar styles -->
-    <style>
-        .rd-navbar-static .rd-navbar-nav {
-            display: flex !important;
-            align-items: center !important;
-        }
-
-        .rd-navbar-static .rd-navbar-nav .rd-nav-item:last-child {
-            margin-left: auto !important;
-        }
-    </style>
 </head>
 
 <body>
@@ -395,21 +367,66 @@
                                     <!-- RD Navbar Nav-->
                                     <ul class="rd-navbar-nav">
                                         <li class="rd-nav-item">
-                                            <a class="rd-nav-link js-silent-anchor" href="#work">Our Work</a>
+                                            <a class="rd-nav-link" href="./">Home</a>
+                                        </li>
+
+                                        <li class="rd-nav-item">
+                                            <a class="rd-nav-link" href="/products.html">Products</a>
                                         </li>
                                         <li class="rd-nav-item">
-                                            <a class="rd-nav-link js-silent-anchor" href="#contact">Contacts</a>
+                                            <a class="rd-nav-link" href="services.html">Services</a>
+                                        </li>
+                                        <li class="rd-nav-item">
+                                            <a class="rd-nav-link" href="#">Stories</a>
+                                            <ul class="rd-menu rd-navbar-dropdown">
+                                                <li class="rd-dropdown-item">
+                                                    <a class="rd-dropdown-link" href="blog.html">Blogs</a>
+                                                </li>
+                                                <li class="rd-dropdown-item">
+                                                    <a class="rd-dropdown-link" href="projects.html">Projects</a>
+                                                </li>
+                                            </ul>
                                         </li>
                                         <!-- <li class="rd-nav-item">
-                        <a class="rd-nav-link" href="https://www.devlinwholesale.co.uk/" target="_blank" rel="noopener noreferrer"><span class="post-classic-time" style="font-size: 14px;">Visit Devlin Wholesale</span></a>
+                        <a class="rd-nav-link" href="projects.html">Projects</a>
+                      <li class="rd-nav-item">
+                        <a class="rd-nav-link" href="blog.html">Blogs</a>
                       </li> -->
                                         <li class="rd-nav-item">
-                                            <a class="rd-nav-link js-silent-anchor js-nav-tooltip nav-cta"
-                                                href="https://www.devlinwholesale.co.uk/" target="_blank"
-                                                rel="noopener noreferrer"
-                                                data-tooltip="Explore Devlin Wholesale — our products, services and the family behind the brand">Our
-                                                Roots ↗</a>
+                                            <a class="rd-nav-link" href="#">Connect</a>
+                                            <ul class="rd-menu rd-navbar-dropdown">
+                                                <li class="rd-dropdown-item">
+                                                    <a class="rd-dropdown-link" href="about-us.html">About Us</a>
+                                                </li>
+                                                <li class="rd-dropdown-item">
+                                                    <a class="rd-dropdown-link" href="contacts.html">Contact Us</a>
+                                                </li>
+                                            </ul>
                                         </li>
+                                        <li class="rd-nav-item">
+                                            <a class="rd-nav-link" href="#">Our Stores</a>
+                                            <ul class="rd-menu rd-navbar-dropdown">
+                                                <li class="rd-dropdown-item">
+                                                    <a class="rd-dropdown-link"
+                                                        href="carpets-leicester.html">Leicester</a>
+                                                </li>
+                                                <li class="rd-dropdown-item">
+                                                    <a class="rd-dropdown-link"
+                                                        href="carpets-tamworth.html">Tamworth</a>
+                                                </li>
+                                                <li class="rd-dropdown-item">
+                                                    <a class="rd-dropdown-link"
+                                                        href="carpets-minworth.html">Minworth</a>
+                                                </li>
+                                                <li class=" rd-dropdown-item">
+                                                    <a class="rd-dropdown-link external-link-tooltip"
+                                                        href="https://www.devlincarpets.com/" target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        data-tooltip="You will be redirected to an affiliated website (Devlin Carpets - Lichfield)">Lichfield</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -417,12 +434,17 @@
                                 <ul class="list-inline footer-social-list footer-social-list-2">
                                     <li>
                                         <a class="icon-header mdi mdi-facebook"
-                                            href="https://www.facebook.com/profile.php?id=61567176396456"
-                                            target="_blank" rel="noopener noreferrer"></a>
+                                            href="https://www.facebook.com/DevlinWholesale/" target="_blank"
+                                            rel="noopener noreferrer"></a>
+                                    </li>
+                                    <li>
+                                        <a class="icon-header mdi mdi-twitter"
+                                            href="https://x.com/devlinwholesale?lang=en" target="_blank"
+                                            rel="noopener noreferrer"></a>
                                     </li>
                                     <li>
                                         <a class="icon-header mdi mdi-instagram"
-                                            href="https://www.instagram.com/devlinleicester/" target="_blank"
+                                            href="https://www.instagram.com/devlinwholesale/" target="_blank"
                                             rel="noopener noreferrer"></a>
                                     </li>
                                     <!-- <li><a class="icon-header mdi mdi-google-plus" href="#"></a></li> -->
@@ -578,39 +600,64 @@
         <footer class="section section-md footer-creative context-dark">
             <div class="container">
                 <div class="row row-60 justify-content-center justify-content-xl-between">
-                    <!-- First div - Get in touch -->
-                    <div class="col-sm-8 col-md-5 col-lg-3">
-                        <h5 class="footer-creative-title oh-desktop"><span class="d-inline-block wow slideInDown">Get in
-                                touch</span></h5>
-                        <ul class="footer-creative-contacts d-inline-block d-md-block">
-                            <li class="wow fadeInRight">
-                                <p class="footer-creative-contacts-title">Phone</p><a class="phone"
-                                    href="tel:01164560022">0116
-                                    456 0022</a>
-                            </li>
-                            <li class="wow fadeInRight" data-wow-delay=".05s">
-                                <p class="footer-creative-contacts-title">Address</p><a class="phone" href="#">Laundon
-                                    Way, Groby,
-                                    Leicester LE6 0YG</a>
-                            </li>
-                            <li class="wow fadeInRight" data-wow-delay=".1s">
-                                <p class="footer-creative-contacts-title ">E-mail</p><a class="mail phone"
-                                    href="mailto:groby@devlinwholesale.co.uk">groby@devlinwholesale.co.uk</a>
-                            </li>
-                        </ul>
-                        <hr />
-                        <ul class="list-inline footer-social-list footer-social-list-2">
-                            <li><a class="icon mdi mdi-facebook"
-                                    href="https://www.facebook.com/profile.php?id=61567176396456" target="_blank"
-                                    rel="noopener noreferrer"></a></li>
-                            <li><a class="icon mdi mdi-instagram" rel="noopener noreferrer"
-                                    href="https://www.instagram.com/devlinleicester/" target="_blank"></a></li>
-                        </ul>
+                    <!-- First div - Store locations -->
+                    <div class="col-sm-8 col-md-4 col-lg-3">
+                        <h5 class="footer-creative-title oh-desktop">
+                            <span class="d-inline-block wow slideInDown">Our Stores</span>
+                        </h5>
+                        <!-- Leicester Location -->
+                        <div class="store-location mb-3 wow fadeInRight">
+                            <h6 class="footer-creative-contacts-title mb-1">
+                                Devlin Wholesale Leicester
+                            </h6>
+                            <span class="footer-creative-contacts-title small mb-0">Phone:
+                            </span>
+                            <a class="phone">0116 456 0022</a>
+                        </div>
+                        <!-- Tamworth Location -->
+                        <div class="store-location mb-3 wow fadeInRight" data-wow-delay=".05s">
+                            <h6 class="footer-creative-contacts-title mb-1">
+                                Devlin Wholesale Tamworth
+                            </h6>
+                            <span class="footer-creative-contacts-title small mb-0">Phone:
+                            </span>
+                            <a class="phone">01827 265526</a>
+                        </div>
+                        <!-- Minworth Location -->
+                        <div class="store-location mb-3 wow fadeInRight" data-wow-delay=".1s">
+                            <h6 class="footer-creative-contacts-title mb-1">
+                                Devlin Wholesale Minworth
+                            </h6>
+                            <span class="footer-creative-contacts-title small mb-0">Phone:
+                            </span>
+                            <a class="phone">0121 313 2303</a>
+                        </div>
+                        <!-- Lichfield Location -->
+                        <div class="store-location mb-3 wow fadeInRight" data-wow-delay=".1s">
+                            <h6 class="footer-creative-contacts-title mb-1">
+                                Devlin Wholesale Lichfield
+                            </h6>
+                            <span class="footer-creative-contacts-title small mb-0">Phone:
+                            </span>
+                            <a class="phone">0154 326 3486</a>
+                        </div>
 
-                        <div style="margin-top: 10px; text-align: left; display: inline-block;">
-                            <span style="display: block;">Digital Experience by</span>
-                            <img src="images/logo/NXoduslogo.JPG" alt="Nxodus logo"
-                                style="display: block; width: 170px; max-width: 100%; height: auto; margin-top: 6px;" />
+                        <!-- Social links -->
+                        <div class="mt-4">
+                            <ul class="list-inline footer-social-list footer-social-list-2">
+                                <li>
+                                    <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/"
+                                        target="_blank" rel="noopener noreferrer"></a>
+                                </li>
+                                <li>
+                                    <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en"
+                                        target="_blank" rel="noopener noreferrer"></a>
+                                </li>
+                                <li>
+                                    <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/"
+                                        target="_blank" rel="noopener noreferrer"></a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
@@ -620,61 +667,156 @@
                             <span class="d-inline-block wow slideInDown">Opening Hours</span>
                         </h5>
 
-                        <div class="store-hours wow fadeInRight" style="margin-top: 24px;">
-                            <ul class="list-unstyled store-hours-list">
-                                <li class="d-flex justify-content-between day-monday">
-                                    <span>Monday</span><span>9:00 am - 6:00 pm</span>
-                                </li>
-                                <li class="d-flex justify-content-between day-tuesday">
-                                    <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
-                                </li>
-                                <li class="d-flex justify-content-between day-wednesday">
-                                    <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
-                                </li>
-                                <li class="d-flex justify-content-between day-thursday">
-                                    <span>Thursday</span><span>9:00 am - 6:00 pm</span>
-                                </li>
-                                <li class="d-flex justify-content-between day-friday">
-                                    <span>Friday</span><span>9:00 am - 6:00 pm</span>
-                                </li>
-                                <li class="d-flex justify-content-between day-saturday">
-                                    <span>Saturday</span><span>9:00 am - 5:00 pm</span>
-                                </li>
-                                <li class="d-flex justify-content-between day-sunday">
-                                    <span>Sunday</span><span>10:00 am - 4:00 pm</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <ul class="footer-creative-contacts d-inline-block d-md-block" style="margin-top: 22px;">
-                            <li>
-                                <p class="footer-creative-contacts-title" style="white-space: nowrap;">Part of Devlin
-                                    Wholesale</p>
-                                <a class="phone" href="https://www.devlinwholesale.co.uk/" target="_blank"
-                                    rel="noopener noreferrer">
-                                    Visit our main website
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                        <div class="store-hours wow fadeInRight">
+                            <div class="accordion" id="storeHoursAccordion">
+                                <!-- Leicester & Minworth -->
+                                <div class="accordion-item">
+                                    <h6 class="accordion-header" id="headingLeicester">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseLeicester" aria-expanded="true"
+                                            aria-controls="collapseLeicester">
+                                            Leicester & Minworth
+                                        </button>
+                                    </h6>
 
+                                    <div id="collapseLeicester" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingLeicester" data-bs-parent="#storeHoursAccordion">
+                                        <div class="accordion-body">
+                                            <ul class="list-unstyled store-hours-list">
+                                                <li class="d-flex justify-content-between day-monday">
+                                                    <span>Monday</span><span>9:00 am - 6:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-tuesday">
+                                                    <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-wednesday">
+                                                    <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-thursday">
+                                                    <span>Thursday</span><span>9:00 am - 6:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-friday">
+                                                    <span>Friday</span><span>9:00 am - 6:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-saturday">
+                                                    <span>Saturday</span><span>9:00 am - 5:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-sunday">
+                                                    <span>Sunday</span><span>10:00 am - 4:00 pm</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tamworth -->
+                                <div class="accordion-item">
+                                    <h6 class="accordion-header" id="headingTamworth">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTamworth"
+                                            aria-expanded="false" aria-controls="collapseTamworth">
+                                            Tamworth
+                                        </button>
+                                    </h6>
+                                    <div id="collapseTamworth" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTamworth" data-bs-parent="#storeHoursAccordion">
+                                        <div class="accordion-body">
+                                            <ul class="list-unstyled store-hours-list">
+                                                <li class="d-flex justify-content-between day-monday">
+                                                    <span>Monday</span><span>9:00 am - 7:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-tuesday">
+                                                    <span>Tuesday</span><span>9:00 am - 7:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-wednesday">
+                                                    <span>Wednesday</span><span>9:00 am - 7:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-thursday">
+                                                    <span>Thursday</span><span>9:00 am - 7:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-friday">
+                                                    <span>Friday</span><span>9:00 am - 7:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-saturday">
+                                                    <span>Saturday</span><span>9:00 am - 5:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-sunday">
+                                                    <span>Sunday</span><span>10:00 am - 4:00 pm</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Lichfield -->
+                                <div class="accordion-item">
+                                    <h6 class="accordion-header" id="headingLichfield">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseLichfield"
+                                            aria-expanded="false" aria-controls="collapseLichfield">
+                                            Lichfield
+                                        </button>
+                                    </h6>
+                                    <div id="collapseLichfield" class="accordion-collapse collapse"
+                                        aria-labelledby="headingLichfield" data-bs-parent="#storeHoursAccordion">
+                                        <div class="accordion-body">
+                                            <ul class="list-unstyled store-hours-list">
+                                                <li class="d-flex justify-content-between day-monday">
+                                                    <span>Monday</span><span>9:00 am - 6:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-tuesday">
+                                                    <span>Tuesday</span><span>9:00 am - 6:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-wednesday">
+                                                    <span>Wednesday</span><span>9:00 am - 6:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-thursday">
+                                                    <span>Thursday</span><span>9:00 am - 6:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-friday">
+                                                    <span>Friday</span><span>9:00 am - 6:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-saturday">
+                                                    <span>Saturday</span><span>9:00 am - 5:00 pm</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between day-sunday closed">
+                                                    <span>Sunday</span><span>Closed</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Keeping the third div the same as in the original code -->
                     <div class="col-sm-10 col-md-12 col-lg-3 col-xl-3">
                         <div class="oh-desktop">
                             <div class="inset-left-xl-20 wow slideInLeft">
-                                <a class="brand js-silent-anchor" href="#top"
+                                <a class="brand" href="./"
                                     style="background-color: white; display: inline-block; padding: 4px;">
                                     <img src="images/logo-2.png" alt="logo image" width="180" height="49"
                                         style="background-color: white;" />
                                 </a>
                                 <p>Providing trustworthy flooring products and solutions.</p>
+                                <ul class="footer-creative-list d-inline-block d-sm-block">
+                                    <li><a href="about-us.html">About us</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="products.html">Products</a></li>
+                                    <li><a href="projects.html">Projects</a></li>
+                                    <li><a href="blog.html">Blogs</a></li>
+                                    <li><a href="contacts.html">Contacts</a></li>
+
+                                </ul>
                                 <!-- Rights-->
                                 <p class="rights">
                                     <span>&copy;&nbsp;</span><span class="copyright-year"></span>
                                     <span>&nbsp;</span><span>Devlin
                                         Wholesale</span> <span>.&nbsp;</span><a href="privacy-policy.html">Privacy
                                         policy</a><span>.&nbsp;</span><a href="cookie-policy.html">Cookie
-                                        policy</a><span>.&nbsp;</span><a href="#" onclick="showCookieWidget(); return false;">Cookie
-                                        settings</a>
+                                        policy</a>
+                                    <span>.&nbsp;</span><a href="#" onclick="showCookieWidget(); return false;">Cookie
+                                        Settings</a>
                                 </p>
                             </div>
                         </div>
@@ -714,9 +856,8 @@
         });
     </script>
     <!-- Javascript-->
-    <script src="js/vendor/bootstrap-5.3.0.bundle.min.js"></script>
-    <!-- Nav external-link tooltip (shared, fixed-position so the header's overflow:hidden can't clip it) -->
-    <script src="js/nav-tooltip.js"></script>
+    <script src="/js/vendor/bootstrap-5.3.0.bundle.min.js"></script>
+
     <script src="js/cookie-consent.js"></script>
 </body>
 
