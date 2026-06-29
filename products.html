@@ -419,7 +419,6 @@
     .accordion-button:not(.collapsed) {
       background-color: transparent !important;
       color: inherit !important;
-      pointer-events: none;
     }
 
     .accordion-button:focus {
@@ -428,18 +427,24 @@
     }
 
     /* Add custom dropdown icon */
-    .accordion-button::after {
-      content: '\f107';
-      /* Font Awesome chevron-down */
-      font-family: 'Font Awesome 6 Free';
+    /* Closed = down */
+    .accordion-button.collapsed::after {
+      content: "\f107";
+      /* chevron-down */
+      font-family: "Font Awesome 6 Free";
       font-weight: 900;
       background-image: none !important;
       transform: none !important;
-      transition: transform 0.3s ease;
     }
 
+    /* Open = up */
     .accordion-button:not(.collapsed)::after {
-      transform: rotate(180deg);
+      content: "\f106";
+      /* chevron-up */
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      background-image: none !important;
+      transform: none !important;
     }
 
     /* Remove default Bootstrap accordion styling */
@@ -516,6 +521,7 @@
     }
 
     @media (max-width: 1024px) {
+
       .external-link-tooltip::before,
       .external-link-tooltip::after {
         display: none !important;
@@ -637,7 +643,8 @@
                       <a class="rd-nav-link" href="#">Our Stores</a>
                       <ul class="rd-menu rd-navbar-dropdown">
                         <li class="rd-dropdown-item">
-                          <a class="rd-dropdown-link" target="_blank" rel="noopener noreferrer" href="https://devlin-leicester.vercel.app/">Leicester</a>
+                          <a class="rd-dropdown-link" target="_blank" rel="noopener noreferrer"
+                            href="https://devlin-leicester.vercel.app/">Leicester</a>
                         </li>
                         <li class="rd-dropdown-item">
                           <a class="rd-dropdown-link" href="carpets-tamworth.html">Tamworth</a>
@@ -847,14 +854,16 @@
             <div class="mt-4">
               <ul class="list-inline footer-social-list footer-social-list-2">
                 <li>
-                  <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank" rel="noopener noreferrer"></a>
+                  <a class="icon mdi mdi-facebook" href="https://www.facebook.com/DevlinWholesale/" target="_blank"
+                    rel="noopener noreferrer"></a>
                 </li>
                 <li>
-                  <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank" rel="noopener noreferrer"></a>
+                  <a class="icon mdi mdi-twitter" href="https://x.com/devlinwholesale?lang=en" target="_blank"
+                    rel="noopener noreferrer"></a>
                 </li>
                 <li>
-                  <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/"
-                    target="_blank" rel="noopener noreferrer"></a>
+                  <a class="icon mdi mdi-instagram" href="https://www.instagram.com/devlinwholesale/" target="_blank"
+                    rel="noopener noreferrer"></a>
                 </li>
               </ul>
             </div>
@@ -1011,7 +1020,7 @@
                     policy</a><span>.&nbsp;</span><a href="cookie-policy.html">Cookie
                     policy</a>
                   <span>.&nbsp;</span><a href="#" onclick="showCookieWidget(); return false;">Cookie
-                  Settings</a>
+                    Settings</a>
                 </p>
               </div>
             </div>
@@ -1053,7 +1062,7 @@
     });
   </script>
 
-<script src="js/cookie-consent.js"></script>
+  <script src="js/cookie-consent.js"></script>
 </body>
 
 </html>

@@ -60,7 +60,6 @@
     .accordion-button:not(.collapsed) {
       background-color: transparent !important;
       color: inherit !important;
-      pointer-events: none;
     }
 
     .accordion-button:focus {
@@ -69,18 +68,24 @@
     }
 
     /* Add custom dropdown icon */
-    .accordion-button::after {
-      content: '\f107';
-      /* Font Awesome chevron-down */
-      font-family: 'Font Awesome 6 Free';
+    /* Closed = down */
+    .accordion-button.collapsed::after {
+      content: "\f107";
+      /* chevron-down */
+      font-family: "Font Awesome 6 Free";
       font-weight: 900;
       background-image: none !important;
       transform: none !important;
-      transition: transform 0.3s ease;
     }
 
+    /* Open = up */
     .accordion-button:not(.collapsed)::after {
-      transform: rotate(180deg);
+      content: "\f106";
+      /* chevron-up */
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      background-image: none !important;
+      transform: none !important;
     }
 
     /* Remove default Bootstrap accordion styling */
