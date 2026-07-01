@@ -2876,6 +2876,25 @@
 <!-- Javascript-->
 <script src="js/core.min.js"></script>
 <script src="js/script.js"></script>
+<!-- Restore scroll on back-navigation -->
+<script>
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.addEventListener('beforeunload', function () {
+    sessionStorage.setItem('dwScrollY', String(window.scrollY));
+  });
+  window.addEventListener('load', function () {
+    var saved = sessionStorage.getItem('dwScrollY');
+    if (saved !== null) {
+      var y = parseInt(saved, 10);
+      sessionStorage.removeItem('dwScrollY');
+      function go() { window.scrollTo(0, y); }
+      go();
+      setTimeout(go, 300);
+      setTimeout(go, 800);
+      setTimeout(go, 1500);
+    }
+  });
+</script>
 <!-- JavaScript to highlight current day -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
