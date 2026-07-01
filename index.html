@@ -1851,8 +1851,40 @@
         .dw-btn-msg,
         .dw-btn-msg:focus,
         .dw-btn-msg:active,
-        .dw-btn-msg:visited { background: #db2a19; color: #fff !important; border: none; }
+        .dw-btn-msg:visited { background: #db2a19; color: #fff !important; border: none; position: relative; }
         .dw-btn-msg:hover { background: #b9220f; color: #fff !important; transform: translateY(-1px); }
+        .dw-btn-msg .dw-btn-inner {
+          position: relative; overflow: hidden;
+          display: flex; align-items: center; justify-content: center;
+          width: 100%; height: 100%;
+        }
+        .dw-btn-msg .content-original,
+        .dw-btn-msg .content-dubbed {
+          display: flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap;
+          transition: transform .3s cubic-bezier(0.2,1,0.3,1), opacity .3s cubic-bezier(0.2,1,0.3,1);
+        }
+        .dw-btn-msg .content-dubbed {
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          opacity: 0; transform: translate3d(0, 20%, 0); pointer-events: none;
+        }
+        .dw-btn-msg:hover .content-original { opacity: 0; transform: translate3d(0, -50%, 0); }
+        .dw-btn-msg:hover .content-dubbed { opacity: 1; transform: none; }
+        .dw-btn-msg[data-tooltip]::before {
+          content: attr(data-tooltip);
+          position: absolute; bottom: calc(100% + 8px); left: 70%; transform: translateX(-50%) translateY(4px);
+          background: rgba(21,21,21,0.85); color: #fff; font-size: 11px; font-weight: 500;
+          padding: 5px 10px; border-radius: 4px; white-space: nowrap;
+          opacity: 0; pointer-events: none; z-index: 10;
+          transition: opacity .2s, transform .2s;
+        }
+        .dw-btn-msg[data-tooltip]::after {
+          content: ''; position: absolute; bottom: calc(100% + 2px); left: 70%; transform: translateX(-50%);
+          border: 5px solid transparent; border-top-color: rgba(21,21,21,0.85);
+          opacity: 0; pointer-events: none; z-index: 10; transition: opacity .2s;
+        }
+        .dw-btn-msg[data-tooltip]:hover::before,
+        .dw-btn-msg[data-tooltip]:hover::after { opacity: 1; }
+        .dw-btn-msg[data-tooltip]:hover::before { transform: translateX(-50%); }
         .dw-btn-dir,
         .dw-btn-dir:focus,
         .dw-btn-dir:active,
@@ -1910,6 +1942,8 @@
           }
           .dw-store-card-name { font-size: 20px; }
           .dw-store-card-addr { font-size: 13px; }
+          .dw-btns { flex-direction: column; }
+          .dw-btn { width: 100%; }
         }
       </style>
 
@@ -1962,7 +1996,13 @@
               </div>
               <div class="dw-btns">
                 <a class="dw-btn dw-btn-msg" target="_blank" rel="noopener"
-                  href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Leicester%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                  href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Leicester%2C%20I%27d%20like%20help%20with%20flooring."
+                  data-tooltip="Claim your no-obligation quote">
+                  <span class="dw-btn-inner">
+                    <span class="content-original">Free Measure</span>
+                    <span class="content-dubbed"><i class="mdi mdi-whatsapp" style="font-size:18px;color:#25D366"></i> WhatsApp Us</span>
+                  </span>
+                </a>
                 <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
                   href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Leicester%2C%20Laundon%20Way%2C%20Groby%2C%20Leicester%20LE6%200YG">Get directions</a>
               </div>
@@ -1992,7 +2032,13 @@
               </div>
               <div class="dw-btns">
                 <a class="dw-btn dw-btn-msg" target="_blank" rel="noopener"
-                  href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Tamworth%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                  href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Tamworth%2C%20I%27d%20like%20help%20with%20flooring."
+                  data-tooltip="Claim your no-obligation quote">
+                  <span class="dw-btn-inner">
+                    <span class="content-original">Free Measure</span>
+                    <span class="content-dubbed"><i class="mdi mdi-whatsapp" style="font-size:18px;color:#25D366"></i> WhatsApp Us</span>
+                  </span>
+                </a>
                 <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
                   href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%2C%20Unit%20O%2C%20N%20Riverside%20Industrial%20Estate%2C%20Fazeley%2C%20Tamworth%20B78%203RW">Get directions</a>
               </div>
@@ -2022,7 +2068,13 @@
               </div>
               <div class="dw-btns">
                 <a class="dw-btn dw-btn-msg" target="_blank" rel="noopener"
-                  href="https://wa.me/447967551357?text=Hi%20Devlin%20Wholesale%20Minworth%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                  href="https://wa.me/447967551357?text=Hi%20Devlin%20Wholesale%20Minworth%2C%20I%27d%20like%20help%20with%20flooring."
+                  data-tooltip="Claim your no-obligation quote">
+                  <span class="dw-btn-inner">
+                    <span class="content-original">Free Measure</span>
+                    <span class="content-dubbed"><i class="mdi mdi-whatsapp" style="font-size:18px;color:#25D366"></i> WhatsApp Us</span>
+                  </span>
+                </a>
                 <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
                   href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Minworth%2C%20Stockton%20Cl%2C%20Sutton%20Coldfield%2C%20Birmingham%20B76%201DH">Get directions</a>
               </div>
@@ -2052,7 +2104,13 @@
               </div>
               <div class="dw-btns">
                 <a class="dw-btn dw-btn-msg" target="_blank" rel="noopener"
-                  href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Lichfield%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                  href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Lichfield%2C%20I%27d%20like%20help%20with%20flooring."
+                  data-tooltip="Claim your no-obligation quote">
+                  <span class="dw-btn-inner">
+                    <span class="content-original">Free Measure</span>
+                    <span class="content-dubbed"><i class="mdi mdi-whatsapp" style="font-size:18px;color:#25D366"></i> WhatsApp Us</span>
+                  </span>
+                </a>
                 <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
                   href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Lichfield%2C%20Unit%2013%20Prospect%20Drive%2C%20Britannia%20Enterprise%20Park%2C%20Lichfield%20WS14%209UX">Get directions</a>
               </div>
