@@ -1675,387 +1675,137 @@
           </p>
         </div>
       </div>
-      <!-- <div style="height: 16px; background-color: #031E2B;"></div> -->
       <style>
-        .service-journey-heading-copy {
-          text-align: center;
-          width: 100%;
-        }
-
-        .heading-bottom-30 {
-          margin-bottom: 30px;
-        }
-
-        .service-journey-heading-copy h1 {
-          margin-bottom: 12px;
-          font-size: 36px;
-          font-weight: 400;
-          line-height: 1.08;
-        }
-
-        .service-journey-heading-copy>p {
-          font-size: 18px;
-        }
-
+        .service-journey-heading-copy { text-align: center; width: 100%; }
+        .heading-bottom-30 { margin-bottom: 30px; }
+        .service-journey-heading-copy h1 { margin-bottom: 12px; font-size: 36px; font-weight: 400; line-height: 1.08; }
+        .service-journey-heading-copy > p { font-size: 18px; }
         @media (max-width: 991.98px) {
-          .heading-bottom-30 {
-            margin-bottom: 24px;
-          }
-
-          .service-journey-heading-copy h1 {
-            font-size: 36px;
-          }
+          .heading-bottom-30 { margin-bottom: 24px; }
+          .service-journey-heading-copy h1 { font-size: 36px; }
         }
-
         @media (max-width: 576px) {
-          .service-journey-heading-copy h1 {
-            font-size: 30px;
-            line-height: 1.12;
-          }
-
-          .service-journey-heading-copy>p {
-            font-size: 18px;
-          }
+          .service-journey-heading-copy h1 { font-size: 30px; line-height: 1.12; }
+          .service-journey-heading-copy > p { font-size: 18px; }
         }
 
-        .map-container {
-          padding-bottom: 65%;
-          /* Default for mobile */
-        }
-
-        @media (min-width: 768px) {
-          .map-container {
-            padding-bottom: 55%;
-            /* Medium screens */
-          }
-        }
-
-        @media (min-width: 1200px) {
-          .map-container {
-            padding-bottom: 40%;
-            /* Large screens */
-          }
-        }
-
-        .map-button-wrapper {
-          position: absolute;
-          top: 0;
-          right: 0;
-          background-color: #2E312F;
-          padding: 10px 15px;
-          z-index: 10;
-          border-bottom-left-radius: 6px;
-        }
-
-        .map-button {
-          position: relative;
-          background-color: #fff;
-          color: #2e2e2e;
-          border: none;
-          border-radius: 4px;
-          padding: 8px 16px;
-          cursor: pointer;
-          font-weight: bold;
-          font-size: 13px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-      </style>
-
-      <!-- ============================================================
-           STORE LOCATOR — replaces the Google Maps embed entirely.
-           No third-party calls, no cookies. Click a pin → opens that
-           store's accordion (and vice-versa).
-           VERIFY: Lichfield phone + WhatsApp are temporary placeholders.
-           ============================================================ -->
-      <style>
+        /* -- Store locator: full-width map with overlay panel -- */
         .dw-locator {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: stretch;
+          position: relative;
           font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
         }
-
-        .dw-locator__map {
-          flex: 1 1 72%;
-          min-width: 0;
-          position: relative;
-          padding: 0;
-          align-self: stretch;
-        }
-
         .dw-mapimg {
-          position: absolute;
-          inset: 0;
+          position: relative;
           width: 100%;
-          height: 100%;
+          height: calc(100vh - 120px);
           line-height: 0;
+          overflow: hidden;
         }
-
         .dw-mapimg img {
           width: 100%;
           height: 100%;
-          display: block;
           object-fit: cover;
-          object-position: 30% center;
+          object-position: top;
+          display: block;
         }
 
+        /* Pin hotspots */
         .dw-hotspot {
           position: absolute;
           transform: translate(-50%, -50%);
-          width: 10%;
-          height: 15%;
+          width: 7%;
+          height: 17%;
           background: transparent;
           border: none;
           cursor: pointer;
           border-radius: 50%;
           padding: 0;
+          z-index: 2;
         }
+        .dw-pin { cursor: pointer; }
 
-        /* real vector UK map (large viewBox ~940 tall — sizes are in user units) */
-        .dw-uk path {
-          fill: #f3f6f5;
-          stroke: #ccd6da;
-          stroke-width: 2.2;
-          stroke-linejoin: round;
-        }
-
-        .dw-uk {
-          filter: drop-shadow(0 8px 16px rgba(31, 53, 61, .12));
-        }
-
-        .dw-leader {
-          stroke: #c2ccd0;
-          stroke-width: 2;
-        }
-
-        .dw-lbl-dot {
-          fill: #db2a19;
-        }
-
-        .dw-map-title {
-          fill: #151515;
-          font: 700 26px "Roboto", sans-serif;
-          letter-spacing: .14em;
-          opacity: .5;
-        }
-
-        .dw-pin-label {
-          fill: #151515;
-          font: 700 25px "Roboto", sans-serif;
-          letter-spacing: .02em;
-          paint-order: stroke;
-          stroke: #fff;
-          stroke-width: 6px;
-          stroke-linejoin: round;
-        }
-
-        .dw-pin.is-active .dw-pin-label {
-          fill: #db2a19;
-        }
-
-        .dw-pin.is-active .dw-leader {
-          stroke: #db2a19;
-        }
-
-        .dw-pin {
-          cursor: pointer;
-        }
-
-        .dw-pin .dw-pin__drop {
-          fill: #db2a19;
-          transition: fill .15s ease;
-        }
-
-        .dw-pin .dw-pin__dot {
-          fill: #fff;
-        }
-
-        .dw-pin .dw-pin__ring {
-          fill: rgba(219, 42, 25, .18);
-          opacity: 0;
-          transition: opacity .15s ease;
-        }
-
-        .dw-pin:hover .dw-pin__drop {
-          fill: #b9220f;
-        }
-
-        .dw-pin.is-active .dw-pin__drop {
-          fill: #b9220f;
-        }
-
-        .dw-pin.is-active .dw-pin__ring {
-          opacity: 1;
-        }
-
-        .dw-locator__panel {
-          flex: 1 1 28%;
-          min-width: 0;
-          display: flex;
-          flex-direction: column;
-          background: #fff;
-          padding: 0;
-          border-left: 1px solid #ececec;
-        }
-
-        /* open item stretches to fill remaining panel height */
-
-        .dw-acc-item {
-          border-bottom: 1px solid #ececec;
-          transition: background .15s ease;
-          background: #f4f5f6;
-        }
-
-        .dw-acc-item.open {
-          background: #ffffff;
-        }
-
-        .dw-acc-head {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 12px;
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 16px 24px;
-          text-align: left;
-          font-family: inherit;
-          color: #151515;
-        }
-
-        .dw-acc-headtext {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-          min-width: 0;
-        }
-
-        .dw-acc-name {
-          font-weight: 400;
-          font-size: 20px;
-          letter-spacing: .05em;
-          text-transform: uppercase;
-          color: inherit;
-        }
-
-        .dw-acc-loc {
-          font-weight: 400;
-          font-size: 15px;
-          letter-spacing: normal;
-          text-transform: none;
-          color: #888;
-          line-height: 1.6;
-        }
-
-        .dw-acc-item.open .dw-acc-name {
-          color: #db2a19;
-        }
-
-        .dw-acc-chev {
-          color: #db2a19;
-          flex: 0 0 auto;
-          width: 22px;
-          text-align: center;
-          font-size: 0;
-          line-height: 1;
-          position: relative;
-        }
-
-        /* FA chevron icons */
-        .dw-acc-chev::before {
-          content: "\f078";
-          /* chevron-down */
-          font-family: "Font Awesome 6 Free";
-          font-weight: 900;
-          font-style: normal;
-          -webkit-font-smoothing: antialiased;
-          font-size: 15px;
-          display: block;
-          transition: transform .25s ease;
-        }
-
-        .dw-acc-item.open .dw-acc-chev::before {
-          content: "\f077";
-          /* chevron-up */
-          transform: none;
-          color: #bbb;
-        }
-
-        .dw-acc-item.open .dw-acc-head {
-          cursor: not-allowed;
-        }
-
-        /* Tooltip on the open chevron */
-        .dw-acc-item.open .dw-acc-chev::after {
-          content: "Already open — pick another store";
+        /* Overlay panel (tabs + card) */
+        .dw-overlay {
           position: absolute;
-          bottom: calc(100% + 8px);
-          right: 0;
-          background: #151515;
+          top: 16px;
+          right: 16px;
+          width: 380px;
+          z-index: 5;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        /* Store tabs row */
+        .dw-store-tabs {
+          display: flex;
+          gap: 5px;
+          flex-wrap: nowrap;
+        }
+        .dw-store-tab {
+          padding: 8px 16px;
+          border-radius: 20px;
+          border: none;
+          background: rgba(255,255,255,0.15);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
           color: #fff;
           font-family: inherit;
-          font-size: 11px;
-          font-weight: 400;
-          line-height: 1.4;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: .02em;
+          cursor: pointer;
+          transition: all .2s ease;
           white-space: nowrap;
-          padding: 6px 10px;
-          border-radius: 4px;
-          pointer-events: none;
-          opacity: 0;
-          visibility: hidden;
-          transition: opacity .2s ease, visibility .2s ease;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
-          z-index: 20;
+        }
+        .dw-store-tab:hover {
+          background: rgba(255,255,255,0.3);
+        }
+        .dw-store-tab.active {
+          background: #db2a19;
+          color: #fff;
         }
 
-        .dw-acc-item.open .dw-acc-head:hover .dw-acc-chev::after {
-          opacity: 1;
-          visibility: visible;
+        /* Store card */
+        .dw-store-cards {
+          width: 100%;
         }
-
-        /* arrow pointer for the tooltip */
-        .dw-acc-item.open .dw-acc-chev {
-          overflow: visible;
-        }
-
-        /* active open item fills panel height like the map — handled by align-self: stretch above */
-        .dw-acc-body {
+        .dw-store-card {
           display: none;
+          background: rgba(255,255,255,0.95);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-radius: 10px;
+          padding: 26px 28px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.25);
         }
-
-        .dw-acc-item.open .dw-acc-body {
-          display: block;
+        .dw-store-card.active { display: block; }
+        .dw-store-card-header { margin-bottom: 16px; }
+        .dw-store-card-name {
+          font-size: 22px;
+          font-weight: 700;
+          letter-spacing: .04em;
+          text-transform: uppercase;
+          color: #151515;
+          margin: 0 0 4px;
         }
-
-        .dw-acc-inner {
-          padding: 0 24px 24px;
-          text-align: left;
-        }
-
-        .dw-addr {
-          display: flex;
-          gap: 8px;
+        .dw-store-card-addr {
           font-size: 14px;
-          color: #555;
-          line-height: 1.5;
-          margin: 0 0 14px;
+          color: #777;
+          margin: 0;
+          line-height: 1.4;
+        }
+        .dw-store-card-body {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
         }
 
-        .dw-addr svg {
-          flex: 0 0 auto;
-          margin-top: 2px;
-        }
-
-        .dw-block {
-          margin-bottom: 16px;
-        }
-
+        .dw-block { margin-bottom: 0; }
         .dw-block__label {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 7px;
           font-weight: 700;
           font-size: 13px;
           text-transform: uppercase;
@@ -2063,302 +1813,248 @@
           color: #151515;
           margin-bottom: 8px;
         }
-
-        .dw-block__label svg {
-          color: #db2a19;
-        }
-
-        .dw-block__label .mdi {
-          color: #db2a19;
-          font-size: 17px;
-          line-height: 1;
-        }
-
-        .dw-block a {
-          display: inline-block;
-          margin-left: 20px;
-          color: #db2a19;
-          text-decoration: none;
-          font-size: 15px;
-          font-weight: 600;
+        .dw-block a[href^="tel:"] {
+          font-size: 16px;
+          font-weight: 500;
         }
 
         .dw-hours {
-          width: calc(100% - 20px);
-          margin-left: 20px;
+          width: 100%;
           border-collapse: collapse;
           font-size: 15px;
           color: #555;
         }
-
-        .dw-hours td {
-          padding: 4px 0;
-        }
-
-        .dw-hours td:last-child {
-          text-align: right;
-          color: #151515;
-        }
+        .dw-hours td { padding: 5px 0; text-align: left; }
+        .dw-hours td:last-child { text-align: right; font-weight: 500; color: #151515; }
 
         .dw-btns {
           display: flex;
-          gap: 8px;
+          gap: 10px;
           margin-top: 20px;
-          flex-wrap: nowrap;
         }
-
         .dw-btn {
           flex: 1 1 0;
-          min-width: 0;
-          text-align: center;
-          padding: 14px 8px;
-          border-radius: 4px;
-          font-weight: 900;
-          font-size: 12px;
-          letter-spacing: .08em;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 10px 18px;
+          font-size: 13px;
+          font-weight: 700;
           text-transform: uppercase;
+          letter-spacing: .04em;
+          border-radius: 4px;
           text-decoration: none;
           cursor: pointer;
-          transition: background .15s ease, transform .15s ease;
-          white-space: nowrap;
+          transition: background .2s ease, color .2s ease, transform .15s ease;
         }
+        .dw-btn-msg,
+        .dw-btn-msg:focus,
+        .dw-btn-msg:active,
+        .dw-btn-msg:visited { background: #db2a19; color: #fff !important; border: none; }
+        .dw-btn-msg:hover { background: #b9220f; color: #fff !important; transform: translateY(-1px); }
+        .dw-btn-dir,
+        .dw-btn-dir:focus,
+        .dw-btn-dir:active,
+        .dw-btn-dir:visited { background: transparent; color: #151515 !important; border: 1.5px solid #151515; }
+        .dw-btn-dir:hover { background: #151515; color: #fff !important; transform: translateY(-1px); }
 
-        .dw-btn-msg {
-          background: #db2a19;
-          color: #fff;
-        }
+        .dw-store-tab:focus-visible,
+        .dw-btn:focus-visible { outline: 2px solid #db2a19; outline-offset: 2px; }
 
-        .dw-btn-msg:hover {
-          background: #b9220f;
-          transform: translateY(-1px);
-          color: #fff;
-        }
-
-        .dw-btn-dir {
-          background: #fff;
-          color: #151515;
-          border: 1.5px solid #151515;
-        }
-
-        .dw-btn-dir:hover {
-          background: #151515;
-          color: #fff;
-          transform: translateY(-1px);
-        }
-
-        .dw-acc-head:focus-visible,
-        .dw-btn:focus-visible {
-          outline: 2px solid #db2a19;
-          outline-offset: 2px;
-        }
-
-        /* tel: link is only useful on mobile — disable click on desktop */
         @media (min-width: 992px) {
-          .dw-block a[href^="tel:"] {
-            pointer-events: none;
-            cursor: default;
-          }
+          .dw-block a[href^="tel:"] { pointer-events: none; cursor: default; }
         }
 
+        /* Tablet */
         @media (max-width: 991px) {
-          .dw-locator__map {
-            flex-basis: 100%;
+          .dw-overlay {
+            width: 340px;
+            top: 12px;
+            right: 12px;
           }
+          .dw-store-tab { padding: 6px 10px; font-size: 11px; }
+          .dw-store-card { padding: 18px 20px; }
+        }
 
-          .dw-mapimg {
+        /* Mobile: shorter navbar, adjust map height + overlay below */
+        @media (max-width: 767px) {
+          .dw-mapimg { height: 50vh; }
+          .dw-mapimg img { object-position: 35% 60%; }
+          .dw-hotspot { width: 12%; height: 10%; }
+          .dw-overlay {
             position: relative;
-            inset: auto;
-            height: auto;
+            top: auto;
+            right: auto;
+            width: 100%;
+            padding: 20px 16px 0;
+            gap: 14px;
           }
-
-          .dw-mapimg img {
-            height: auto;
-            object-fit: unset;
+          .dw-store-tabs {
+            justify-content: center;
           }
-
-          .dw-locator__panel {
-            flex-basis: 100%;
-            height: auto;
-            border-left: none;
-            border-top: 1px solid #ececec;
+          .dw-store-tab {
+            background: #f0f0f0;
+            color: #151515;
+            padding: 8px 16px;
+            font-size: 13px;
           }
+          .dw-store-tab:hover { background: #e0e0e0; }
+          .dw-store-tab.active { background: #db2a19; color: #fff; }
+          .dw-store-card {
+            background: #fff;
+            backdrop-filter: none;
+            border: 1px solid #ececec;
+            box-shadow: none;
+            padding: 20px;
+          }
+          .dw-store-card-name { font-size: 20px; }
+          .dw-store-card-addr { font-size: 13px; }
         }
       </style>
 
-      <div class="col-12 dw-locator">
-        <!-- LEFT: crafted light UK map (self-hosted SVG, no Google) -->
-        <div class="dw-locator__map img-loading">
-          <div class="dw-mapimg"><img loading="lazy" src="images/map-1.png"
-              alt="Map of Devlin Wholesale showrooms across the Midlands" /><button class="dw-pin dw-hotspot"
-              data-store="lichfield" style="left:40%;top:15%" aria-label="lichfield"
-              onclick="dwOpenStore('lichfield')"></button><button class="dw-pin dw-hotspot" data-store="tamworth"
-              style="left:55%;top:25%" aria-label="tamworth" onclick="dwOpenStore('tamworth')"></button><button
-              class="dw-pin dw-hotspot" data-store="minworth" style="left:57%;top:44%" aria-label="minworth"
-              onclick="dwOpenStore('minworth')"></button><button class="dw-pin dw-hotspot" data-store="leicester"
-              style="left:87%;top:39%" aria-label="leicester" onclick="dwOpenStore('leicester')"></button></div>
+      <div class="dw-locator">
+        <!-- Full-width map -->
+        <div class="dw-mapimg img-loading">
+          <img loading="lazy" src="images/map-full.png"
+            alt="Map of Devlin Wholesale showrooms across the Midlands" />
+          <button class="dw-pin dw-hotspot" data-store="lichfield" style="left:28%;top:15%"
+            aria-label="Lichfield store" onclick="dwOpenStore('lichfield')"></button>
+          <button class="dw-pin dw-hotspot" data-store="tamworth" style="left:39%;top:24%"
+            aria-label="Tamworth store" onclick="dwOpenStore('tamworth')"></button>
+          <button class="dw-pin dw-hotspot" data-store="minworth" style="left:40.2%;top:40%"
+            aria-label="Minworth store" onclick="dwOpenStore('minworth')"></button>
+          <button class="dw-pin dw-hotspot" data-store="leicester" style="left:61.2%;top:37%"
+            aria-label="Leicester store" onclick="dwOpenStore('leicester')"></button>
         </div>
 
-        <!-- RIGHT: store accordion -->
-        <div class="dw-locator__panel">
-          <!-- Leicester -->
-          <div class="dw-acc-item open" data-store="leicester">
-            <button class="dw-acc-head" onclick="dwOpenStore('leicester')"><span class="dw-acc-headtext"><span
-                  class="dw-acc-name">Leicester</span><span class="dw-acc-loc">Laundon Way, Groby, Leicestershire LE6
-                  0YG</span></span><span class="dw-acc-chev"></span>
-            </button>
-            <div class="dw-acc-body">
-              <div class="dw-acc-inner">
+        <!-- Overlay: tabs + store card -->
+        <div class="dw-overlay">
+          <div class="dw-store-tabs">
+            <button class="dw-store-tab active" data-store="leicester" onclick="dwOpenStore('leicester')">Leicester</button>
+            <button class="dw-store-tab" data-store="tamworth" onclick="dwOpenStore('tamworth')">Tamworth</button>
+            <button class="dw-store-tab" data-store="minworth" onclick="dwOpenStore('minworth')">Minworth</button>
+            <button class="dw-store-tab" data-store="lichfield" onclick="dwOpenStore('lichfield')">Lichfield</button>
+          </div>
+
+          <div class="dw-store-cards">
+            <!-- Leicester -->
+            <div class="dw-store-card active" data-store="leicester">
+              <div class="dw-store-card-header">
+                <h5 class="dw-store-card-name">Leicester</h5>
+                <p class="dw-store-card-addr">Laundon Way, Groby, Leicestershire LE6 0YG</p>
+              </div>
+              <div class="dw-store-card-body">
                 <div class="dw-block">
                   <div class="dw-block__label"><i class="mdi mdi-phone"></i>Call us</div>
-                  <a href="tel:01164560022">0116 456 0022</a>
+                  <table class="dw-hours">
+                    <tr><td>Phone</td><td><a href="tel:01164560022">0116 456 0022</a></td></tr>
+                  </table>
                 </div>
                 <div class="dw-block">
                   <div class="dw-block__label"><i class="mdi mdi-clock"></i>Opening Times</div>
                   <table class="dw-hours">
-                    <tr>
-                      <td>Monday &ndash; Friday</td>
-                      <td>9am &ndash; 6pm</td>
-                    </tr>
-                    <tr>
-                      <td>Saturday</td>
-                      <td>9am &ndash; 5pm</td>
-                    </tr>
-                    <tr>
-                      <td>Sunday</td>
-                      <td>10am &ndash; 4pm</td>
-                    </tr>
+                    <tr><td>Monday &ndash; Friday</td><td>9am &ndash; 6pm</td></tr>
+                    <tr><td>Saturday</td><td>9am &ndash; 5pm</td></tr>
+                    <tr><td>Sunday</td><td>10am &ndash; 4pm</td></tr>
                   </table>
-                </div>
-                <div class="dw-btns">
-                  <a class="dw-btn dw-btn-msg" target="_blank" rel="noopener"
-                    href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Leicester%2C%20I%27d%20like%20help%20with%20flooring.">Message
-                    store</a>
-                  <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
-                    href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Leicester%2C%20Laundon%20Way%2C%20Groby%2C%20Leicester%20LE6%200YG">Get
-                    directions</a>
                 </div>
               </div>
-            </div>
-          </div>
-          <!-- Tamworth -->
-          <div class="dw-acc-item" data-store="tamworth">
-            <button class="dw-acc-head" onclick="dwOpenStore('tamworth')"><span class="dw-acc-headtext"><span
-                  class="dw-acc-name">Tamworth</span><span class="dw-acc-loc">Atherstone St, Fazeley, Staffordshire B78
-                  3RW</span></span><span class="dw-acc-chev"></span>
-            </button>
-            <div class="dw-acc-body">
-              <div class="dw-acc-inner">
-                <div class="dw-block">
-                  <div class="dw-block__label"><i class="mdi mdi-phone"></i>Call us</div>
-                  <a href="tel:01827265526">01827 265526</a>
-                </div>
-                <div class="dw-block">
-                  <div class="dw-block__label"><i class="mdi mdi-clock"></i>Opening Times</div>
-                  <table class="dw-hours">
-                    <tr>
-                      <td>Monday &ndash; Friday</td>
-                      <td>9am &ndash; 7pm</td>
-                    </tr>
-                    <tr>
-                      <td>Saturday</td>
-                      <td>9am &ndash; 5pm</td>
-                    </tr>
-                    <tr>
-                      <td>Sunday</td>
-                      <td>10am &ndash; 4pm</td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="dw-btns">
-                  <a class="dw-btn dw-btn-msg" target="_blank" rel="noopener"
-                    href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Tamworth%2C%20I%27d%20like%20help%20with%20flooring.">Message
-                    store</a>
-                  <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
-                    href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%2C%20Unit%20O%2C%20N%20Riverside%20Industrial%20Estate%2C%20Fazeley%2C%20Tamworth%20B78%203RW">Get
-                    directions</a>
-                </div>
+              <div class="dw-btns">
+                <a class="dw-btn dw-btn-msg" target="_blank" rel="noopener"
+                  href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Leicester%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
+                  href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Leicester%2C%20Laundon%20Way%2C%20Groby%2C%20Leicester%20LE6%200YG">Get directions</a>
               </div>
             </div>
-          </div>
-          <!-- Minworth -->
-          <div class="dw-acc-item" data-store="minworth">
-            <button class="dw-acc-head" onclick="dwOpenStore('minworth')"><span class="dw-acc-headtext"><span
-                  class="dw-acc-name">Minworth</span><span class="dw-acc-loc">Stockton Cl, Sutton Coldfield, West
-                  Midlands B76 1DH</span></span><span class="dw-acc-chev"></span>
-            </button>
-            <div class="dw-acc-body">
-              <div class="dw-acc-inner">
+
+            <!-- Tamworth -->
+            <div class="dw-store-card" data-store="tamworth">
+              <div class="dw-store-card-header">
+                <h5 class="dw-store-card-name">Tamworth</h5>
+                <p class="dw-store-card-addr">Atherstone St, Fazeley, Staffordshire B78 3RW</p>
+              </div>
+              <div class="dw-store-card-body">
                 <div class="dw-block">
                   <div class="dw-block__label"><i class="mdi mdi-phone"></i>Call us</div>
-                  <a href="tel:01213132303">0121 313 2303</a>
+                  <table class="dw-hours">
+                    <tr><td>Phone</td><td><a href="tel:01827265526">01827 265526</a></td></tr>
+                  </table>
                 </div>
                 <div class="dw-block">
                   <div class="dw-block__label"><i class="mdi mdi-clock"></i>Opening Times</div>
                   <table class="dw-hours">
-                    <tr>
-                      <td>Monday &ndash; Friday</td>
-                      <td>9am &ndash; 6pm</td>
-                    </tr>
-                    <tr>
-                      <td>Saturday</td>
-                      <td>9am &ndash; 5pm</td>
-                    </tr>
-                    <tr>
-                      <td>Sunday</td>
-                      <td>10am &ndash; 4pm</td>
-                    </tr>
+                    <tr><td>Monday &ndash; Friday</td><td>9am &ndash; 7pm</td></tr>
+                    <tr><td>Saturday</td><td>9am &ndash; 5pm</td></tr>
+                    <tr><td>Sunday</td><td>10am &ndash; 4pm</td></tr>
                   </table>
-                </div>
-                <div class="dw-btns">
-                  <a class="dw-btn dw-btn-msg" target="_blank" rel="noopener"
-                    href="https://wa.me/447967551357?text=Hi%20Devlin%20Wholesale%20Minworth%2C%20I%27d%20like%20help%20with%20flooring.">Message
-                    store</a>
-                  <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
-                    href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Minworth%2C%20Stockton%20Cl%2C%20Sutton%20Coldfield%2C%20Birmingham%20B76%201DH">Get
-                    directions</a>
                 </div>
               </div>
+              <div class="dw-btns">
+                <a class="dw-btn dw-btn-msg" target="_blank" rel="noopener"
+                  href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Tamworth%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
+                  href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%2C%20Unit%20O%2C%20N%20Riverside%20Industrial%20Estate%2C%20Fazeley%2C%20Tamworth%20B78%203RW">Get directions</a>
+              </div>
             </div>
-          </div>
-          <!-- Lichfield  (VERIFY: phone + WhatsApp are placeholders) -->
-          <div class="dw-acc-item" data-store="lichfield">
-            <button class="dw-acc-head" onclick="dwOpenStore('lichfield')"><span class="dw-acc-headtext"><span
-                  class="dw-acc-name">Lichfield</span><span class="dw-acc-loc">Prospect Drive, Lichfield, Staffordshire
-                  WS14 9UX</span></span><span class="dw-acc-chev"></span>
-            </button>
-            <div class="dw-acc-body">
-              <div class="dw-acc-inner">
+
+            <!-- Minworth -->
+            <div class="dw-store-card" data-store="minworth">
+              <div class="dw-store-card-header">
+                <h5 class="dw-store-card-name">Minworth</h5>
+                <p class="dw-store-card-addr">Stockton Cl, Sutton Coldfield, West Midlands B76 1DH</p>
+              </div>
+              <div class="dw-store-card-body">
                 <div class="dw-block">
                   <div class="dw-block__label"><i class="mdi mdi-phone"></i>Call us</div>
-                  <!-- VERIFY: real Lichfield phone needed -->
-                  <a href="tel:01543263486">01543 263486</a>
+                  <table class="dw-hours">
+                    <tr><td>Phone</td><td><a href="tel:01213132303">0121 313 2303</a></td></tr>
+                  </table>
                 </div>
                 <div class="dw-block">
                   <div class="dw-block__label"><i class="mdi mdi-clock"></i>Opening Times</div>
                   <table class="dw-hours">
-                    <tr>
-                      <td>Monday &ndash; Friday</td>
-                      <td>9am &ndash; 6pm</td>
-                    </tr>
-                    <tr>
-                      <td>Saturday</td>
-                      <td>9am &ndash; 5pm</td>
-                    </tr>
-                    <tr>
-                      <td>Sunday</td>
-                      <td>Closed</td>
-                    </tr>
+                    <tr><td>Monday &ndash; Friday</td><td>9am &ndash; 6pm</td></tr>
+                    <tr><td>Saturday</td><td>9am &ndash; 5pm</td></tr>
+                    <tr><td>Sunday</td><td>10am &ndash; 4pm</td></tr>
                   </table>
                 </div>
-                <div class="dw-btns">
-                  <!-- VERIFY: Lichfield has no dedicated WhatsApp; using main number temporarily -->
-                  <a class="dw-btn dw-btn-msg"
-                    href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Lichfield%2C%20I%27d%20like%20help%20with%20flooring.">Message
-                    store</a>
-                  <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
-                    href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Lichfield%2C%20Unit%2013%20Prospect%20Drive%2C%20Britannia%20Enterprise%20Park%2C%20Lichfield%20WS14%209UX">Get
-                    directions</a>
+              </div>
+              <div class="dw-btns">
+                <a class="dw-btn dw-btn-msg" target="_blank" rel="noopener"
+                  href="https://wa.me/447967551357?text=Hi%20Devlin%20Wholesale%20Minworth%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
+                  href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Minworth%2C%20Stockton%20Cl%2C%20Sutton%20Coldfield%2C%20Birmingham%20B76%201DH">Get directions</a>
+              </div>
+            </div>
+
+            <!-- Lichfield -->
+            <div class="dw-store-card" data-store="lichfield">
+              <div class="dw-store-card-header">
+                <h5 class="dw-store-card-name">Lichfield</h5>
+                <p class="dw-store-card-addr">Prospect Drive, Lichfield, Staffordshire WS14 9UX</p>
+              </div>
+              <div class="dw-store-card-body">
+                <div class="dw-block">
+                  <div class="dw-block__label"><i class="mdi mdi-phone"></i>Call us</div>
+                  <table class="dw-hours">
+                    <tr><td>Phone</td><td><a href="tel:01543263486">01543 263486</a></td></tr>
+                  </table>
                 </div>
+                <div class="dw-block">
+                  <div class="dw-block__label"><i class="mdi mdi-clock"></i>Opening Times</div>
+                  <table class="dw-hours">
+                    <tr><td>Monday &ndash; Friday</td><td>9am &ndash; 6pm</td></tr>
+                    <tr><td>Saturday</td><td>9am &ndash; 5pm</td></tr>
+                    <tr><td>Sunday</td><td>Closed</td></tr>
+                  </table>
+                </div>
+              </div>
+              <div class="dw-btns">
+                <a class="dw-btn dw-btn-msg" target="_blank" rel="noopener"
+                  href="https://wa.me/447789383947?text=Hi%20Devlin%20Wholesale%20Lichfield%2C%20I%27d%20like%20help%20with%20flooring.">Message store</a>
+                <a class="dw-btn dw-btn-dir" target="_blank" rel="noopener"
+                  href="https://www.google.com/maps/dir/?api=1&destination=Devlin%20Wholesale%20Lichfield%2C%20Unit%2013%20Prospect%20Drive%2C%20Britannia%20Enterprise%20Park%2C%20Lichfield%20WS14%209UX">Get directions</a>
               </div>
             </div>
           </div>
@@ -2367,34 +2063,62 @@
 
       <script>
         function dwOpenStore(id) {
-          const current = document.querySelector('.dw-acc-item[data-store="' + id + '"]');
-          const pin = document.querySelector('.dw-pin[data-store="' + id + '"]');
+          document.querySelectorAll('.dw-store-tab').forEach(function (t) { t.classList.remove('active'); });
+          document.querySelectorAll('.dw-store-card').forEach(function (c) { c.classList.remove('active'); });
+          document.querySelectorAll('.dw-pin').forEach(function (p) { p.classList.remove('is-active'); });
 
-          // Already open — do nothing (always keep one open)
-          if (current.classList.contains('open')) return;
+          var tab = document.querySelector('.dw-store-tab[data-store="' + id + '"]');
+          var card = document.querySelector('.dw-store-card[data-store="' + id + '"]');
+          var pin = document.querySelector('.dw-pin[data-store="' + id + '"]');
 
-          // Close all accordions and deactivate all pins
-          document.querySelectorAll('.dw-acc-item').forEach(function (it) {
-            it.classList.remove('open');
-          });
-
-          document.querySelectorAll('.dw-pin').forEach(function (p) {
-            p.classList.remove('is-active');
-          });
-
-          // Open the selected accordion
-          current.classList.add('open');
+          if (tab) tab.classList.add('active');
+          if (card) card.classList.add('active');
           if (pin) pin.classList.add('is-active');
+        }
 
-          current.scrollIntoView({
-            block: 'nearest',
-            behavior: 'smooth'
+        function dwSyncHotspots() {
+          var container = document.querySelector('.dw-mapimg');
+          var img = container.querySelector('img');
+          if (!img.naturalWidth) return;
+
+          var cw = container.offsetWidth;
+          var ch = container.offsetHeight;
+          var nw = img.naturalWidth;
+          var nh = img.naturalHeight;
+
+          var scale = Math.max(cw / nw, ch / nh);
+          var rw = nw * scale;
+          var rh = nh * scale;
+
+          var cs = getComputedStyle(img);
+          var op = cs.objectPosition.split(/\s+/);
+          var opx = parseFloat(op[0]) / 100;
+          var opy = parseFloat(op[1] || op[0]) / 100;
+
+          var ox = (cw - rw) * opx;
+          var oy = (ch - rh) * opy;
+
+          container.querySelectorAll('.dw-hotspot').forEach(function (btn) {
+            if (!btn.dataset.origLeft) {
+              btn.dataset.origLeft = parseFloat(btn.style.left);
+              btn.dataset.origTop = parseFloat(btn.style.top);
+            }
+            var imgX = (parseFloat(btn.dataset.origLeft) / 100) * nw;
+            var imgY = (parseFloat(btn.dataset.origTop) / 100) * nh;
+
+            var rendX = imgX * scale + ox;
+            var rendY = imgY * scale + oy;
+
+            btn.style.left = (rendX / cw * 100) + '%';
+            btn.style.top = (rendY / ch * 100) + '%';
           });
         }
-        // default selection = Leicester pin active on load
+
         document.addEventListener('DOMContentLoaded', function () {
-          var first = document.querySelector('.dw-pin[data-store="leicester"]');
-          if (first) first.classList.add('is-active');
+          dwOpenStore('leicester');
+          var img = document.querySelector('.dw-mapimg img');
+          if (img.complete) { dwSyncHotspots(); } else { img.addEventListener('load', dwSyncHotspots); }
+          window.addEventListener('resize', dwSyncHotspots);
         });
       </script>
     </section>
